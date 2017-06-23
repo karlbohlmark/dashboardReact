@@ -4,14 +4,14 @@
 }
 
 .header {
-    background: rgb(240, 190, 50);
+    background: rgb(255, 255, 255);
     border-radius: 0;
-    border-color: #d4d4d4;
+    border-color: #dee0e2;
 }
 
 .nav {
-    flex: 0 0 200px;
-    background: #fff;
+    // flex: 0 0 200px;
+    background: #dee0e2;
     margin: -20px 0 0;
 }
 

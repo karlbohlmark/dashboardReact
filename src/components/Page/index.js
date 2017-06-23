@@ -24,7 +24,7 @@ function Page(props) {
             <Navbar fluid styleName="header">
                 <Navbar.Header>
                     <Navbar.Brand style={textStyle}>
-                        dashboard
+                        REPORTING SYSTEM
                     </Navbar.Brand>
                 </Navbar.Header>
 
@@ -40,7 +40,7 @@ function Page(props) {
             </Navbar>
 
             <div styleName="container">
-                <Nav styleName="nav" stacked>
+                <Nav bsClass="nav" bsStyle="pills">
                     <LinkContainer to="/reports">
                         <NavItem>
                             Reports

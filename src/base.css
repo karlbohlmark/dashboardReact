@@ -2,4 +2,8 @@
     body {
         background: #f7f7f7;
     }
+    .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+        background-color: initial;
+        border: 1px solid black;
+    }
 }
