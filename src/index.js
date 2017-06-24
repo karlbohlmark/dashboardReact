@@ -18,6 +18,7 @@ import Root from 'containers/Root';
 import App from 'containers/App';
 import Login from 'containers/Login';
 import RecoveryPassword from 'containers/RecoveryPassword';
+import NotificationContainer from 'containers/Notification';
 
 
 import {
@@ -46,7 +47,7 @@ const routes = {
             component: App,
             indexRoute: {
                 onEnter(nextState, replace) {
-                    replace('/login');
+                    replace('/overview');
                 }
             },
             childRoutes: [
@@ -55,41 +56,28 @@ const routes = {
                     onEnter: () => {}
                 },
                 {
-                    path: 'create-campaign',
-                    component: ''
-                },
-                {
-                    path: 'campaigns-list(/:page)',
-                    component: ''
-                },
-
-                {
-                    path: 'channels(/:page)',
-                    component: ''
-                },
-                {
-                    path: 'reports(/:page)',
-                    component: ''
-                },
-                {
-                    path: 'channel(/:id)',
+                    path: 'overview',
                     component: props => (
                         null
                     )
                 },
                 {
-                    path: 'story(/:id)',
+                    path: 'tasks',
                     component: props => (
                         null
                     )
                 },
                 {
-                    path: 'content',
-                    component: ''
+                    path: 'gofundis',
+                    component: props => (
+                        null
+                    )
                 },
                 {
-                    path: 'settings',
-                    component: ''
+                    path: 'subscribers',
+                    component: props => (
+                        null
+                    )
                 }
             ]
         }
@@ -103,6 +91,7 @@ render(
         <Provider store={store}>
             <div>
                 <Router history={browserHistory} routes={routes} />
+                <NotificationContainer />
                 <DevTools />
             </div>
         </Provider>

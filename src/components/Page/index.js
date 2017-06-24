@@ -40,43 +40,28 @@ function Page(props) {
             </Navbar>
 
             <div styleName="container">
-                <Nav bsClass="nav" bsStyle="pills">
-                    <LinkContainer to="/reports">
+                <Nav styleName="nav_header" bsStyle="pills">
+                    <LinkContainer to="/overview">
                         <NavItem>
-                            Reports
+                            Overview
                         </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to="/campaigns-list">
+                    <LinkContainer to="/tasks">
                         <NavItem>
-                            Campaigns
+                            Tasks
                         </NavItem>
                     </LinkContainer>
 
-                    <NavDropdown title="Content" id="content-dropdown">
-                        <LinkContainer to="/content/stories/queue">
-                            <MenuItem>
-                                Stories
-                            </MenuItem>
-                        </LinkContainer>
-
-                        <LinkContainer to="/content/editor-picks">
-                            <MenuItem>
-                                Editor Picks
-                            </MenuItem>
-                        </LinkContainer>
-                    </NavDropdown>
-
-
-                    <LinkContainer to="/channels">
+                    <LinkContainer to="/gofundis">
                         <NavItem>
-                            Channels
+                            GoFundis
                         </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to="/settings">
+                    <LinkContainer to="/subscribers">
                         <NavItem>
-                            Settings
+                            Subscribers
                         </NavItem>
                     </LinkContainer>
                 </Nav>

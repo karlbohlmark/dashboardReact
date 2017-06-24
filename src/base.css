@@ -4,6 +4,16 @@
     }
     .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
         background-color: initial;
-        border: 1px solid black;
+        border: 1px solid #666769;
+        border-radius: 0;
+        color: #666769;
+    }
+    .nav-pills>li>a, .nav-pills>li>a:focus, .nav-pills>li>a:hover{
+        background-color: initial;
+        border-radius: 0;
+        color: #666769;
+    }
+    .nav-pills>li>a {
+        padding: 5px 15px;
     }
 }
