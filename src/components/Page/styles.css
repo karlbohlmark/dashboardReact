@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     /*align-items: stretch;*/
+    background: #dee0e2;
 }
 .nav_header {
     background: #dee0e2;
@@ -14,6 +15,16 @@
     border-radius: 0;
     border-color: #dee0e2;
     margin-bottom: 0;
+}
+.fotter{
+    background: #0c3c37;
+    border-radius: 0;
+    border-color: #dee0e2;
+    margin-bottom: 0;
+
+}
+.fotter_brand_right{
+    float: right;
 }
 
 .nav {

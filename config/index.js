@@ -14,6 +14,9 @@ export default defaultsDeepAll([
         url: process.env.APP_URL,
         mapbox: {
             key: process.env.MAPBOX_API_KEY
+        },
+        googlemap: {
+            secret: process.env.GOOGLEMAPS_SECRET
         }
     },
     localConfig,

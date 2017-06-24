@@ -69,6 +69,29 @@ function Page(props) {
                 <div styleName="children">
                     {props.children}
                 </div>
+                <Navbar fluid styleName="fotter">
+                    <Navbar.Header>
+                        <Navbar.Brand style={{
+                            fontWeight: 300,
+                            color: '#fff',
+                            fontSize: 13
+                        }}>
+                            For support contact info@supportmultichoice.com
+                        </Navbar.Brand>
+                    </Navbar.Header>
+                    <Navbar.Header styleName="fotter_brand_right">
+                        <Navbar.Brand style={{
+                            fontWeight: 300,
+                            color: '#fff',
+                            fontSize: 13,
+                            paddingRight: 0
+                        }}>
+                            <span>Powered by</span>&nbsp;
+                            <span style={{fontWeight: 500}}>Task</span>
+                            <span style={{fontWeight: 400}}>Fundi</span>
+                        </Navbar.Brand>
+                    </Navbar.Header>
+                </Navbar>
             </div>
         </div>
     );

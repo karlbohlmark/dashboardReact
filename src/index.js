@@ -20,6 +20,8 @@ import Login from 'containers/Login';
 import RecoveryPassword from 'containers/RecoveryPassword';
 import NotificationContainer from 'containers/Notification';
 
+import Overview from 'components/Overview';
+
 
 import {
     createStore
@@ -58,7 +60,7 @@ const routes = {
                 {
                     path: 'overview',
                     component: props => (
-                        null
+                        <Overview {...props} />
                     )
                 },
                 {
