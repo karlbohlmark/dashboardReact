@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import GoogleMap from 'google-map-react';
+import {
+    USER_TYPE_SUBSCRIBER,
+    USER_TYPE_GOFUNDIS
+} from 'models/googlemap';
 import styles from './styles.css';
 
 import dataMapMarker from 'data/dataMapMarker';
@@ -43,11 +47,11 @@ class SegmentMap extends React.Component {
 
     filterArr(arr) {
         return arr.filter(item => {
-            if (item.type === 'SUBSCRIBER') {
-                return this.state.showSubcriber;
+            if (item.type === USER_TYPE_SUBSCRIBER) {
+                return this.props.users.subscriber;
             }
-            if (item.type === 'GOFUNDIS') {
-                return this.state.showGofundis;
+            if (item.type === USER_TYPE_GOFUNDIS) {
+                return this.props.users.gofundis;
             }
             return false;
         });
@@ -96,7 +100,10 @@ class SegmentMap extends React.Component {
             mapTypeControl: false
         };
     }
-
+    componentWillMount() {
+        this.props.subscriberHandler(true);
+        this.props.gofundisHandler(true);
+    }
     render() {
         return (
             <div id='map' styleName='google_map'>
