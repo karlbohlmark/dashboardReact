@@ -10,20 +10,12 @@ class MapMark extends React.Component {
         let color;
         let name;
         switch (this.props.type) {
-            case 'people':
-                color = 'blue';
+            case 'SUBSCRIBER':
+                color = '#c6d92c';
                 name = 'user-circle';
                 break;
-            case 'event':
-                color = 'red';
-                name = 'user-circle';
-                break;
-            case 'group':
-                color = 'green';
-                name = 'user-circle';
-                break;
-            case 'me':
-                color = 'red';
+            case 'GOFUNDIS':
+                color = '#fbaa1a';
                 name = 'user-circle';
                 break;
             default:
@@ -33,13 +25,14 @@ class MapMark extends React.Component {
 
         return (
             <FIcon
-                styleName='google_map__pin'
-                size={'3x'}
+                // styleName='google_map__pin'
+                size={'2x'}
                 name={name}
-                style={{color, borderBottomColor: color, display: 'block'}}
+                // style={{color, borderBottomColor: color, display: 'block'}}
+                style={{color}}
             />
         );
-  }
+    }
 }
 MapMark.propTypes = {
 };

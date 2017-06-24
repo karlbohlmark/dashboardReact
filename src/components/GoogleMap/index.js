@@ -21,24 +21,14 @@ class SegmentMap extends React.Component {
         this.getLocationSuccess = this.getLocationSuccess.bind(this);
         this.changeMapBounds = this.changeMapBounds.bind(this);
         this.renderMapMarks = this.renderMapMarks.bind(this);
-        this.hideInfo = this.hideInfo.bind(this);
         this.state = {
             data: dataMapMarker,
             mapBoundedList: [],
             currentLocation: {lat: 38.971763, lng: -97.411287},
             currentZoom: 5,
             positionIcon: 'ion-android-locate',
-            showPeople: true,
-            peopleSportType: 'All',
-            peopleSportLevel: 'All',
-
-            showEvents: true,
-            eventsSportType: 'All',
-            eventsSportLevel: 'All',
-
-            showGroups: true,
-            groupsSportType: 'All',
-            groupsSportLevel: 'All'
+            showSubcriber: true,
+            showGofundis: true
         };
     }
 
@@ -53,46 +43,21 @@ class SegmentMap extends React.Component {
 
     filterArr(arr) {
         return arr.filter(item => {
-            if (item.type === 'people') {
-                if ((item.sport === this.state.peopleSportType || this.state.peopleSportType === 'All') &&
-                    (item.level === this.state.peopleSportLevel || this.state.peopleSportLevel === 'All')) {
-                    return this.state.showPeople;
-                }
+            if (item.type === 'SUBSCRIBER') {
+                return this.state.showSubcriber;
             }
-            if (item.type === 'event') {
-                if ((item.sport === this.state.eventsSportType || this.state.eventsSportType === 'All') &&
-                    (item.level === this.state.eventsSportLevel || this.state.eventsSportLevel === 'All')) {
-                    return this.state.showEvents;
-                }
+            if (item.type === 'GOFUNDIS') {
+                return this.state.showGofundis;
             }
-            if (item.type === 'group') {
-                if ((item.sport === this.state.groupsSportType || this.state.groupsSportType === 'All') &&
-                    (item.level === this.state.groupsSportLevel || this.state.groupsSportLevel === 'All')) {
-                    return this.state.showGroups;
-                }
-            } else {
-                return false;
-            }
+            return false;
         });
-    }
-
-    hideInfo(item, idx) {
-        let data = this.state.data;
-        data[idx].showInfo = false;
-        this.setState({data});
     }
 
     renderMapMarks(arr) {
         return (this.filterArr(arr).map((item, idx) => {
             return (<MapMark
-                    type={item.type}
-                    name={item.name}
-                    sport={item.sport}
-                    level={item.level}
-                    conversationId={item.id}
+                    {...item}
                     key={idx}
-                    // showInfo={item.showInfo}
-                    // hideInfo={() => { this.hideInfo(item, idx); }}
                     lat={item.location.lat}
                     lng={item.location.lng} />
             );
@@ -108,7 +73,7 @@ class SegmentMap extends React.Component {
 
     changeMapBounds(newBounds) {
         let filteredList = [];
-        filteredList = this.filterArr(this.state.data).filter((item) => {
+        filteredList = this.filterArr(this.state.data).filter(item => {
             return this.locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se);
         });
         this.setState({mapBoundedList: filteredList});
