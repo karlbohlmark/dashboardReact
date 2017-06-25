@@ -7,7 +7,7 @@ import {
 } from 'models/googlemap';
 import styles from './styles.css';
 
-import dataMapMarker from 'data/dataMapMarker';
+
 import MapMark from './MapMark';
 
 import config from 'config';
@@ -26,7 +26,7 @@ class SegmentMap extends React.Component {
         this.changeMapBounds = this.changeMapBounds.bind(this);
         this.renderMapMarks = this.renderMapMarks.bind(this);
         this.state = {
-            data: dataMapMarker,
+            data: props.data,
             mapBoundedList: [],
             currentLocation: {lat: 38.971763, lng: -97.411287},
             currentZoom: 5,
@@ -104,9 +104,9 @@ class SegmentMap extends React.Component {
         };
     }
     componentWillMount() {
-        this.props.subscriberHandler(false);
-        this.props.gofundisHandler(true);
-        this.props.allHandler(false);
+        // this.props.subscriberHandler(false);
+        // this.props.gofundisHandler(true);
+        // this.props.allHandler(false);
     }
     render() {
         return (

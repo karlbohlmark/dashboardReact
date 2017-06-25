@@ -31,7 +31,6 @@ import Overview from 'components/Overview';
 
 class OverviewContainer extends Component {
     render() {
-        console.log('OverviewContainer', this.props);
         return (
             <Overview
                 users={this.props.users}

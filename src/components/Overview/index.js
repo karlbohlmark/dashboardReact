@@ -2,16 +2,24 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 
 import styles from './styles.css';
-import GoogleMap from 'components/GoogleMap';
+import GoogleMapUsers from 'components/GoogleMap';
+import UserPanel from 'components/Overview/UserPanel';
+import dataMapMarkerUsers from 'data/dataMapMarker';
 
 function Overview(props) {
-    console.log('Overview', props);
     return (
-        <div styleName={props.compact ? 'root_compact' : 'root'}>
-
-            <GoogleMap
-                {...props}
-            />
+        <div styleName='root'>
+            <div styleName='users_container'>
+                <div styleName='user_container_header'>USERS</div>
+                <UserPanel
+                    users={props.users}
+                    allHandler={props.allHandler}
+                />
+                <GoogleMapUsers
+                    users={props.users}
+                    data={dataMapMarkerUsers}
+                />
+            </div>
         </div>
     );
 }
