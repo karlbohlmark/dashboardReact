@@ -21,19 +21,13 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 users: state.users.cata({
-                    Just: entity => {
-                        console.log('::::', entity);
-                        return (Just({
-                            ...entity,
-                            [ payload.type ]: payload.value
-                        }));
-                    },
-                    Nothing: () => {
-                        console.log('::::');
-                        return (Just({
-                            [ payload.type ]: payload.value
-                        }));
-                    }
+                    Just: entity => (Just({
+                        ...entity,
+                        [ payload.type ]: payload.value
+                    })),
+                    Nothing: () => (Just({
+                        [ payload.type ]: payload.value
+                    }))
                 })
             };
         }

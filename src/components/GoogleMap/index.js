@@ -47,13 +47,16 @@ class SegmentMap extends React.Component {
 
     filterArr(arr) {
         return arr.filter(item => {
-            if (item.type === USER_TYPE_SUBSCRIBER) {
-                return this.props.users.subscriber;
+            if (this.props.users.all.getOrElse(false)) {
+                return this.props.users.all.getOrElse(false);
+            } else {
+                if (item.type === USER_TYPE_SUBSCRIBER) {
+                    return this.props.users.subscriber.getOrElse(false);
+                }
+                if (item.type === USER_TYPE_GOFUNDIS) {
+                    return this.props.users.gofundis.getOrElse(false);
+                }
             }
-            if (item.type === USER_TYPE_GOFUNDIS) {
-                return this.props.users.gofundis;
-            }
-            return false;
         });
     }
 
@@ -77,9 +80,9 @@ class SegmentMap extends React.Component {
 
     changeMapBounds(newBounds) {
         let filteredList = [];
-        filteredList = this.filterArr(this.state.data).filter(item => {
-            return this.locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se);
-        });
+        filteredList = this.filterArr(this.state.data).filter(item => (
+            this.locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se)
+        ));
         this.setState({mapBoundedList: filteredList});
     }
 
@@ -101,8 +104,9 @@ class SegmentMap extends React.Component {
         };
     }
     componentWillMount() {
-        this.props.subscriberHandler(true);
+        this.props.subscriberHandler(false);
         this.props.gofundisHandler(true);
+        this.props.allHandler(false);
     }
     render() {
         return (
