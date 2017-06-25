@@ -18,9 +18,10 @@ const pTargetChecked = compose(
 
 function CheckBoxItem(props) {
     return (
-        <div >
+        <div style={{ }}>
             <Checkbox
                 checked={props.value}
+                inline={false}
                 onChange={compose(
                     props.onChange,
                     pTargetChecked
@@ -33,7 +34,7 @@ function CheckBoxItem(props) {
 }
 
 CheckBoxItem.propTypes = {
-    children: PropTypes.string.isRequired,
+    // children: PropTypes.array.isRequired,
 
     value: PropTypes.bool.isRequired,
     onChange: PropTypes.func.isRequired

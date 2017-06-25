@@ -14,6 +14,8 @@ function Overview(props) {
                 <UserPanel
                     users={props.users}
                     allHandler={props.allHandler}
+                    subscriberHandler={props.subscriberHandler}
+                    gofundisHandler={props.gofundisHandler}
                 />
                 <GoogleMapUsers
                     users={props.users}

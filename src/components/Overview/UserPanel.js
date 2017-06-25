@@ -1,18 +1,48 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
+import FIcon from 'react-fontawesome';
 import CheckBoxItem from 'components/Overview/CheckBoxItem';
 
 import styles from './styles.css';
 
 function UserPanel(props) {
     return (
-        <div >
+        <div styleName='row_items'>
             <CheckBoxItem
                 value={props.users.all.getOrElse(false)}
                 onChange={props.allHandler}
             >
                 All
             </CheckBoxItem>
+            <div styleName='inline_items'>
+                <CheckBoxItem
+                    value={props.users.subscriber.getOrElse(false)}
+                    onChange={props.subscriberHandler}
+                >
+                    Subscribers
+                </CheckBoxItem>
+                    <FIcon
+                        size={'2x'}
+                        name={'user-circle'}
+                        styleName='inline_items'
+                        style={{color: '#c6d92c'}}
+                    />
+            </div>
+            <div styleName='inline_items'>
+                <CheckBoxItem
+                    value={props.users.gofundis.getOrElse(false)}
+                    onChange={props.gofundisHandler}
+                >
+                    GoFundis
+                </CheckBoxItem>
+                <FIcon
+                    size={'2x'}
+                    name={'user-circle'}
+                    styleName='inline_items'
+                    style={{color: '#fbaa1a'}}
+                />
+            </div>
+
         </div>
     );
 }

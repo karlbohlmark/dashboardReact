@@ -21,6 +21,16 @@
     margin-bottom: 10px;
     text-decoration: underline;
 }
+.inline_items{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-left: 10px;
+}
+.row_items {
+    display: flex;
+    flex-direction: row;
+}
 .image {
     display: block;
     size: 100% *;
