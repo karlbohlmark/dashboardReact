@@ -36,7 +36,8 @@ class TasksContainer extends Component {
     render() {
         return (
             <Tasks
-
+                tasks={this.props.tasks}
+                onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
             />
         );
     }
