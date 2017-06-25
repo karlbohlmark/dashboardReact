@@ -6,10 +6,12 @@ import {
 //     get
 // } from 'utils';
 import {
-    SHOW_USERS
+    SHOW_USERS,
+    SHOW_TASKS
 } from 'actions/ui/GoogleMap/';
 export const initialState = {
-    users: Nothing()
+    users: Nothing(),
+    tasks: Nothing()
 };
 
 export function reducer(state = initialState, action) {
@@ -28,6 +30,16 @@ export function reducer(state = initialState, action) {
                     Nothing: () => (Just({
                         [ payload.type ]: payload.value
                     }))
+                })
+            };
+        }
+        case SHOW_TASKS: {
+
+            return {
+                ...state,
+                tasks: state.tasks.cata({
+                    Just: () => (Just(payload.type)),
+                    Nothing: () => (Just(payload.type))
                 })
             };
         }

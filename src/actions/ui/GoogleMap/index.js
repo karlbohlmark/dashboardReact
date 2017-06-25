@@ -10,3 +10,12 @@ export const showGoogleMapUser = curry(
         payload: { type, value }
     })
 );
+
+export const SHOW_TASKS = 'UI/GOOGLEMAP/SHOW_TASKS';
+
+export const showGoogleMapTasks = curry(
+    type => ({
+        type: SHOW_TASKS,
+        payload: { type }
+    })
+);
