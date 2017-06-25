@@ -21,7 +21,9 @@ import RecoveryPassword from 'containers/RecoveryPassword';
 import NotificationContainer from 'containers/Notification';
 
 import Overview from 'containers/Overview';
-
+import Tasks from 'containers/Tasks';
+import GoFundis from 'containers/GoFundis';
+import Subscribers from 'containers/Subscribers';
 
 import {
     createStore
@@ -66,19 +68,20 @@ const routes = {
                 {
                     path: 'tasks',
                     component: props => (
-                        null
+                        <Tasks {...props} />
                     )
                 },
                 {
                     path: 'gofundis',
                     component: props => (
-                        null
+                        <GoFundis {...props} />
+
                     )
                 },
                 {
                     path: 'subscribers',
                     component: props => (
-                        null
+                        <Subscribers {...props} />
                     )
                 }
             ]

@@ -63,6 +63,7 @@ function Overview(props) {
             <div styleName='users_container'>
                 <div styleName='user_container_header'>CATEGORIES</div>
                 <SelectBoxItem
+                    style={{width: '300px'}}
                     options={[
                         { value: CATEGORY_ALL, label: capitalize(CATEGORY_ALL) },
                         { value: CATEGORY_NEW_INSTALL_DECODER, label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },

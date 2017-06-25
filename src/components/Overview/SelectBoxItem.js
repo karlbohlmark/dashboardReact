@@ -13,7 +13,7 @@ const pValue = property('value');
 
 function SelectBoxItem(props) {
     return (
-        <div styleName='select_box'>
+        <div styleName='select_box' style={props.style ? props.style : {}}>
             <Select
                 options={props.options}
                 value={props.value.getOrElse(null)}
@@ -30,6 +30,7 @@ function SelectBoxItem(props) {
 }
 
 SelectBoxItem.propTypes = {
+    style: PropTypes.object,
     options: PropTypes.array.isRequired,
     value: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired
