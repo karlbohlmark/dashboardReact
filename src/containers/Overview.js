@@ -26,7 +26,8 @@ import {
 } from 'models/googlemap';
 import {
     showGoogleMapUser,
-    showGoogleMapTasks
+    showGoogleMapTasks,
+    showGoogleMapCategory
 } from 'actions/ui/GoogleMap/index';
 import Overview from 'components/Overview';
 
@@ -41,6 +42,8 @@ class OverviewContainer extends Component {
                 allHandler={f => this.props.showGoogleMapUser(USER_TYPE_ALL, f)}
                 tasks={this.props.tasks}
                 onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
+                categories={this.props.categories}
+                onChangeCategoryHandler={this.props.showGoogleMapCategory}
             />
         );
     }
@@ -52,9 +55,12 @@ OverviewContainer.propTypes = {
 
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
+    categories: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
-    showGoogleMapTasks: PropTypes.func.isRequired
+    showGoogleMapTasks: PropTypes.func.isRequired,
+    showGoogleMapCategory: PropTypes.func.isRequired
+
 
 };
 
@@ -77,13 +83,18 @@ function select({ ui }) {
         tasks: ui.googlemap.tasks.cata({
             Nothing: () => (Nothing()),
             Just: value => (Just(value))
+        }),
+        categories: ui.googlemap.categories.cata({
+            Nothing: () => (Nothing()),
+            Just: value => (Just(value))
         })
     };
 }
 
 const bindActions = {
     showGoogleMapUser,
-    showGoogleMapTasks
+    showGoogleMapTasks,
+    showGoogleMapCategory
 };
 
 export default compose(

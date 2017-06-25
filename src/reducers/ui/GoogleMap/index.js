@@ -7,11 +7,13 @@ import {
 // } from 'utils';
 import {
     SHOW_USERS,
-    SHOW_TASKS
+    SHOW_TASKS,
+    SHOW_CATEGORY
 } from 'actions/ui/GoogleMap/';
 export const initialState = {
     users: Nothing(),
-    tasks: Nothing()
+    tasks: Nothing(),
+    categories: Nothing()
 };
 
 export function reducer(state = initialState, action) {
@@ -38,6 +40,16 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 tasks: state.tasks.cata({
+                    Just: () => (Just(payload.type)),
+                    Nothing: () => (Just(payload.type))
+                })
+            };
+        }
+        case SHOW_CATEGORY: {
+
+            return {
+                ...state,
+                categories: state.categories.cata({
                     Just: () => (Just(payload.type)),
                     Nothing: () => (Just(payload.type))
                 })

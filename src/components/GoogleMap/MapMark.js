@@ -8,7 +8,13 @@ import {
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
     TASK_STATYS_DECLINED,
-    TASK_STATYS_CANCELLED
+    TASK_STATYS_CANCELLED,
+    CATEGORY_NEW_INSTALL_DECODER,
+    CATEGORY_NEW_INSTALL_SIGNAL,
+    CATEGORY_NEW_INSTALL_ERROR,
+    CATEGORY_REPAIR_INSTALL_DECODER,
+    CATEGORY_REPAIR_INSTALL_SIGNAL
+
 } from 'models/googlemap';
 import styles from './styles.css';
 
@@ -45,6 +51,26 @@ class MapMark extends React.Component {
                 break;
             case TASK_STATYS_CANCELLED:
                 color = '#ca3523';
+                name = 'user-circle';
+                break;
+            case CATEGORY_NEW_INSTALL_DECODER:
+                color = '#47cab2';
+                name = 'user-circle';
+                break;
+            case CATEGORY_NEW_INSTALL_SIGNAL:
+                color = '#4865ca';
+                name = 'user-circle';
+                break;
+            case CATEGORY_NEW_INSTALL_ERROR:
+                color = '#42a7ca';
+                name = 'user-circle';
+                break;
+            case CATEGORY_REPAIR_INSTALL_DECODER:
+                color = '#cab343';
+                name = 'user-circle';
+                break;
+            case CATEGORY_REPAIR_INSTALL_SIGNAL:
+                color = '#50cabe';
                 name = 'user-circle';
                 break;
             default:

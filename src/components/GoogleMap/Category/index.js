@@ -2,11 +2,12 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import GoogleMap from 'google-map-react';
 import {
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
-    TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_DECLINED,
-    TASK_STATYS_CANCELLED
+    CATEGORY_ALL,
+    CATEGORY_NEW_INSTALL_DECODER,
+    CATEGORY_NEW_INSTALL_SIGNAL,
+    CATEGORY_NEW_INSTALL_ERROR,
+    CATEGORY_REPAIR_INSTALL_DECODER,
+    CATEGORY_REPAIR_INSTALL_SIGNAL
 } from 'models/googlemap';
 import styles from '../styles.css';
 
@@ -21,7 +22,7 @@ const K_MARGIN_BOTTOM = 30;
 const K_MARGIN_LEFT = 30;
 
 
-class SegmentMapTask extends React.Component {
+class SegmentMapCategory extends React.Component {
 
     constructor(props) {
         super(props);
@@ -50,19 +51,32 @@ class SegmentMapTask extends React.Component {
 
     filterArr(arr) {
         return arr.filter(item => {
-            if (item.type === TASK_STATYS_COMPLETED && TASK_STATYS_COMPLETED === this.props.tasks.getOrElse('')) {
+            if (CATEGORY_ALL === this.props.categories.getOrElse('')) {
                 return true;
             }
-            if (item.type === TASK_STATYS_ASSIGNED && TASK_STATYS_ASSIGNED === this.props.tasks.getOrElse('')) {
+            if (item.type === CATEGORY_NEW_INSTALL_DECODER &&
+                CATEGORY_NEW_INSTALL_DECODER === this.props.categories.getOrElse('')
+            ) {
                 return true;
             }
-            if (item.type === TASK_STATYS_UNASSIGNED && TASK_STATYS_UNASSIGNED === this.props.tasks.getOrElse('')) {
+            if (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
+                CATEGORY_NEW_INSTALL_SIGNAL === this.props.categories.getOrElse('')
+            ) {
                 return true;
             }
-            if (item.type === TASK_STATYS_DECLINED && TASK_STATYS_DECLINED === this.props.tasks.getOrElse('')) {
+            if (item.type === CATEGORY_NEW_INSTALL_ERROR &&
+                CATEGORY_NEW_INSTALL_ERROR === this.props.categories.getOrElse('')
+            ) {
                 return true;
             }
-            if (item.type === TASK_STATYS_CANCELLED && TASK_STATYS_CANCELLED === this.props.tasks.getOrElse('')) {
+            if (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
+                CATEGORY_REPAIR_INSTALL_DECODER === this.props.categories.getOrElse('')
+            ) {
+                return true;
+            }
+            if (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
+                CATEGORY_REPAIR_INSTALL_SIGNAL === this.props.categories.getOrElse('')
+            ) {
                 return true;
             }
             return false;
@@ -143,7 +157,7 @@ class SegmentMapTask extends React.Component {
         );
     }
 }
-SegmentMapTask.propTypes = {
+SegmentMapCategory.propTypes = {
 };
 
-export default CSSModules(SegmentMapTask, styles);
+export default CSSModules(SegmentMapCategory, styles);
