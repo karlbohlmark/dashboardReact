@@ -9,11 +9,6 @@
         composes: root;
     }
 }
-.select_box {
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 .users_container {
     background-color: #fff;
     padding: 15px;

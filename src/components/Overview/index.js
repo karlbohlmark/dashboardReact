@@ -18,7 +18,7 @@ import GoogleMapUsers from 'components/GoogleMap';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import GoogleMapCategory from 'components/GoogleMap/Category';
 import UserPanel from 'components/Overview/UserPanel';
-import SelectBoxItem from 'components/Overview/SelectBoxItem';
+import SelectBoxItem from 'components/SelectBoxItem';
 import dataMapMarkerUsers from 'data/dataMapMarker';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';

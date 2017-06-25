@@ -8,7 +8,7 @@ import {
     TASK_STATYS_DECLINED,
     TASK_STATYS_CANCELLED
 } from 'models/googlemap';
-import SelectBoxItem from 'components/Overview/SelectBoxItem';
+import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 
