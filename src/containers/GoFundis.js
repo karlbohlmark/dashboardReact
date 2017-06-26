@@ -22,12 +22,16 @@ import {
 import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
-    USER_TYPE_ALL
+    USER_TYPE_ALL,
+    GOFUNDIS_STATYS_OFFLINE,
+    GOFUNDIS_STATYS_ONLINE,
+    GOFUNDIS_ALL
 } from 'models/googlemap';
 import {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    showGoogleMapGoFundis
 } from 'actions/ui/GoogleMap/index';
 import GoFundis from 'components/GoFundis';
 
@@ -36,7 +40,10 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
-
+                goFundis={this.props.goFundis}
+                onOfflineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_OFFLINE, f)}
+                onOnlineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_ONLINE, f)}
+                onAllStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_ALL, f)}
             />
         );
     }
@@ -49,10 +56,12 @@ GoFundisContainer.propTypes = {
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
+    goFundis: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
-    showGoogleMapCategory: PropTypes.func.isRequired
+    showGoogleMapCategory: PropTypes.func.isRequired,
+    showGoogleMapGoFundis: PropTypes.func.isRequired
 
 
 };
@@ -80,6 +89,19 @@ function select({ ui }) {
         categories: ui.googlemap.categories.cata({
             Nothing: () => (Nothing()),
             Just: value => (Just(value))
+        }),
+        goFundis: ui.googlemap.goFundis.cata({
+            Nothing: () => ({
+                offline: Nothing(),
+                online: Nothing(),
+                all: Nothing()
+            }),
+            Just: fields => ({
+                ...fields,
+                offline: get(GOFUNDIS_STATYS_OFFLINE, fields),
+                online: get(GOFUNDIS_STATYS_ONLINE, fields),
+                all: get(GOFUNDIS_ALL, fields)
+            })
         })
     };
 }
@@ -87,7 +109,8 @@ function select({ ui }) {
 const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    showGoogleMapGoFundis
 };
 
 export default compose(

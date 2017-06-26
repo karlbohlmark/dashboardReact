@@ -5,11 +5,10 @@
     border: 1px solid #ddd;
     border-radius: 0;
     line-height: 1.4;
-    &_compact {
-        composes: root;
-    }
+&_compact {
+     composes: root;
+ }
 }
-
 .users_container {
     background-color: #fff;
     padding: 15px;
@@ -22,4 +21,42 @@
     margin-top: 10px;
     margin-bottom: 0;
     text-decoration: underline;
+}
+.inline_items{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-left: 10px;
+}
+.row_items {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+.image {
+    display: block;
+    size: 100% *;
+    padding: 100% * *;
+    background: #ddd center / cover;
+}
+
+.placeholder {
+    composes: image;
+    position: relative;
+}
+
+.icon {
+    position: absolute 0;
+    size: 1em;
+    margin: auto;
+    color: #aaa;
+}
+
+.title,
+.description {
+.root_compact & {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 }

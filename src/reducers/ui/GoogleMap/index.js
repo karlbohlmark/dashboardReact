@@ -8,12 +8,14 @@ import {
 import {
     SHOW_USERS,
     SHOW_TASKS,
-    SHOW_CATEGORY
+    SHOW_CATEGORY,
+    SHOW_GOFUNDIS
 } from 'actions/ui/GoogleMap/';
 export const initialState = {
     users: Nothing(),
     tasks: Nothing(),
-    categories: Nothing()
+    categories: Nothing(),
+    goFundis: Nothing()
 };
 
 export function reducer(state = initialState, action) {
@@ -52,6 +54,21 @@ export function reducer(state = initialState, action) {
                 categories: state.categories.cata({
                     Just: () => (Just(payload.type)),
                     Nothing: () => (Just(payload.type))
+                })
+            };
+        }
+        case SHOW_GOFUNDIS: {
+
+            return {
+                ...state,
+                goFundis: state.goFundis.cata({
+                    Just: entity => (Just({
+                        ...entity,
+                        [ payload.type ]: payload.value
+                    })),
+                    Nothing: () => (Just({
+                        [ payload.type ]: payload.value
+                    }))
                 })
             };
         }

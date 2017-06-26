@@ -13,7 +13,9 @@ import {
     CATEGORY_NEW_INSTALL_SIGNAL,
     CATEGORY_NEW_INSTALL_ERROR,
     CATEGORY_REPAIR_INSTALL_DECODER,
-    CATEGORY_REPAIR_INSTALL_SIGNAL
+    CATEGORY_REPAIR_INSTALL_SIGNAL,
+    GOFUNDIS_STATYS_OFFLINE,
+    GOFUNDIS_STATYS_ONLINE
 
 } from 'models/googlemap';
 import styles from './styles.css';
@@ -25,6 +27,14 @@ class MapMark extends React.Component {
         let color;
         let name;
         switch (this.props.type) {
+            case GOFUNDIS_STATYS_OFFLINE:
+                color = '#d9baab';
+                name = 'user-circle';
+                break;
+            case GOFUNDIS_STATYS_ONLINE:
+                color = '#55d996';
+                name = 'user-circle';
+                break;
             case USER_TYPE_SUBSCRIBER:
                 color = '#c6d92c';
                 name = 'user-circle';

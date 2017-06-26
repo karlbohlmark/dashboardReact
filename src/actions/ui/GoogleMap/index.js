@@ -28,3 +28,12 @@ export const showGoogleMapCategory = curry(
         payload: { type }
     })
 );
+
+export const SHOW_GOFUNDIS = 'UI/GOOGLEMAP/SHOW_GOFUNDIS';
+
+export const showGoogleMapGoFundis = curry(
+    (type, value) => ({
+        type: SHOW_GOFUNDIS,
+        payload: { type, value }
+    })
+);
