@@ -27,6 +27,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 .list_column {
     display: flex;
@@ -49,9 +51,26 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+.list_column_item_line {
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
 .list_column_itemSmall {
     font-size: 8px;
     font-weight: 300;
+}
+.list_item_number_default {
+    font-size: 22px;
+    font-weight: 500;
+    color: #f47423;
+    margin-left: 15px;
+}
+.strong_number{
+    font-size: 16px;
 }
 .list_item_number{
     font-size: 22px;
@@ -62,4 +81,10 @@
     text-align: right;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+.list_row_reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
 }

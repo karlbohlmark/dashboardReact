@@ -34,8 +34,43 @@ function Subscribers(props) {
 
 
                     </div>
-                    <div> sdf f</div>
-                    <div> df sf</div>
+                    <div styleName="list_column">
+                        <div styleName="list_row_reverse">
+                            <div styleName="list_item_number_default">12%</div>
+                            <div styleName="list_column_item_line">
+                                <strong styleName="strong_number">2</strong>
+                                &nbsp;TASKS
+                            </div>
+                        </div>
+
+                        <div styleName="list_row_reverse">
+                            <div styleName="list_item_number_default">10.05%</div>
+                            <div styleName="list_column_item_line">
+                                <strong styleName="strong_number">3</strong>
+                                &nbsp;TASKS COMPLETED
+                            </div>
+                        </div>
+
+                    </div>
+                    <div styleName="list_column">
+                        <div styleName="list_row_reverse">
+                            <div styleName="list_item_number_default">9.3%</div>
+                            <div styleName="list_column_item_line">
+                                <strong styleName="strong_number">4</strong>
+                                &nbsp;TASKS COMPLETED
+                            </div>
+                        </div>
+
+                        <div styleName="list_row_reverse">
+                            <div styleName="list_item_number_default">1%</div>
+                            <div styleName="list_column_item_line">
+                                <small>+</small>
+                                <strong styleName="strong_number">5</strong>
+                                &nbsp;TASKS COMPLETED
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <div styleName='users_container'>
