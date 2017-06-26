@@ -15,8 +15,8 @@ import {
     CATEGORY_REPAIR_INSTALL_DECODER,
     CATEGORY_REPAIR_INSTALL_SIGNAL,
     GOFUNDIS_STATYS_OFFLINE,
-    GOFUNDIS_STATYS_ONLINE
-
+    GOFUNDIS_STATYS_ONLINE,
+    SUBSCRIBERS_ALL
 } from 'models/googlemap';
 import styles from './styles.css';
 
@@ -81,6 +81,10 @@ class MapMark extends React.Component {
                 break;
             case CATEGORY_REPAIR_INSTALL_SIGNAL:
                 color = '#50cabe';
+                name = 'user-circle';
+                break;
+            case SUBSCRIBERS_ALL:
+                color = '#b8fb14';
                 name = 'user-circle';
                 break;
             default:
