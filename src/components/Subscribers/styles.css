@@ -9,12 +9,22 @@
         composes: root;
     }
 }
-
+.reparate_item {
+    display: flex;
+    flex-direction: row;
+}
 .users_container {
     background-color: #fff;
     padding: 15px;
     margin-bottom: 25px;
 
+}
+.sub_container_header {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-decoration: underline;
 }
 .user_container_header {
     font-size: 24px;
@@ -72,15 +82,25 @@
 .strong_number{
     font-size: 16px;
 }
+.list_item_star {
+    font-size: 18px;
+    font-weight: 300;
+    color: #f47423;
+    margin-right: 15px;
+}
 .list_item_number{
     font-size: 22px;
     font-weight: 500;
     color: #f47423;
     margin-right: 15px;
-    width: 45px;
     text-align: right;
-    text-overflow: ellipsis;
-    overflow: hidden;
+}
+.list_item_number_pink {
+    font-size: 22px;
+    font-weight: 500;
+    color: #ed1967;
+    margin-right: 15px;
+    text-align: right;
 }
 .list_row_reverse {
     display: flex;
