@@ -8,11 +8,13 @@ import {
     TASK_STATYS_DECLINED,
     TASK_STATYS_CANCELLED
 } from 'models/googlemap';
+import Highchart from 'react-highcharts/ReactHighcharts';
 import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 
 const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toLowerCase();
+
 
 function Tasks(props) {
     return (
@@ -23,6 +25,7 @@ function Tasks(props) {
                     <div>
                         <div styleName='sub_container_header'>COMPLETED TASKS</div>
                         <div styleName="list_column">
+                            {/*<Highchart config={{}} />*/}
                         </div>
                     </div>
                     <div styleName="list_column" style={{marginLeft: 20}}>
@@ -90,6 +93,37 @@ function Tasks(props) {
                 </div>
             </div>
             <div styleName='users_container'>
+                <div styleName='user_container_header'>COMPLETED TASKS</div>
+                <Highchart config={{
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Tasks'
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+                    xAxis: {
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    },
+                    series: [{
+                        name: 'Installations',
+                        data: [49, 55, 51, 66, 90, 199, 171, 241]
+                    }, {
+                        name: 'Repair Services',
+                        data: [29, 40, 97, 21, 20, 22, 31, 44]
+                    }]
+                }} />
+            </div>
+            <div styleName='users_container'>
                 <div styleName='user_container_header'>TASK STATUS</div>
                 <SelectBoxItem
                     options={[
@@ -116,3 +150,4 @@ Tasks.propTypes = {
 };
 
 export default CSSModules(Tasks, styles);
+

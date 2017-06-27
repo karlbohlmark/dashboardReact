@@ -14,6 +14,7 @@ import {
     CATEGORY_REPAIR_INSTALL_DECODER,
     CATEGORY_REPAIR_INSTALL_SIGNAL
 } from 'models/googlemap';
+import Highchart from 'react-highcharts/ReactHighcharts';
 import GoogleMapUsers from 'components/GoogleMap';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import GoogleMapCategory from 'components/GoogleMap/Category';
@@ -40,6 +41,37 @@ function Overview(props) {
                     users={props.users}
                     data={dataMapMarkerUsers}
                 />
+            </div>
+            <div styleName='users_container'>
+                <div styleName='user_container_header'>COMPLETED TASKS</div>
+                <Highchart config={{
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Tasks'
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+                    xAxis: {
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    },
+                    series: [{
+                        name: 'Installations',
+                        data: [49, 55, 51, 66, 90, 199, 171, 241]
+                    }, {
+                        name: 'Repair Services',
+                        data: [29, 40, 97, 21, 20, 22, 31, 44]
+                    }]
+                }} />
             </div>
             <div styleName='users_container'>
                 <div styleName='user_container_header'>TASK STATUS</div>
