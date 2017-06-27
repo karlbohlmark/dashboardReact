@@ -73,6 +73,10 @@
     display: flex;
     flex-direction: column;
 }
+.list_column_highcharts {
+    width: 200px;
+    height: 200px;
+}
 .list_row{
     display: flex;
     flex-direction: row;

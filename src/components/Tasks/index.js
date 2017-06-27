@@ -24,8 +24,54 @@ function Tasks(props) {
                 <div styleName="returning_subscribers">
                     <div>
                         <div styleName='sub_container_header'>COMPLETED TASKS</div>
-                        <div styleName="list_column">
-                            {/*<Highchart config={{}} />*/}
+                        <div styleName="list_column_highcharts">
+                            <Highchart config={{
+                                credits: {
+                                    enabled: false
+                                },
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: 0,
+                                    plotShadow: false,
+                                    width: 200,
+                                    height: 200
+                                },
+                                colors: ['#4572A7', '#AA4643'],
+                                title: {
+                                    text: '<span>2015<span>',
+                                    style: { color: '#68ff51', fontSize: '18px' },
+                                    align: 'center',
+                                    verticalAlign: 'middle',
+                                    y: 7
+                                },
+                                tooltip: {
+                                    // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        dataLabels: {
+                                            enabled: false,
+                                            distance: -50,
+                                            style: {
+                                                fontWeight: 'bold',
+                                                color: 'white'
+                                            }
+                                        },
+                                        startAngle: -90,
+                                        endAngle: 270,
+                                        center: ['50%', '50%']
+                                    }
+                                },
+                                series: [{
+                                    type: 'pie',
+                                    name: '',
+                                    innerSize: '70%',
+                                    data: [
+                                        ['Installations', 40.00],
+                                        ['Repair Services', 60.00]
+                                    ]
+                                }]
+                            }} />
                         </div>
                     </div>
                     <div styleName="list_column" style={{marginLeft: 20}}>
@@ -95,6 +141,9 @@ function Tasks(props) {
             <div styleName='users_container'>
                 <div styleName='user_container_header'>COMPLETED TASKS</div>
                 <Highchart config={{
+                    credits: {
+                        enabled: false
+                    },
                     title: {
                         text: ''
                     },

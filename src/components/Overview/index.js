@@ -45,6 +45,9 @@ function Overview(props) {
             <div styleName='users_container'>
                 <div styleName='user_container_header'>COMPLETED TASKS</div>
                 <Highchart config={{
+                    credits: {
+                        enabled: false
+                    },
                     title: {
                         text: ''
                     },
