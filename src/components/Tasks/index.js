@@ -33,13 +33,13 @@ function Tasks(props) {
                                     plotBackgroundColor: null,
                                     plotBorderWidth: 0,
                                     plotShadow: false,
-                                    width: 200,
-                                    height: 200
+                                    width: 180,
+                                    height: 180
                                 },
-                                colors: ['#4572A7', '#AA4643'],
+                                colors: ['#6ebe46', '#c6d92e'],
                                 title: {
-                                    text: '<span>2015<span>',
-                                    style: { color: '#68ff51', fontSize: '18px' },
+                                    text: '<strong>120</strong>',
+                                    style: { color: '#58585a', fontSize: '18px' },
                                     align: 'center',
                                     verticalAlign: 'middle',
                                     y: 7
@@ -57,8 +57,8 @@ function Tasks(props) {
                                                 color: 'white'
                                             }
                                         },
-                                        startAngle: -90,
-                                        endAngle: 270,
+                                        startAngle: 0,
+                                        endAngle: 360,
                                         center: ['50%', '50%']
                                     }
                                 },
@@ -67,8 +67,8 @@ function Tasks(props) {
                                     name: '',
                                     innerSize: '70%',
                                     data: [
-                                        ['Installations', 40.00],
-                                        ['Repair Services', 60.00]
+                                        ['Repair Services', 40.00],
+                                        ['Installations', 60.00]
                                     ]
                                 }]
                             }} />
