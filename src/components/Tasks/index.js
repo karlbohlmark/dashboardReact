@@ -85,14 +85,14 @@ function Tasks(props) {
                         </div>
                     </div>
                     <div styleName="list_column" style={{marginLeft: 20}}>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number">165</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> NUMBER OF TASKS REPORTED</div>
                                 <div styleName="list_column_itemSmall">(FOR SELECTED PERIOD)</div>
                             </div>
                         </div>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number">38</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> ASSIGNED TASKS</div>
@@ -101,14 +101,14 @@ function Tasks(props) {
                                 </div>
                             </div>
                         </div>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number">18</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> NUMBER OF DECLINES</div>
                                 <div styleName="list_column_itemSmall">(FOR SELECTED PERIOD)</div>
                             </div>
                         </div>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number_pink">45 sec</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> AVERAGE TIME FOR ASSINMENT</div>
@@ -117,28 +117,28 @@ function Tasks(props) {
                         </div>
                     </div>
                     <div styleName="list_column" style={{marginLeft: 20}}>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number">2</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> UNASSIGNED TASKS</div>
                                 <div styleName="list_column_itemSmall">(TASK NOT YET ACCEPTED BY GOFUNDI)</div>
                             </div>
                         </div>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number">15%</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> INCREASE SINCE LAST MONTH</div>
                                 <div styleName="list_column_itemSmall">(TASKS COMPLETED)</div>
                             </div>
                         </div>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number">5</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> NUMBER OF CANCELLATIONS</div>
                                 <div styleName="list_column_itemSmall">(FOR SELECTED PERIOD)</div>
                             </div>
                         </div>
-                        <div styleName="list_row_reverse">
+                        <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
                             <div styleName="list_item_number_pink">1 hr</div>
                             <div styleName="list_columnItemStart">
                                 <div styleName="list_column_item"> AVERAGE TIME FOR COMPLETION</div>

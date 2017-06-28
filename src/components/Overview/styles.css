@@ -9,6 +9,10 @@
         composes: root;
     }
 }
+.reparate_item {
+    display: flex;
+    flex-direction: row;
+}
 .users_container {
     background-color: #fff;
     padding: 15px;
