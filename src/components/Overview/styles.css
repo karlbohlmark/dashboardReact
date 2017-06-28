@@ -19,6 +19,33 @@
     margin-bottom: 25px;
 
 }
+.sub_container_header {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-decoration: underline;
+}
+.list_column {
+    display: flex;
+    flex-direction: column;
+}
+.list_column_highcharts {
+    width: 200px;
+    height: 200px;
+}
+.returning_subscribers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.users_container_empty {
+    padding: 15px;
+    margin-bottom: 25px;
+
+}
 .user_container_header {
     font-size: 24px;
     font-weight: 300;

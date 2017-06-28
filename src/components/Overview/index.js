@@ -29,6 +29,140 @@ const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toL
 function Overview(props) {
     return (
         <div styleName='root'>
+            <div styleName='users_container_empty'>
+                <div styleName="returning_subscribers">
+                    <div styleName="list_column" style={{marginLeft: 20}}>
+                        ssdf
+                    </div>
+                    <div styleName="list_column" style={{marginLeft: 20}}>
+                        ssdf
+                    </div>
+                    <div style={{textAlign: 'center', backgroundColor: '#fff'}}>
+                        <div styleName='sub_container_header'>COMPLETED TASKS</div>
+                        <div styleName="list_column_highcharts" style={{margin: 5}}>
+                            <Highchart config={{
+                                credits: {
+                                    enabled: false
+                                },
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: 0,
+                                    plotShadow: false,
+                                    width: 180,
+                                    height: 180
+                                },
+                                colors: ['#6ebe46', '#c6d92e'],
+                                title: {
+                                    text: '<strong>120</strong>',
+                                    style: { color: '#58585a', fontSize: '18px' },
+                                    align: 'center',
+                                    verticalAlign: 'middle',
+                                    y: 7
+                                },
+                                tooltip: {
+                                    // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        dataLabels: {
+                                            enabled: false,
+                                            distance: -50,
+                                            style: {
+                                                fontWeight: 'bold',
+                                                color: 'white'
+                                            }
+                                        },
+                                        startAngle: 0,
+                                        endAngle: 360,
+                                        center: ['50%', '50%']
+                                    }
+                                },
+                                series: [{
+                                    type: 'pie',
+                                    name: '',
+                                    innerSize: '70%',
+                                    data: [
+                                        ['Repair Services', 40.00],
+                                        ['Installations', 60.00]
+                                    ]
+                                }]
+                            }} />
+                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                <div styleName="reparate_item">
+                                    <div style={{backgroundColor: '#c6d92e', width: 15, height: 15, marginRight: 7}} />
+                                    <div style={{fontSize: '12px', fontWeight: 300}}>Installations</div>
+                                </div>
+                                <div styleName="reparate_item">
+                                    <div style={{backgroundColor: '#6ebe46', width: 15, height: 15, marginRight: 7}} />
+                                    <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style={{textAlign: 'center', backgroundColor: '#fff'}}>
+                        <div styleName='sub_container_header'>GOFUNDIS</div>
+                        <div styleName="list_column_highcharts" style={{margin: 5}}>
+                            <Highchart config={{
+                                credits: {
+                                    enabled: false
+                                },
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: 0,
+                                    plotShadow: false,
+                                    width: 180,
+                                    height: 180
+                                },
+                                colors: ['#1d5c51', '#c21f50'],
+                                title: {
+                                    text: '<strong>250</strong>',
+                                    style: { color: '#58585a', fontSize: '18px' },
+                                    align: 'center',
+                                    verticalAlign: 'middle',
+                                    y: 7
+                                },
+                                tooltip: {
+                                    // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        dataLabels: {
+                                            enabled: false,
+                                            distance: -50,
+                                            style: {
+                                                fontWeight: 'bold',
+                                                color: 'white'
+                                            }
+                                        },
+                                        startAngle: 0,
+                                        endAngle: 360,
+                                        center: ['50%', '50%']
+                                    }
+                                },
+                                series: [{
+                                    type: 'pie',
+                                    name: '',
+                                    innerSize: '70%',
+                                    data: [
+                                        ['Onboarding', 15.00],
+                                        ['Approved', 85.00]
+                                    ]
+                                }]
+                            }} />
+                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                <div styleName="reparate_item">
+                                    <div style={{backgroundColor: '#c21f50', width: 15, height: 15, marginRight: 7}} />
+                                    <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
+                                </div>
+                                <div styleName="reparate_item">
+                                    <div style={{backgroundColor: '#1d5c51', width: 15, height: 15, marginRight: 7}} />
+                                    <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div styleName='users_container'>
                 <div styleName='user_container_header'>USERS</div>
                 <UserPanel
