@@ -38,6 +38,8 @@ class TasksContainer extends Component {
             <Tasks
                 tasks={this.props.tasks}
                 onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
+                categories={this.props.categories}
+                onChangeCategoryHandler={this.props.showGoogleMapCategory}
             />
         );
     }

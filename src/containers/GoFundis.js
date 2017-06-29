@@ -40,6 +40,8 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
+                categories={this.props.categories}
+                onChangeCategoryHandler={this.props.showGoogleMapCategory}
                 goFundis={this.props.goFundis}
                 onOfflineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_OFFLINE, f)}
                 onOnlineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_ONLINE, f)}

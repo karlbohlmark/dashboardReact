@@ -36,7 +36,8 @@ class SubscribersContainer extends Component {
     render() {
         return (
             <Subscribers
-
+                categories={this.props.categories}
+                onChangeCategoryHandler={this.props.showGoogleMapCategory}
             />
         );
     }
