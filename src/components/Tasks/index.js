@@ -9,6 +9,13 @@ import {
     TASK_STATYS_CANCELLED
 } from 'models/googlemap';
 import Highchart from 'react-highcharts/ReactHighcharts';
+import FIcon from 'react-fontawesome';
+// var ReactHighcharts = require('react-highcharts');
+// var HighchartsMore = require('highcharts-more');
+// HighchartsMore(ReactHighcharts.Highcharts);
+// var HighchartsExporting = require('highcharts-exporting');
+// HighchartsExporting(ReactHighcharts.Highcharts);
+import CircularProgressbar from 'react-circular-progressbar';
 import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
@@ -151,13 +158,148 @@ function Tasks(props) {
             <div styleName='users_container_empty'>
                 <div styleName='user_container_header'>CATEGORY BREAKDOWN OF COMPLETED TASKS</div>
                 <div styleName="returning_subscribers">
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'row'
-                    }}>
-
+                    <div style={{textAlign: 'center'}}>
+                        <div styleName='container_header_sub'>NEW INSTALLATION</div>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'row'
+                        }}>
+                            <div styleName="outer" className='install_decoder' >
+                                <CircularProgressbar
+                                    initialAnimation
+                                    percentage={25}
+                                    textForPercentage={(pct) => ``}
+                                    strokeWidth={5}
+                                />
+                                <div styleName="inner">
+                                    <div>
+                                        <FIcon
+                                            size={'4x'}
+                                            name={'user-circle'}
+                                            styleName='inline_items_fav'
+                                            style={{color: '#58585a'}}
+                                        />
+                                        <div styleName="small_text">
+                                            DECODER
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div styleName="outer" className='install_antena' >
+                                <CircularProgressbar
+                                    initialAnimation
+                                    percentage={45}
+                                    textForPercentage={(pct) => ``}
+                                    strokeWidth={5}
+                                />
+                                <div styleName="inner">
+                                    <div>
+                                        <FIcon
+                                            size={'4x'}
+                                            name={'user-circle'}
+                                            styleName='inline_items_fav'
+                                            style={{color: '#58585a'}}
+                                        />
+                                        <div styleName="small_text">
+                                            ANTENA/SIGNAL
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div styleName="outer" className='install_error' >
+                                <CircularProgressbar
+                                    initialAnimation
+                                    percentage={30}
+                                    textForPercentage={(pct) => ``}
+                                    strokeWidth={5}
+                                />
+                                <div styleName="inner">
+                                    <div>
+                                        <FIcon
+                                            size={'4x'}
+                                            name={'user-circle'}
+                                            styleName='inline_items_fav'
+                                            style={{color: '#58585a'}}
+                                        />
+                                        <div styleName="small_text">
+                                            OTHER/ERROR
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                    <div style={{textAlign: 'center'}}>
+                        <div styleName='container_header_sub'>REPAIR INSTALLATION</div>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'row'
+                        }}>
+                            <div styleName="outer" className='repair_install_decoder' >
+                                <CircularProgressbar
+                                    initialAnimation
+                                    percentage={25}
+                                    textForPercentage={(pct) => ``}
+                                    strokeWidth={5}
+                                />
+                                <div styleName="inner">
+                                    <div>
+                                        <FIcon
+                                            size={'4x'}
+                                            name={'user-circle'}
+                                            styleName='inline_items_fav'
+                                            style={{color: '#58585a'}}
+                                        />
+                                        <div styleName="small_text">
+                                            DECODER
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div styleName="outer" className='repair_install_antena' >
+                                <CircularProgressbar
+                                    initialAnimation
+                                    percentage={35}
+                                    textForPercentage={(pct) => ``}
+                                    strokeWidth={5}
+                                />
+                                <div styleName="inner">
+                                    <div>
+                                        <FIcon
+                                            size={'4x'}
+                                            name={'user-circle'}
+                                            styleName='inline_items_fav'
+                                            style={{color: '#58585a'}}
+                                        />
+                                        <div styleName="small_text">
+                                            ANTENA/SIGNAL
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div styleName="outer" className='repair_install_error' >
+                                <CircularProgressbar
+                                    initialAnimation
+                                    percentage={40}
+                                    textForPercentage={(pct) => ``}
+                                    strokeWidth={5}
+                                />
+                                <div styleName="inner">
+                                    <div>
+                                        <FIcon
+                                            size={'4x'}
+                                            name={'user-circle'}
+                                            styleName='inline_items_fav'
+                                            style={{color: '#58585a'}}
+                                        />
+                                        <div styleName="small_text">
+                                            OTHER/ERROR
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div styleName='users_container'>

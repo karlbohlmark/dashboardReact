@@ -16,4 +16,103 @@
     .nav-pills>li>a {
         padding: 5px 15px;
     }
+
+/*
+ * react-circular-progressbar styles
+ *
+ * All of the styles in this file are optional and configurable!
+ */
+
+.CircularProgressbar {
+    /*
+     * This fixes an issue where the CircularProgressbar svg has
+     * 0 width inside a "display: flex" container, and thus not visible.
+     *
+     * If you're not using "display: flex", you can remove this style.
+     */
+    width: 100%;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: #3e98c7;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: #d6d6d6;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+    fill: #3e98c7;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.install_decoder .CircularProgressbar .CircularProgressbar-path {
+    stroke: #c6d92c;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.install_decoder .CircularProgressbar .CircularProgressbar-text {
+    fill: #c6d92c;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.install_antena .CircularProgressbar .CircularProgressbar-path {
+    stroke: #ed1967;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.install_antena .CircularProgressbar .CircularProgressbar-text {
+    fill: #ed1967;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.install_error .CircularProgressbar .CircularProgressbar-path {
+    stroke: #f2ec2b;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.install_error .CircularProgressbar .CircularProgressbar-text {
+    fill: #f2ec2b;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.repair_install_decoder .CircularProgressbar .CircularProgressbar-path {
+    stroke: #6cbd45;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.repair_install_decoder .CircularProgressbar .CircularProgressbar-text {
+    fill: #6cbd45;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.repair_install_antena .CircularProgressbar .CircularProgressbar-path {
+    stroke: #f47321;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.repair_install_antena .CircularProgressbar .CircularProgressbar-text {
+    fill: #f47321;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.repair_install_error .CircularProgressbar .CircularProgressbar-path {
+    stroke: #000;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.repair_install_error .CircularProgressbar .CircularProgressbar-text {
+    fill: #000;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
 }
