@@ -9,6 +9,11 @@
      composes: root;
  }
 }
+.reparate_item_col{
+    display: flex;
+    flex-direction: column;
+}
+
 .reparate_item {
     display: flex;
     flex-direction: row;
@@ -103,15 +108,26 @@
 
 }
 .container_header_sub {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 300;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.under_spinner {
+    font-size: 16px;
+    margin-top: 10px;
 }
 .small_text{
     font-size: 12px;
     font-weight: 300;
     margin-top: 5px;
+}
+.small_text_panel{
+    margin: 3px;
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 5px;
+    color: #fff;
 }
 .outer{
     width: 140px;
