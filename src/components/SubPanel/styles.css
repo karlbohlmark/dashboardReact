@@ -1,0 +1,12 @@
+.sub_panel_row {
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.sub_panel_title {
+    font-size: 24px;
+    font-weight: 400;
+
+}
