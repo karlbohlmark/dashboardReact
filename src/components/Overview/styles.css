@@ -9,6 +9,27 @@
         composes: root;
     }
 }
+.list_column_item {
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.list_column_itemSmall {
+    font-size: 8px;
+    font-weight: 300;
+}
+.list_columnItemStart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.list_item_number{
+    font-size: 22px;
+    font-weight: 500;
+    color: #f47423;
+    text-align: center;
+}
 .reparate_item {
     display: flex;
     flex-direction: row;
@@ -37,7 +58,7 @@
 .returning_subscribers{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 15px;
     margin-bottom: 10px;
 }

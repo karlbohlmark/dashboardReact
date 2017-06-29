@@ -19,6 +19,7 @@ import GoogleMapUsers from 'components/GoogleMap';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import GoogleMapCategory from 'components/GoogleMap/Category';
 import UserPanel from 'components/Overview/UserPanel';
+import FIcon from 'react-fontawesome';
 import SelectBoxItem from 'components/SelectBoxItem';
 import dataMapMarkerUsers from 'data/dataMapMarker';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
@@ -31,132 +32,272 @@ function Overview(props) {
         <div styleName='root'>
             <div styleName='users_container_empty'>
                 <div styleName="returning_subscribers">
-                    <div styleName="list_column" style={{marginLeft: 20}}>
-                        ssdf
-                    </div>
-                    <div styleName="list_column" style={{marginLeft: 20}}>
-                        ssdf
-                    </div>
-                    <div style={{textAlign: 'center', backgroundColor: '#fff'}}>
-                        <div styleName='sub_container_header'>COMPLETED TASKS</div>
-                        <div styleName="list_column_highcharts" style={{margin: 5}}>
-                            <Highchart config={{
-                                credits: {
-                                    enabled: false
-                                },
-                                chart: {
-                                    plotBackgroundColor: null,
-                                    plotBorderWidth: 0,
-                                    plotShadow: false,
-                                    width: 180,
-                                    height: 180
-                                },
-                                colors: ['#6ebe46', '#c6d92e'],
-                                title: {
-                                    text: '<strong>120</strong>',
-                                    style: { color: '#58585a', fontSize: '18px' },
-                                    align: 'center',
-                                    verticalAlign: 'middle',
-                                    y: 7
-                                },
-                                tooltip: {
-                                    // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                },
-                                plotOptions: {
-                                    pie: {
-                                        dataLabels: {
-                                            enabled: false,
-                                            distance: -50,
-                                            style: {
-                                                fontWeight: 'bold',
-                                                color: 'white'
-                                            }
-                                        },
-                                        startAngle: 0,
-                                        endAngle: 360,
-                                        center: ['50%', '50%']
-                                    }
-                                },
-                                series: [{
-                                    type: 'pie',
-                                    name: '',
-                                    innerSize: '70%',
-                                    data: [
-                                        ['Repair Services', 40.00],
-                                        ['Installations', 60.00]
-                                    ]
-                                }]
-                            }} />
-                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
-                                <div styleName="reparate_item">
-                                    <div style={{backgroundColor: '#c6d92e', width: 15, height: 15, marginRight: 7}} />
-                                    <div style={{fontSize: '12px', fontWeight: 300}}>Installations</div>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'row'
+                    }}>
+                        <div styleName="list_column" style={{marginLeft: 0}}>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                marginBottom: 7,
+                                marginTop: 7
+                            }}>
+                                <div style={{
+                                    width: '50px',
+                                    height: '50px',
+                                    backgroundColor: '#6ebe46',
+                                    display: 'flex',
+                                    alignSelf: 'center'
+                                }}>
+                                    <FIcon
+                                        size={'2x'}
+                                        name={'user-circle'}
+                                        styleName='inline_items'
+                                        style={{color: '#ffffff'}}
+                                    />
                                 </div>
-                                <div styleName="reparate_item">
-                                    <div style={{backgroundColor: '#6ebe46', width: 15, height: 15, marginRight: 7}} />
-                                    <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
+                                <div style={{
+                                    textAlign: 'center',
+                                    backgroundColor: '#fff',
+                                    padding: '10px',
+                                    width: 170
+                                }}>
+                                    <div styleName="list_item_number">6</div>
+                                    <div styleName="list_columnItemStart">
+                                        <div styleName="list_column_item"> COMPLETED TASKS PER DAY</div>
+                                        <div styleName="list_column_itemSmall">(IN AVERAGE PER GOFUNDI)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                marginBottom: 7,
+                                marginTop: 7
+                            }}>
+                                <div style={{
+                                    width: '50px',
+                                    height: '50px',
+                                    backgroundColor: '#fbaa1a',
+                                    display: 'flex',
+                                    alignSelf: 'center'
+                                }}>
+                                    <FIcon
+                                        size={'2x'}
+                                        name={'user-circle'}
+                                        styleName='inline_items'
+                                        style={{color: '#ffffff'}}
+                                    />
+                                </div>
+                                <div style={{
+                                    textAlign: 'center',
+                                    backgroundColor: '#fff',
+                                    padding: '10px',
+                                    width: 170
+                                }}>
+                                    <div styleName="list_item_number">25</div>
+                                    <div styleName="list_columnItemStart">
+                                        <div styleName="list_column_item"> ACTIVE GOFUNDIS</div>
+                                        <div styleName="list_column_itemSmall">(IN AVERAGE PER DAY)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div styleName="list_column" style={{marginLeft: 20}}>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                marginBottom: 7,
+                                marginTop: 7
+                            }}>
+                                <div style={{
+                                    width: '50px',
+                                    height: '50px',
+                                    backgroundColor: '#c21e51',
+                                    display: 'flex',
+                                    alignSelf: 'center'
+                                }}>
+                                    <FIcon
+                                        size={'2x'}
+                                        name={'user-circle'}
+                                        styleName='inline_items'
+                                        style={{color: '#ffffff'}}
+                                    />
+                                </div>
+                                <div style={{
+                                    textAlign: 'center',
+                                    backgroundColor: '#fff',
+                                    padding: '10px',
+                                    width: 185
+                                }}>
+                                    <div styleName="list_item_number">00:45 hr</div>
+                                    <div styleName="list_columnItemStart">
+                                        <div styleName="list_column_item"> AVERAGE TIME FOR COMPLETION</div>
+                                        <div styleName="list_column_itemSmall">(FROM ASSIGNED TO COMPLETED)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                marginBottom: 7,
+                                marginTop: 7
+                            }}>
+                                <div style={{
+                                    width: '50px',
+                                    height: '50px',
+                                    backgroundColor: '#f2ec2b',
+                                    display: 'flex',
+                                    alignSelf: 'center'
+                                }}>
+                                    <FIcon
+                                        size={'2x'}
+                                        name={'user-circle'}
+                                        styleName='inline_items'
+                                        style={{color: '#ffffff'}}
+                                    />
+                                </div>
+                                <div style={{
+                                    textAlign: 'center',
+                                    backgroundColor: '#fff',
+                                    padding: '10px',
+                                    width: 185
+                                }}>
+                                    <div styleName="list_item_number">15%</div>
+                                    <div styleName="list_columnItemStart">
+                                        <div styleName="list_column_item"> INCREASE SINCE LAST MONTH</div>
+                                        <div styleName="list_column_itemSmall">(TASKS COMPLETED)</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style={{textAlign: 'center', backgroundColor: '#fff'}}>
-                        <div styleName='sub_container_header'>GOFUNDIS</div>
-                        <div styleName="list_column_highcharts" style={{margin: 5}}>
-                            <Highchart config={{
-                                credits: {
-                                    enabled: false
-                                },
-                                chart: {
-                                    plotBackgroundColor: null,
-                                    plotBorderWidth: 0,
-                                    plotShadow: false,
-                                    width: 180,
-                                    height: 180
-                                },
-                                colors: ['#1d5c51', '#c21f50'],
-                                title: {
-                                    text: '<strong>250</strong>',
-                                    style: { color: '#58585a', fontSize: '18px' },
-                                    align: 'center',
-                                    verticalAlign: 'middle',
-                                    y: 7
-                                },
-                                tooltip: {
-                                    // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                },
-                                plotOptions: {
-                                    pie: {
-                                        dataLabels: {
-                                            enabled: false,
-                                            distance: -50,
-                                            style: {
-                                                fontWeight: 'bold',
-                                                color: 'white'
-                                            }
-                                        },
-                                        startAngle: 0,
-                                        endAngle: 360,
-                                        center: ['50%', '50%']
-                                    }
-                                },
-                                series: [{
-                                    type: 'pie',
-                                    name: '',
-                                    innerSize: '70%',
-                                    data: [
-                                        ['Onboarding', 15.00],
-                                        ['Approved', 85.00]
-                                    ]
-                                }]
-                            }} />
-                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
-                                <div styleName="reparate_item">
-                                    <div style={{backgroundColor: '#c21f50', width: 15, height: 15, marginRight: 7}} />
-                                    <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'row'
+                    }}>
+                        <div style={{textAlign: 'center', backgroundColor: '#fff', marginLeft: 10, marginRight: 10}}>
+                            <div styleName='sub_container_header'>COMPLETED TASKS</div>
+                            <div styleName="list_column_highcharts" style={{margin: 5}}>
+                                <Highchart config={{
+                                    credits: {
+                                        enabled: false
+                                    },
+                                    chart: {
+                                        plotBackgroundColor: null,
+                                        plotBorderWidth: 0,
+                                        plotShadow: false,
+                                        width: 180,
+                                        height: 180
+                                    },
+                                    colors: ['#6ebe46', '#c6d92e'],
+                                    title: {
+                                        text: '<strong>120</strong>',
+                                        style: { color: '#58585a', fontSize: '18px' },
+                                        align: 'center',
+                                        verticalAlign: 'middle',
+                                        y: 7
+                                    },
+                                    tooltip: {
+                                        // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                    },
+                                    plotOptions: {
+                                        pie: {
+                                            dataLabels: {
+                                                enabled: false,
+                                                distance: -50,
+                                                style: {
+                                                    fontWeight: 'bold',
+                                                    color: 'white'
+                                                }
+                                            },
+                                            startAngle: 0,
+                                            endAngle: 360,
+                                            center: ['50%', '50%']
+                                        }
+                                    },
+                                    series: [{
+                                        type: 'pie',
+                                        name: '',
+                                        innerSize: '70%',
+                                        data: [
+                                            ['Repair Services', 40.00],
+                                            ['Installations', 60.00]
+                                        ]
+                                    }]
+                                }} />
+                                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                    <div styleName="reparate_item">
+                                        <div style={{backgroundColor: '#c6d92e', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{fontSize: '12px', fontWeight: 300}}>Installations</div>
+                                    </div>
+                                    <div styleName="reparate_item">
+                                        <div style={{backgroundColor: '#6ebe46', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
+                                    </div>
                                 </div>
-                                <div styleName="reparate_item">
-                                    <div style={{backgroundColor: '#1d5c51', width: 15, height: 15, marginRight: 7}} />
-                                    <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
+                            </div>
+                        </div>
+                        <div style={{textAlign: 'center', backgroundColor: '#fff', marginLeft: 10, marginRight: 10}}>
+                            <div styleName='sub_container_header'>GOFUNDIS</div>
+                            <div styleName="list_column_highcharts" style={{margin: 5}}>
+                                <Highchart config={{
+                                    credits: {
+                                        enabled: false
+                                    },
+                                    chart: {
+                                        plotBackgroundColor: null,
+                                        plotBorderWidth: 0,
+                                        plotShadow: false,
+                                        width: 180,
+                                        height: 180
+                                    },
+                                    colors: ['#1d5c51', '#c21f50'],
+                                    title: {
+                                        text: '<strong>250</strong>',
+                                        style: { color: '#58585a', fontSize: '18px' },
+                                        align: 'center',
+                                        verticalAlign: 'middle',
+                                        y: 7
+                                    },
+                                    tooltip: {
+                                        // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                    },
+                                    plotOptions: {
+                                        pie: {
+                                            dataLabels: {
+                                                enabled: false,
+                                                distance: -50,
+                                                style: {
+                                                    fontWeight: 'bold',
+                                                    color: 'white'
+                                                }
+                                            },
+                                            startAngle: 0,
+                                            endAngle: 360,
+                                            center: ['50%', '50%']
+                                        }
+                                    },
+                                    series: [{
+                                        type: 'pie',
+                                        name: '',
+                                        innerSize: '70%',
+                                        data: [
+                                            ['Onboarding', 15.00],
+                                            ['Approved', 85.00]
+                                        ]
+                                    }]
+                                }} />
+                                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                    <div styleName="reparate_item">
+                                        <div style={{backgroundColor: '#c21f50', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
+                                    </div>
+                                    <div styleName="reparate_item">
+                                        <div style={{backgroundColor: '#1d5c51', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
