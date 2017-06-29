@@ -34,7 +34,8 @@ function Overview(props) {
                 <div styleName="returning_subscribers">
                     <div style={{
                         display: 'flex',
-                        flexDirection: 'row'
+                        flexDirection: 'row',
+                        alignSelf: 'center'
                     }}>
                         <div styleName="list_column" style={{marginLeft: 0}}>
                             <div style={{
