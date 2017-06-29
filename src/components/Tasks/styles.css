@@ -91,6 +91,11 @@
     margin-top: 7px;
     margin-bottom: 7px;
 }
+.users_container_empty {
+    padding: 15px;
+    margin-bottom: 25px;
+
+}
 .list_columnItem {
     display: flex;
     flex-direction: column;

@@ -148,6 +148,18 @@ function Tasks(props) {
                     </div>
                 </div>
             </div>
+            <div styleName='users_container_empty'>
+                <div styleName='user_container_header'>CATEGORY BREAKDOWN OF COMPLETED TASKS</div>
+                <div styleName="returning_subscribers">
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'row'
+                    }}>
+
+                    </div>
+
+                </div>
+            </div>
             <div styleName='users_container'>
                 <div styleName='user_container_header'>COMPLETED TASKS</div>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
