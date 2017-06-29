@@ -22,7 +22,7 @@ function SelectBoxItem(props) {
                     pValue
                 )}
                 // backspaceRemoves={true}
-                // placeholder='Select Location'
+                placeholder={props.placeholder ? props.placeholder : 'Select'}
                 //  labelKey='name'
             />
         </div>
@@ -33,7 +33,8 @@ SelectBoxItem.propTypes = {
     style: PropTypes.object,
     options: PropTypes.array.isRequired,
     value: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string
 };
 
 export default CSSModules(SelectBoxItem, styles);

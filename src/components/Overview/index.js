@@ -30,6 +30,28 @@ const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toL
 function Overview(props) {
     return (
         <div styleName='root'>
+            <div styleName='users_container_row' style={{alignItems: 'center'}}>
+                <div styleName='user_container_header_bold'>USERS</div>
+                <div styleName='user_container_header_bold'>USERS</div>
+                <div>
+                    <SelectBoxItem
+                        style={{width: '300px'}}
+                        options={[
+                            { value: CATEGORY_ALL, label: capitalize(CATEGORY_ALL) },
+                            { value: CATEGORY_NEW_INSTALL_DECODER, label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
+                            { value: CATEGORY_NEW_INSTALL_SIGNAL, label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
+                            { value: CATEGORY_NEW_INSTALL_ERROR, label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
+                            { value: CATEGORY_REPAIR_INSTALL_DECODER, label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
+                            { value: CATEGORY_REPAIR_INSTALL_SIGNAL, label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) }
+                        ]}
+                        onChange={props.onChangeCategoryHandler}
+                        value={props.categories}
+                        placeholder='Category'
+
+                    />
+                </div>
+                <div styleName='user_container_header_bold'>USERS</div>
+            </div>
             <div styleName='users_container_empty'>
                 <div styleName="returning_subscribers">
                     <div style={{
