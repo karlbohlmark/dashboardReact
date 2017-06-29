@@ -218,7 +218,133 @@ function GoFundis(props) {
                     </div>
                 </div>
             </div>
+            <div styleName='users_container_empty'>
+                <div styleName="returning_subscribers">
+                    <div style={{ backgroundColor: '#fff', padding: 10, width: '69%'}}>
+                        <div styleName='sub_container_header'>NUMBER OF GOFUNDIS</div>
+                        <div styleName="list_column_highcharts_large" style={{margin: 5}}>
+                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
+                                    <div style={{backgroundColor: '#c21f50', width: 15, height: 15, marginRight: 7}} />
+                                    <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
+                                </div>
+                                <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
+                                    <div style={{backgroundColor: '#1d5c51', width: 15, height: 15, marginRight: 7}} />
+                                    <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
+                                </div>
+                            </div>
+                            <Highchart config={{
+                                credits: {
+                                    enabled: false
+                                },
+                                colors: ['#1d5c51', '#c21f50'],
+                                chart: {
+                                    height: 190
+                                },
+                                title: {
+                                    text: ''
+                                },
+                                subtitle: {
+                                    text: ''
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: 'GoFundis'
+                                    }
+                                },
+                                legend: {
+                                    enabled: false,
+                                    layout: 'vertical',
+                                    align: 'right',
+                                    verticalAlign: 'middle'
+                                },
+                                xAxis: {
+                                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                                },
+                                series: [{
+                                    name: 'Approved',
+                                    data: [49, 55, 51, 66, 90, 199, 171, 241]
+                                }, {
+                                    name: 'Onboarding',
+                                    data: [29, 40, 97, 21, 20, 22, 31, 44]
+                                }]
+                            }} />
+                        </div>
+                    </div>
+                    <div style={{ backgroundColor: '#fff', padding: 10, width: '29%'}}>
+                        <div styleName='sub_container_header' style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                            LIVE ACTIVE GOFUNDIS
+                            <div style={{marginLeft: 7, width: 10, height: 10, backgroundColor: '#6ebe46', borderRadius: '50%'}}></div>
+                        </div>
+                        <div styleName="list_column_highcharts_large" style={{margin: 5}}>
+                            <Highchart config={{
+                                credits: {
+                                    enabled: false
+                                },
+                                colors: ['#cc6631'],
+                                chart: {
+                                    type: 'column',
+                                    height: 190
+                                },
+                                title: {
+                                    text: ''
+                                },
+                                subtitle: {
+                                    text: ''
+                                },
+                                xAxis: {
+                                    type: 'category'
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: ''
+                                    }
 
+                                },
+                                legend: {
+                                    enabled: false
+                                },
+                                plotOptions: {
+                                    series: {
+                                        borderWidth: 0,
+                                        dataLabels: {
+                                            enabled: true
+                                            // format: '{point.y:.1f}%'
+                                        }
+                                    }
+                                },
+
+                                tooltip: {
+                                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
+                                },
+
+                                series: [{
+                                    name: 'Area',
+                                    colorByPoint: false,
+                                    data: [{
+                                        name: '-1 hr',
+                                        y: 150,
+                                        drilldown: null
+                                    }, {
+                                        name: '-10 min',
+                                        y: 53,
+                                        drilldown: null
+                                    }, {
+                                        name: '-5 min',
+                                        y: 203,
+                                        drilldown: null
+                                    }, {
+                                        name: 'Now',
+                                        y: 186,
+                                        drilldown: null
+                                    }]
+                                }]
+                            }} />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div styleName='users_container'>
                 <div styleName='user_container_header'>ACTIVE GO FUNDIS</div>
                 <GoFundisPanel
