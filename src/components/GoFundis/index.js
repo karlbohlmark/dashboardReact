@@ -259,7 +259,9 @@ function GoFundis(props) {
                                     verticalAlign: 'middle'
                                 },
                                 xAxis: {
-                                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                                    categories:
+                                    ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
                                 },
                                 series: [{
                                     name: 'Approved',
@@ -272,9 +274,16 @@ function GoFundis(props) {
                         </div>
                     </div>
                     <div style={{ backgroundColor: '#fff', padding: 10, width: '29%'}}>
-                        <div styleName='sub_container_header' style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                        <div styleName='sub_container_header'
+                             style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                             LIVE ACTIVE GOFUNDIS
-                            <div style={{marginLeft: 7, width: 10, height: 10, backgroundColor: '#6ebe46', borderRadius: '50%'}}></div>
+                            <div style={{
+                                marginLeft: 7,
+                                width: 10,
+                                height: 10,
+                                backgroundColor: '#6ebe46',
+                                borderRadius: '50%'
+                            }} />
                         </div>
                         <div styleName="list_column_highcharts_large" style={{margin: 5}}>
                             <Highchart config={{
@@ -316,7 +325,9 @@ function GoFundis(props) {
 
                                 tooltip: {
                                     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
+                                    pointFormat:
+                                        '<span style="color:{point.color}">{point.name}</span>:' +
+                                        ' <b>{point.y:.2f}</b><br/>'
                                 },
 
                                 series: [{
