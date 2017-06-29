@@ -234,9 +234,15 @@ function Subscribers(props) {
                 </div>
                 <div styleName='users_container'>
                     <div styleName='user_container_header'>SUBSCRIBERS</div>
-                    <GoogleMapSubscribers
-                        data={dataMapMarkerSubscribers}
-                    />
+                    <div style={{
+                        marginTop: 10,
+                        marginBottom: 10
+                    }}>
+                        <GoogleMapSubscribers
+                            data={dataMapMarkerSubscribers}
+                        />
+                    </div>
+
                 </div>
             </div>
         </div>
