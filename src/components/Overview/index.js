@@ -21,6 +21,8 @@ import GoogleMapCategory from 'components/GoogleMap/Category';
 import UserPanel from 'components/Overview/UserPanel';
 import FIcon from 'react-fontawesome';
 import SelectBoxItem from 'components/SelectBoxItem';
+import DateRangePickerItem from 'components/DateRangePickerItem';
+import Autosuggest from 'components/Autosuggest';
 import dataMapMarkerUsers from 'data/dataMapMarker';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
@@ -32,7 +34,9 @@ function Overview(props) {
         <div styleName='root'>
             <div styleName='users_container_row' style={{alignItems: 'center'}}>
                 <div styleName='user_container_header_bold'>USERS</div>
-                <div styleName='user_container_header_bold'>USERS</div>
+                <div style={{width: 200}}>
+                    <Autosuggest/>
+                </div>
                 <div>
                     <SelectBoxItem
                         style={{width: '300px'}}
@@ -50,7 +54,9 @@ function Overview(props) {
 
                     />
                 </div>
-                <div styleName='user_container_header_bold'>USERS</div>
+                <div >
+                    <DateRangePickerItem/>
+                </div>
             </div>
             <div styleName='users_container_empty'>
                 <div styleName="returning_subscribers">
