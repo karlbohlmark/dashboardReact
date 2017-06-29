@@ -89,7 +89,21 @@ function GoFundis(props) {
                     <div>
                         <div style={{textAlign: 'center', backgroundColor: '#fff'}}>
                             <div styleName='sub_container_header'>APPROVED GOFUNDIS</div>
-                            <div styleName="list_column_itemSmall" style={{textAlign: 'center'}}>(LIVE STATUS)</div>
+                            <div styleName="list_column_itemSmall"
+                                 style={{
+                                     justifyContent: 'center',
+                                     display: 'flex',
+                                     flexDirection: 'row',
+                                     alignItems: 'center'}}>
+                                (LIVE STATUS)
+                                <div style={{
+                                    marginLeft: 4,
+                                    width: 5,
+                                    height: 5,
+                                    backgroundColor: '#6ebe46',
+                                    borderRadius: '50%'
+                                }} />
+                            </div>
                             <div styleName="list_column_highcharts" style={{margin: 5}}>
                                 <Highchart config={{
                                     credits: {
