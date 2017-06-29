@@ -157,36 +157,7 @@ function Tasks(props) {
             </div>
             <div styleName='users_container_empty'>
                 <div styleName='user_container_header'>CATEGORY BREAKDOWN OF COMPLETED TASKS</div>
-                <div styleName="returning_subscribers">
-                    <div styleName="reparate_item_col" style={{width: '10%', backgroundColor: '#8f9092'}}>
-                        <div styleName="small_text_panel">sdfs</div>
-                        <div styleName="small_text_panel">sdfs</div>
-                    </div>
-                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
-                        <div styleName="small_text_panel">sdfs</div>
-                        <div styleName="small_text_panel">sdfs</div>
-                    </div>
-                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
-                        <div styleName="small_text_panel">sdfs</div>
-                        <div styleName="small_text_panel">sdfs</div>
-                    </div>
-                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
-                        <div styleName="small_text_panel">sdfs</div>
-                        <div styleName="small_text_panel">sdfs</div>
-                    </div>
-                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
-                        <div styleName="small_text_panel">sdfs</div>
-                        <div styleName="small_text_panel">sdfs</div>
-                    </div>
-                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
-                        <div styleName="small_text_panel">sdfs</div>
-                        <div styleName="small_text_panel">sdfs</div>
-                    </div>
-                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
-                        <div styleName="small_text_panel">sdfs</div>
-                        <div styleName="small_text_panel">sdfs</div>
-                    </div>
-                </div>
+
                 <div styleName="returning_subscribers">
                     <div style={{textAlign: 'center'}}>
                         <div styleName='container_header_sub'>NEW INSTALLATION</div>
@@ -359,6 +330,36 @@ function Tasks(props) {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div styleName="returning_subscribers">
+                    <div styleName="reparate_item_col" style={{textAlign: 'center', width: '10%', backgroundColor: '#8f9092'}}>
+                        <div styleName="small_text_panel">REPORTED</div>
+                        <div styleName="small_text_panel">COMPLETED</div>
+                    </div>
+                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
+                        <div styleName="small_text_panel">1 EVERY MINUTE</div>
+                        <div styleName="small_text_panel">1 EVERY 20 MINUTES</div>
+                    </div>
+                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
+                        <div styleName="small_text_panel">1 EVERY HOUR</div>
+                        <div styleName="small_text_panel">1 EVERY HOUR</div>
+                    </div>
+                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
+                        <div styleName="small_text_panel">1 EVERY 2 HOURS</div>
+                        <div styleName="small_text_panel">1 EVERY 25 MINUTES</div>
+                    </div>
+                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
+                        <div styleName="small_text_panel">1 EVERY 10 DAYS</div>
+                        <div styleName="small_text_panel">1 EVERY 5 DAYS</div>
+                    </div>
+                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
+                        <div styleName="small_text_panel">1 EVERY 30 DAYS</div>
+                        <div styleName="small_text_panel">1 EVERY 15 DAYS</div>
+                    </div>
+                    <div styleName="reparate_item_col" style={{width: '15%', backgroundColor: '#58585a'}}>
+                        <div styleName="small_text_panel">1 EVERY 6 DAYS</div>
+                        <div styleName="small_text_panel">1 EVERY 7 DAYS</div>
                     </div>
                 </div>
             </div>
