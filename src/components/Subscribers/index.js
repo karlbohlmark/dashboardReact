@@ -4,7 +4,7 @@ import styles from './styles.css';
 import {
     SUBSCRIBERS_SHARE_PER_AREA
 } from 'models/highchartConfig';
-import FIcon from 'react-fontawesome';
+import IconLoop from 'components/IconLoop';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoogleMapSubscribers from 'components/GoogleMap/Subscribers';
@@ -27,51 +27,31 @@ function Subscribers(props) {
                             <div styleName="reparate_item">
                                 <div styleName="list_column" style={{marginRight: 20}}>
                                     <div styleName="list_row">
-                                        <div styleName="list_item_star">
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                        </div>
+                                        <IconLoop number={5} name={'star'} />
                                         <div styleName="list_columnItem">
                                             <div styleName="list_column_item"> 1.000</div>
                                         </div>
                                     </div>
                                     <div styleName="list_row">
-                                        <div styleName="list_item_star">
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                        </div>
+                                        <IconLoop number={4} name={'star'} />
                                         <div styleName="list_columnItem">
                                             <div styleName="list_column_item"> 995</div>
                                         </div>
                                     </div>
                                     <div styleName="list_row">
-                                        <div styleName="list_item_star">
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                        </div>
+                                        <IconLoop number={3} name={'star'} />
                                         <div styleName="list_columnItem">
                                             <div styleName="list_column_item"> 200</div>
                                         </div>
                                     </div>
                                     <div styleName="list_row">
-                                        <div styleName="list_item_star">
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                        </div>
+                                        <IconLoop number={2} name={'star'} />
                                         <div styleName="list_columnItem">
                                             <div styleName="list_column_item"> 10</div>
                                         </div>
                                     </div>
                                     <div styleName="list_row">
-                                        <div styleName="list_item_star">
-                                            <FIcon name={'star'} />
-                                        </div>
+                                        <IconLoop name={'star'} />
                                         <div styleName="list_columnItem">
                                             <div styleName="list_column_item"> 2</div>
                                         </div>

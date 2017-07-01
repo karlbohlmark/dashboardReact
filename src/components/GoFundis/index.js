@@ -7,7 +7,7 @@ import {
     NUMBER_OF_GOFUNDIS,
     LIVE_ACTIVE_GOFUNDIS
 } from 'models/highchartConfig';
-import FIcon from 'react-fontawesome';
+import IconLoop from 'components/IconLoop';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisPanel from 'components/GoFundis/GoFundisPanel';
@@ -105,13 +105,7 @@ function GoFundis(props) {
                             <div styleName="reparate_item">
                                 <div styleName="list_column" style={{marginLeft: 20}}>
                                     <div styleName="list_row_margin">
-                                        <div styleName="list_item_star">
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                            <FIcon name={'star'} />
-                                        </div>
+                                        <IconLoop number={5} name={'star'} />
                                         <div styleName="list_column_item"> AVERAGE GOFUNDI RATING</div>
                                     </div>
 
