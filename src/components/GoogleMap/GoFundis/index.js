@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import GoogleMap from 'google-map-react';
 import {
@@ -49,26 +49,23 @@ class SegmentMapGoFundis extends React.Component {
         return arr.filter(item => {
             if (this.props.goFundis.all.getOrElse(false)) {
                 return this.props.goFundis.all.getOrElse(false);
-            } else {
-                if (item.type === GOFUNDIS_STATYS_OFFLINE) {
-                    return this.props.goFundis.offline.getOrElse(false);
-                }
-                if (item.type === GOFUNDIS_STATYS_ONLINE) {
-                    return this.props.goFundis.online.getOrElse(false);
-                }
+            } else if (item.type === GOFUNDIS_STATYS_OFFLINE) {
+                return this.props.goFundis.offline.getOrElse(false);
+            } else if (item.type === GOFUNDIS_STATYS_ONLINE) {
+                return this.props.goFundis.online.getOrElse(false);
             }
+            return false;
         });
     }
 
     renderMapMarks(arr) {
-        return (this.filterArr(arr).map((item, idx) => {
-            return (<MapMark
+        return (this.filterArr(arr).map((item, idx) => (
+            <MapMark
                     {...item}
                     key={idx}
                     lat={item.location.lat}
                     lng={item.location.lng} />
-            );
-        }));
+            )));
     }
 
     locationInScreen(location, nw, se) {
@@ -128,7 +125,9 @@ class SegmentMapGoFundis extends React.Component {
                            //     this.setState({data});
                            // } }
                            // onClick={(e) => { console.log(e); } }
-                           onGoogleApiLoaded={({map, maps}) => { this.setState({ map, maps}); }}
+                           onGoogleApiLoaded={({map, maps}) => {
+                               this.setState({ map, maps});
+                           }}
                            yesIWantToUseGoogleMapApiInternals
                 >
                     { this.renderMapMarks(this.state.data) }

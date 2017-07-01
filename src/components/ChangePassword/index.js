@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
     LinkContainer
 } from 'react-router-bootstrap';
@@ -14,7 +14,7 @@ import {
     Button
 } from 'react-bootstrap';
 
-function ChangePassword(props) {
+function ChangePassword() {
 
     return (
         <Grid>

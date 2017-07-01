@@ -1,10 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import GoogleMap from 'google-map-react';
-import {
-    GOFUNDIS_STATYS_OFFLINE,
-    GOFUNDIS_STATYS_ONLINE
-} from 'models/googlemap';
+
 import styles from '../styles.css';
 
 
@@ -46,20 +43,17 @@ class SegmentMapSubscribers extends React.Component {
     }
 
     filterArr(arr) {
-        return arr.filter(item => {
-            return true;
-        });
+        return arr.filter(() => (true));
     }
 
     renderMapMarks(arr) {
-        return (this.filterArr(arr).map((item, idx) => {
-            return (<MapMark
+        return (this.filterArr(arr).map((item, idx) => (
+            <MapMark
                     {...item}
                     key={idx}
                     lat={item.location.lat}
                     lng={item.location.lng} />
-            );
-        }));
+            )));
     }
 
     locationInScreen(location, nw, se) {
@@ -119,7 +113,9 @@ class SegmentMapSubscribers extends React.Component {
                            //     this.setState({data});
                            // } }
                            // onClick={(e) => { console.log(e); } }
-                           onGoogleApiLoaded={({map, maps}) => { this.setState({ map, maps}); }}
+                           onGoogleApiLoaded={({map, maps}) => {
+                               this.setState({ map, maps});
+                           }}
                            yesIWantToUseGoogleMapApiInternals
                 >
                     { this.renderMapMarks(this.state.data) }

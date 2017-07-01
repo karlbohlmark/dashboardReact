@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import FIcon from 'react-fontawesome';
 import CheckBoxItem from 'components/CheckBoxItem';

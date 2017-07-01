@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
     Button,
     Glyphicon
@@ -14,8 +14,8 @@ class DateRangePickerItem extends React.Component {
         this.handleEvent = this.handleEvent.bind(this);
         this.state = {
             ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                Today: [moment(), moment()],
+                Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
                 'Last 7 Days': [moment().subtract(6, 'days'), moment()],
                 'Last 30 Days': [moment().subtract(29, 'days'), moment()],
                 'This Month': [moment().startOf('month'), moment().endOf('month')],
@@ -35,7 +35,7 @@ class DateRangePickerItem extends React.Component {
     render() {
         const start = this.state.startDate.format('YYYY-MM-DD');
         const end = this.state.endDate.format('YYYY-MM-DD');
-        let label = start + ' - ' + end;
+        let label = `${start} - ${end}`;
         if (start === end) {
             label = start;
         }

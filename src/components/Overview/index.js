@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
@@ -185,7 +185,12 @@ function Overview(props) {
                             display: 'flex',
                             flexDirection: 'row'
                         }}>
-                            <div style={{textAlign: 'center', backgroundColor: '#fff', marginLeft: 10, marginRight: 10}}>
+                            <div style={{
+                                textAlign: 'center',
+                                backgroundColor: '#fff',
+                                marginLeft: 10,
+                                marginRight: 10
+                            }}>
                                 <div styleName='sub_container_header'>COMPLETED TASKS</div>
                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
                                     <Highchart config={{
@@ -235,19 +240,38 @@ function Overview(props) {
                                             ]
                                         }]
                                     }} />
-                                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        justifyContent:
+                                            'space-around'
+                                    }}>
                                         <div styleName="reparate_item">
-                                            <div style={{backgroundColor: '#c6d92e', width: 15, height: 15, marginRight: 7}} />
+                                            <div style={{
+                                                backgroundColor: '#c6d92e',
+                                                width: 15, height: 15,
+                                                marginRight: 7
+                                            }} />
                                             <div style={{fontSize: '12px', fontWeight: 300}}>Installations</div>
                                         </div>
                                         <div styleName="reparate_item">
-                                            <div style={{backgroundColor: '#6ebe46', width: 15, height: 15, marginRight: 7}} />
+                                            <div style={{
+                                                backgroundColor: '#6ebe46',
+                                                width: 15,
+                                                height: 15,
+                                                marginRight: 7
+                                            }} />
                                             <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div style={{textAlign: 'center', backgroundColor: '#fff', marginLeft: 10, marginRight: 10}}>
+                            <div style={{
+                                textAlign: 'center',
+                                backgroundColor: '#fff',
+                                marginLeft: 10,
+                                marginRight: 10
+                            }}>
                                 <div styleName='sub_container_header'>GOFUNDIS</div>
                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
                                     <Highchart config={{
@@ -297,13 +321,27 @@ function Overview(props) {
                                             ]
                                         }]
                                     }} />
-                                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-around'
+                                    }}>
                                         <div styleName="reparate_item">
-                                            <div style={{backgroundColor: '#c21f50', width: 15, height: 15, marginRight: 7}} />
+                                            <div style={{
+                                                backgroundColor: '#c21f50',
+                                                width: 15,
+                                                height: 15,
+                                                marginRight: 7
+                                            }} />
                                             <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
                                         </div>
                                         <div styleName="reparate_item">
-                                            <div style={{backgroundColor: '#1d5c51', width: 15, height: 15, marginRight: 7}} />
+                                            <div style={{
+                                                backgroundColor: '#1d5c51',
+                                                width: 15,
+                                                height: 15,
+                                                marginRight: 7
+                                            }} />
                                             <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
                                         </div>
                                     </div>
@@ -360,7 +398,8 @@ function Overview(props) {
                             verticalAlign: 'middle'
                         },
                         xAxis: {
-                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
                         },
                         series: [{
                             name: 'Installations',
@@ -395,12 +434,18 @@ function Overview(props) {
                     <SelectBoxItem
                         style={{width: '300px'}}
                         options={[
-                            { value: CATEGORY_ALL, label: capitalize(CATEGORY_ALL) },
-                            { value: CATEGORY_NEW_INSTALL_DECODER, label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
-                            { value: CATEGORY_NEW_INSTALL_SIGNAL, label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
-                            { value: CATEGORY_NEW_INSTALL_ERROR, label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
-                            { value: CATEGORY_REPAIR_INSTALL_DECODER, label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
-                            { value: CATEGORY_REPAIR_INSTALL_SIGNAL, label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) }
+                            { value: CATEGORY_ALL,
+                                label: capitalize(CATEGORY_ALL) },
+                            { value: CATEGORY_NEW_INSTALL_DECODER,
+                                label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
+                            { value: CATEGORY_NEW_INSTALL_SIGNAL,
+                                label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
+                            { value: CATEGORY_NEW_INSTALL_ERROR,
+                                label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
+                            { value: CATEGORY_REPAIR_INSTALL_DECODER,
+                                label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
+                            { value: CATEGORY_REPAIR_INSTALL_SIGNAL,
+                                label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) }
                         ]}
                         onChange={props.onChangeCategoryHandler}
                         value={props.categories}

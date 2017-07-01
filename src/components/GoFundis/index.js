@@ -72,7 +72,11 @@ function GoFundis(props) {
                                             ]
                                         }]
                                     }} />
-                                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-around'
+                                    }}>
                                         <div styleName="reparate_item">
                                             <div style={{
                                                 backgroundColor: '#c21f50',
@@ -159,7 +163,11 @@ function GoFundis(props) {
                                             ]
                                         }]
                                     }} />
-                                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-around'
+                                    }}>
                                         <div styleName="reparate_item">
                                             <div style={{
                                                 backgroundColor: '#f2ec2b',
@@ -246,11 +254,21 @@ function GoFundis(props) {
                             <div styleName="list_column_highcharts_large" style={{margin: 5}}>
                                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
                                     <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
-                                        <div style={{backgroundColor: '#c21f50', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{
+                                            backgroundColor: '#c21f50',
+                                            width: 15,
+                                            height: 15,
+                                            marginRight: 7
+                                        }} />
                                         <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
                                     </div>
                                     <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
-                                        <div style={{backgroundColor: '#1d5c51', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{
+                                            backgroundColor: '#1d5c51',
+                                            width: 15,
+                                            height: 15,
+                                            marginRight: 7
+                                        }} />
                                         <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
                                     </div>
                                 </div>
@@ -281,8 +299,8 @@ function GoFundis(props) {
                                     },
                                     xAxis: {
                                         categories:
-                                            ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                                        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                                            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
                                     },
                                     series: [{
                                         name: 'Approved',

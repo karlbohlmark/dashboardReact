@@ -88,11 +88,21 @@ function Tasks(props) {
                                 }} />
                                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
                                     <div styleName="reparate_item">
-                                        <div style={{backgroundColor: '#c6d92e', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{
+                                            backgroundColor: '#c6d92e',
+                                            width: 15,
+                                            height: 15,
+                                            marginRight: 7
+                                        }} />
                                         <div style={{fontSize: '12px', fontWeight: 300}}>Installations</div>
                                     </div>
                                     <div styleName="reparate_item">
-                                        <div style={{backgroundColor: '#6ebe46', width: 15, height: 15, marginRight: 7}} />
+                                        <div style={{
+                                            backgroundColor: '#6ebe46',
+                                            width: 15,
+                                            height: 15,
+                                            marginRight: 7
+                                        }} />
                                         <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
                                     </div>
                                 </div>
@@ -177,7 +187,7 @@ function Tasks(props) {
                                         <CircularProgressbar
                                             initialAnimation
                                             percentage={25}
-                                            textForPercentage={(pct) => ``}
+                                            textForPercentage={() => ''}
                                             strokeWidth={5}
                                         />
                                         <div styleName="inner">
@@ -203,7 +213,7 @@ function Tasks(props) {
                                         <CircularProgressbar
                                             initialAnimation
                                             percentage={45}
-                                            textForPercentage={(pct) => ``}
+                                            textForPercentage={() => ''}
                                             strokeWidth={5}
                                         />
                                         <div styleName="inner">
@@ -229,7 +239,7 @@ function Tasks(props) {
                                         <CircularProgressbar
                                             initialAnimation
                                             percentage={30}
-                                            textForPercentage={(pct) => ``}
+                                            textForPercentage={() => ''}
                                             strokeWidth={5}
                                         />
                                         <div styleName="inner">
@@ -263,7 +273,7 @@ function Tasks(props) {
                                         <CircularProgressbar
                                             initialAnimation
                                             percentage={25}
-                                            textForPercentage={(pct) => ``}
+                                            textForPercentage={() => ''}
                                             strokeWidth={5}
                                         />
                                         <div styleName="inner">
@@ -289,7 +299,7 @@ function Tasks(props) {
                                         <CircularProgressbar
                                             initialAnimation
                                             percentage={35}
-                                            textForPercentage={(pct) => ``}
+                                            textForPercentage={() => ''}
                                             strokeWidth={5}
                                         />
                                         <div styleName="inner">
@@ -315,7 +325,7 @@ function Tasks(props) {
                                         <CircularProgressbar
                                             initialAnimation
                                             percentage={40}
-                                            textForPercentage={(pct) => ``}
+                                            textForPercentage={() => ''}
                                             strokeWidth={5}
                                         />
                                         <div styleName="inner">
@@ -340,7 +350,11 @@ function Tasks(props) {
                         </div>
                     </div>
                     <div styleName="returning_subscribers">
-                        <div styleName="reparate_item_col" style={{textAlign: 'center', width: '10%', backgroundColor: '#8f9092'}}>
+                        <div styleName="reparate_item_col" style={{
+                            textAlign: 'center',
+                            width: '10%',
+                            backgroundColor: '#8f9092'
+                        }}>
                             <div styleName="small_text_panel">REPORTED</div>
                             <div styleName="small_text_panel">COMPLETED</div>
                         </div>
@@ -405,7 +419,8 @@ function Tasks(props) {
                             verticalAlign: 'middle'
                         },
                         xAxis: {
-                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
                         },
                         series: [{
                             name: 'Installations',
