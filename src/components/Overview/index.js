@@ -15,6 +15,11 @@ import {
     CATEGORY_REPAIR_INSTALL_SIGNAL
 } from 'models/googlemap';
 import {
+    COMPLETED_TASKS,
+    COMPLETED_TASKS_LINE,
+    GOFUNDIS
+} from 'models/highchartConfig';
+import {
     capitalize
 } from 'utils';
 import Highchart from 'react-highcharts/ReactHighcharts';
@@ -195,53 +200,7 @@ function Overview(props) {
                             }}>
                                 <div styleName='sub_container_header'>COMPLETED TASKS</div>
                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={{
-                                        credits: {
-                                            enabled: false
-                                        },
-                                        chart: {
-                                            plotBackgroundColor: null,
-                                            plotBorderWidth: 0,
-                                            plotShadow: false,
-                                            width: 180,
-                                            height: 180
-                                        },
-                                        colors: ['#6ebe46', '#c6d92e'],
-                                        title: {
-                                            text: '<strong>120</strong>',
-                                            style: { color: '#58585a', fontSize: '18px' },
-                                            align: 'center',
-                                            verticalAlign: 'middle',
-                                            y: 7
-                                        },
-                                        tooltip: {
-                                            // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                        },
-                                        plotOptions: {
-                                            pie: {
-                                                dataLabels: {
-                                                    enabled: false,
-                                                    distance: -50,
-                                                    style: {
-                                                        fontWeight: 'bold',
-                                                        color: 'white'
-                                                    }
-                                                },
-                                                startAngle: 0,
-                                                endAngle: 360,
-                                                center: ['50%', '50%']
-                                            }
-                                        },
-                                        series: [{
-                                            type: 'pie',
-                                            name: '',
-                                            innerSize: '70%',
-                                            data: [
-                                                ['Repair Services', 40.00],
-                                                ['Installations', 60.00]
-                                            ]
-                                        }]
-                                    }} />
+                                    <Highchart config={COMPLETED_TASKS} />
                                     <div style={{
                                         display: 'flex',
                                         flexDirection: 'row',
@@ -276,53 +235,7 @@ function Overview(props) {
                             }}>
                                 <div styleName='sub_container_header'>GOFUNDIS</div>
                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={{
-                                        credits: {
-                                            enabled: false
-                                        },
-                                        chart: {
-                                            plotBackgroundColor: null,
-                                            plotBorderWidth: 0,
-                                            plotShadow: false,
-                                            width: 180,
-                                            height: 180
-                                        },
-                                        colors: ['#1d5c51', '#c21f50'],
-                                        title: {
-                                            text: '<strong>250</strong>',
-                                            style: { color: '#58585a', fontSize: '18px' },
-                                            align: 'center',
-                                            verticalAlign: 'middle',
-                                            y: 7
-                                        },
-                                        tooltip: {
-                                            // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                        },
-                                        plotOptions: {
-                                            pie: {
-                                                dataLabels: {
-                                                    enabled: false,
-                                                    distance: -50,
-                                                    style: {
-                                                        fontWeight: 'bold',
-                                                        color: 'white'
-                                                    }
-                                                },
-                                                startAngle: 0,
-                                                endAngle: 360,
-                                                center: ['50%', '50%']
-                                            }
-                                        },
-                                        series: [{
-                                            type: 'pie',
-                                            name: '',
-                                            innerSize: '70%',
-                                            data: [
-                                                ['Onboarding', 15.00],
-                                                ['Approved', 85.00]
-                                            ]
-                                        }]
-                                    }} />
+                                    <Highchart config={GOFUNDIS} />
                                     <div style={{
                                         display: 'flex',
                                         flexDirection: 'row',
@@ -377,40 +290,7 @@ function Overview(props) {
                             <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
                         </div>
                     </div>
-                    <Highchart config={{
-                        credits: {
-                            enabled: false
-                        },
-                        colors: ['#6ebe46', '#c6d92e'],
-                        title: {
-                            text: ''
-                        },
-                        subtitle: {
-                            text: ''
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Tasks'
-                            }
-                        },
-                        legend: {
-                            enabled: false,
-                            layout: 'vertical',
-                            align: 'right',
-                            verticalAlign: 'middle'
-                        },
-                        xAxis: {
-                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-                        },
-                        series: [{
-                            name: 'Installations',
-                            data: [49, 55, 51, 66, 90, 199, 171, 241]
-                        }, {
-                            name: 'Repair Services',
-                            data: [29, 40, 97, 21, 20, 22, 31, 44]
-                        }]
-                    }} />
+                    <Highchart config={COMPLETED_TASKS_LINE} />
                 </div>
                 <div styleName='users_container'>
                     <div styleName='user_container_header'>TASK STATUS</div>

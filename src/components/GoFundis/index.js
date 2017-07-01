@@ -1,6 +1,12 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
+import {
+    GOFUNDIS,
+    APPROVED_GOFUNDIS,
+    NUMBER_OF_GOFUNDIS,
+    LIVE_ACTIVE_GOFUNDIS
+} from 'models/highchartConfig';
 import FIcon from 'react-fontawesome';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
@@ -25,53 +31,7 @@ function GoFundis(props) {
                                 <div styleName='sub_container_header'>GOFUNDIS</div>
                                 <div styleName="list_column_itemSmall" style={{textAlign: 'center'}}>&nbsp;</div>
                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={{
-                                        credits: {
-                                            enabled: false
-                                        },
-                                        chart: {
-                                            plotBackgroundColor: null,
-                                            plotBorderWidth: 0,
-                                            plotShadow: false,
-                                            width: 180,
-                                            height: 180
-                                        },
-                                        colors: ['#1d5c51', '#c21f50'],
-                                        title: {
-                                            text: '<strong>250</strong>',
-                                            style: { color: '#58585a', fontSize: '18px' },
-                                            align: 'center',
-                                            verticalAlign: 'middle',
-                                            y: 7
-                                        },
-                                        tooltip: {
-                                            // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                        },
-                                        plotOptions: {
-                                            pie: {
-                                                dataLabels: {
-                                                    enabled: false,
-                                                    distance: -50,
-                                                    style: {
-                                                        fontWeight: 'bold',
-                                                        color: 'white'
-                                                    }
-                                                },
-                                                startAngle: 0,
-                                                endAngle: 360,
-                                                center: ['50%', '50%']
-                                            }
-                                        },
-                                        series: [{
-                                            type: 'pie',
-                                            name: '',
-                                            innerSize: '70%',
-                                            data: [
-                                                ['Onboarding', 15.00],
-                                                ['Approved', 85.00]
-                                            ]
-                                        }]
-                                    }} />
+                                    <Highchart config={GOFUNDIS} />
                                     <div style={{
                                         display: 'flex',
                                         flexDirection: 'row',
@@ -116,53 +76,7 @@ function GoFundis(props) {
                                     }} />
                                 </div>
                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={{
-                                        credits: {
-                                            enabled: false
-                                        },
-                                        chart: {
-                                            plotBackgroundColor: null,
-                                            plotBorderWidth: 0,
-                                            plotShadow: false,
-                                            width: 180,
-                                            height: 180
-                                        },
-                                        colors: ['#f5ab33', '#f2ec2b'],
-                                        title: {
-                                            text: '<strong>200</strong>',
-                                            style: { color: '#58585a', fontSize: '18px' },
-                                            align: 'center',
-                                            verticalAlign: 'middle',
-                                            y: 7
-                                        },
-                                        tooltip: {
-                                            // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                        },
-                                        plotOptions: {
-                                            pie: {
-                                                dataLabels: {
-                                                    enabled: false,
-                                                    distance: -50,
-                                                    style: {
-                                                        fontWeight: 'bold',
-                                                        color: 'white'
-                                                    }
-                                                },
-                                                startAngle: 0,
-                                                endAngle: 360,
-                                                center: ['50%', '50%']
-                                            }
-                                        },
-                                        series: [{
-                                            type: 'pie',
-                                            name: '',
-                                            innerSize: '70%',
-                                            data: [
-                                                ['Online', 80.00],
-                                                ['Offline', 20.00]
-                                            ]
-                                        }]
-                                    }} />
+                                    <Highchart config={APPROVED_GOFUNDIS} />
                                     <div style={{
                                         display: 'flex',
                                         flexDirection: 'row',
@@ -272,44 +186,7 @@ function GoFundis(props) {
                                         <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
                                     </div>
                                 </div>
-                                <Highchart config={{
-                                    credits: {
-                                        enabled: false
-                                    },
-                                    colors: ['#1d5c51', '#c21f50'],
-                                    chart: {
-                                        height: 190
-                                    },
-                                    title: {
-                                        text: ''
-                                    },
-                                    subtitle: {
-                                        text: ''
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: 'GoFundis'
-                                        }
-                                    },
-                                    legend: {
-                                        enabled: false,
-                                        layout: 'vertical',
-                                        align: 'right',
-                                        verticalAlign: 'middle'
-                                    },
-                                    xAxis: {
-                                        categories:
-                                        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                                            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-                                    },
-                                    series: [{
-                                        name: 'Approved',
-                                        data: [49, 55, 51, 66, 90, 199, 171, 241]
-                                    }, {
-                                        name: 'Onboarding',
-                                        data: [29, 40, 97, 21, 20, 22, 31, 44]
-                                    }]
-                                }} />
+                                <Highchart config={NUMBER_OF_GOFUNDIS} />
                             </div>
                         </div>
                         <div style={{ backgroundColor: '#fff', padding: 10, width: '29%'}}>
@@ -325,72 +202,7 @@ function GoFundis(props) {
                                 }} />
                             </div>
                             <div styleName="list_column_highcharts_large" style={{margin: 5}}>
-                                <Highchart config={{
-                                    credits: {
-                                        enabled: false
-                                    },
-                                    colors: ['#cc6631'],
-                                    chart: {
-                                        type: 'column',
-                                        height: 190
-                                    },
-                                    title: {
-                                        text: ''
-                                    },
-                                    subtitle: {
-                                        text: ''
-                                    },
-                                    xAxis: {
-                                        type: 'category'
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: ''
-                                        }
-
-                                    },
-                                    legend: {
-                                        enabled: false
-                                    },
-                                    plotOptions: {
-                                        series: {
-                                            borderWidth: 0,
-                                            dataLabels: {
-                                                enabled: true
-                                                // format: '{point.y:.1f}%'
-                                            }
-                                        }
-                                    },
-
-                                    tooltip: {
-                                        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                                        pointFormat:
-                                        '<span style="color:{point.color}">{point.name}</span>:' +
-                                        ' <b>{point.y:.2f}</b><br/>'
-                                    },
-
-                                    series: [{
-                                        name: 'Area',
-                                        colorByPoint: false,
-                                        data: [{
-                                            name: '-1 hr',
-                                            y: 150,
-                                            drilldown: null
-                                        }, {
-                                            name: '-10 min',
-                                            y: 53,
-                                            drilldown: null
-                                        }, {
-                                            name: '-5 min',
-                                            y: 203,
-                                            drilldown: null
-                                        }, {
-                                            name: 'Now',
-                                            y: 186,
-                                            drilldown: null
-                                        }]
-                                    }]
-                                }} />
+                                <Highchart config={LIVE_ACTIVE_GOFUNDIS} />
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
+import {
+    SUBSCRIBERS_SHARE_PER_AREA
+} from 'models/highchartConfig';
 import FIcon from 'react-fontawesome';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
@@ -99,76 +102,7 @@ function Subscribers(props) {
                         <div style={{width: '270px'}}>
                             <div styleName='sub_container_header'>SUBSCRIBERS SHARE PER AREA</div>
                             <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                <Highchart config={{
-                                    credits: {
-                                        enabled: false
-                                    },
-                                    colors: ['#cc6631'],
-                                    chart: {
-                                        type: 'column',
-                                        width: 230,
-                                        height: 230
-                                    },
-                                    title: {
-                                        text: ''
-                                    },
-                                    subtitle: {
-                                        text: ''
-                                    },
-                                    xAxis: {
-                                        type: 'category'
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: ''
-                                        }
-
-                                    },
-                                    legend: {
-                                        enabled: false
-                                    },
-                                    plotOptions: {
-                                        series: {
-                                            borderWidth: 0,
-                                            dataLabels: {
-                                                enabled: true
-                                                // format: '{point.y:.1f}%'
-                                            }
-                                        }
-                                    },
-
-                                    tooltip: {
-                                        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                                        pointFormat: '<span style="color:{point.color}">{point.name}</span>:' +
-                                        ' <b>{point.y:.2f}</b><br/>'
-                                    },
-
-                                    series: [{
-                                        name: 'Area',
-                                        colorByPoint: false,
-                                        data: [{
-                                            name: 'Livington',
-                                            y: 15800,
-                                            drilldown: null
-                                        }, {
-                                            name: 'Westlands',
-                                            y: 5323,
-                                            drilldown: null
-                                        }, {
-                                            name: 'Kibra',
-                                            y: 2963,
-                                            drilldown: null
-                                        }, {
-                                            name: 'Kiambu',
-                                            y: 1286,
-                                            drilldown: null
-                                        }, {
-                                            name: 'Ruaka',
-                                            y: 3265,
-                                            drilldown: null
-                                        }]
-                                    }]
-                                }} />
+                                <Highchart config={SUBSCRIBERS_SHARE_PER_AREA} />
                             </div>
                         </div>
                     </div>
