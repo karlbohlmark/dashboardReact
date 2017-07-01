@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import FIcon from 'react-fontawesome';
 import CheckBoxItem from 'components/CheckBoxItem';
@@ -48,6 +48,10 @@ function UserPanel(props) {
 }
 
 UserPanel.propTypes = {
+    users: PropTypes.object.isRequired,
+    gofundisHandler: PropTypes.func.isRequired,
+    subscriberHandler: PropTypes.func.isRequired,
+    allHandler: PropTypes.func.isRequired
 };
 
 export default CSSModules(UserPanel, styles);

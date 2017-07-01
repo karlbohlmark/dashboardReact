@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import GoogleMap from 'google-map-react';
 
@@ -125,6 +125,7 @@ class SegmentMapSubscribers extends React.Component {
     }
 }
 SegmentMapSubscribers.propTypes = {
+    data: PropTypes.array.isRequired
 };
 
 export default CSSModules(SegmentMapSubscribers, styles);

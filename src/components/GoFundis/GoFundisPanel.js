@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import FIcon from 'react-fontawesome';
 import CheckBoxItem from 'components/CheckBoxItem';
@@ -48,6 +48,11 @@ function GoFundisPanel(props) {
 }
 
 GoFundisPanel.propTypes = {
+    goFundis: PropTypes.object.isRequired,
+
+    onAllStatusHandler: PropTypes.func.isRequired,
+    onOnlineStatusHandler: PropTypes.func.isRequired,
+    onOfflineStatusHandler: PropTypes.func.isRequired
 };
 
 export default CSSModules(GoFundisPanel, styles);

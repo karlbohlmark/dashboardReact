@@ -414,8 +414,13 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    goFundis: PropTypes.object.isRequired,
+    categories: PropTypes.object.isRequired,
+
     onChangeCategoryHandler: PropTypes.func.isRequired,
-    categories: PropTypes.object.isRequired
+    onOfflineStatusHandler: PropTypes.func.isRequired,
+    onOnlineStatusHandler: PropTypes.func.isRequired,
+    onAllStatusHandler: PropTypes.func.isRequired
 };
 
 export default CSSModules(GoFundis, styles);

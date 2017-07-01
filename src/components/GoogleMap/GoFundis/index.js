@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import GoogleMap from 'google-map-react';
 import {
@@ -137,6 +137,8 @@ class SegmentMapGoFundis extends React.Component {
     }
 }
 SegmentMapGoFundis.propTypes = {
+    goFundis: PropTypes.object.isRequired,
+    data: PropTypes.array.isRequired
 };
 
 export default CSSModules(SegmentMapGoFundis, styles);

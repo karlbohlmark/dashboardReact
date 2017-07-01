@@ -22,7 +22,7 @@ export function getMiddlewares() {
 }
 
 function getPreloadedState() {
-    // FIXME
+
     // if ('__REDUX_DEVTOOLS_EXTENSION__' in window) {
     //     return window.__REDUX_DEVTOOLS_EXTENSION__();
     // }

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class Root extends Component {
+class Root extends Component {
     render() {
         return (
             <div>
@@ -9,3 +9,7 @@ export default class Root extends Component {
         );
     }
 }
+Root.propTypes = {
+    children: PropTypes.object.isRequired
+};
+export default Root;

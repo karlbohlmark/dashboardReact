@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import FIcon from 'react-fontawesome';
 import CSSModules from 'react-css-modules';
 import {
@@ -104,5 +104,6 @@ class MapMark extends React.Component {
     }
 }
 MapMark.propTypes = {
+    type: PropTypes.string.isRequired
 };
 export default CSSModules(MapMark, styles);

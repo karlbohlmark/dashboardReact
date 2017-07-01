@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
@@ -462,6 +462,15 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    categories: PropTypes.object.isRequired,
+    onChangeCategoryHandler: PropTypes.func.isRequired,
+    tasks: PropTypes.object.isRequired,
+    onChangeTaskStatusHandler: PropTypes.func.isRequired,
+    users: PropTypes.object.isRequired,
+    allHandler: PropTypes.func.isRequired,
+    subscriberHandler: PropTypes.func.isRequired,
+    gofundisHandler: PropTypes.func.isRequired
+
 };
 
 export default CSSModules(Overview, styles);
