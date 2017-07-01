@@ -1,13 +1,4 @@
 export {
-    denormalize
-} from './denormalize';
-export {
-    filterMap
-} from './filter-map';
-export {
-    find
-} from './find';
-export {
     formatDate
 } from './format-date';
 export {
@@ -17,14 +8,14 @@ export {
     head
 } from './head';
 export {
+    second
+} from './second';
+export {
     last
 } from './last';
 export {
     maybeFromString
 } from './maybe-from-string';
-export {
-    second
-} from './second';
 export {
     toFloat
 } from './to-float';
@@ -32,5 +23,6 @@ export {
     toInt
 } from './to-int';
 export {
-    dataURItoBlob as toBlob
+    dataURItoBlob as toBlob,
+    imageAsset as toImageAsset
 } from './to-blob';

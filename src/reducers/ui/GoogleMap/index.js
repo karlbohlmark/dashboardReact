@@ -2,15 +2,13 @@ import {
     Nothing,
     Just
 } from 'data.maybe';
-// import {
-//     get
-// } from 'utils';
 import {
     SHOW_USERS,
     SHOW_TASKS,
     SHOW_CATEGORY,
     SHOW_GOFUNDIS
 } from 'actions/ui/GoogleMap/';
+
 export const initialState = {
     users: Nothing(),
     tasks: Nothing(),

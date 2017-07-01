@@ -5,9 +5,7 @@ import {
 import {
     Navbar,
     Nav,
-    NavItem,
-    NavDropdown,
-    MenuItem
+    NavItem
 } from 'react-bootstrap';
 import CSSModules from 'react-css-modules';
 

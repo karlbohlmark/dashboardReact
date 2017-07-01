@@ -1,11 +1,5 @@
 import React, { PropTypes } from 'react';
-import {
-    Button,
-    Glyphicon,
-    FormGroup,
-    ControlLabel
-} from 'react-bootstrap';
-import Autosuggest, { ItemAdapter } from 'react-bootstrap-autosuggest'
+import Autosuggest, { ItemAdapter } from 'react-bootstrap-autosuggest';
 
 
 const states = [
@@ -74,9 +68,10 @@ class StateAdapter extends ItemAdapter {
         return item.textReps;
     }
     renderItem(item) {
-        return (<div className="state-item">
-            {item.name}<span className="abbrev">{item.abbr}</span>
-        </div>);
+        return (
+            <div className="state-item">
+                {item.name}&nbsp;<span className="abbrev">{item.abbr}</span>
+            </div>);
     }
 }
 StateAdapter.instance = new StateAdapter();

@@ -11,10 +11,10 @@ import {
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import FIcon from 'react-fontawesome';
-// var ReactHighcharts = require('react-highcharts');
-// var HighchartsMore = require('highcharts-more');
+// const ReactHighcharts = require('react-highcharts');
+// const HighchartsMore = require('highcharts-more');
 // HighchartsMore(ReactHighcharts.Highcharts);
-// var HighchartsExporting = require('highcharts-exporting');
+// const HighchartsExporting = require('highcharts-exporting');
 // HighchartsExporting(ReactHighcharts.Highcharts);
 import CircularProgressbar from 'react-circular-progressbar';
 import SelectBoxItem from 'components/SelectBoxItem';
