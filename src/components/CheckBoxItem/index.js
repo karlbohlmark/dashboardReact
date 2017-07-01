@@ -34,7 +34,7 @@ function CheckBoxItem(props) {
 }
 
 CheckBoxItem.propTypes = {
-    // children: PropTypes.array.isRequired,
+    children: PropTypes.string,
 
     value: PropTypes.bool.isRequired,
     onChange: PropTypes.func.isRequired

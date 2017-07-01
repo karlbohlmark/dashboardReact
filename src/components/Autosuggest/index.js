@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Autosuggest, { ItemAdapter } from 'react-bootstrap-autosuggest';
 
 
@@ -76,7 +76,7 @@ class StateAdapter extends ItemAdapter {
 }
 StateAdapter.instance = new StateAdapter();
 
-export default function AutosuggestItem({ stateValue, onChange, onSelect }) {
+function AutosuggestItem({ stateValue, onChange, onSelect }) {
     return (
         <div>
             <Autosuggest
@@ -91,3 +91,10 @@ export default function AutosuggestItem({ stateValue, onChange, onSelect }) {
         </div>
     );
 }
+
+AutosuggestItem.propTypes = {
+    stateValue: PropTypes.string,
+    onChange: PropTypes.func,
+    onSelect: PropTypes.func
+};
+export default AutosuggestItem;
