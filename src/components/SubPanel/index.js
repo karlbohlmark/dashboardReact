@@ -9,11 +9,13 @@ import {
     CATEGORY_REPAIR_INSTALL_DECODER,
     CATEGORY_REPAIR_INSTALL_SIGNAL
 } from 'models/googlemap';
+import {
+    capitalize
+} from 'utils';
 import SelectBoxItem from 'components/SelectBoxItem';
 import DateRangePickerItem from 'components/DateRangePickerItem';
 import Autosuggest from 'components/Autosuggest';
 
-const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toLowerCase();
 
 function SubPanel(props) {
     return (

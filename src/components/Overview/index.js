@@ -14,6 +14,9 @@ import {
     CATEGORY_REPAIR_INSTALL_DECODER,
     CATEGORY_REPAIR_INSTALL_SIGNAL
 } from 'models/googlemap';
+import {
+    capitalize
+} from 'utils';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoogleMapUsers from 'components/GoogleMap';
 import SubPanel from 'components/SubPanel';
@@ -26,7 +29,6 @@ import dataMapMarkerUsers from 'data/dataMapMarker';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
 
-const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toLowerCase();
 
 function Overview(props) {
     return (

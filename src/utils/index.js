@@ -24,5 +24,6 @@ export {
 } from './to-int';
 export {
     dataURItoBlob as toBlob,
-    imageAsset as toImageAsset
+    imageAsset as toImageAsset,
+    capitalize
 } from './to-blob';

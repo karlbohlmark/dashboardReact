@@ -42,3 +42,4 @@ export const imageAsset = curry(
         return Just({ width, height });
     }
 );
+export const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toLowerCase();
