@@ -1,0 +1,28 @@
+.list_row_reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+.list_item_number{
+    font-size: 22px;
+    font-weight: 500;
+    color: #f47423;
+    text-align: right;
+}
+.list_columnItemStart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 15px;
+}
+.list_column_item {
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.list_column_itemSmall {
+    font-size: 8px;
+    font-weight: 300;
+}
