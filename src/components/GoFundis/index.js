@@ -8,6 +8,7 @@ import {
     LIVE_ACTIVE_GOFUNDIS
 } from 'models/highchartConfig';
 import IconLoop from 'components/IconLoop';
+import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import LegendRow from 'components/ListItem/LegendRow';
 import ListRow from 'components/ListItem/ListRow';
@@ -25,8 +26,7 @@ function GoFundis(props) {
                 onChangeCategory={props.onChangeCategoryHandler}
             />
             <div styleName='root'>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>HIGHLIGHTS</div>
+                <Substrate title={'HIGHLIGHTS'}>
                     <div styleName="returning_subscribers">
                         <div>
                             <div style={{textAlign: 'center', backgroundColor: '#fff'}}>
@@ -130,7 +130,7 @@ function GoFundis(props) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Substrate>
                 <div styleName='users_container_empty'>
                     <div styleName="returning_subscribers">
                         <div style={{ backgroundColor: '#fff', padding: 10, width: '69%'}}>
@@ -167,8 +167,7 @@ function GoFundis(props) {
                         </div>
                     </div>
                 </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>ACTIVE GO FUNDIS</div>
+                <Substrate title={'ACTIVE GO FUNDIS'}>
                     <GoFundisPanel
                         goFundis={props.goFundis}
                         onOfflineStatusHandler={props.onOfflineStatusHandler}
@@ -179,7 +178,7 @@ function GoFundis(props) {
                         goFundis={props.goFundis}
                         data={dataMapMarkerGoFundis}
                     />
-                </div>
+                </Substrate>
             </div>
         </div>
     );

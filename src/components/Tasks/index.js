@@ -15,6 +15,7 @@ import {
 import {
     capitalize
 } from 'utils';
+import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import FIcon from 'react-fontawesome';
@@ -40,8 +41,7 @@ function Tasks(props) {
                 onChangeCategory={props.onChangeCategoryHandler}
             />
             <div styleName='root'>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>HIGHLIGHTS</div>
+                <Substrate title={'HIGHLIGHTS'}>
                     <div styleName="returning_subscribers">
                         <div style={{textAlign: 'center'}}>
                             <div styleName='sub_container_header'>COMPLETED TASKS</div>
@@ -106,7 +106,7 @@ function Tasks(props) {
                             />
                         </div>
                     </div>
-                </div>
+                </Substrate>
                 <div styleName='users_container_empty'>
                     <div styleName='user_container_header'>CATEGORY BREAKDOWN OF COMPLETED TASKS</div>
 
@@ -253,12 +253,11 @@ function Tasks(props) {
                         </div>
                     </div>
                 </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>COMPLETED TASKS</div>
+                <Substrate title={'COMPLETED TASKS'}>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
                         <LegendRow
-                           color={'#c6d92e'}
-                           title={'Installations'}
+                            color={'#c6d92e'}
+                            title={'Installations'}
                         />
                         <LegendRow
                             color={'#6ebe46'}
@@ -266,9 +265,8 @@ function Tasks(props) {
                         />
                     </div>
                     <Highchart config={COMPLETED_TASKS_LINE} />
-                </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>TASK STATUS</div>
+                </Substrate>
+                <Substrate title={'TASK STATUS'}>
                     <SelectBoxItem
                         options={[
                             { value: TASK_STATYS_COMPLETED, label: capitalize(TASK_STATYS_COMPLETED) },
@@ -285,7 +283,7 @@ function Tasks(props) {
                         tasks={props.tasks}
                         data={dataMapMarkerTasks}
                     />
-                </div>
+                </Substrate>
             </div>
         </div>
 

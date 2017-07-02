@@ -5,6 +5,7 @@ import {
     SUBSCRIBERS_SHARE_PER_AREA
 } from 'models/highchartConfig';
 import IconLoop from 'components/IconLoop';
+import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
@@ -20,8 +21,7 @@ function Subscribers(props) {
                 onChangeCategory={props.onChangeCategoryHandler}
             />
             <div styleName='root'>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>HIGHLIGHTS</div>
+                <Substrate title={'HIGHLIGHTS'}>
                     <div styleName="returning_subscribers">
                         <div>
                             <div styleName='sub_container_header'>RATING BREAKDOWN</div>
@@ -73,10 +73,9 @@ function Subscribers(props) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Substrate>
 
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>RETURNING SUBSCRIBERS</div>
+                <Substrate title={'RETURNING SUBSCRIBERS'}>
                     <div styleName="returning_subscribers">
                         <div styleName="list_column">
                             <ListRow
@@ -128,9 +127,9 @@ function Subscribers(props) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>SUBSCRIBERS</div>
+                </Substrate>
+
+                <Substrate title={'SUBSCRIBERS'}>
                     <div style={{
                         marginTop: 10,
                         marginBottom: 10
@@ -139,8 +138,7 @@ function Subscribers(props) {
                             data={dataMapMarkerSubscribers}
                         />
                     </div>
-
-                </div>
+                </Substrate>
             </div>
         </div>
     );

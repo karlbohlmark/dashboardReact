@@ -9,13 +9,6 @@
         composes: root;
     }
 }
-
-.users_container {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 25px;
-
-}
 .sub_container_header {
     font-size: 16px;
     font-weight: 300;
@@ -42,13 +35,6 @@
     padding: 15px;
     margin-bottom: 25px;
 
-}
-.user_container_header {
-    font-size: 24px;
-    font-weight: 300;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-decoration: underline;
 }
 .inline_items{
     display: flex;
