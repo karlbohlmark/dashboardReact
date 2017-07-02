@@ -23,6 +23,7 @@ import FIcon from 'react-fontawesome';
 // HighchartsMore(ReactHighcharts.Highcharts);
 // const HighchartsExporting = require('highcharts-exporting');
 // HighchartsExporting(ReactHighcharts.Highcharts);
+import LegendRow from 'components/ListItem/LegendRow';
 import ListRowReverse from 'components/ListItem/ListRowReverse';
 import CircularChart from './CircularChart';
 import SelectBoxItem from 'components/SelectBoxItem';
@@ -47,24 +48,14 @@ function Tasks(props) {
                             <div styleName="list_column_highcharts">
                                 <Highchart config={COMPLETED_TASKS} />
                                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
-                                    <div styleName="reparate_item">
-                                        <div style={{
-                                            backgroundColor: '#c6d92e',
-                                            width: 15,
-                                            height: 15,
-                                            marginRight: 7
-                                        }} />
-                                        <div style={{fontSize: '12px', fontWeight: 300}}>Installations</div>
-                                    </div>
-                                    <div styleName="reparate_item">
-                                        <div style={{
-                                            backgroundColor: '#6ebe46',
-                                            width: 15,
-                                            height: 15,
-                                            marginRight: 7
-                                        }} />
-                                        <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
-                                    </div>
+                                    <LegendRow
+                                        color={'#c6d92e'}
+                                        title={'Installations'}
+                                    />
+                                    <LegendRow
+                                        color={'#6ebe46'}
+                                        title={'Repair Services'}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -265,14 +256,14 @@ function Tasks(props) {
                 <div styleName='users_container'>
                     <div styleName='user_container_header'>COMPLETED TASKS</div>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
-                            <div style={{backgroundColor: '#c6d92e', width: 15, height: 15, marginRight: 7}} />
-                            <div style={{fontSize: '12px', fontWeight: 300}}>Installations</div>
-                        </div>
-                        <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
-                            <div style={{backgroundColor: '#6ebe46', width: 15, height: 15, marginRight: 7}} />
-                            <div style={{fontSize: '12px', fontWeight: 300}}>Repair Services</div>
-                        </div>
+                        <LegendRow
+                           color={'#c6d92e'}
+                           title={'Installations'}
+                        />
+                        <LegendRow
+                            color={'#6ebe46'}
+                            title={'Repair Services'}
+                        />
                     </div>
                     <Highchart config={COMPLETED_TASKS_LINE} />
                 </div>
