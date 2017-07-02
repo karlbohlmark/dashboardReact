@@ -30,22 +30,11 @@
     color: #f47423;
     text-align: center;
 }
-.reparate_item {
-    display: flex;
-    flex-direction: row;
-}
 .users_container {
     background-color: #fff;
     padding: 15px;
     margin-bottom: 25px;
 
-}
-.users_container_row {
-    background-color: #fff;
-    padding: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 .sub_container_header {
     font-size: 16px;
@@ -81,11 +70,6 @@
     margin-bottom: 0;
     text-decoration: underline;
 }
-.user_container_header_bold {
-    font-size: 24px;
-    font-weight: 400;
-
-}
 .inline_items{
     display: flex;
     flex-direction: row;
@@ -96,31 +80,4 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
-}
-.image {
-    display: block;
-    size: 100% *;
-    padding: 100% * *;
-    background: #ddd center / cover;
-}
-
-.placeholder {
-    composes: image;
-    position: relative;
-}
-
-.icon {
-    position: absolute 0;
-    size: 1em;
-    margin: auto;
-    color: #aaa;
-}
-
-.title,
-.description {
-    .root_compact & {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
 }
