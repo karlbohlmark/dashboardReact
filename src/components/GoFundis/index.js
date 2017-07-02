@@ -9,6 +9,7 @@ import {
 } from 'models/highchartConfig';
 import IconLoop from 'components/IconLoop';
 import SubPanel from 'components/SubPanel';
+import LegendRow from 'components/ListItem/LegendRow';
 import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisPanel from 'components/GoFundis/GoFundisPanel';
@@ -38,22 +39,14 @@ function GoFundis(props) {
                                         flexDirection: 'row',
                                         justifyContent: 'space-around'
                                     }}>
-                                        <div styleName="reparate_item">
-                                            <div style={{
-                                                backgroundColor: '#c21f50',
-                                                width: 15,
-                                                height: 15,
-                                                marginRight: 7}} />
-                                            <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
-                                        </div>
-                                        <div styleName="reparate_item">
-                                            <div style={{
-                                                backgroundColor: '#1d5c51',
-                                                width: 15,
-                                                height: 15,
-                                                marginRight: 7}} />
-                                            <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
-                                        </div>
+                                        <LegendRow
+                                            color={'#c21f50'}
+                                            title={'Approved'}
+                                        />
+                                        <LegendRow
+                                            color={'#1d5c51'}
+                                            title={'Onboarding'}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -83,21 +76,14 @@ function GoFundis(props) {
                                         flexDirection: 'row',
                                         justifyContent: 'space-around'
                                     }}>
-                                        <div styleName="reparate_item">
-                                            <div style={{
-                                                backgroundColor: '#f2ec2b',
-                                                width: 15,
-                                                height: 15,
-                                                marginRight: 7}} />
-                                            <div style={{fontSize: '12px', fontWeight: 300}}>Offline</div>
-                                        </div>
-                                        <div styleName="reparate_item">
-                                            <div style={{backgroundColor: '#f5ab33',
-                                                width: 15,
-                                                height: 15,
-                                                marginRight: 7}} />
-                                            <div style={{fontSize: '12px', fontWeight: 300}}>Online</div>
-                                        </div>
+                                        <LegendRow
+                                            color={'#f2ec2b'}
+                                            title={'Offline'}
+                                        />
+                                        <LegendRow
+                                            color={'#f5ab33'}
+                                            title={'Online'}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -151,24 +137,14 @@ function GoFundis(props) {
                             <div styleName='sub_container_header'>NUMBER OF GOFUNDIS</div>
                             <div styleName="list_column_highcharts_large" style={{margin: 5}}>
                                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                                    <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
-                                        <div style={{
-                                            backgroundColor: '#c21f50',
-                                            width: 15,
-                                            height: 15,
-                                            marginRight: 7
-                                        }} />
-                                        <div style={{fontSize: '12px', fontWeight: 300}}>Approved</div>
-                                    </div>
-                                    <div styleName="reparate_item" style={{marginLeft: 5, marginRight: 5}}>
-                                        <div style={{
-                                            backgroundColor: '#1d5c51',
-                                            width: 15,
-                                            height: 15,
-                                            marginRight: 7
-                                        }} />
-                                        <div style={{fontSize: '12px', fontWeight: 300}}>Onboarding</div>
-                                    </div>
+                                    <LegendRow
+                                        color={'#c21f50'}
+                                        title={'Approved'}
+                                    />
+                                    <LegendRow
+                                        color={'#1d5c51'}
+                                        title={'Onboarding'}
+                                    />
                                 </div>
                                 <Highchart config={NUMBER_OF_GOFUNDIS} />
                             </div>
