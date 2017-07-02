@@ -37,10 +37,6 @@
     align-items: center;
     justify-content: center;
 }
-.reparate_item {
-    display: flex;
-    flex-direction: row;
-}
 .users_container {
     background-color: #fff;
     padding: 15px;
