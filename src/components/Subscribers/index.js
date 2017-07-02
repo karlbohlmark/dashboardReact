@@ -27,36 +27,26 @@ function Subscribers(props) {
                             <div styleName='sub_container_header'>RATING BREAKDOWN</div>
                             <div styleName="reparate_item">
                                 <div styleName="list_column" style={{marginRight: 20}}>
-                                    <div styleName="list_row">
-                                        <IconLoop number={5} name={'star'} />
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> 1.000</div>
-                                        </div>
-                                    </div>
-                                    <div styleName="list_row">
-                                        <IconLoop number={4} name={'star'} />
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> 995</div>
-                                        </div>
-                                    </div>
-                                    <div styleName="list_row">
-                                        <IconLoop number={3} name={'star'} />
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> 200</div>
-                                        </div>
-                                    </div>
-                                    <div styleName="list_row">
-                                        <IconLoop number={2} name={'star'} />
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> 10</div>
-                                        </div>
-                                    </div>
-                                    <div styleName="list_row">
-                                        <IconLoop name={'star'} />
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> 2</div>
-                                        </div>
-                                    </div>
+                                    <ListRow
+                                        leftItem={<IconLoop number={5} name={'star'} />}
+                                        item={'1.000'}
+                                    />
+                                    <ListRow
+                                        leftItem={<IconLoop number={4} name={'star'} />}
+                                        item={995}
+                                    />
+                                    <ListRow
+                                        leftItem={<IconLoop number={3} name={'star'} />}
+                                        item={200}
+                                    />
+                                    <ListRow
+                                        leftItem={<IconLoop number={2} name={'star'} />}
+                                        item={10}
+                                    />
+                                    <ListRow
+                                        leftItem={<IconLoop name={'star'} />}
+                                        item={2}
+                                    />
                                 </div>
                                 <div styleName="list_column" style={{marginLeft: 20}}>
                                     <ListRow

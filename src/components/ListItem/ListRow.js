@@ -37,7 +37,8 @@ ListRow.propTypes = {
     ]),
     item: PropTypes.oneOfType([
         React.PropTypes.element,
-        React.PropTypes.string
+        React.PropTypes.string,
+        React.PropTypes.number
     ]),
     subItem: PropTypes.oneOfType([
         React.PropTypes.element,
