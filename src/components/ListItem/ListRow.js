@@ -4,7 +4,7 @@ import styles from './styles.css';
 
 
 const ListRow = props => (
-    <div styleName="list_row">
+    <div styleName="list_row" style={props.style ? props.style : null}>
         {
             props.leftItem ?
                 <div
@@ -29,6 +29,7 @@ const ListRow = props => (
 );
 
 ListRow.propTypes = {
+    style: React.PropTypes.object,
     styleLeftItem: React.PropTypes.object,
     leftItem: PropTypes.oneOfType([
         React.PropTypes.element,

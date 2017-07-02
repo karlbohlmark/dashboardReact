@@ -9,6 +9,7 @@ import {
 } from 'models/highchartConfig';
 import IconLoop from 'components/IconLoop';
 import SubPanel from 'components/SubPanel';
+import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisPanel from 'components/GoFundis/GoFundisPanel';
 import GoogleMapGoFundis from 'components/GoogleMap/GoFundis';
@@ -104,52 +105,41 @@ function GoFundis(props) {
                         <div>
                             <div styleName="reparate_item">
                                 <div styleName="list_column" style={{marginLeft: 20}}>
-                                    <div styleName="list_row_margin">
-                                        <IconLoop number={5} name={'star'} />
-                                        <div styleName="list_column_item"> AVERAGE GOFUNDI RATING</div>
-                                    </div>
-
-                                    <div styleName="list_row_margin">
-                                        <div styleName="list_item_number">25</div>
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> ACTIVE GOFUNDIS</div>
-                                            <div styleName="list_column_itemSmall">(IN AVERAGE PER DAY)</div>
-                                        </div>
-                                    </div>
-
-                                    <div styleName="list_row_margin">
-                                        <div styleName="list_item_number">32 yrs</div>
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> AVERAGE GOFUNDIS AGE</div>
-                                        </div>
-                                    </div>
-                                    <div styleName="list_row_margin">
-                                        <div styleName="list_item_number">12%</div>
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> GOFUNDIS WITH FOLLOW UP JOBS</div>
-                                            <div styleName="list_column_itemSmall">
-                                                (SAME CUSTOMER & SAME CATEGORY TYPE)
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div styleName="list_row_margin">
-                                        <div styleName="list_item_number">5%</div>
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> GOFUNDIS WITH FOLLOW UP JOBS</div>
-                                            <div styleName="list_column_itemSmall">
-                                                (SAME CUSTOMER & SAME CATEGORY TYPE)
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div styleName="list_row_margin">
-                                        <div styleName="list_item_number_pink">00:45 hr</div>
-                                        <div styleName="list_columnItem">
-                                            <div styleName="list_column_item"> AVERAGE TIME OF COMPLETION</div>
-                                            <div styleName="list_column_itemSmall">
-                                                (FROM ACCEPTED TO COMPLETED)
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ListRow
+                                        style={{marginTop: '7px', marginBottom: '7px'}}
+                                        leftItem={<IconLoop number={5} name={'star'} />}
+                                        item={'AVERAGE GOFUNDI RATING'}
+                                    />
+                                    <ListRow
+                                        style={{marginTop: '7px', marginBottom: '7px'}}
+                                        leftItem={25}
+                                        item={'ACTIVE GOFUNDIS'}
+                                        subItem={'(IN AVERAGE PER DAY)'}
+                                    />
+                                    <ListRow
+                                        style={{marginTop: '7px', marginBottom: '7px'}}
+                                        leftItem={'32 yrs'}
+                                        item={'AVERAGE GOFUNDIS AGE'}
+                                    />
+                                    <ListRow
+                                        style={{marginTop: '7px', marginBottom: '7px'}}
+                                        leftItem={'12%'}
+                                        item={'GOFUNDIS WITH FOLLOW UP JOBS'}
+                                        subItem={'(SAME CUSTOMER & SAME CATEGORY TYPE)'}
+                                    />
+                                    <ListRow
+                                        style={{marginTop: '7px', marginBottom: '7px'}}
+                                        leftItem={'5%'}
+                                        item={'GOFUNDIS WITH FOLLOW UP JOBS'}
+                                        subItem={'(SAME CUSTOMER & SAME CATEGORY TYPE)'}
+                                    />
+                                    <ListRow
+                                        style={{marginTop: '7px', marginBottom: '7px'}}
+                                        styleLeftItem={{color: '#ed1967'}}
+                                        leftItem={'00:45 hr'}
+                                        item={'AVERAGE TIME OF COMPLETION'}
+                                        subItem={'(FROM ACCEPTED TO COMPLETED)'}
+                                    />
                                 </div>
                             </div>
                         </div>
