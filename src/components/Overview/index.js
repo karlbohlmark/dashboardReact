@@ -25,12 +25,12 @@ import {
 import Highchart from 'react-highcharts/ReactHighcharts';
 import ReportRow from 'components/ListItem/ReportRow';
 import LegendRow from 'components/ListItem/LegendRow';
+import Substrate from 'components/Substrate';
 import GoogleMapUsers from 'components/GoogleMap';
 import SubPanel from 'components/SubPanel';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import GoogleMapCategory from 'components/GoogleMap/Category';
 import UserPanel from 'components/Overview/UserPanel';
-import FIcon from 'react-fontawesome';
 import SelectBoxItem from 'components/SelectBoxItem';
 import dataMapMarkerUsers from 'data/dataMapMarker';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
@@ -142,8 +142,7 @@ function Overview(props) {
                         </div>
                     </div>
                 </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>USERS</div>
+                <Substrate title={'USERS'}>
                     <UserPanel
                         users={props.users}
                         allHandler={props.allHandler}
@@ -154,9 +153,8 @@ function Overview(props) {
                         users={props.users}
                         data={dataMapMarkerUsers}
                     />
-                </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>COMPLETED TASKS</div>
+                </Substrate>
+                <Substrate title={'COMPLETED TASKS'}>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
                         <LegendRow
                             color={'#c6d92e'}
@@ -168,9 +166,8 @@ function Overview(props) {
                         />
                     </div>
                     <Highchart config={COMPLETED_TASKS_LINE} />
-                </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>TASK STATUS</div>
+                </Substrate>
+                <Substrate title={'TASK STATUS'}>
                     <SelectBoxItem
                         options={[
                             { value: TASK_STATYS_COMPLETED, label: capitalize(TASK_STATYS_COMPLETED) },
@@ -187,9 +184,8 @@ function Overview(props) {
                         tasks={props.tasks}
                         data={dataMapMarkerTasks}
                     />
-                </div>
-                <div styleName='users_container'>
-                    <div styleName='user_container_header'>CATEGORIES</div>
+                </Substrate>
+                <Substrate title={'CATEGORIES'}>
                     <SelectBoxItem
                         style={{width: '300px'}}
                         options={[
@@ -214,7 +210,7 @@ function Overview(props) {
                         categories={props.categories}
                         data={dataMapMarkerCategory}
                     />
-                </div>
+                </Substrate>
             </div>
         </div>
     );
