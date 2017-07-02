@@ -23,6 +23,7 @@ import {
     capitalize
 } from 'utils';
 import Highchart from 'react-highcharts/ReactHighcharts';
+import ReportRow from 'components/ListItem/ReportRow';
 import LegendRow from 'components/ListItem/LegendRow';
 import GoogleMapUsers from 'components/GoogleMap';
 import SubPanel from 'components/SubPanel';
@@ -53,140 +54,34 @@ function Overview(props) {
                             alignSelf: 'center'
                         }}>
                             <div styleName="list_column" style={{marginLeft: 0}}>
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    marginBottom: 7,
-                                    marginTop: 7
-                                }}>
-                                    <div style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        backgroundColor: '#6ebe46',
-                                        display: 'flex',
-                                        alignSelf: 'center'
-                                    }}>
-                                        <FIcon
-                                            size={'2x'}
-                                            name={'user-circle'}
-                                            styleName='inline_items'
-                                            style={{color: '#ffffff'}}
-                                        />
-                                    </div>
-                                    <div style={{
-                                        textAlign: 'center',
-                                        backgroundColor: '#fff',
-                                        padding: '10px',
-                                        width: 170
-                                    }}>
-                                        <div styleName="list_item_number">6</div>
-                                        <div styleName="list_columnItemStart">
-                                            <div styleName="list_column_item"> COMPLETED TASKS PER DAY</div>
-                                            <div styleName="list_column_itemSmall">(IN AVERAGE PER GOFUNDI)</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    marginBottom: 7,
-                                    marginTop: 7
-                                }}>
-                                    <div style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        backgroundColor: '#fbaa1a',
-                                        display: 'flex',
-                                        alignSelf: 'center'
-                                    }}>
-                                        <FIcon
-                                            size={'2x'}
-                                            name={'user-circle'}
-                                            styleName='inline_items'
-                                            style={{color: '#ffffff'}}
-                                        />
-                                    </div>
-                                    <div style={{
-                                        textAlign: 'center',
-                                        backgroundColor: '#fff',
-                                        padding: '10px',
-                                        width: 170
-                                    }}>
-                                        <div styleName="list_item_number">25</div>
-                                        <div styleName="list_columnItemStart">
-                                            <div styleName="list_column_item"> ACTIVE GOFUNDIS</div>
-                                            <div styleName="list_column_itemSmall">(IN AVERAGE PER DAY)</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ReportRow
+                                    styleChildren={{backgroundColor: '#6ebe46'}}
+                                    upItem={25}
+                                    item={'COMPLETED TASKS PER DAY'}
+                                    subItem={'(IN AVERAGE PER GOFUNDI)'}
+                                />
+                                <ReportRow
+                                    styleChildren={{backgroundColor: '#fbaa1a'}}
+                                    upItem={6}
+                                    item={'ACTIVE GOFUNDIS'}
+                                    subItem={'(IN AVERAGE PER DAY)'}
+                                />
                             </div>
                             <div styleName="list_column" style={{marginLeft: 20}}>
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    marginBottom: 7,
-                                    marginTop: 7
-                                }}>
-                                    <div style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        backgroundColor: '#c21e51',
-                                        display: 'flex',
-                                        alignSelf: 'center'
-                                    }}>
-                                        <FIcon
-                                            size={'2x'}
-                                            name={'user-circle'}
-                                            styleName='inline_items'
-                                            style={{color: '#ffffff'}}
-                                        />
-                                    </div>
-                                    <div style={{
-                                        textAlign: 'center',
-                                        backgroundColor: '#fff',
-                                        padding: '10px',
-                                        width: 185
-                                    }}>
-                                        <div styleName="list_item_number">00:45 hr</div>
-                                        <div styleName="list_columnItemStart">
-                                            <div styleName="list_column_item"> AVERAGE TIME FOR COMPLETION</div>
-                                            <div styleName="list_column_itemSmall">(FROM ASSIGNED TO COMPLETED)</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    marginBottom: 7,
-                                    marginTop: 7
-                                }}>
-                                    <div style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        backgroundColor: '#f2ec2b',
-                                        display: 'flex',
-                                        alignSelf: 'center'
-                                    }}>
-                                        <FIcon
-                                            size={'2x'}
-                                            name={'user-circle'}
-                                            styleName='inline_items'
-                                            style={{color: '#ffffff'}}
-                                        />
-                                    </div>
-                                    <div style={{
-                                        textAlign: 'center',
-                                        backgroundColor: '#fff',
-                                        padding: '10px',
-                                        width: 185
-                                    }}>
-                                        <div styleName="list_item_number">15%</div>
-                                        <div styleName="list_columnItemStart">
-                                            <div styleName="list_column_item"> INCREASE SINCE LAST MONTH</div>
-                                            <div styleName="list_column_itemSmall">(TASKS COMPLETED)</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ReportRow
+                                    styleChildren={{backgroundColor: '#c21e51'}}
+                                    styleReportBlock={{width: 185}}
+                                    upItem={'00:45 hr'}
+                                    item={'AVERAGE TIME FOR COMPLETION'}
+                                    subItem={'(FROM ASSIGNED TO COMPLETED)'}
+                                />
+                                <ReportRow
+                                    styleChildren={{backgroundColor: '#f2ec2b'}}
+                                    styleReportBlock={{width: 185}}
+                                    upItem={'15%'}
+                                    item={'INCREASE SINCE LAST MONTH'}
+                                    subItem={'(TASKS COMPLETED)'}
+                                />
                             </div>
                         </div>
                         <div style={{
