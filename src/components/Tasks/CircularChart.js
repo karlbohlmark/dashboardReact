@@ -23,6 +23,9 @@ class CircularChart extends Component {
             <div styleName="under_spinner">
                 <strong>{`${this.props.percentage}%`}</strong>
             </div>
+            {
+                this.props.upder ? this.props.upder : null
+            }
         </div>
         );
     }
@@ -33,7 +36,11 @@ CircularChart.propTypes = {
         React.PropTypes.array,
         React.PropTypes.object
     ]),
-
+    upder: PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.array,
+        React.PropTypes.object
+    ]),
     className: PropTypes.string.isRequired,
     percentage: PropTypes.number.isRequired,
     strokeWidth: PropTypes.number
