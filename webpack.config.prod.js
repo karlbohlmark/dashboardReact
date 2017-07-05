@@ -20,7 +20,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         pathinfo: true,
-        filename: '[hash].js',
+        filename: 'static/js/[hash].js',
         publicPath: PUBLIC_PATH
     },
 

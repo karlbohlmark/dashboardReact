@@ -32,7 +32,7 @@ import {
 const store = createStore();
 
 const routes = {
-    path: '/',
+    path: '/dashboard',
     component: Root,
     childRoutes: [
         {
@@ -51,7 +51,7 @@ const routes = {
             component: App,
             indexRoute: {
                 onEnter(nextState, replace) {
-                    replace('/overview');
+                    replace('/dashboard/overview');
                 }
             },
             childRoutes: [
@@ -60,13 +60,13 @@ const routes = {
                     onEnter: () => {}
                 },
                 {
-                    path: 'overview',
+                    path: '/dashboard/overview',
                     component: props => (
                         <Overview {...props} />
                     )
                 },
                 {
-                    path: 'tasks',
+                    path: '/dashboard/tasks',
                     component: props => (
                         <Tasks {...props} />
                     )

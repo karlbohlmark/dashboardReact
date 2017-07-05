@@ -9,5 +9,8 @@
   "headers": {
     "Content-Type": "application/json"
   },
-  "credentials": "include"
+  "credentials": "include",
+  "googlemap": {
+      "secret": "AIzaSyAC112cVEACpKjHQ4Mud-CTOrHctYc2QFU"
+  }
 }
