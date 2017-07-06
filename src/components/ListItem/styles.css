@@ -16,6 +16,8 @@
     background-color: #ccc;
     display: flex;
     align-self: center;
+    align-items: center;
+    justify-content: center;
 }
 .inline_items{
     display: flex;

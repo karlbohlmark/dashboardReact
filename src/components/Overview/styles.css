@@ -9,6 +9,18 @@
         composes: root;
     }
 }
+.assigned-tasks {
+    background-image: url("../__assets__/assigned-tasks.png");
+    background-size: cover;
+    width: 80%;
+    height: 80%;
+}
+.completed-tasks {
+    background-image: url("../__assets__/completed-tasks.png");
+    background-size: cover;
+    width: 80%;
+    height: 80%;
+}
 .sub_container_header {
     font-size: 16px;
     font-weight: 300;
