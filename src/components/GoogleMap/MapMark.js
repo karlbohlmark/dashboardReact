@@ -30,77 +30,111 @@ class MapMark extends React.Component {
             case GOFUNDIS_STATYS_OFFLINE:
                 color = '#d9baab';
                 name = 'user-circle';
-                break;
+                return (
+                    <FIcon
+                        // styleName='google_map__pin'
+                        size={'2x'}
+                        name={name}
+                        // style={{color, borderBottomColor: color, display: 'block'}}
+                        style={{color}}
+                    />
+                );
+                // break;
             case GOFUNDIS_STATYS_ONLINE:
                 color = '#55d996';
                 name = 'user-circle';
-                break;
+                return (
+                    <FIcon
+                        // styleName='google_map__pin'
+                        size={'2x'}
+                        name={name}
+                        // style={{color, borderBottomColor: color, display: 'block'}}
+                        style={{color}}
+                    />
+                );
+                // break;
             case USER_TYPE_SUBSCRIBER:
                 color = '#c6d92c';
                 name = 'user-circle';
-                break;
+                return (
+                    <FIcon
+                        // styleName='google_map__pin'
+                        size={'2x'}
+                        name={name}
+                        // style={{color, borderBottomColor: color, display: 'block'}}
+                        style={{color}}
+                    />
+                );
+                // break;
             case USER_TYPE_GOFUNDIS:
                 color = '#fbaa1a';
                 name = 'user-circle';
-                break;
+                return (
+                    <FIcon
+                        // styleName='google_map__pin'
+                        size={'2x'}
+                        name={name}
+                        // style={{color, borderBottomColor: color, display: 'block'}}
+                        style={{color}}
+                    />
+                );
+                // break;
             case TASK_STATYS_COMPLETED:
-                color = '#b8fb14';
-                name = 'user-circle';
-                break;
+                return (<div styleName="completed-tasks" />);
             case TASK_STATYS_ASSIGNED:
-                color = '#fab1fb';
-                name = 'user-circle';
-                break;
+                return (<div styleName="assigned-tasks" />);
             case TASK_STATYS_UNASSIGNED:
-                color = '#4b445e';
-                name = 'user-circle';
-                break;
+                return (<div styleName="unasigned-tasks" />);
             case TASK_STATYS_DECLINED:
-                color = '#3682ca';
-                name = 'user-circle';
-                break;
+                return (<div styleName="declined-tasks" />);
             case TASK_STATYS_CANCELLED:
-                color = '#ca3523';
-                name = 'user-circle';
-                break;
+                return (<div styleName="cancelled-tasks" />);
             case CATEGORY_NEW_INSTALL_DECODER:
-                color = '#47cab2';
-                name = 'user-circle';
-                break;
+                return (<div styleName="new-installation-decoder" />);
             case CATEGORY_NEW_INSTALL_SIGNAL:
-                color = '#4865ca';
-                name = 'user-circle';
-                break;
+                return (<div styleName="new-installation-antenna" />);
             case CATEGORY_NEW_INSTALL_ERROR:
-                color = '#42a7ca';
-                name = 'user-circle';
-                break;
+                return (<div styleName="new-installation-other" />);
             case CATEGORY_REPAIR_INSTALL_DECODER:
-                color = '#cab343';
-                name = 'user-circle';
-                break;
+                return (<div styleName="repair-decoder" />);
             case CATEGORY_REPAIR_INSTALL_SIGNAL:
-                color = '#50cabe';
-                name = 'user-circle';
-                break;
+                return (<div styleName="repair-antenna" />);
             case SUBSCRIBERS_ALL:
                 color = '#b8fb14';
                 name = 'user-circle';
-                break;
+                return (
+                    <FIcon
+                        // styleName='google_map__pin'
+                        size={'2x'}
+                        name={name}
+                        // style={{color, borderBottomColor: color, display: 'block'}}
+                        style={{color}}
+                    />
+                );
+                // break;
             default:
                 color = 'blue';
                 name = 'user-circle';
+                return (
+                    <FIcon
+                        // styleName='google_map__pin'
+                        size={'2x'}
+                        name={name}
+                        // style={{color, borderBottomColor: color, display: 'block'}}
+                        style={{color}}
+                    />
+                );
         }
 
-        return (
-            <FIcon
-                // styleName='google_map__pin'
-                size={'2x'}
-                name={name}
-                // style={{color, borderBottomColor: color, display: 'block'}}
-                style={{color}}
-            />
-        );
+        // return (
+        //     <FIcon
+        //         // styleName='google_map__pin'
+        //         size={'2x'}
+        //         name={name}
+        //         // style={{color, borderBottomColor: color, display: 'block'}}
+        //         style={{color}}
+        //     />
+        // );
     }
 }
 MapMark.propTypes = {

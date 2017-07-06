@@ -814,7 +814,7 @@ module.exports = [
             lat: 39,
             lng: -100
         },
-        type: 'DECLINED',
+        type: 'REPAIR INSTALLATION - DECODER',
         name: 'REPAIR INSTALLATION - DECODER Nieves',
         id: '48b0761d-2635-4956-918d-8c7d79f6f5fa'
     },
