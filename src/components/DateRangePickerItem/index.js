@@ -49,10 +49,10 @@ class DateRangePickerItem extends React.Component {
                     <Button className="selected-date-range-btn" style={{width: '100%'}}>
                         <div className="pull-left"><Glyphicon glyph="calendar" /></div>
                         <div className="pull-right">
-									<span>
+                              &nbsp;<span>
 										{label}
 									</span>
-                            <span className="caret"></span>
+                            &nbsp;<span className="caret"></span>
                         </div>
                     </Button>
                 </DateRangePicker>
