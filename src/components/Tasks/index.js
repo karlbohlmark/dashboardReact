@@ -18,7 +18,6 @@ import {
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
-import FIcon from 'react-fontawesome';
 // const ReactHighcharts = require('react-highcharts');
 // const HighchartsMore = require('highcharts-more');
 // HighchartsMore(ReactHighcharts.Highcharts);

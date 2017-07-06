@@ -18,7 +18,7 @@ import {
     GOFUNDIS_STATYS_ONLINE,
     SUBSCRIBERS_ALL
 } from 'models/googlemap';
-import styles from './styles.css';
+import styles from '../__assets__/styles.css';
 
 
 class MapMark extends React.Component {

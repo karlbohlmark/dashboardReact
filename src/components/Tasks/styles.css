@@ -10,42 +10,42 @@
  }
 }
 .new-installation-antenna {
-    background-image: url("../__assets__/new-installation-antenna.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-antenna.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
 
 .new-installation-other {
-    background-image: url("../__assets__/new-installation-other.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-other.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
 
 .new-installation-decoder {
-    background-image: url("../__assets__/new-installation-decoder.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-decoder.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
 
 .repair-antenna {
-    background-image: url("../__assets__/repair-antenna.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/repair-antenna.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
 
 .repair-decoder {
-    background-image: url("../__assets__/repair-decoder.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/repair-decoder.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
 
 .repair-other {
-    background-image: url("../__assets__/repair-other.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/repair-other.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;

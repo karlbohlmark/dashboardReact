@@ -10,13 +10,13 @@
     }
 }
 .assigned-tasks {
-    background-image: url("../__assets__/assigned-tasks.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/assigned-tasks.svg") no-repeat;
     background-size: cover;
     width: 80%;
     height: 80%;
 }
 .completed-tasks {
-    background-image: url("../__assets__/completed-tasks.png");
+    background: rgba(249, 249, 249, 0) url("../__assets__/completed-tasks.svg") no-repeat;
     background-size: cover;
     width: 80%;
     height: 80%;
