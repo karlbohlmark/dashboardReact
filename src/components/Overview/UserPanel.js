@@ -21,12 +21,9 @@ function UserPanel(props) {
                 >
                     Subscribers
                 </CheckBoxItem>
-                    <FIcon
-                        size={'2x'}
-                        name={'user-circle'}
-                        styleName='inline_items'
-                        style={{color: '#c6d92c'}}
-                    />
+                <div styleName="subscribers_user_block">
+                    <div styleName="user_inner" />
+                </div>
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
@@ -35,14 +32,10 @@ function UserPanel(props) {
                 >
                     GoFundis
                 </CheckBoxItem>
-                <FIcon
-                    size={'2x'}
-                    name={'user-circle'}
-                    styleName='inline_items'
-                    style={{color: '#fbaa1a'}}
-                />
+                <div styleName="gofundis_user_block">
+                    <div styleName="user_inner" />
+                </div>
             </div>
-
         </div>
     );
 }

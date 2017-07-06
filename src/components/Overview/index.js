@@ -68,12 +68,12 @@ function Overview(props) {
                                     item={'ACTIVE GOFUNDIS'}
                                     subItem={'(IN AVERAGE PER DAY)'}
                                 >
-                                    <div styleName="assigned-tasks" />
+                                    <div styleName="user" />
                                 </ReportRow>
                             </div>
                             <div styleName="list_column" style={{marginLeft: 20}}>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#c21e51'}}
+                                    styleChildren={{backgroundColor: '#ffde00'}}
                                     styleReportBlock={{width: 185}}
                                     upItem={'00:45 hr'}
                                     item={'AVERAGE TIME FOR COMPLETION'}
@@ -82,13 +82,13 @@ function Overview(props) {
                                     <div styleName="assigned-tasks" />
                                 </ReportRow>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#ffde00'}}
+                                    styleChildren={{backgroundColor: '#c21e51'}}
                                     styleReportBlock={{width: 185}}
                                     upItem={'15%'}
                                     item={'INCREASE SINCE LAST MONTH'}
                                     subItem={'(TASKS COMPLETED)'}
                                 >
-                                    <div styleName="assigned-tasks" />
+                                    <div styleName="user" />
                                 </ReportRow>
                             </div>
                         </div>
