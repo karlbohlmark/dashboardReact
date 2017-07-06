@@ -24,8 +24,6 @@ import styles from '../__assets__/styles.css';
 class MapMark extends React.Component {
 
     render() {
-        let color = '';
-        let name = '';
         switch (this.props.type) {
             case GOFUNDIS_STATYS_OFFLINE:
                 return (
@@ -78,15 +76,13 @@ class MapMark extends React.Component {
                     </div>
                 );
             default:
-                color = 'blue';
-                name = 'user-circle';
                 return (
                     <FIcon
                         // styleName='google_map__pin'
                         size={'2x'}
-                        name={name}
+                        name={'user-circle'}
                         // style={{color, borderBottomColor: color, display: 'block'}}
-                        style={{color}}
+                        style={{color: 'blue'}}
                     />
                 );
         }
