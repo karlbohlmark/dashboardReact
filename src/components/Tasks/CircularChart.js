@@ -15,7 +15,11 @@ class CircularChart extends Component {
                     strokeWidth={this.props.strokeWidth ? this.props.strokeWidth : 5}
                 />
                 <div styleName="inner">
-                    <div>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    }}>
                         {this.props.children}
                     </div>
                 </div>

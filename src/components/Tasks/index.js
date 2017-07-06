@@ -149,12 +149,7 @@ function Tasks(props) {
                                         </div>
                                     }
                                 >
-                                    <FIcon
-                                        size={'4x'}
-                                        name={'user-circle'}
-                                        styleName='inline_items_fav'
-                                        style={{color: '#58585a'}}
-                                    />
+                                    <div styleName="new-installation-decoder" />
                                     <div styleName="small_text">
                                         DECODER
                                     </div>
@@ -171,12 +166,7 @@ function Tasks(props) {
                                         </div>
                                     }
                                 >
-                                    <FIcon
-                                        size={'4x'}
-                                        name={'user-circle'}
-                                        styleName='inline_items_fav'
-                                        style={{color: '#58585a'}}
-                                    />
+                                    <div styleName="new-installation-antenna" />
                                     <div styleName="small_text">
                                         ANTENA/SIGNAL
                                     </div>
@@ -193,12 +183,7 @@ function Tasks(props) {
                                         </div>
                                     }
                                 >
-                                    <FIcon
-                                        size={'4x'}
-                                        name={'user-circle'}
-                                        styleName='inline_items_fav'
-                                        style={{color: '#58585a'}}
-                                    />
+                                    <div styleName="new-installation-other" />
                                     <div styleName="small_text">
                                         OTHER/ERROR
                                     </div>
@@ -241,12 +226,7 @@ function Tasks(props) {
                                         </div>
                                     }
                                 >
-                                    <FIcon
-                                        size={'4x'}
-                                        name={'user-circle'}
-                                        styleName='inline_items_fav'
-                                        style={{color: '#58585a'}}
-                                    />
+                                    <div styleName="repair-decoder" />
                                     <div styleName="small_text">
                                         DECODER
                                     </div>
@@ -263,12 +243,7 @@ function Tasks(props) {
                                         </div>
                                     }
                                 >
-                                    <FIcon
-                                        size={'4x'}
-                                        name={'user-circle'}
-                                        styleName='inline_items_fav'
-                                        style={{color: '#58585a'}}
-                                    />
+                                    <div styleName="repair-antenna" />
                                     <div styleName="small_text">
                                         ANTENA/SIGNAL
                                     </div>
@@ -285,12 +260,7 @@ function Tasks(props) {
                                         </div>
                                     }
                                 >
-                                    <FIcon
-                                        size={'4x'}
-                                        name={'user-circle'}
-                                        styleName='inline_items_fav'
-                                        style={{color: '#58585a'}}
-                                    />
+                                    <div styleName="repair-other" />
                                     <div styleName="small_text">
                                         OTHER/ERROR
                                     </div>
