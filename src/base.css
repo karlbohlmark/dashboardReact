@@ -72,23 +72,23 @@
     text-anchor: middle;
 }
 .install_error .CircularProgressbar .CircularProgressbar-path {
-    stroke: #f2ec2b;
+    stroke: #6cbd45;
     stroke-linecap: round;
     transition: stroke-dashoffset 0.5s ease 0s;
 }
 .install_error .CircularProgressbar .CircularProgressbar-text {
-    fill: #f2ec2b;
+    fill: #6cbd45;
     font-size: 20px;
     dominant-baseline: middle;
     text-anchor: middle;
 }
 .repair_install_decoder .CircularProgressbar .CircularProgressbar-path {
-    stroke: #6cbd45;
+    stroke: #f2ec2b;
     stroke-linecap: round;
     transition: stroke-dashoffset 0.5s ease 0s;
 }
 .repair_install_decoder .CircularProgressbar .CircularProgressbar-text {
-    fill: #6cbd45;
+    fill: #f2ec2b;
     font-size: 20px;
     dominant-baseline: middle;
     text-anchor: middle;
