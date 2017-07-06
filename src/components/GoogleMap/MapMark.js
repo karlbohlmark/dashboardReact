@@ -72,18 +72,11 @@ class MapMark extends React.Component {
             case CATEGORY_REPAIR_INSTALL_SIGNAL:
                 return (<div styleName="repair-antenna" />);
             case SUBSCRIBERS_ALL:
-                color = '#b8fb14';
-                name = 'user-circle';
                 return (
-                    <FIcon
-                        // styleName='google_map__pin'
-                        size={'2x'}
-                        name={name}
-                        // style={{color, borderBottomColor: color, display: 'block'}}
-                        style={{color}}
-                    />
+                    <div styleName="subscribers_block">
+                        <div styleName="user_inner" />
+                    </div>
                 );
-                // break;
             default:
                 color = 'blue';
                 name = 'user-circle';
@@ -97,16 +90,6 @@ class MapMark extends React.Component {
                     />
                 );
         }
-
-        // return (
-        //     <FIcon
-        //         // styleName='google_map__pin'
-        //         size={'2x'}
-        //         name={name}
-        //         // style={{color, borderBottomColor: color, display: 'block'}}
-        //         style={{color}}
-        //     />
-        // );
     }
 }
 MapMark.propTypes = {
