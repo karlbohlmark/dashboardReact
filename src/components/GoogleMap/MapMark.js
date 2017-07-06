@@ -28,57 +28,29 @@ class MapMark extends React.Component {
         let name = '';
         switch (this.props.type) {
             case GOFUNDIS_STATYS_OFFLINE:
-                color = '#d9baab';
-                name = 'user-circle';
                 return (
-                    <FIcon
-                        // styleName='google_map__pin'
-                        size={'2x'}
-                        name={name}
-                        // style={{color, borderBottomColor: color, display: 'block'}}
-                        style={{color}}
-                    />
+                    <div styleName="gofundis_offline_block">
+                        <div styleName="user_inner" />
+                    </div>
                 );
-                // break;
             case GOFUNDIS_STATYS_ONLINE:
-                color = '#55d996';
-                name = 'user-circle';
                 return (
-                    <FIcon
-                        // styleName='google_map__pin'
-                        size={'2x'}
-                        name={name}
-                        // style={{color, borderBottomColor: color, display: 'block'}}
-                        style={{color}}
-                    />
+                    <div styleName="gofundis_online_block">
+                        <div styleName="user_inner" />
+                    </div>
                 );
-                // break;
             case USER_TYPE_SUBSCRIBER:
-                color = '#c6d92c';
-                name = 'user-circle';
                 return (
-                    <FIcon
-                        // styleName='google_map__pin'
-                        size={'2x'}
-                        name={name}
-                        // style={{color, borderBottomColor: color, display: 'block'}}
-                        style={{color}}
-                    />
+                    <div styleName="subscribers_user_block">
+                        <div styleName="user_inner" />
+                    </div>
                 );
-                // break;
             case USER_TYPE_GOFUNDIS:
-                color = '#fbaa1a';
-                name = 'user-circle';
                 return (
-                    <FIcon
-                        // styleName='google_map__pin'
-                        size={'2x'}
-                        name={name}
-                        // style={{color, borderBottomColor: color, display: 'block'}}
-                        style={{color}}
-                    />
+                    <div styleName="gofundis_user_block">
+                        <div styleName="user_inner" />
+                    </div>
                 );
-                // break;
             case TASK_STATYS_COMPLETED:
                 return (<div styleName="completed-tasks" />);
             case TASK_STATYS_ASSIGNED:

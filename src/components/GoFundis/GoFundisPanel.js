@@ -21,12 +21,9 @@ function GoFundisPanel(props) {
                 >
                     Online
                 </CheckBoxItem>
-                <FIcon
-                    size={'2x'}
-                    name={'user-circle'}
-                    styleName='inline_items'
-                    style={{color: '#55d996'}}
-                />
+                <div styleName="gofundis_online_block">
+                    <div styleName="gofundis_inner" />
+                </div>
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
@@ -35,12 +32,9 @@ function GoFundisPanel(props) {
                 >
                     OffLine
                 </CheckBoxItem>
-                <FIcon
-                    size={'2x'}
-                    name={'user-circle'}
-                    styleName='inline_items'
-                    style={{color: '#d9baab'}}
-                />
+                <div styleName="gofundis_offline_block">
+                    <div styleName="gofundis_inner" />
+                </div>
             </div>
 
         </div>
