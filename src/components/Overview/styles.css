@@ -21,6 +21,13 @@
     width: 80%;
     height: 80%;
 }
+.line-chart {
+    -webkit-mask-image: url("../__assets__/line-chart.svg");
+    mask-image: url("../__assets__/line-chart.svg");
+    width: 70%;
+    height: 70%;
+    background-color: rgb(250, 250, 250);
+}
 .user {
     -webkit-mask-image: url("../__assets__/user.svg");
     mask-image: url("../__assets__/user.svg");

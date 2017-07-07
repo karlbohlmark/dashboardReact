@@ -32,7 +32,7 @@ import {
 const store = createStore();
 
 const routes = {
-    path: '/dashboard',
+    path: '/',
     component: Root,
     childRoutes: [
         {
@@ -72,14 +72,14 @@ const routes = {
                     )
                 },
                 {
-                    path: 'gofundis',
+                    path: '/dashboard/gofundis',
                     component: props => (
                         <GoFundis {...props} />
 
                     )
                 },
                 {
-                    path: 'subscribers',
+                    path: '/dashboard/subscribers',
                     component: props => (
                         <Subscribers {...props} />
                     )

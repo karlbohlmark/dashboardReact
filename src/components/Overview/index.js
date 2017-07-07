@@ -88,7 +88,7 @@ function Overview(props) {
                                     item={'INCREASE SINCE LAST MONTH'}
                                     subItem={'(TASKS COMPLETED)'}
                                 >
-                                    <div styleName="user" />
+                                    <div styleName="line-chart" />
                                 </ReportRow>
                             </div>
                         </div>
