@@ -39,25 +39,25 @@ function Page(props) {
 
             <div styleName="container">
                 <Nav styleName="nav_header" bsStyle="pills">
-                    <LinkContainer to="/overview">
+                    <LinkContainer to="/dashboard/overview">
                         <NavItem>
                             Overview
                         </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to="/tasks">
+                    <LinkContainer to="/dashboard/tasks">
                         <NavItem>
                             Tasks
                         </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to="/gofundis">
+                    <LinkContainer to="/dashboard/gofundis">
                         <NavItem>
                             GoFundis
                         </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to="/subscribers">
+                    <LinkContainer to="/dashboard/subscribers">
                         <NavItem>
                             Subscribers
                         </NavItem>
