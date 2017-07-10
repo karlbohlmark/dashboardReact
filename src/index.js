@@ -9,10 +9,15 @@ import {
     Router,
     browserHistory
 } from 'react-router';
+import {
+    compose
+} from 'lodash/fp';
 
 import './base.css';
 import 'react-select/dist/react-select.css';
-
+import {
+    receivePage as receivePageUserLocation
+} from 'actions/ui/userLocation';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -60,6 +65,7 @@ const routes = {
                     onEnter: () => {}
                 },
                 {
+                    onEnter: compose(store.dispatch, receivePageUserLocation),
                     path: '/dashboard/overview',
                     component: props => (
                         <Overview {...props} />
