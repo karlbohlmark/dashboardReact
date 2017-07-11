@@ -36,6 +36,7 @@ class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                userLocation={this.props.userLocation}
                 users={this.props.users}
                 subscriberHandler={f => this.props.showGoogleMapUser(USER_TYPE_SUBSCRIBER, f)}
                 gofundisHandler={f => this.props.showGoogleMapUser(USER_TYPE_GOFUNDIS, f)}
@@ -53,6 +54,8 @@ OverviewContainer.propTypes = {
     router: routerShape.isRequired,
     location: locationShape.isRequired,
 
+    userLocation: PropTypes.object.isRequired,
+
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -67,6 +70,7 @@ OverviewContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        userLocation: ui.userLocation,
         users: ui.googlemap.users.cata({
             Nothing: () => ({
                 subscriber: Nothing(),

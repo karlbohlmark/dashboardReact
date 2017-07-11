@@ -1,4 +1,12 @@
 import {
+    map,
+    constant
+} from 'lodash/fp';
+import {
+    USER_TYPE_SUBSCRIBER,
+    USER_TYPE_GOFUNDIS
+} from 'models/googlemap';
+import {
     Just,
     Nothing
 } from 'data.maybe';
@@ -29,7 +37,10 @@ export function reducer(state, action) {
         case RECIEVE_PAGE_SUCCESS: {
             return {
                 ...state,
-                results: Just(action.payload),
+                results: Just(map(item => ({
+                    ...item,
+                    type: item.userType === 'subscriber' ? USER_TYPE_SUBSCRIBER : USER_TYPE_GOFUNDIS
+                }), action.payload)),
                 busy: false
             };
         }

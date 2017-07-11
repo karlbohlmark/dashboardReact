@@ -152,6 +152,7 @@ function Overview(props) {
                 </div>
                 <Substrate title={'USERS'}>
                     <UserPanel
+                        userLocation={props.userLocation}
                         users={props.users}
                         allHandler={props.allHandler}
                         subscriberHandler={props.subscriberHandler}
@@ -159,7 +160,7 @@ function Overview(props) {
                     />
                     <GoogleMapUsers
                         users={props.users}
-                        data={dataMapMarkerUsers}
+                        data={props.userLocation.results.getOrElse([])}
                     />
                 </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>

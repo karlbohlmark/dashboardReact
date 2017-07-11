@@ -47,7 +47,6 @@ export function receivePage() {
 
         return listUserLocationsRequest()
             .then(data => {
-                console.log('data ->', data);
                 dispatch(
                     batchActions([
                         receivePageSuccess(data)

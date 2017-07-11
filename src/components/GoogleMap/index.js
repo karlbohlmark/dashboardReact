@@ -35,7 +35,10 @@ class SegmentMap extends React.Component {
             showGofundis: true
         };
     }
-
+    componentWillReceiveProps(nextProps) {
+        const { data } = nextProps;
+        this.setState({ data });
+    }
     getLocationSuccess(position) {
         this.setState({
             positionIcon: 'ion-android-locate',
@@ -50,8 +53,10 @@ class SegmentMap extends React.Component {
             if (this.props.users.all.getOrElse(false)) {
                 return this.props.users.all.getOrElse(false);
             } else if (item.type === USER_TYPE_SUBSCRIBER) {
+            // } else if (item.userType === 'subscriber') {
                 return this.props.users.subscriber.getOrElse(false);
             } else if (item.type === USER_TYPE_GOFUNDIS) {
+            // } else if (item.userType === 'fundi') {
                 return this.props.users.gofundis.getOrElse(false);
             }
             return false;
