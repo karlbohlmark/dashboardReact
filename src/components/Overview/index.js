@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
+    merge
+} from 'lodash/fp';
+import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
@@ -38,6 +41,7 @@ import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
 
 
 function Overview(props) {
+    console.log('Overview', props);
     return (
         <div>
             <SubPanel
@@ -174,7 +178,7 @@ function Overview(props) {
                             title={'Repair Services'}
                         />
                     </div>
-                    <Highchart config={COMPLETED_TASKS_LINE} />
+                    <Highchart config={merge(props.completedTasksHistogram, COMPLETED_TASKS_LINE)} />
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <SelectBoxItem

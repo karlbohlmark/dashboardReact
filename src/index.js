@@ -10,7 +10,8 @@ import {
     browserHistory
 } from 'react-router';
 import {
-    compose
+    compose,
+    constant
 } from 'lodash/fp';
 
 import './base.css';
@@ -21,6 +22,9 @@ import {
 import {
     receivePage as receivePageTaskLocationByStatus
 } from 'actions/ui/taskLocationByStatus';
+import {
+    receivePage as receivePageCompletedTasksHistogram
+} from 'actions/ui/completedTaskHistogram';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -68,17 +72,17 @@ const routes = {
                     onEnter: () => {}
                 },
                 {
-                    // onEnter: compose(compose(
-                    //     store.dispatch,
-                    //     receivePageUserLocation
-                    //     ), compose(
-                    //     store.dispatch,
-                    //     receivePageTaskLocationByStatus
-                    // )),
-                    onEnter: compose(
+                    onEnter: compose(compose(
                         store.dispatch,
                         receivePageUserLocation
-                    ),
+                        ), compose(
+                        store.dispatch,
+                        receivePageCompletedTasksHistogram
+                    ),constant),
+                    // onEnter: compose(
+                    //     store.dispatch,
+                    //     receivePageUserLocation
+                    // ),
                     path: '/dashboard/overview',
                     component: props => (
                         <Overview {...props} />

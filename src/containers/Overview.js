@@ -20,6 +20,9 @@ import {
     Just
 } from 'data.maybe';
 import {
+    formatDate
+} from 'utils/format-date';
+import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
     USER_TYPE_ALL
@@ -37,6 +40,7 @@ class OverviewContainer extends Component {
         return (
             <Overview
                 userLocation={this.props.userLocation}
+                completedTasksHistogram={this.props.completedTasksHistogram}
                 users={this.props.users}
                 subscriberHandler={f => this.props.showGoogleMapUser(USER_TYPE_SUBSCRIBER, f)}
                 gofundisHandler={f => this.props.showGoogleMapUser(USER_TYPE_GOFUNDIS, f)}
@@ -71,6 +75,28 @@ function select({ ui }) {
 
     return {
         userLocation: ui.userLocation,
+        completedTasksHistogram: {
+            xAxis: {
+                categories: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => ([]),
+                    Just: fields => (fields.map(field => (formatDate(field.date))))
+                })
+            },
+            series: [{
+                name: 'Installations',
+                data: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => ([]),
+                    Just: fields => (fields.map(field => (field.value)))
+                })
+            }, {
+                name: 'Repair Services',
+                data: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => ([]),
+                    Just: fields => (fields.map(field => (field.value + 1)))
+                })
+            }]
+
+        },
         users: ui.googlemap.users.cata({
             Nothing: () => ({
                 subscriber: Nothing(),

@@ -23,7 +23,6 @@ export function completedTasksHistogram(from, to) {
             }
         }
     ));
-    console.log('query', query);
     return fetch(`${config.url}${config.version}${METHOD}?query=${query}`, {
         method: 'GET',
         mode: 'cors'

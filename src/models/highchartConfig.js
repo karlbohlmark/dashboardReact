@@ -19,18 +19,7 @@ export const COMPLETED_TASKS_LINE = {
         layout: 'vertical',
         align: 'right',
         verticalAlign: 'middle'
-    },
-    xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    },
-    series: [{
-        name: 'Installations',
-        data: [49, 55, 51, 66, 90, 199, 171, 241]
-    }, {
-        name: 'Repair Services',
-        data: [29, 40, 97, 21, 20, 22, 31, 44]
-    }]
+    }
 };
 export const COMPLETED_TASKS = {
     credits: {
