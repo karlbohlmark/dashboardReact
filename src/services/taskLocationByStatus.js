@@ -7,11 +7,12 @@ import {
     processErrors
 } from './common';
 
+const METHOD = 'query/TaskLocationByStatus';
 
-const METHOD = 'query/ListUserLocations';
 
-export function listUserLocations(userType) {
-    const query = encodeURIComponent(JSON.stringify({ userTypes: userType ? userType : []}));
+export function taskLocationByStatus() {
+    const query = encodeURIComponent(JSON.stringify({ status: ['completed']}));
+    console.log('query', query);
     return fetch(`${config.url}${config.version}${METHOD}?query=${query}`, {
         method: 'GET',
         mode: 'cors'

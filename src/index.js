@@ -18,6 +18,9 @@ import 'react-select/dist/react-select.css';
 import {
     receivePage as receivePageUserLocation
 } from 'actions/ui/userLocation';
+import {
+    receivePage as receivePageTaskLocationByStatus
+} from 'actions/ui/taskLocationByStatus';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -65,7 +68,17 @@ const routes = {
                     onEnter: () => {}
                 },
                 {
-                    onEnter: compose(store.dispatch, receivePageUserLocation),
+                    // onEnter: compose(compose(
+                    //     store.dispatch,
+                    //     receivePageUserLocation
+                    //     ), compose(
+                    //     store.dispatch,
+                    //     receivePageTaskLocationByStatus
+                    // )),
+                    onEnter: compose(
+                        store.dispatch,
+                        receivePageUserLocation
+                    ),
                     path: '/dashboard/overview',
                     component: props => (
                         <Overview {...props} />

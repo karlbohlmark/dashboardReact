@@ -1,10 +1,8 @@
 import {
-    map
+    map,
+    compose
 } from 'lodash/fp';
-import {
-    USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS
-} from 'models/googlemap';
+
 import {
     Just,
     Nothing
@@ -14,7 +12,9 @@ import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
-} from 'actions/ui/userLocation';
+} from 'actions/ui/taskLocationByStatus';
+
+const statusTask = status => (status.toLowerCase());
 
 export const initialState = {
     results: Nothing(),
@@ -38,7 +38,7 @@ export function reducer(state, action) {
                 ...state,
                 results: Just(map(item => ({
                     ...item,
-                    type: item.userType === 'subscriber' ? USER_TYPE_SUBSCRIBER : USER_TYPE_GOFUNDIS
+                    type: compose(statusTask, item.status)
                 }), action.payload)),
                 busy: false
             };
