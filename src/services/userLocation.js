@@ -1,5 +1,5 @@
 import {
-    isArray
+    // isArray
 } from 'lodash/fp';
 import Maybe from 'data.maybe';
 

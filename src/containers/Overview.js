@@ -59,6 +59,7 @@ OverviewContainer.propTypes = {
     location: locationShape.isRequired,
 
     userLocation: PropTypes.object.isRequired,
+    completedTasksHistogram: PropTypes.object.isRequired,
 
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,

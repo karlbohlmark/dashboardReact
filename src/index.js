@@ -10,8 +10,7 @@ import {
     browserHistory
 } from 'react-router';
 import {
-    compose,
-    constant
+    compose
 } from 'lodash/fp';
 
 import './base.css';
@@ -19,9 +18,9 @@ import 'react-select/dist/react-select.css';
 import {
     receivePage as receivePageUserLocation
 } from 'actions/ui/userLocation';
-import {
-    receivePage as receivePageTaskLocationByStatus
-} from 'actions/ui/taskLocationByStatus';
+// import {
+//     receivePage as receivePageTaskLocationByStatus
+// } from 'actions/ui/taskLocationByStatus';
 import {
     receivePage as receivePageCompletedTasksHistogram
 } from 'actions/ui/completedTaskHistogram';
@@ -78,7 +77,7 @@ const routes = {
                         ), compose(
                         store.dispatch,
                         receivePageCompletedTasksHistogram
-                    ),constant),
+                    )),
                     // onEnter: compose(
                     //     store.dispatch,
                     //     receivePageUserLocation

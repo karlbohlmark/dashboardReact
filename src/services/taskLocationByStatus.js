@@ -12,7 +12,7 @@ const METHOD = 'query/TaskLocationByStatus';
 
 export function taskLocationByStatus() {
     const query = encodeURIComponent(JSON.stringify({ status: ['completed']}));
-    console.log('query', query);
+
     return fetch(`${config.url}${config.version}${METHOD}?query=${query}`, {
         method: 'GET',
         mode: 'cors'
