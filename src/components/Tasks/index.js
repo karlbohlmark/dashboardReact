@@ -322,6 +322,7 @@ function Tasks(props) {
 }
 
 Tasks.propTypes = {
+    completedTasksHistogram: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,
