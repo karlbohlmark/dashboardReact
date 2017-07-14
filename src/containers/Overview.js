@@ -79,7 +79,8 @@ OverviewContainer.propTypes = {
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
-    setRangeDate: PropTypes.func.isRequired
+    setRangeDate: PropTypes.func.isRequired,
+    receivePageCompletedTasksHistogram: PropTypes.func.isRequired
 
 
 };

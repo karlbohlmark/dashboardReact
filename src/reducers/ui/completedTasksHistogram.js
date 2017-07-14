@@ -1,7 +1,4 @@
 import {
-    map
-} from 'lodash/fp';
-import {
     Just,
     Nothing
 } from 'data.maybe';
