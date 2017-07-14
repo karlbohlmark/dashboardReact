@@ -88,6 +88,10 @@ const routes = {
                     )
                 },
                 {
+                    onEnter: compose(
+                        store.dispatch,
+                        receivePageCompletedTasksHistogram
+                    ),
                     path: '/dashboard/tasks',
                     component: props => (
                         <Tasks {...props} />

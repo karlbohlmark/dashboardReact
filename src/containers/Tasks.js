@@ -20,6 +20,9 @@ import {
     Just
 } from 'data.maybe';
 import {
+    formatDate
+} from 'utils/format-date';
+import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
     USER_TYPE_ALL
@@ -36,6 +39,7 @@ class TasksContainer extends Component {
     render() {
         return (
             <Tasks
+                completedTasksHistogram={this.props.completedTasksHistogram}
                 tasks={this.props.tasks}
                 onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
                 categories={this.props.categories}
@@ -49,6 +53,7 @@ TasksContainer.propTypes = {
     router: routerShape.isRequired,
     location: locationShape.isRequired,
 
+    completedTasksHistogram: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -63,6 +68,34 @@ TasksContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        completedTasksHistogram: {
+            xAxis: {
+                categories: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => ([]),
+                    Just: fields => (fields[0].data.map(field => (formatDate(field.date))))
+                })
+            },
+            series: [{
+                name: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => (''),
+                    Just: fields => (fields[0].name)
+                }),
+                data: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => ([]),
+                    Just: fields => (fields[0].data.map(field => (field.value)))
+                })
+            }, {
+                name: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => (''),
+                    Just: fields => (fields[1].name)
+                }),
+                data: ui.completedTasksHistogram.results.cata({
+                    Nothing: () => ([]),
+                    Just: fields => (fields[1].data.map(field => (field.value)))
+                })
+            }]
+
+        },
         users: ui.googlemap.users.cata({
             Nothing: () => ({
                 subscriber: Nothing(),

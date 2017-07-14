@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
+    merge
+} from 'lodash/fp';
+import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
@@ -280,16 +283,17 @@ function Tasks(props) {
                 </div>
                 <Substrate title={'COMPLETED TASKS'}>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        <LegendRow
-                            color={'#c6d92e'}
-                            title={'Installations'}
-                        />
-                        <LegendRow
-                            color={'#6ebe46'}
-                            title={'Repair Services'}
-                        />
+                        {
+                            props.completedTasksHistogram.series.map((field, index) => (
+                                <LegendRow
+                                    key={index}
+                                    color={COMPLETED_TASKS_LINE.colors[index]}
+                                    title={field.name}
+                                />
+                            ))
+                        }
                     </div>
-                    <Highchart config={COMPLETED_TASKS_LINE} />
+                    <Highchart config={merge(props.completedTasksHistogram, COMPLETED_TASKS_LINE)} />
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <SelectBoxItem

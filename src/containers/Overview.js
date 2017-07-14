@@ -100,7 +100,7 @@ function select({ ui }) {
                 }),
                 data: ui.completedTasksHistogram.results.cata({
                     Nothing: () => ([]),
-                    Just: fields => (fields[1].data.map(field => (field.value + 1)))
+                    Just: fields => (fields[1].data.map(field => (field.value)))
                 })
             }]
 
