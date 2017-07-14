@@ -44,7 +44,8 @@ export function receivePage() {
         dispatch(
             receivePageStart()
         );
-
+        // to do
+        // return completedTasksHistogramRequest(from, to)
         return completedTasksHistogramRequest()
             .then(data => {
                 dispatch(

@@ -24,6 +24,8 @@ function GoFundis(props) {
                 title="GOFUNDIS"
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
+                dateRangePicker={props.dateRangePicker}
+                onRangeDate={props.onRangeDate}
             />
             <div styleName='root'>
                 <Substrate title={'HIGHLIGHTS'}>
@@ -185,6 +187,8 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    dateRangePicker: PropTypes.object.isRequired,
+    onRangeDate: PropTypes.func.isRequired,
     goFundis: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
 

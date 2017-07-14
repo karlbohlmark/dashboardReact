@@ -45,7 +45,10 @@ function SubPanel(props) {
                 />
             </div>
             <div >
-                <DateRangePickerItem/>
+                <DateRangePickerItem
+                    dateRangePicker={props.dateRangePicker}
+                    onRangeDate={props.onRangeDate}
+                />
             </div>
         </div>
     );
@@ -54,7 +57,9 @@ function SubPanel(props) {
 SubPanel.propTypes = {
     onChangeCategory: PropTypes.func.isRequired,
     categories: PropTypes.object.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    dateRangePicker: PropTypes.object.isRequired,
+    onRangeDate: PropTypes.func.isRequired
 };
 
 export default CSSModules(SubPanel, styles);

@@ -32,6 +32,9 @@ import {
     showGoogleMapTasks,
     showGoogleMapCategory
 } from 'actions/ui/GoogleMap/index';
+import {
+    setRangeDate
+} from 'actions/ui/dateRangePicker';
 import Overview from 'components/Overview';
 
 
@@ -39,6 +42,8 @@ class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                dateRangePicker={this.props.dateRangePicker}
+                onRangeDate={(from, to) => this.props.setRangeDate(from, to)}
                 userLocation={this.props.userLocation}
                 completedTasksHistogram={this.props.completedTasksHistogram}
                 users={this.props.users}
@@ -60,6 +65,7 @@ OverviewContainer.propTypes = {
 
     userLocation: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
+    dateRangePicker: PropTypes.object.isRequired,
 
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
@@ -67,7 +73,8 @@ OverviewContainer.propTypes = {
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
-    showGoogleMapCategory: PropTypes.func.isRequired
+    showGoogleMapCategory: PropTypes.func.isRequired,
+    setRangeDate: PropTypes.func.isRequired
 
 
 };
@@ -75,6 +82,7 @@ OverviewContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        dateRangePicker: ui.dateRangePicker,
         userLocation: ui.userLocation,
         completedTasksHistogram: {
             xAxis: {
@@ -132,7 +140,8 @@ function select({ ui }) {
 const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    setRangeDate
 };
 
 export default compose(

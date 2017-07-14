@@ -47,6 +47,8 @@ function Overview(props) {
                 title="OVERVIEW"
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
+                dateRangePicker={props.dateRangePicker}
+                onRangeDate={props.onRangeDate}
             />
             <div styleName='root'>
                 <div styleName='users_container_empty'>
@@ -230,6 +232,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    dateRangePicker: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
     userLocation: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -239,7 +242,8 @@ Overview.propTypes = {
     users: PropTypes.object.isRequired,
     allHandler: PropTypes.func.isRequired,
     subscriberHandler: PropTypes.func.isRequired,
-    gofundisHandler: PropTypes.func.isRequired
+    gofundisHandler: PropTypes.func.isRequired,
+    onRangeDate: PropTypes.func.isRequired
 
 };
 

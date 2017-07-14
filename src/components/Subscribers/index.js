@@ -19,6 +19,8 @@ function Subscribers(props) {
                 title="SUBSCRIBERS"
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
+                dateRangePicker={props.dateRangePicker}
+                onRangeDate={props.onRangeDate}
             />
             <div styleName='root'>
                 <Substrate title={'HIGHLIGHTS'}>
@@ -145,6 +147,8 @@ function Subscribers(props) {
 }
 
 Subscribers.propTypes = {
+    dateRangePicker: PropTypes.object.isRequired,
+    onRangeDate: PropTypes.func.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,
     categories: PropTypes.object.isRequired
 };

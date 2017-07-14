@@ -18,13 +18,18 @@ import {
     initialState as initialCompletedTasksHistogram,
     reducer as reducerCompletedTasksHistogram
 } from './completedTasksHistogram';
+import {
+    initialState as initialDateRangePicker,
+    reducer as reducerDateRangePicker
+} from './dateRangePicker';
 
 export const initialState = {
     notifications: initialNotificationState,
     googlemap: initialGoogleMapState,
     userLocation: initialUserLocationState,
     taskLocationByStatus: initialTaskLocationByStatus,
-    completedTasksHistogram: initialCompletedTasksHistogram
+    completedTasksHistogram: initialCompletedTasksHistogram,
+    dateRangePicker: initialDateRangePicker
 };
 
 export function reducer(state, action) {
@@ -33,13 +38,15 @@ export function reducer(state, action) {
     const nextUserLocation = reducerUserLocation(state.userLocation, action);
     const nextTaskLocationByStatus = reducerTaskLocationByStatus(state.taskLocationByStatus, action);
     const nextCompletedTasksHistogram = reducerCompletedTasksHistogram(state.completedTasksHistogram, action);
+    const nextDateRangePicker = reducerDateRangePicker(state.dateRangePicker, action);
 
     if (
         state.notifications === nextNotification &&
         state.googlemap === nextGoogleMap &&
         state.userLocation === nextUserLocation &&
         state.taskLocationByStatus === nextTaskLocationByStatus &&
-        state.completedTasksHistogram === nextCompletedTasksHistogram
+        state.completedTasksHistogram === nextCompletedTasksHistogram &&
+        state.dateRangePicker === nextDateRangePicker
     ) {
         return state;
     }
@@ -49,6 +56,7 @@ export function reducer(state, action) {
         googlemap: nextGoogleMap,
         userLocation: nextUserLocation,
         taskLocationByStatus: nextTaskLocationByStatus,
-        completedTasksHistogram: nextCompletedTasksHistogram
+        completedTasksHistogram: nextCompletedTasksHistogram,
+        dateRangePicker: nextDateRangePicker
     };
 }

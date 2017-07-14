@@ -29,6 +29,9 @@ import {
     showGoogleMapTasks,
     showGoogleMapCategory
 } from 'actions/ui/GoogleMap/index';
+import {
+    setRangeDate
+} from 'actions/ui/dateRangePicker';
 import Subscribers from 'components/Subscribers';
 
 
@@ -36,6 +39,8 @@ class SubscribersContainer extends Component {
     render() {
         return (
             <Subscribers
+                dateRangePicker={this.props.dateRangePicker}
+                onRangeDate={(from, to) => this.props.setRangeDate(from, to)}
                 categories={this.props.categories}
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
             />
@@ -50,10 +55,12 @@ SubscribersContainer.propTypes = {
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
+    dateRangePicker: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
-    showGoogleMapCategory: PropTypes.func.isRequired
+    showGoogleMapCategory: PropTypes.func.isRequired,
+    setRangeDate: PropTypes.func.isRequired
 
 
 };
@@ -61,6 +68,7 @@ SubscribersContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        dateRangePicker: ui.dateRangePicker,
         users: ui.googlemap.users.cata({
             Nothing: () => ({
                 subscriber: Nothing(),
@@ -88,7 +96,8 @@ function select({ ui }) {
 const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    setRangeDate
 };
 
 export default compose(

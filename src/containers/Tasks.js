@@ -32,6 +32,9 @@ import {
     showGoogleMapTasks,
     showGoogleMapCategory
 } from 'actions/ui/GoogleMap/index';
+import {
+    setRangeDate
+} from 'actions/ui/dateRangePicker';
 import Tasks from 'components/Tasks';
 
 
@@ -39,6 +42,8 @@ class TasksContainer extends Component {
     render() {
         return (
             <Tasks
+                dateRangePicker={this.props.dateRangePicker}
+                onRangeDate={(from, to) => this.props.setRangeDate(from, to)}
                 completedTasksHistogram={this.props.completedTasksHistogram}
                 tasks={this.props.tasks}
                 onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
@@ -53,6 +58,7 @@ TasksContainer.propTypes = {
     router: routerShape.isRequired,
     location: locationShape.isRequired,
 
+    dateRangePicker: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
@@ -60,7 +66,8 @@ TasksContainer.propTypes = {
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
-    showGoogleMapCategory: PropTypes.func.isRequired
+    showGoogleMapCategory: PropTypes.func.isRequired,
+    setRangeDate: PropTypes.func.isRequired
 
 
 };
@@ -68,6 +75,7 @@ TasksContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        dateRangePicker: ui.dateRangePicker,
         completedTasksHistogram: {
             xAxis: {
                 categories: ui.completedTasksHistogram.results.cata({
@@ -123,7 +131,8 @@ function select({ ui }) {
 const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    setRangeDate
 };
 
 export default compose(

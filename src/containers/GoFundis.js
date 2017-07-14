@@ -33,6 +33,9 @@ import {
     showGoogleMapCategory,
     showGoogleMapGoFundis
 } from 'actions/ui/GoogleMap/index';
+import {
+    setRangeDate
+} from 'actions/ui/dateRangePicker';
 import GoFundis from 'components/GoFundis';
 
 
@@ -40,6 +43,8 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
+                dateRangePicker={this.props.dateRangePicker}
+                onRangeDate={(from, to) => this.props.setRangeDate(from, to)}
                 categories={this.props.categories}
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
                 goFundis={this.props.goFundis}
@@ -59,11 +64,13 @@ GoFundisContainer.propTypes = {
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
     goFundis: PropTypes.object.isRequired,
+    dateRangePicker: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
-    showGoogleMapGoFundis: PropTypes.func.isRequired
+    showGoogleMapGoFundis: PropTypes.func.isRequired,
+    setRangeDate: PropTypes.func.isRequired
 
 
 };
@@ -71,6 +78,7 @@ GoFundisContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        dateRangePicker: ui.dateRangePicker,
         users: ui.googlemap.users.cata({
             Nothing: () => ({
                 subscriber: Nothing(),
@@ -112,7 +120,8 @@ const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
-    showGoogleMapGoFundis
+    showGoogleMapGoFundis,
+    setRangeDate
 };
 
 export default compose(

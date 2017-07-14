@@ -41,6 +41,8 @@ function Tasks(props) {
                 title="TASKS"
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
+                dateRangePicker={props.dateRangePicker}
+                onRangeDate={props.onRangeDate}
             />
             <div styleName='root'>
                 <Substrate title={'HIGHLIGHTS'}>
@@ -320,6 +322,8 @@ function Tasks(props) {
 }
 
 Tasks.propTypes = {
+    dateRangePicker: PropTypes.object.isRequired,
+    onRangeDate: PropTypes.func.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,
     onChangeTaskStatusHandler: PropTypes.func.isRequired,
     categories: PropTypes.object.isRequired,
