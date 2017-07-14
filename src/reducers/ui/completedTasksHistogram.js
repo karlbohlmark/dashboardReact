@@ -32,9 +32,7 @@ export function reducer(state, action) {
         case RECIEVE_PAGE_SUCCESS: {
             return {
                 ...state,
-                results: Just(map(item => ({
-                    ...item
-                }), action.payload)),
+                results: Just(action.payload),
                 busy: false
             };
         }

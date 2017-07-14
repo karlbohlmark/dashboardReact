@@ -45,7 +45,6 @@ export function receivePage() {
             receivePageStart()
         );
         return completedTasksHistogramRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate)
-        // return completedTasksHistogramRequest()
             .then(data => {
                 dispatch(
                     batchActions([

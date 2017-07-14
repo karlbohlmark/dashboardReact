@@ -80,26 +80,26 @@ function select({ ui }) {
             xAxis: {
                 categories: ui.completedTasksHistogram.results.cata({
                     Nothing: () => ([]),
-                    Just: fields => (fields[0].data.map(field => (formatDate(field.date))))
+                    Just: fields => (fields.xAxis.map(field => (formatDate(field))))
                 })
             },
             series: [{
                 name: ui.completedTasksHistogram.results.cata({
                     Nothing: () => (''),
-                    Just: fields => (fields[0].name)
+                    Just: fields => (fields.series[0].name)
                 }),
                 data: ui.completedTasksHistogram.results.cata({
                     Nothing: () => ([]),
-                    Just: fields => (fields[0].data.map(field => (field.value)))
+                    Just: fields => (fields.series[0].data.map(field => (field)))
                 })
             }, {
                 name: ui.completedTasksHistogram.results.cata({
                     Nothing: () => (''),
-                    Just: fields => (fields[1].name)
+                    Just: fields => (fields.series[1].name)
                 }),
                 data: ui.completedTasksHistogram.results.cata({
                     Nothing: () => ([]),
-                    Just: fields => (fields[1].data.map(field => (field.value)))
+                    Just: fields => (fields.series[1].data.map(field => (field)))
                 })
             }]
 
