@@ -47,7 +47,6 @@ class OverviewContainer extends Component {
         return (
             <Overview
                 dateRangePicker={this.props.dateRangePicker}
-                // onRangeDate={this.props.setRangeDate}
                 onRangeDate={compose(this.props.receivePageCompletedTasksHistogram, this.props.setRangeDate)}
                 userLocation={this.props.userLocation}
                 completedTasksHistogram={this.props.completedTasksHistogram}
@@ -81,8 +80,6 @@ OverviewContainer.propTypes = {
     showGoogleMapCategory: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired
-
-
 };
 
 function select({ ui }) {

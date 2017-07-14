@@ -35,6 +35,9 @@ import {
 import {
     setRangeDate
 } from 'actions/ui/dateRangePicker';
+import {
+    receivePage as receivePageCompletedTasksHistogram
+} from 'actions/ui/completedTaskHistogram';
 import Tasks from 'components/Tasks';
 
 
@@ -43,7 +46,7 @@ class TasksContainer extends Component {
         return (
             <Tasks
                 dateRangePicker={this.props.dateRangePicker}
-                onRangeDate={(from, to) => this.props.setRangeDate(from, to)}
+                onRangeDate={compose(this.props.receivePageCompletedTasksHistogram, this.props.setRangeDate)}
                 completedTasksHistogram={this.props.completedTasksHistogram}
                 tasks={this.props.tasks}
                 onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
@@ -67,9 +70,8 @@ TasksContainer.propTypes = {
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
-    setRangeDate: PropTypes.func.isRequired
-
-
+    setRangeDate: PropTypes.func.isRequired,
+    receivePageCompletedTasksHistogram: PropTypes.func.isRequired
 };
 
 function select({ ui }) {
@@ -119,7 +121,8 @@ const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
-    setRangeDate
+    setRangeDate,
+    receivePageCompletedTasksHistogram
 };
 
 export default compose(
