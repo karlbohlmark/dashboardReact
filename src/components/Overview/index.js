@@ -168,14 +168,15 @@ function Overview(props) {
                 </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        <LegendRow
-                            color={'#c6d92e'}
-                            title={'Installations'}
-                        />
-                        <LegendRow
-                            color={'#6ebe46'}
-                            title={'Repair Services'}
-                        />
+                        {
+                            props.completedTasksHistogram.series.map((field, index) => (
+                                <LegendRow
+                                    key={index}
+                                    color={COMPLETED_TASKS_LINE.colors[index]}
+                                    title={field.name}
+                                />
+                            ))
+                        }
                     </div>
                     <Highchart config={merge(props.completedTasksHistogram, COMPLETED_TASKS_LINE)} />
                 </Substrate>
