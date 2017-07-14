@@ -83,26 +83,13 @@ function select({ ui }) {
                     Just: fields => (fields.xAxis.map(field => (formatDate(field))))
                 })
             },
-            series: [{
-                name: ui.completedTasksHistogram.results.cata({
-                    Nothing: () => (''),
-                    Just: fields => (fields.series[0].name)
-                }),
-                data: ui.completedTasksHistogram.results.cata({
-                    Nothing: () => ([]),
-                    Just: fields => (fields.series[0].data.map(field => (field)))
-                })
-            }, {
-                name: ui.completedTasksHistogram.results.cata({
-                    Nothing: () => (''),
-                    Just: fields => (fields.series[1].name)
-                }),
-                data: ui.completedTasksHistogram.results.cata({
-                    Nothing: () => ([]),
-                    Just: fields => (fields.series[1].data.map(field => (field)))
-                })
-            }]
-
+            series: ui.completedTasksHistogram.results.cata({
+                Nothing: () => ([]),
+                Just: fields => (fields.series.map(ser => ({
+                    name: ser.name ? ser.name : '',
+                    data: ser.data ? ser.data : []
+                })))
+            })
         },
         users: ui.googlemap.users.cata({
             Nothing: () => ({
