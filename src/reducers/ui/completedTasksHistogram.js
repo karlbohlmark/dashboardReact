@@ -2,7 +2,9 @@ import {
     Just,
     Nothing
 } from 'data.maybe';
-
+import {
+    formatDate
+} from 'utils/format-date';
 import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
@@ -16,7 +18,8 @@ export const initialState = {
 };
 
 export function reducer(state, action) {
-    switch (action.type) {
+    const { type, payload } = action;
+    switch (type) {
         case RECIEVE_PAGE_START: {
             return {
                 ...state,
@@ -25,11 +28,19 @@ export function reducer(state, action) {
                 errors: Nothing()
             };
         }
-
         case RECIEVE_PAGE_SUCCESS: {
             return {
                 ...state,
-                results: Just(action.payload),
+                // results: Just(payload),
+                results: Just({
+                    xAxis: {
+                        categories: payload.xAxis.map(field => (formatDate(field)))
+                    },
+                    series: payload.series.map(ser => ({
+                        name: ser.name ? ser.name : '',
+                        data: ser.data ? ser.data : []
+                    }))
+                }),
                 busy: false
             };
         }
@@ -38,7 +49,7 @@ export function reducer(state, action) {
             return {
                 ...state,
                 busy: false,
-                errors: Just(action.payload)
+                errors: Just(payload)
             };
         }
 

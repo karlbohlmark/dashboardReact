@@ -20,9 +20,6 @@ import {
     Just
 } from 'data.maybe';
 import {
-    formatDate
-} from 'utils/format-date';
-import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
     USER_TYPE_ALL
@@ -78,21 +75,7 @@ function select({ ui }) {
 
     return {
         dateRangePicker: ui.dateRangePicker,
-        completedTasksHistogram: {
-            xAxis: {
-                categories: ui.completedTasksHistogram.results.cata({
-                    Nothing: () => ([]),
-                    Just: fields => (fields.xAxis.map(field => (formatDate(field))))
-                })
-            },
-            series: ui.completedTasksHistogram.results.cata({
-                Nothing: () => ([]),
-                Just: fields => (fields.series.map(ser => ({
-                    name: ser.name ? ser.name : '',
-                    data: ser.data ? ser.data : []
-                })))
-            })
-        },
+        completedTasksHistogram: ui.completedTasksHistogram,
         users: ui.googlemap.users.cata({
             Nothing: () => ({
                 subscriber: Nothing(),

@@ -286,16 +286,24 @@ function Tasks(props) {
                 <Substrate title={'COMPLETED TASKS'}>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
                         {
-                            props.completedTasksHistogram.series.map((field, index) => (
-                                <LegendRow
-                                    key={index}
-                                    color={COMPLETED_TASKS_LINE.colors[index]}
-                                    title={field.name}
-                                />
-                            ))
+                            props.completedTasksHistogram.results.cata({
+                                Nothing: () => (<div>load...</div>),
+                                Just: fields => (fields.series.map((field, index) => (
+                                    <LegendRow
+                                        key={index}
+                                        color={COMPLETED_TASKS_LINE.colors[index]}
+                                        title={field.name}
+                                    />
+                                )))
+                            })
                         }
                     </div>
-                    <Highchart config={merge(props.completedTasksHistogram, COMPLETED_TASKS_LINE)} />
+                        {
+                            props.completedTasksHistogram.results.cata({
+                                Nothing: () => (<div>load...</div>),
+                                Just: results => ( <Highchart config={merge(results, COMPLETED_TASKS_LINE)} /> )
+                            })
+                        }
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <SelectBoxItem
