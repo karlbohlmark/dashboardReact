@@ -12,15 +12,15 @@ function UserPanel(props) {
     return (
         <div styleName='row_items'>
             <CheckBoxItem
-                value={props.users.all.getOrElse(false)}
-                onChange={f => props.onUserLocationHandler(USER_TYPE_ALL, f)}
+                value={props.uiUsers.all.getOrElse(false)}
+                onChange={f => props.onUiUsersHandler(USER_TYPE_ALL, f)}
             >
                 All
             </CheckBoxItem>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.users.subscriber.getOrElse(false)}
-                    onChange={f => props.onUserLocationHandler(USER_TYPE_SUBSCRIBER, f)}
+                    value={props.uiUsers.subscriber.getOrElse(false)}
+                    onChange={f => props.onUiUsersHandler(USER_TYPE_SUBSCRIBER, f)}
                 >
                     Subscribers
                 </CheckBoxItem>
@@ -30,8 +30,8 @@ function UserPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.users.gofundis.getOrElse(false)}
-                    onChange={f => props.onUserLocationHandler(USER_TYPE_GOFUNDIS, f)}
+                    value={props.uiUsers.gofundis.getOrElse(false)}
+                    onChange={f => props.onUiUsersHandler(USER_TYPE_GOFUNDIS, f)}
                 >
                     GoFundis
                 </CheckBoxItem>
@@ -44,8 +44,8 @@ function UserPanel(props) {
 }
 
 UserPanel.propTypes = {
-    users: PropTypes.object.isRequired,
-    onUserLocationHandler: PropTypes.func.isRequired
+    uiUsers: PropTypes.object.isRequired,
+    onUiUsersHandler: PropTypes.func.isRequired
 };
 
 export default CSSModules(UserPanel, styles);

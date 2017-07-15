@@ -50,12 +50,12 @@ class SegmentMap extends React.Component {
 
     filterArr(arr) {
         return arr.filter(item => {
-            if (this.props.users.all.getOrElse(false)) {
-                return this.props.users.all.getOrElse(false);
+            if (this.props.uiUsers.all.getOrElse(false)) {
+                return this.props.uiUsers.all.getOrElse(false);
             } else if (item.type === USER_TYPE_SUBSCRIBER) {
-                return this.props.users.subscriber.getOrElse(false);
+                return this.props.uiUsers.subscriber.getOrElse(false);
             } else if (item.type === USER_TYPE_GOFUNDIS) {
-                return this.props.users.gofundis.getOrElse(false);
+                return this.props.uiUsers.gofundis.getOrElse(false);
             }
             return false;
         });
@@ -140,7 +140,7 @@ class SegmentMap extends React.Component {
     }
 }
 SegmentMap.propTypes = {
-    users: PropTypes.object.isRequired,
+    uiUsers: PropTypes.object.isRequired,
     data: PropTypes.array.isRequired
 };
 

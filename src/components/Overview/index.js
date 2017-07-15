@@ -26,15 +26,13 @@ import TasksHistogram from 'components/TasksHistogram';
 import ReportRow from 'components/ListItem/ReportRow';
 import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
-import GoogleMapUsers from 'components/GoogleMap';
 import SubPanel from 'components/SubPanel';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import GoogleMapCategory from 'components/GoogleMap/Category';
-import UserPanel from 'components/Overview/UserPanel';
+import UsersMap from 'components/UsersMap';
 import SelectBoxItem from 'components/SelectBoxItem';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
-import Placeholder from 'components/Placeholder';
 
 function Overview(props) {
 
@@ -153,28 +151,10 @@ function Overview(props) {
                     </div>
                 </div>
                 <Substrate title={'USERS'}>
-                    <UserPanel
-                        userLocation={props.userLocation}
-                        users={props.users}
-                        onUserLocationHandler={props.onUserLocationHandler}
-                    />
-
-                    {props.userLocation.errors.cata({
-                        Nothing: () => props.userLocation.results.cata({
-                            Nothing: () => (
-                                <Placeholder busy={props.userLocation.busy} size={[ '100%', '300px' ]} />
-                            ),
-                            Just: () => (
-                                <GoogleMapUsers
-                                    users={props.users}
-                                    data={props.userLocation.results.getOrElse([])}
-                                />
-                            )
-                        }),
-                        Just: errors => (
-                            <div>{errors}</div>
-                        )
-                    })}
+                    <UsersMap
+                        dataUsersLocation={props.userLocation}
+                        uiUsers={props.users}
+                        onUiUsersHandler={props.onUserLocationHandler}/>
                 </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>
                     <TasksHistogram data={props.completedTasksHistogram}/>
