@@ -26,6 +26,7 @@ import {
     capitalize
 } from 'utils';
 import Highchart from 'react-highcharts/ReactHighcharts';
+import Placeholder from 'components/Placeholder';
 import ReportRow from 'components/ListItem/ReportRow';
 import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
@@ -169,26 +170,32 @@ function Overview(props) {
                     />
                 </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        {
-                            props.completedTasksHistogram.results.cata({
-                                Nothing: () => (<div>load...</div>),
-                                Just: fields => (fields.series.map((field, index) => (
-                                    <LegendRow
-                                        key={index}
-                                        color={COMPLETED_TASKS_LINE.colors[index]}
-                                        title={field.name}
-                                    />
-                                )))
-                            })
-                        }
-                    </div>
-                        {
-                            props.completedTasksHistogram.results.cata({
-                                Nothing: () => (<div>load...</div>),
-                                Just: results => ( <Highchart config={merge(results, COMPLETED_TASKS_LINE)} /> )
-                            })
-                        }
+                    {props.completedTasksHistogram.errors.cata({
+                        Nothing: () => props.completedTasksHistogram.results.cata({
+                            Nothing: () => (
+                                <Placeholder busy={props.completedTasksHistogram.busy} size={[ '100%', '300px' ]} />
+                            ),
+                            Just: fields => (
+                                <div>
+                                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                        {
+                                            fields.series.map((field, index) => (
+                                                <LegendRow
+                                                    key={index}
+                                                    color={COMPLETED_TASKS_LINE.colors[index]}
+                                                    title={field.name}
+                                                />
+                                            ))
+                                        }
+                                    </div>
+                                    <Highchart config={merge(fields, COMPLETED_TASKS_LINE)} />
+                                </div>
+                            )
+                        }),
+                        Just: errors => (
+                            <div>{errors}</div>
+                        )
+                    })}
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <SelectBoxItem
