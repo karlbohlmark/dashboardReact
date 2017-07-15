@@ -2,9 +2,6 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    merge
-} from 'lodash/fp';
-import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
@@ -12,8 +9,7 @@ import {
     TASK_STATYS_CANCELLED
 } from 'models/googlemap';
 import {
-    COMPLETED_TASKS,
-    COMPLETED_TASKS_LINE
+    COMPLETED_TASKS
 } from 'models/highchartConfig';
 import {
     capitalize
@@ -21,7 +17,7 @@ import {
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
-import Placeholder from 'components/Placeholder';
+import TasksHistogram from 'components/TasksHistogram';
 // const ReactHighcharts = require('react-highcharts');
 // const HighchartsMore = require('highcharts-more');
 // HighchartsMore(ReactHighcharts.Highcharts);
@@ -285,32 +281,7 @@ function Tasks(props) {
                     </div>
                 </div>
                 <Substrate title={'COMPLETED TASKS'}>
-                    {props.completedTasksHistogram.errors.cata({
-                        Nothing: () => props.completedTasksHistogram.results.cata({
-                            Nothing: () => (
-                                <Placeholder busy={props.completedTasksHistogram.busy} size={[ '100%', '300px' ]} />
-                            ),
-                            Just: fields => (
-                                <div>
-                                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                                        {
-                                            fields.series.map((field, index) => (
-                                                <LegendRow
-                                                    key={index}
-                                                    color={COMPLETED_TASKS_LINE.colors[index]}
-                                                    title={field.name}
-                                                />
-                                            ))
-                                        }
-                                    </div>
-                                    <Highchart config={merge(fields, COMPLETED_TASKS_LINE)} />
-                                </div>
-                            )
-                        }),
-                        Just: errors => (
-                            <div>{errors}</div>
-                        )
-                    })}
+                    <TasksHistogram data={props.completedTasksHistogram}/>
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <SelectBoxItem
