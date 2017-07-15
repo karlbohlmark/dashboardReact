@@ -18,8 +18,6 @@ export function completedTasksHistogram(from, to) {
         isNull(from) || isNull(to) ? {} :
         {
             timespan: {
-                // from: from ? new Date(from) : null,
-                // to: to ? new Date(to) : null
                 from: from ? from : null,
                 to: to ? to : null
             }

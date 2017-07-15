@@ -40,7 +40,8 @@ export function receivePage() {
         if (ui.userLocation.busy) {
             return Promise.resolve();
         }
-
+        // todo check and collect params from getState to query
+        // ui.googlemap.users
         dispatch(
             receivePageStart()
         );

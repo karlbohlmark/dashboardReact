@@ -35,7 +35,9 @@ import {
 import {
     receivePage as receivePageCompletedTasksHistogram
 } from 'actions/ui/completedTaskHistogram';
-
+import {
+    receivePage as receivePageUserLocation
+} from 'actions/ui/userLocation';
 import Overview from 'components/Overview';
 
 
@@ -44,13 +46,15 @@ class OverviewContainer extends Component {
         return (
             <Overview
                 dateRangePicker={this.props.dateRangePicker}
-                onRangeDate={compose(this.props.receivePageCompletedTasksHistogram, this.props.setRangeDate)}
+                onRangeDate={compose(
+                    this.props.receivePageCompletedTasksHistogram,
+                    this.props.setRangeDate)}
                 userLocation={this.props.userLocation}
                 completedTasksHistogram={this.props.completedTasksHistogram}
                 users={this.props.users}
-                subscriberHandler={f => this.props.showGoogleMapUser(USER_TYPE_SUBSCRIBER, f)}
-                gofundisHandler={f => this.props.showGoogleMapUser(USER_TYPE_GOFUNDIS, f)}
-                allHandler={f => this.props.showGoogleMapUser(USER_TYPE_ALL, f)}
+                onUserLocationHandler={compose(
+                    this.props.receivePageUserLocation,
+                    this.props.showGoogleMapUser)}
                 tasks={this.props.tasks}
                 onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
                 categories={this.props.categories}
@@ -76,7 +80,8 @@ OverviewContainer.propTypes = {
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
-    receivePageCompletedTasksHistogram: PropTypes.func.isRequired
+    receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
+    receivePageUserLocation: PropTypes.func.isRequired
 };
 
 function select({ ui }) {
@@ -114,7 +119,8 @@ const bindActions = {
     showGoogleMapTasks,
     showGoogleMapCategory,
     setRangeDate,
-    receivePageCompletedTasksHistogram
+    receivePageCompletedTasksHistogram,
+    receivePageUserLocation
 };
 
 export default compose(

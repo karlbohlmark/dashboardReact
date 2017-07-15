@@ -2,9 +2,6 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    merge
-} from 'lodash/fp';
-import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
@@ -37,7 +34,7 @@ import UserPanel from 'components/Overview/UserPanel';
 import SelectBoxItem from 'components/SelectBoxItem';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
-
+import Placeholder from 'components/Placeholder';
 
 function Overview(props) {
 
@@ -159,14 +156,25 @@ function Overview(props) {
                     <UserPanel
                         userLocation={props.userLocation}
                         users={props.users}
-                        allHandler={props.allHandler}
-                        subscriberHandler={props.subscriberHandler}
-                        gofundisHandler={props.gofundisHandler}
+                        onUserLocationHandler={props.onUserLocationHandler}
                     />
-                    <GoogleMapUsers
-                        users={props.users}
-                        data={props.userLocation.results.getOrElse([])}
-                    />
+
+                    {props.userLocation.errors.cata({
+                        Nothing: () => props.userLocation.results.cata({
+                            Nothing: () => (
+                                <Placeholder busy={props.userLocation.busy} size={[ '100%', '300px' ]} />
+                            ),
+                            Just: () => (
+                                <GoogleMapUsers
+                                    users={props.users}
+                                    data={props.userLocation.results.getOrElse([])}
+                                />
+                            )
+                        }),
+                        Just: errors => (
+                            <div>{errors}</div>
+                        )
+                    })}
                 </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>
                     <TasksHistogram data={props.completedTasksHistogram}/>
@@ -229,9 +237,7 @@ Overview.propTypes = {
     tasks: PropTypes.object.isRequired,
     onChangeTaskStatusHandler: PropTypes.func.isRequired,
     users: PropTypes.object.isRequired,
-    allHandler: PropTypes.func.isRequired,
-    subscriberHandler: PropTypes.func.isRequired,
-    gofundisHandler: PropTypes.func.isRequired,
+    onUserLocationHandler: PropTypes.func.isRequired,
     onRangeDate: PropTypes.func.isRequired
 
 };

@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import CheckBoxItem from 'components/CheckBoxItem';
-
+import {
+    USER_TYPE_SUBSCRIBER,
+    USER_TYPE_GOFUNDIS,
+    USER_TYPE_ALL
+} from 'models/googlemap';
 import styles from './styles.css';
 
 function UserPanel(props) {
@@ -9,14 +13,14 @@ function UserPanel(props) {
         <div styleName='row_items'>
             <CheckBoxItem
                 value={props.users.all.getOrElse(false)}
-                onChange={props.allHandler}
+                onChange={f => props.onUserLocationHandler(USER_TYPE_ALL, f)}
             >
                 All
             </CheckBoxItem>
             <div styleName='inline_items'>
                 <CheckBoxItem
                     value={props.users.subscriber.getOrElse(false)}
-                    onChange={props.subscriberHandler}
+                    onChange={f => props.onUserLocationHandler(USER_TYPE_SUBSCRIBER, f)}
                 >
                     Subscribers
                 </CheckBoxItem>
@@ -27,7 +31,7 @@ function UserPanel(props) {
             <div styleName='inline_items'>
                 <CheckBoxItem
                     value={props.users.gofundis.getOrElse(false)}
-                    onChange={props.gofundisHandler}
+                    onChange={f => props.onUserLocationHandler(USER_TYPE_GOFUNDIS, f)}
                 >
                     GoFundis
                 </CheckBoxItem>
@@ -41,9 +45,7 @@ function UserPanel(props) {
 
 UserPanel.propTypes = {
     users: PropTypes.object.isRequired,
-    gofundisHandler: PropTypes.func.isRequired,
-    subscriberHandler: PropTypes.func.isRequired,
-    allHandler: PropTypes.func.isRequired
+    onUserLocationHandler: PropTypes.func.isRequired
 };
 
 export default CSSModules(UserPanel, styles);

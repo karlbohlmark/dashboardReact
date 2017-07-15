@@ -1,5 +1,5 @@
 import {
-    // isArray
+    isArray
 } from 'lodash/fp';
 import Maybe from 'data.maybe';
 
@@ -15,9 +15,9 @@ const METHOD = 'query/ListUserLocations';
 
 export function listUserLocations(userType) {
     const query = encodeURIComponent(JSON.stringify(
-        // isArray(userType) ?
-        { userTypes: userType ? userType : []}
-        // : {}
+        isArray(userType) ?
+            { userTypes: userType ? userType : []} :
+            {}
         ));
     return fetch(`${config.url}${config.version}${METHOD}?query=${query}`, {
         method: 'GET',
