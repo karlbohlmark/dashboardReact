@@ -13,10 +13,10 @@ import {
 
 const METHOD = 'query/ListUserLocations';
 
-export function listUserLocations(userType) {
+export function listUserLocations(userTypes) {
     const query = encodeURIComponent(JSON.stringify(
-        isArray(userType) ?
-            { userTypes: userType ? userType : []} :
+        isArray(userTypes) ?
+            { userTypes: userTypes ? userTypes : []} :
             {}
         ));
     return fetch(`${config.url}${config.version}${METHOD}?query=${query}`, {

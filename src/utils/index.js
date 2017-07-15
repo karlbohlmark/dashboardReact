@@ -2,7 +2,8 @@ export {
     formatDate
 } from './format-date';
 export {
-    get
+    get,
+    getTypesArray
 } from './get';
 export {
     head

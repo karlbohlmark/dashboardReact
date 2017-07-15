@@ -1,7 +1,13 @@
 import {
     batchActions
 } from 'redux-batched-actions';
-
+import {
+    uniq,
+    flatten
+} from 'lodash/fp';
+import {
+    getTypesArray
+} from 'utils';
 import {
     listUserLocations as listUserLocationsRequest
 } from 'services/userLocation';
@@ -40,13 +46,17 @@ export function receivePage() {
         if (ui.userLocation.busy) {
             return Promise.resolve();
         }
-        // todo check and collect params from getState to query
-        // ui.googlemap.users
+        const userTypes = ['subscriber', 'gofundi'];
+        const toSendUserTypes = ui.googlemap.users.cata({
+            Nothing: () => (userTypes),
+            Just: fields => getTypesArray(fields, userTypes)
+
+        });
         dispatch(
             receivePageStart()
         );
 
-        return listUserLocationsRequest()
+        return listUserLocationsRequest(uniq(flatten(toSendUserTypes)))
             .then(data => {
                 dispatch(
                     batchActions([
