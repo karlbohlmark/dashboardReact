@@ -19,6 +19,9 @@ import {
     receivePage as receivePageUserLocation
 } from 'actions/ui/userLocation';
 import {
+    receivePage as receivePageGetOverviewStats
+} from 'actions/ui/getOverviewStats';
+import {
     receivePage as receivePageTaskLocationByStatus
 } from 'actions/ui/taskLocationByStatus';
 import {
@@ -77,6 +80,9 @@ const routes = {
                     onEnter: compose(compose(
                         store.dispatch,
                         receivePageUserLocation
+                        ), compose(
+                        store.dispatch,
+                        receivePageGetOverviewStats
                         ), compose(
                         store.dispatch,
                         receivePageTaskLocationByCategory

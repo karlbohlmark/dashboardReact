@@ -11,6 +11,10 @@ import {
     reducer as reducerUserLocation
 } from './userLocation';
 import {
+    initialState as initialGetOverViewStats,
+    reducer as reducerGetOverViewStats
+} from './getOverviewStats';
+import {
     initialState as initialTaskLocationByCategory,
     reducer as reducerTaskLocationByCategory
 } from './taskLocationByCategory';
@@ -31,6 +35,7 @@ export const initialState = {
     notifications: initialNotificationState,
     googlemap: initialGoogleMapState,
     userLocation: initialUserLocationState,
+    getOverviewStats: initialGetOverViewStats,
     taskLocationByStatus: initialTaskLocationByStatus,
     taskLocationByCategory: initialTaskLocationByCategory,
     completedTasksHistogram: initialCompletedTasksHistogram,
@@ -41,6 +46,7 @@ export function reducer(state, action) {
     const nextNotification = reducerNotification(state.notifications, action);
     const nextGoogleMap = reducerGoogleMap(state.googlemap, action);
     const nextUserLocation = reducerUserLocation(state.userLocation, action);
+    const nextGetOverviewStats = reducerGetOverViewStats(state.getOverviewStats, action);
     const nextTaskLocationByStatus = reducerTaskLocationByStatus(state.taskLocationByStatus, action);
     const nextTaskLocationByCategory = reducerTaskLocationByCategory(state.taskLocationByCategory, action);
     const nextCompletedTasksHistogram = reducerCompletedTasksHistogram(state.completedTasksHistogram, action);
@@ -50,6 +56,7 @@ export function reducer(state, action) {
         state.notifications === nextNotification &&
         state.googlemap === nextGoogleMap &&
         state.userLocation === nextUserLocation &&
+        state.getOverviewStats === nextGetOverviewStats &&
         state.taskLocationByStatus === nextTaskLocationByStatus &&
         state.taskLocationByCategory === nextTaskLocationByCategory &&
         state.completedTasksHistogram === nextCompletedTasksHistogram &&
@@ -62,6 +69,7 @@ export function reducer(state, action) {
         notifications: nextNotification,
         googlemap: nextGoogleMap,
         userLocation: nextUserLocation,
+        getOverviewStats: nextGetOverviewStats,
         taskLocationByStatus: nextTaskLocationByStatus,
         taskLocationByCategory: nextTaskLocationByCategory,
         completedTasksHistogram: nextCompletedTasksHistogram,
