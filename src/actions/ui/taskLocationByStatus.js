@@ -1,5 +1,5 @@
 import {
-    // compose
+    compose
 } from 'lodash/fp';
 import {
     batchActions
@@ -35,7 +35,7 @@ export function receivePageFailure(errors) {
         payload: errors
     };
 }
-// const statusTask = status => (status.toLowerCase());
+
 export function receivePage() {
     return (dispatch, getState) => {
         const { ui } = getState();
@@ -44,19 +44,15 @@ export function receivePage() {
             return Promise.resolve();
         }
         const tasksTypes = ['unassigned', 'assigned', 'completed', 'cancelled'];
-        // console.log('receivePage :::');
-        // todo Fix get data from redux state / correct call request
-        // const toSendTasksTypes = ui.googlemap.tasks.cata({
-        //     Nothing: () => (tasksTypes),
-        //     Just: fields => compose(statusTask, fields)
-        //
-        // });
-        // console.log('toSendTasksTypes :::', toSendTasksTypes);
+        const toSendTasksTypes = ui.googlemap.tasks.cata({
+            Nothing: () => (tasksTypes),
+            Just: value => ([value.toLowerCase()])
+        });
         dispatch(
             receivePageStart()
         );
 
-        return taskLocationByStatusRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate, tasksTypes)
+        return taskLocationByStatusRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate, toSendTasksTypes)
             .then(data => {
                 dispatch(
                     batchActions([

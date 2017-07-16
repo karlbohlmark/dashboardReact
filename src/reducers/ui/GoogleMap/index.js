@@ -1,4 +1,7 @@
 import {
+    isNil
+} from 'lodash/fp';
+import {
     Nothing,
     Just
 } from 'data.maybe';
@@ -40,8 +43,8 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 tasks: state.tasks.cata({
-                    Just: () => (Just(payload.type)),
-                    Nothing: () => (Just(payload.type))
+                    Just: () => !isNil(payload.type) ? Just(payload.type) : Nothing(),
+                    Nothing: () => !isNil(payload.type) ? Just(payload.type) : Nothing()
                 })
             };
         }
@@ -50,8 +53,8 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 categories: state.categories.cata({
-                    Just: () => (Just(payload.type)),
-                    Nothing: () => (Just(payload.type))
+                    Just: () => !isNil(payload.type) ? Just(payload.type) : Nothing(),
+                    Nothing: () => !isNil(payload.type) ? Just(payload.type) : Nothing()
                 })
             };
         }
