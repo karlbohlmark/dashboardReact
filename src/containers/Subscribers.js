@@ -52,10 +52,10 @@ SubscribersContainer.propTypes = {
     router: routerShape.isRequired,
     location: locationShape.isRequired,
 
+    dateRangePicker: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
-    dateRangePicker: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,

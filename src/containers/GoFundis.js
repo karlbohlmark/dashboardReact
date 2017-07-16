@@ -60,19 +60,17 @@ GoFundisContainer.propTypes = {
     router: routerShape.isRequired,
     location: locationShape.isRequired,
 
+    dateRangePicker: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
     goFundis: PropTypes.object.isRequired,
-    dateRangePicker: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
     showGoogleMapGoFundis: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired
-
-
 };
 
 function select({ ui }) {

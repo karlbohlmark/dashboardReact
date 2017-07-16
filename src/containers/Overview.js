@@ -85,8 +85,8 @@ OverviewContainer.propTypes = {
     tasksLocationStatus: PropTypes.object.isRequired,
     userLocation: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
-    dateRangePicker: PropTypes.object.isRequired,
 
+    dateRangePicker: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
