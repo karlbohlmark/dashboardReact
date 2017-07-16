@@ -11,6 +11,10 @@ import {
     reducer as reducerUserLocation
 } from './userLocation';
 import {
+    initialState as initialTaskLocationByCategory,
+    reducer as reducerTaskLocationByCategory
+} from './taskLocationByCategory';
+import {
     initialState as initialTaskLocationByStatus,
     reducer as reducerTaskLocationByStatus
 } from './taskLocationByStatus';
@@ -28,6 +32,7 @@ export const initialState = {
     googlemap: initialGoogleMapState,
     userLocation: initialUserLocationState,
     taskLocationByStatus: initialTaskLocationByStatus,
+    taskLocationByCategory: initialTaskLocationByCategory,
     completedTasksHistogram: initialCompletedTasksHistogram,
     dateRangePicker: initialDateRangePicker
 };
@@ -37,6 +42,7 @@ export function reducer(state, action) {
     const nextGoogleMap = reducerGoogleMap(state.googlemap, action);
     const nextUserLocation = reducerUserLocation(state.userLocation, action);
     const nextTaskLocationByStatus = reducerTaskLocationByStatus(state.taskLocationByStatus, action);
+    const nextTaskLocationByCategory = reducerTaskLocationByCategory(state.taskLocationByCategory, action);
     const nextCompletedTasksHistogram = reducerCompletedTasksHistogram(state.completedTasksHistogram, action);
     const nextDateRangePicker = reducerDateRangePicker(state.dateRangePicker, action);
 
@@ -45,6 +51,7 @@ export function reducer(state, action) {
         state.googlemap === nextGoogleMap &&
         state.userLocation === nextUserLocation &&
         state.taskLocationByStatus === nextTaskLocationByStatus &&
+        state.taskLocationByCategory === nextTaskLocationByCategory &&
         state.completedTasksHistogram === nextCompletedTasksHistogram &&
         state.dateRangePicker === nextDateRangePicker
     ) {
@@ -56,6 +63,7 @@ export function reducer(state, action) {
         googlemap: nextGoogleMap,
         userLocation: nextUserLocation,
         taskLocationByStatus: nextTaskLocationByStatus,
+        taskLocationByCategory: nextTaskLocationByCategory,
         completedTasksHistogram: nextCompletedTasksHistogram,
         dateRangePicker: nextDateRangePicker
     };
