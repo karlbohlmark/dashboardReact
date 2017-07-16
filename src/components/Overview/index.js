@@ -27,6 +27,7 @@ import SubPanel from 'components/SubPanel';
 import GoogleMapCategory from 'components/GoogleMap/Category';
 import SelectBoxItem from 'components/SelectBoxItem';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
+import Placeholder from 'components/Placeholder';
 
 function Overview(props) {
 
@@ -180,10 +181,22 @@ function Overview(props) {
                         value={props.categories}
 
                     />
-                    <GoogleMapCategory
-                        categories={props.categories}
-                        data={dataMapMarkerCategory}
-                    />
+                    {props.tasksLocationByCategory.errors.cata({
+                        Nothing: () => props.tasksLocationByCategory.results.cata({
+                            Nothing: () => (
+                                <Placeholder busy={props.tasksLocationByCategory.busy} size={[ '100%', '300px' ]} />
+                            ),
+                            Just: () => (
+                                <GoogleMapCategory
+                                    categories={props.categories}
+                                    data={dataMapMarkerCategory}
+                                />
+                            )
+                        }),
+                        Just: errors => (
+                            <div>{errors}</div>
+                        )
+                    })}
                 </Substrate>
             </div>
         </div>
@@ -194,6 +207,7 @@ Overview.propTypes = {
     dateRangePicker: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
     userLocation: PropTypes.object.isRequired,
+    tasksLocationByCategory: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,
     tasksLocationStatus: PropTypes.object.isRequired,

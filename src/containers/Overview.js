@@ -67,6 +67,7 @@ class OverviewContainer extends Component {
                 onChangeTaskStatusHandler={compose(
                     this.props.receivePageTaskLocationByStatus,
                     this.props.showGoogleMapTasks)}
+                tasksLocationByCategory={this.props.tasksLocationByCategory}
                 categories={this.props.categories}
                 onChangeCategoryHandler={compose(
                     this.props.receivePageTaskLocationByCategory,
@@ -80,6 +81,7 @@ OverviewContainer.propTypes = {
     router: routerShape.isRequired,
     location: locationShape.isRequired,
 
+    tasksLocationByCategory: PropTypes.object.isRequired,
     tasksLocationStatus: PropTypes.object.isRequired,
     userLocation: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
@@ -123,6 +125,7 @@ function select({ ui }) {
             Nothing: () => (Nothing()),
             Just: value => (Just(value))
         }),
+        tasksLocationByCategory: ui.taskLocationByCategory,
         categories: ui.googlemap.categories.cata({
             Nothing: () => (Nothing()),
             Just: value => (Just(value))
