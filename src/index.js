@@ -18,9 +18,9 @@ import 'react-select/dist/react-select.css';
 import {
     receivePage as receivePageUserLocation
 } from 'actions/ui/userLocation';
-// import {
-//     receivePage as receivePageTaskLocationByStatus
-// } from 'actions/ui/taskLocationByStatus';
+import {
+    receivePage as receivePageTaskLocationByStatus
+} from 'actions/ui/taskLocationByStatus';
 import {
     receivePage as receivePageCompletedTasksHistogram
 } from 'actions/ui/completedTaskHistogram';
@@ -76,22 +76,24 @@ const routes = {
                         receivePageUserLocation
                         ), compose(
                         store.dispatch,
+                        receivePageTaskLocationByStatus
+                        ), compose(
+                        store.dispatch,
                         receivePageCompletedTasksHistogram
                     )),
-                    // onEnter: compose(
-                    //     store.dispatch,
-                    //     receivePageUserLocation
-                    // ),
                     path: '/dashboard/overview',
                     component: props => (
                         <Overview {...props} />
                     )
                 },
                 {
-                    onEnter: compose(
+                    onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageTaskLocationByStatus
+                    ), compose(
                         store.dispatch,
                         receivePageCompletedTasksHistogram
-                    ),
+                    )),
                     path: '/dashboard/tasks',
                     component: props => (
                         <Tasks {...props} />

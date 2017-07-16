@@ -1,4 +1,7 @@
 import {
+    // compose
+} from 'lodash/fp';
+import {
     batchActions
 } from 'redux-batched-actions';
 
@@ -32,7 +35,7 @@ export function receivePageFailure(errors) {
         payload: errors
     };
 }
-
+// const statusTask = status => (status.toLowerCase());
 export function receivePage() {
     return (dispatch, getState) => {
         const { ui } = getState();
@@ -40,12 +43,20 @@ export function receivePage() {
         if (ui.taskLocationByStatus.busy) {
             return Promise.resolve();
         }
-
+        const tasksTypes = ['unassigned', 'assigned', 'completed', 'cancelled'];
+        // console.log('receivePage :::');
+        // todo Fix get data from redux state / correct call request
+        // const toSendTasksTypes = ui.googlemap.tasks.cata({
+        //     Nothing: () => (tasksTypes),
+        //     Just: fields => compose(statusTask, fields)
+        //
+        // });
+        // console.log('toSendTasksTypes :::', toSendTasksTypes);
         dispatch(
             receivePageStart()
         );
 
-        return taskLocationByStatusRequest()
+        return taskLocationByStatusRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate, tasksTypes)
             .then(data => {
                 dispatch(
                     batchActions([

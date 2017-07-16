@@ -1,6 +1,6 @@
 import {
-    map,
-    compose
+    map
+    // compose
 } from 'lodash/fp';
 
 import {
@@ -14,7 +14,7 @@ import {
     RECIEVE_PAGE_FAILURE
 } from 'actions/ui/taskLocationByStatus';
 
-const statusTask = status => (status.toLowerCase());
+// const statusTask = status => (status.toLowerCase());
 
 export const initialState = {
     results: Nothing(),
@@ -37,8 +37,8 @@ export function reducer(state, action) {
             return {
                 ...state,
                 results: Just(map(item => ({
-                    ...item,
-                    type: compose(statusTask, item.status)
+                    ...item
+                    // type: compose(statusTask, item.status)
                 }), action.payload)),
                 busy: false
             };

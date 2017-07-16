@@ -35,6 +35,9 @@ import {
 import {
     receivePage as receivePageCompletedTasksHistogram
 } from 'actions/ui/completedTaskHistogram';
+import {
+    receivePage as receivePageTaskLocationByStatus
+} from 'actions/ui/taskLocationByStatus';
 import Tasks from 'components/Tasks';
 
 
@@ -43,10 +46,15 @@ class TasksContainer extends Component {
         return (
             <Tasks
                 dateRangePicker={this.props.dateRangePicker}
-                onRangeDate={compose(this.props.receivePageCompletedTasksHistogram, this.props.setRangeDate)}
+                onRangeDate={compose(
+                    this.props.receivePageTaskLocationByStatus,
+                    this.props.receivePageCompletedTasksHistogram,
+                    this.props.setRangeDate)}
                 completedTasksHistogram={this.props.completedTasksHistogram}
                 tasks={this.props.tasks}
-                onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
+                onChangeTaskStatusHandler={compose(
+                    this.props.receivePageTaskLocationByStatus,
+                    this.props.showGoogleMapTasks)}
                 categories={this.props.categories}
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
             />
@@ -68,7 +76,8 @@ TasksContainer.propTypes = {
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
-    receivePageCompletedTasksHistogram: PropTypes.func.isRequired
+    receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
+    receivePageTaskLocationByStatus: PropTypes.func.isRequired
 };
 
 function select({ ui }) {
@@ -105,7 +114,8 @@ const bindActions = {
     showGoogleMapTasks,
     showGoogleMapCategory,
     setRangeDate,
-    receivePageCompletedTasksHistogram
+    receivePageCompletedTasksHistogram,
+    receivePageTaskLocationByStatus
 };
 
 export default compose(
