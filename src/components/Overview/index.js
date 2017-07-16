@@ -2,32 +2,19 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    CATEGORY_ALL,
-    CATEGORY_NEW_INSTALL_DECODER,
-    CATEGORY_NEW_INSTALL_SIGNAL,
-    CATEGORY_NEW_INSTALL_ERROR,
-    CATEGORY_REPAIR_INSTALL_DECODER,
-    CATEGORY_REPAIR_INSTALL_SIGNAL
-} from 'models/googlemap';
-import {
     COMPLETED_TASKS,
     GOFUNDIS
 } from 'models/highchartConfig';
-import {
-    capitalize
-} from 'utils';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import TasksHistogram from 'components/TasksHistogram';
 import TasksStatusMap from 'components/TasksStatusMap';
+import CategoriesMap from 'components/CategoriesMap';
 import UsersMap from 'components/UsersMap';
 import ReportRow from 'components/ListItem/ReportRow';
 import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
-import GoogleMapCategory from 'components/GoogleMap/Category';
-import SelectBoxItem from 'components/SelectBoxItem';
-import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
-import Placeholder from 'components/Placeholder';
+
 
 function Overview(props) {
 
@@ -158,45 +145,13 @@ function Overview(props) {
                     <TasksStatusMap
                         dataTasksLocationStatus={props.tasksLocationStatus}
                         uiTasks={props.tasks}
-                        onUiTasksHandler={props.onChangeTaskStatusHandler}/>/>
+                        onUiTasksHandler={props.onChangeTaskStatusHandler}/>
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
-                    <SelectBoxItem
-                        style={{width: '300px'}}
-                        options={[
-                            { value: CATEGORY_ALL,
-                                label: capitalize(CATEGORY_ALL) },
-                            { value: CATEGORY_NEW_INSTALL_DECODER,
-                                label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
-                            { value: CATEGORY_NEW_INSTALL_SIGNAL,
-                                label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
-                            { value: CATEGORY_NEW_INSTALL_ERROR,
-                                label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
-                            { value: CATEGORY_REPAIR_INSTALL_DECODER,
-                                label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
-                            { value: CATEGORY_REPAIR_INSTALL_SIGNAL,
-                                label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) }
-                        ]}
-                        onChange={props.onChangeCategoryHandler}
-                        value={props.categories}
-
-                    />
-                    {props.tasksLocationByCategory.errors.cata({
-                        Nothing: () => props.tasksLocationByCategory.results.cata({
-                            Nothing: () => (
-                                <Placeholder busy={props.tasksLocationByCategory.busy} size={[ '100%', '300px' ]} />
-                            ),
-                            Just: () => (
-                                <GoogleMapCategory
-                                    categories={props.categories}
-                                    data={dataMapMarkerCategory}
-                                />
-                            )
-                        }),
-                        Just: errors => (
-                            <div>{errors}</div>
-                        )
-                    })}
+                    <CategoriesMap
+                        dataTasksLocationByCategory={props.tasksLocationByCategory}
+                        uiCategories={props.categories}
+                        onUiCategoriesHandler={props.onChangeCategoryHandler}/>
                 </Substrate>
             </div>
         </div>
