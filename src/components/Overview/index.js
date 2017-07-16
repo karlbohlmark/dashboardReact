@@ -2,11 +2,6 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
-    TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_DECLINED,
-    TASK_STATYS_CANCELLED,
     CATEGORY_ALL,
     CATEGORY_NEW_INSTALL_DECODER,
     CATEGORY_NEW_INSTALL_SIGNAL,
@@ -23,17 +18,15 @@ import {
 } from 'utils';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import TasksHistogram from 'components/TasksHistogram';
+import TasksStatusMap from 'components/TasksStatusMap';
+import UsersMap from 'components/UsersMap';
 import ReportRow from 'components/ListItem/ReportRow';
 import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
-import GoogleMapTasks from 'components/GoogleMap/Tasks';
 import GoogleMapCategory from 'components/GoogleMap/Category';
-import UsersMap from 'components/UsersMap';
 import SelectBoxItem from 'components/SelectBoxItem';
-import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
-import Placeholder from 'components/Placeholder';
 
 function Overview(props) {
 
@@ -161,34 +154,10 @@ function Overview(props) {
                     <TasksHistogram data={props.completedTasksHistogram}/>
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
-                    <SelectBoxItem
-                        options={[
-                            { value: TASK_STATYS_COMPLETED, label: capitalize(TASK_STATYS_COMPLETED) },
-                            { value: TASK_STATYS_ASSIGNED, label: capitalize(TASK_STATYS_ASSIGNED) },
-                            { value: TASK_STATYS_UNASSIGNED, label: capitalize(TASK_STATYS_UNASSIGNED) },
-                            { value: TASK_STATYS_DECLINED, label: capitalize(TASK_STATYS_DECLINED) },
-                            { value: TASK_STATYS_CANCELLED, label: capitalize(TASK_STATYS_CANCELLED) }
-                        ]}
-                        onChange={props.onChangeTaskStatusHandler}
-                        value={props.tasks}
-
-                    />
-                    {props.tasksLocationStatus.errors.cata({
-                        Nothing: () => props.tasksLocationStatus.results.cata({
-                            Nothing: () => (
-                                <Placeholder busy={props.tasksLocationStatus.busy} size={[ '100%', '300px' ]} />
-                            ),
-                            Just: () => (
-                                <GoogleMapTasks
-                                    tasks={props.tasks}
-                                    data={dataMapMarkerTasks}
-                                />
-                            )
-                        }),
-                        Just: errors => (
-                            <div>{errors}</div>
-                        )
-                    })}
+                    <TasksStatusMap
+                        dataTasksLocationStatus={props.tasksLocationStatus}
+                        uiTasks={props.tasks}
+                        onUiTasksHandler={props.onChangeTaskStatusHandler}/>/>
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <SelectBoxItem
