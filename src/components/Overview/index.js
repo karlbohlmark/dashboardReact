@@ -33,6 +33,7 @@ import UsersMap from 'components/UsersMap';
 import SelectBoxItem from 'components/SelectBoxItem';
 import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import dataMapMarkerCategory from 'data/dataMapMarkerCategory';
+import Placeholder from 'components/Placeholder';
 
 function Overview(props) {
 
@@ -172,10 +173,22 @@ function Overview(props) {
                         value={props.tasks}
 
                     />
-                    <GoogleMapTasks
-                        tasks={props.tasks}
-                        data={dataMapMarkerTasks}
-                    />
+                    {props.tasksLocationStatus.errors.cata({
+                        Nothing: () => props.tasksLocationStatus.results.cata({
+                            Nothing: () => (
+                                <Placeholder busy={props.tasksLocationStatus.busy} size={[ '100%', '300px' ]} />
+                            ),
+                            Just: () => (
+                                <GoogleMapTasks
+                                    tasks={props.tasks}
+                                    data={dataMapMarkerTasks}
+                                />
+                            )
+                        }),
+                        Just: errors => (
+                            <div>{errors}</div>
+                        )
+                    })}
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <SelectBoxItem
@@ -214,6 +227,7 @@ Overview.propTypes = {
     userLocation: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,
+    tasksLocationStatus: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     onChangeTaskStatusHandler: PropTypes.func.isRequired,
     users: PropTypes.object.isRequired,
