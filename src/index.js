@@ -22,6 +22,9 @@ import {
     receivePage as receivePageTaskLocationByStatus
 } from 'actions/ui/taskLocationByStatus';
 import {
+    receivePage as receivePageTaskLocationByCategory
+} from 'actions/ui/taskLocationByCategory';
+import {
     receivePage as receivePageCompletedTasksHistogram
 } from 'actions/ui/completedTaskHistogram';
 
@@ -74,6 +77,9 @@ const routes = {
                     onEnter: compose(compose(
                         store.dispatch,
                         receivePageUserLocation
+                        ), compose(
+                        store.dispatch,
+                        receivePageTaskLocationByCategory
                         ), compose(
                         store.dispatch,
                         receivePageTaskLocationByStatus

@@ -4,7 +4,7 @@ import {
 
 import {
     taskLocationByCategory as taskLocationByCategoryRequest
-} from 'services/taskLocationByStatus';
+} from 'services/taskLocationByCategory';
 
 
 export const RECIEVE_PAGE_START = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_START';
@@ -40,9 +40,9 @@ export function receivePage() {
         if (ui.taskLocationByCategory.busy) {
             return Promise.resolve();
         }
-        // const tasksTypes = ['unassigned', 'assigned', 'completed', 'cancelled'];
-        // const toSendTasksTypes = ui.googlemap.tasks.cata({
-        //     Nothing: () => (tasksTypes),
+        // const categoriesTypes = ['unassigned', 'assigned', 'completed', 'cancelled'];
+        // const toSendCategoriesTypes = ui.googlemap.categories.cata({
+        //     Nothing: () => (categoriesTypes),
         //     Just: value => ([value.toLowerCase()])
         // });
         dispatch(

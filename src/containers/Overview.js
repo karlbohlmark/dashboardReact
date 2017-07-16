@@ -41,6 +41,9 @@ import {
 import {
     receivePage as receivePageTaskLocationByStatus
 } from 'actions/ui/taskLocationByStatus';
+import {
+    receivePage as receivePageTaskLocationByCategory
+} from 'actions/ui/taskLocationByCategory';
 import Overview from 'components/Overview';
 
 
@@ -64,7 +67,9 @@ class OverviewContainer extends Component {
                     this.props.receivePageTaskLocationByStatus,
                     this.props.showGoogleMapTasks)}
                 categories={this.props.categories}
-                onChangeCategoryHandler={this.props.showGoogleMapCategory}
+                onChangeCategoryHandler={compose(
+                    this.props.receivePageTaskLocationByCategory,
+                    this.props.showGoogleMapCategory)}
             />
         );
     }
@@ -88,7 +93,8 @@ OverviewContainer.propTypes = {
     setRangeDate: PropTypes.func.isRequired,
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
     receivePageUserLocation: PropTypes.func.isRequired,
-    receivePageTaskLocationByStatus: PropTypes.func.isRequired
+    receivePageTaskLocationByStatus: PropTypes.func.isRequired,
+    receivePageTaskLocationByCategory: PropTypes.func.isRequired,
 };
 
 function select({ ui }) {
@@ -128,7 +134,8 @@ const bindActions = {
     setRangeDate,
     receivePageCompletedTasksHistogram,
     receivePageUserLocation,
-    receivePageTaskLocationByStatus
+    receivePageTaskLocationByStatus,
+    receivePageTaskLocationByCategory
 };
 
 export default compose(
