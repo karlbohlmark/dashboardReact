@@ -98,7 +98,7 @@ OverviewContainer.propTypes = {
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
     receivePageUserLocation: PropTypes.func.isRequired,
     receivePageTaskLocationByStatus: PropTypes.func.isRequired,
-    receivePageTaskLocationByCategory: PropTypes.func.isRequired,
+    receivePageTaskLocationByCategory: PropTypes.func.isRequired
 };
 
 function select({ ui }) {
