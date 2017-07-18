@@ -1,7 +1,6 @@
 import {
     isNull,
-    isArray,
-    assign
+    isArray
 } from 'lodash/fp';
 import Maybe from 'data.maybe';
 
