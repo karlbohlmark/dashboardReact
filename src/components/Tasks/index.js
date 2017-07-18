@@ -38,11 +38,11 @@ function Tasks(props) {
                                 <Highchart config={COMPLETED_TASKS} />
                                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
                                     <LegendRow
-                                        color={'#c6d92e'}
+                                        color={COMPLETED_TASKS.colors[1]}
                                         title={'Installations'}
                                     />
                                     <LegendRow
-                                        color={'#6ebe46'}
+                                        color={COMPLETED_TASKS.colors[0]}
                                         title={'Repair Services'}
                                     />
                                 </div>
