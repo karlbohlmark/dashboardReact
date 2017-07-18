@@ -2,22 +2,13 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
-    TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_DECLINED,
-    TASK_STATYS_CANCELLED
-} from 'models/googlemap';
-import {
     COMPLETED_TASKS
 } from 'models/highchartConfig';
-import {
-    capitalize
-} from 'utils';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import TasksHistogram from 'components/TasksHistogram';
+import TasksStatusMap from 'components/TasksStatusMap';
 // const ReactHighcharts = require('react-highcharts');
 // const HighchartsMore = require('highcharts-more');
 // HighchartsMore(ReactHighcharts.Highcharts);
@@ -26,9 +17,6 @@ import TasksHistogram from 'components/TasksHistogram';
 import LegendRow from 'components/ListItem/LegendRow';
 import ListRowReverse from 'components/ListItem/ListRowReverse';
 import CircularChart from './CircularChart';
-import SelectBoxItem from 'components/SelectBoxItem';
-import GoogleMapTasks from 'components/GoogleMap/Tasks';
-import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 
 
 function Tasks(props) {
@@ -284,22 +272,10 @@ function Tasks(props) {
                     <TasksHistogram data={props.completedTasksHistogram}/>
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
-                    <SelectBoxItem
-                        options={[
-                            { value: TASK_STATYS_COMPLETED, label: capitalize(TASK_STATYS_COMPLETED) },
-                            { value: TASK_STATYS_ASSIGNED, label: capitalize(TASK_STATYS_ASSIGNED) },
-                            { value: TASK_STATYS_UNASSIGNED, label: capitalize(TASK_STATYS_UNASSIGNED) },
-                            { value: TASK_STATYS_DECLINED, label: capitalize(TASK_STATYS_DECLINED) },
-                            { value: TASK_STATYS_CANCELLED, label: capitalize(TASK_STATYS_CANCELLED) }
-                        ]}
-                        onChange={props.onChangeTaskStatusHandler}
-                        value={props.tasks}
-
-                    />
-                    <GoogleMapTasks
-                        tasks={props.tasks}
-                        data={dataMapMarkerTasks}
-                    />
+                    <TasksStatusMap
+                        dataTasksLocationStatus={props.tasksLocationStatus}
+                        uiTasks={props.tasks}
+                        onUiTasksHandler={props.onChangeTaskStatusHandler}/>
                 </Substrate>
             </div>
         </div>
@@ -311,10 +287,11 @@ Tasks.propTypes = {
     completedTasksHistogram: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,
-    onChangeCategoryHandler: PropTypes.func.isRequired,
-    onChangeTaskStatusHandler: PropTypes.func.isRequired,
     categories: PropTypes.object.isRequired,
-    tasks: PropTypes.object.isRequired
+    onChangeCategoryHandler: PropTypes.func.isRequired,
+    tasksLocationStatus: PropTypes.object.isRequired,
+    tasks: PropTypes.object.isRequired,
+    onChangeTaskStatusHandler: PropTypes.func.isRequired
 };
 
 export default CSSModules(Tasks, styles);

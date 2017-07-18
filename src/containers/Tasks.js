@@ -51,6 +51,7 @@ class TasksContainer extends Component {
                     this.props.receivePageCompletedTasksHistogram,
                     this.props.setRangeDate)}
                 completedTasksHistogram={this.props.completedTasksHistogram}
+                tasksLocationStatus={this.props.tasksLocationStatus}
                 tasks={this.props.tasks}
                 onChangeTaskStatusHandler={compose(
                     this.props.receivePageTaskLocationByStatus,
@@ -67,6 +68,7 @@ TasksContainer.propTypes = {
     location: locationShape.isRequired,
 
     completedTasksHistogram: PropTypes.object.isRequired,
+    tasksLocationStatus: PropTypes.object.isRequired,
 
     dateRangePicker: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
@@ -99,6 +101,7 @@ function select({ ui }) {
                 all: get(USER_TYPE_ALL, fields)
             })
         }),
+        tasksLocationStatus: ui.taskLocationByStatus,
         tasks: ui.googlemap.tasks.cata({
             Nothing: () => (Nothing()),
             Just: value => (Just(value))
