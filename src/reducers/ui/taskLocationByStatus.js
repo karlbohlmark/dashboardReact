@@ -1,20 +1,15 @@
 import {
     map
-    // compose
 } from 'lodash/fp';
-
 import {
     Just,
     Nothing
 } from 'data.maybe';
-
 import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
 } from 'actions/ui/taskLocationByStatus';
-
-// const statusTask = status => (status.toLowerCase());
 
 export const initialState = {
     results: Nothing(),
@@ -37,8 +32,8 @@ export function reducer(state, action) {
             return {
                 ...state,
                 results: Just(map(item => ({
-                    ...item
-                    // type: compose(statusTask, item.status)
+                    ...item,
+                    type: item.status.toUpperCase()
                 }), action.payload)),
                 busy: false
             };

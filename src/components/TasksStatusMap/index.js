@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Placeholder from 'components/Placeholder';
 import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapTasks from 'components/GoogleMap/Tasks';
-import dataMapMarkerTasks from 'data/dataMapMarkerTask';
 import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
@@ -36,8 +35,8 @@ function TasksStatusMap(props) {
                     ),
                     Just: () => (
                         <GoogleMapTasks
-                            tasks={props.uiTasks}
-                            data={dataMapMarkerTasks}
+                            uiTasks={props.uiTasks}
+                            data={props.dataTasksLocationStatus.results.getOrElse([])}
                         />
                     )
                 }),

@@ -40,9 +40,8 @@ export function receivePage() {
         if (ui.taskLocationByStatus.busy) {
             return Promise.resolve();
         }
-        const tasksTypes = ['unassigned', 'assigned', 'completed', 'cancelled'];
         const toSendTasksTypes = ui.googlemap.tasks.cata({
-            Nothing: () => (tasksTypes),
+            Nothing: () => ([]),
             Just: value => ([value.toLowerCase()])
         });
         dispatch(
