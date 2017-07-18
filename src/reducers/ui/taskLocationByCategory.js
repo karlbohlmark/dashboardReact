@@ -33,7 +33,8 @@ export function reducer(state, action) {
             return {
                 ...state,
                 results: Just(map(item => ({
-                    ...item
+                    ...item,
+                    type: item.category
                 }), action.payload)),
                 busy: false
             };

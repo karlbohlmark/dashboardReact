@@ -1,6 +1,6 @@
 import {
     isNull,
-    isArray
+    isString
 } from 'lodash/fp';
 import Maybe from 'data.maybe';
 
@@ -15,17 +15,16 @@ const METHOD = 'query/TaskLocationByCategory';
 
 
 export function taskLocationByCategory(from, to, category) {
-    const query = encodeURIComponent(JSON.stringify(
-        isNull(from) || isNull(to) || !isArray(category) ? {} :
-        {
-            category: category ? category : null,
-            timespan: {
-                from: from ? from : null,
-                to: to ? to : null
-            }
+    const query = isNull(from) || isNull(to) || !isString(category) ? {} :
+    {
+        timespan: {
+            from: from ? from : null,
+            to: to ? to : null
         }
-    ));
-    return fetch(`${config.url}${config.version}${METHOD}?query=${query}`, {
+    };
+    const queryAssign = encodeURIComponent(JSON.stringify(
+        Object.assign({ category: category.length > 0 ? category : null}, query)));
+    return fetch(`${config.url}${config.version}${METHOD}?query=${queryAssign}`, {
         method: 'GET',
         mode: 'cors'
     })

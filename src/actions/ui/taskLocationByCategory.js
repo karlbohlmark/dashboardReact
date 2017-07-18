@@ -40,16 +40,18 @@ export function receivePage() {
         if (ui.taskLocationByCategory.busy) {
             return Promise.resolve();
         }
-        // const categoriesTypes = ['unassigned', 'assigned', 'completed', 'cancelled'];
-        // const toSendCategoriesTypes = ui.googlemap.categories.cata({
-        //     Nothing: () => (categoriesTypes),
-        //     Just: value => ([value.toLowerCase()])
-        // });
+        const toSendCategoriesTypes = ui.googlemap.categories.cata({
+            Nothing: () => (''),
+            Just: value => (value)
+        });
         dispatch(
             receivePageStart()
         );
 
-        return taskLocationByCategoryRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate, [])
+        return taskLocationByCategoryRequest(
+            ui.dateRangePicker.startDate,
+            ui.dateRangePicker.endDate,
+            toSendCategoriesTypes)
             .then(data => {
                 dispatch(
                     batchActions([

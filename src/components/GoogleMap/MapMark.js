@@ -14,6 +14,7 @@ import {
     CATEGORY_NEW_INSTALL_ERROR,
     CATEGORY_REPAIR_INSTALL_DECODER,
     CATEGORY_REPAIR_INSTALL_SIGNAL,
+    CATEGORY_REPAIR_INSTALL_ERROR,
     GOFUNDIS_STATYS_OFFLINE,
     GOFUNDIS_STATYS_ONLINE,
     SUBSCRIBERS_ALL
@@ -69,6 +70,8 @@ class MapMark extends React.Component {
                 return (<div styleName="repair-decoder" />);
             case CATEGORY_REPAIR_INSTALL_SIGNAL:
                 return (<div styleName="repair-antenna" />);
+            case CATEGORY_REPAIR_INSTALL_ERROR:
+                return (<div styleName="repair-other" />);
             case SUBSCRIBERS_ALL:
                 return (
                     <div styleName="subscribers_block">

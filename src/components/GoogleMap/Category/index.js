@@ -7,7 +7,8 @@ import {
     CATEGORY_NEW_INSTALL_SIGNAL,
     CATEGORY_NEW_INSTALL_ERROR,
     CATEGORY_REPAIR_INSTALL_DECODER,
-    CATEGORY_REPAIR_INSTALL_SIGNAL
+    CATEGORY_REPAIR_INSTALL_SIGNAL,
+    CATEGORY_REPAIR_INSTALL_ERROR
 } from 'models/googlemap';
 import styles from '../styles.css';
 
@@ -51,31 +52,36 @@ class SegmentMapCategory extends React.Component {
 
     filterArr(arr) {
         return arr.filter(item => {
-            if (CATEGORY_ALL === this.props.categories.getOrElse('')) {
-                return true;
-            }
+            // if (CATEGORY_ALL === this.props.uiCategories.getOrElse('')) {
+            //     return true;
+            // }
             if (item.type === CATEGORY_NEW_INSTALL_DECODER &&
-                CATEGORY_NEW_INSTALL_DECODER === this.props.categories.getOrElse('')
+                CATEGORY_NEW_INSTALL_DECODER === this.props.uiCategories.getOrElse('')
             ) {
                 return true;
             }
             if (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
-                CATEGORY_NEW_INSTALL_SIGNAL === this.props.categories.getOrElse('')
+                CATEGORY_NEW_INSTALL_SIGNAL === this.props.uiCategories.getOrElse('')
             ) {
                 return true;
             }
             if (item.type === CATEGORY_NEW_INSTALL_ERROR &&
-                CATEGORY_NEW_INSTALL_ERROR === this.props.categories.getOrElse('')
+                CATEGORY_NEW_INSTALL_ERROR === this.props.uiCategories.getOrElse('')
             ) {
                 return true;
             }
             if (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
-                CATEGORY_REPAIR_INSTALL_DECODER === this.props.categories.getOrElse('')
+                CATEGORY_REPAIR_INSTALL_DECODER === this.props.uiCategories.getOrElse('')
             ) {
                 return true;
             }
             if (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
-                CATEGORY_REPAIR_INSTALL_SIGNAL === this.props.categories.getOrElse('')
+                CATEGORY_REPAIR_INSTALL_SIGNAL === this.props.uiCategories.getOrElse('')
+            ) {
+                return true;
+            }
+            if (item.type === CATEGORY_REPAIR_INSTALL_ERROR &&
+                CATEGORY_REPAIR_INSTALL_ERROR === this.props.uiCategories.getOrElse('')
             ) {
                 return true;
             }
@@ -159,7 +165,7 @@ class SegmentMapCategory extends React.Component {
     }
 }
 SegmentMapCategory.propTypes = {
-    categories: PropTypes.object.isRequired,
+    uiCategories: PropTypes.object.isRequired,
     data: PropTypes.array.isRequired
 };
 
