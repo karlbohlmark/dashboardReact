@@ -87,6 +87,7 @@
     flex-direction: row;
     margin-left: 5px;
     margin-right: 5px;
+    align-items: center;
 }
 .legend_title {
     font-size: 12px;

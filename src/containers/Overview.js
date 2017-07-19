@@ -44,6 +44,9 @@ import {
 import {
     receivePage as receivePageTaskLocationByCategory
 } from 'actions/ui/taskLocationByCategory';
+import {
+    receivePage as receivePageGetOverviewStats
+} from 'actions/ui/getOverviewStats';
 import Overview from 'components/Overview';
 
 
@@ -54,6 +57,7 @@ class OverviewContainer extends Component {
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGetOverviewStats,
                     this.props.receivePageTaskLocationByStatus,
                     this.props.receivePageCompletedTasksHistogram,
                     this.props.setRangeDate)}
@@ -100,7 +104,8 @@ OverviewContainer.propTypes = {
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
     receivePageUserLocation: PropTypes.func.isRequired,
     receivePageTaskLocationByStatus: PropTypes.func.isRequired,
-    receivePageTaskLocationByCategory: PropTypes.func.isRequired
+    receivePageTaskLocationByCategory: PropTypes.func.isRequired,
+    receivePageGetOverviewStats: PropTypes.func.isRequired
 };
 
 function select({ ui }) {
@@ -144,7 +149,8 @@ const bindActions = {
     receivePageCompletedTasksHistogram,
     receivePageUserLocation,
     receivePageTaskLocationByStatus,
-    receivePageTaskLocationByCategory
+    receivePageTaskLocationByCategory,
+    receivePageGetOverviewStats
 };
 
 export default compose(

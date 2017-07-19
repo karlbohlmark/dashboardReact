@@ -131,24 +131,40 @@ function Overview(props) {
                                 marginRight: 10
                             }}>
                                 <div styleName='sub_container_header'>COMPLETED TASKS</div>
-                                <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={COMPLETED_TASKS} />
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        justifyContent:
-                                            'space-around'
-                                    }}>
-                                        <LegendRow
-                                            color={'#c6d92e'}
-                                            title={'Installations'}
-                                        />
-                                        <LegendRow
-                                            color={'#6ebe46'}
-                                            title={'Repair Services'}
-                                        />
-                                    </div>
-                                </div>
+                                    {props.getOverviewStats.errors.cata({
+                                        Nothing: () => props.getOverviewStats.results.cata({
+                                            Nothing: () => (
+                                                <Placeholder
+                                                    style={{ width: 200, height: 200}}
+                                                    busy={props.getOverviewStats.busy}
+                                                    size={[ '100%', '100%' ]} />
+                                            ),
+                                            Just: fields => (
+                                                <div styleName="list_column_highcharts" style={{margin: 5}}>
+                                                    <Highchart config={COMPLETED_TASKS} />
+                                                    <div style={{
+                                                        display: 'flex',
+                                                        flexDirection: 'row',
+                                                        justifyContent:
+                                                        'space-around'
+                                                    }}>
+                                                        {
+                                                            fields.categoryTasks.map((field, index) => (
+                                                            <LegendRow
+                                                            key={index}
+                                                            color={COMPLETED_TASKS.colors[index]}
+                                                            title={field.category.name}
+                                                            />
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
+                                            )
+                                        }),
+                                        Just: errors => (
+                                            <div>{errors}</div>
+                                        )
+                                    })}
                             </div>
                             <div style={{
                                 textAlign: 'center',
@@ -157,23 +173,40 @@ function Overview(props) {
                                 marginRight: 10
                             }}>
                                 <div styleName='sub_container_header'>GOFUNDIS</div>
-                                <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={GOFUNDIS} />
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        justifyContent: 'space-around'
-                                    }}>
-                                        <LegendRow
-                                            color={'#c21f50'}
-                                            title={'Approved'}
-                                        />
-                                        <LegendRow
-                                            color={'#1d5c51'}
-                                            title={'Onboarding'}
-                                        />
-                                    </div>
-                                </div>
+                                {props.getOverviewStats.errors.cata({
+                                    Nothing: () => props.getOverviewStats.results.cata({
+                                        Nothing: () => (
+                                            <Placeholder
+                                                style={{ width: 200, height: 200}}
+                                                busy={props.getOverviewStats.busy}
+                                                size={[ '100%', '100%' ]} />
+                                        ),
+                                        Just: fields => (
+                                            <div styleName="list_column_highcharts" style={{margin: 5}}>
+                                                <Highchart config={GOFUNDIS} />
+                                                <div style={{
+                                                    display: 'flex',
+                                                    flexDirection: 'row',
+                                                    justifyContent: 'space-around'
+                                                }}>
+                                                    {
+                                                        fields.fundiStatuses.map((field, index) => (
+                                                            <LegendRow
+                                                                key={index}
+                                                                color={GOFUNDIS.colors[index]}
+                                                                title={field.status}
+                                                            />
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                        )
+                                    }),
+                                    Just: errors => (
+                                        <div>{errors}</div>
+                                    )
+                                })}
+
                             </div>
                         </div>
                     </div>

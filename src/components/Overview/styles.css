@@ -48,7 +48,7 @@
 }
 .list_column_highcharts {
     width: 200px;
-    height: 200px;
+    // height: 200px;
 }
 .returning_subscribers {
     display: flex;
