@@ -14,7 +14,7 @@ import ReportRow from 'components/ListItem/ReportRow';
 import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
-
+import Placeholder from 'components/Placeholder';
 
 function Overview(props) {
 
@@ -36,42 +36,88 @@ function Overview(props) {
                             alignSelf: 'center'
                         }}>
                             <div styleName="list_column" style={{marginLeft: 0}}>
-                                <ReportRow
-                                    styleChildren={{backgroundColor: '#07944a'}}
-                                    upItem={25}
-                                    item={'COMPLETED TASKS PER DAY'}
-                                    subItem={'(IN AVERAGE PER GOFUNDI)'}
-                                >
-                                    <div styleName="completed-tasks" />
-                                </ReportRow>
-                                <ReportRow
-                                    styleChildren={{backgroundColor: '#fbaa1a'}}
-                                    upItem={6}
-                                    item={'ACTIVE GOFUNDIS'}
-                                    subItem={'(IN AVERAGE PER DAY)'}
-                                >
-                                    <div styleName="user" />
-                                </ReportRow>
+                                {props.getOverviewStats.errors.cata({
+                                    Nothing: () => props.getOverviewStats.results.cata({
+                                        Nothing: () => (
+                                            <Placeholder
+                                                style={{width: 220, height: 190}}
+                                                busy={props.getOverviewStats.busy}
+                                                size={[ '220px', '190px' ]} />
+                                        ),
+                                        Just: fields => (
+                                            <div>
+                                                <ReportRow
+                                                    styleChildren={{backgroundColor: '#07944a'}}
+                                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
+                                                    upItem={
+                                                        fields.completedTasksPerDay ?
+                                                        fields.completedTasksPerDay : ''}
+                                                    item={'COMPLETED TASKS PER DAY'}
+                                                    subItem={'(IN AVERAGE PER GOFUNDI)'}
+                                                >
+                                                    <div styleName="completed-tasks" />
+                                                </ReportRow>
+                                                <ReportRow
+                                                    styleChildren={{backgroundColor: '#fbaa1a'}}
+                                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
+                                                    upItem={
+                                                        fields.activeGoFundis ?
+                                                        fields.activeGoFundis : ''}
+                                                    item={'ACTIVE GOFUNDIS'}
+                                                    subItem={'(IN AVERAGE PER DAY)'}
+                                                >
+                                                    <div styleName="user" />
+                                                </ReportRow>
+                                            </div>
+                                        )
+                                    }),
+                                    Just: errors => (
+                                        <div>{errors}</div>
+                                    )
+                                })}
                             </div>
                             <div styleName="list_column" style={{marginLeft: 20}}>
-                                <ReportRow
-                                    styleChildren={{backgroundColor: '#ffde00'}}
-                                    styleReportBlock={{width: 185}}
-                                    upItem={'00:45 hr'}
-                                    item={'AVERAGE TIME FOR COMPLETION'}
-                                    subItem={'(FROM ASSIGNED TO COMPLETED)'}
-                                >
-                                    <div styleName="assigned-tasks" />
-                                </ReportRow>
-                                <ReportRow
-                                    styleChildren={{backgroundColor: '#c21e51'}}
-                                    styleReportBlock={{width: 185}}
-                                    upItem={'15%'}
-                                    item={'INCREASE SINCE LAST MONTH'}
-                                    subItem={'(TASKS COMPLETED)'}
-                                >
-                                    <div styleName="line-chart" />
-                                </ReportRow>
+                                {props.getOverviewStats.errors.cata({
+                                    Nothing: () => props.getOverviewStats.results.cata({
+                                        Nothing: () => (
+                                            <Placeholder
+                                                style={{ width: 235, height: 190}}
+                                                busy={props.getOverviewStats.busy}
+                                                size={[ '100%', '100%' ]} />
+                                        ),
+                                        Just: fields => (
+                                            <div>
+                                                <ReportRow
+                                                    styleChildren={{backgroundColor: '#ffde00'}}
+                                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
+                                                    styleReportBlock={{width: 185}}
+                                                    upItem={
+                                                        fields.averageCompletionTime ?
+                                                        fields.averageCompletionTime : ''}
+                                                    item={'AVERAGE TIME FOR COMPLETION'}
+                                                    subItem={'(FROM ASSIGNED TO COMPLETED)'}
+                                                >
+                                                    <div styleName="assigned-tasks" />
+                                                </ReportRow>
+                                                <ReportRow
+                                                    styleChildren={{backgroundColor: '#c21e51'}}
+                                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
+                                                    styleReportBlock={{width: 185}}
+                                                    upItem={
+                                                        fields.increasePercentage ?
+                                                        fields.increasePercentage : ''}
+                                                    item={'INCREASE SINCE LAST MONTH'}
+                                                    subItem={'(TASKS COMPLETED)'}
+                                                >
+                                                    <div styleName="line-chart" />
+                                                </ReportRow>
+                                            </div>
+                                        )
+                                    }),
+                                    Just: errors => (
+                                        <div>{errors}</div>
+                                    )
+                                })}
                             </div>
                         </div>
                         <div style={{
@@ -159,6 +205,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    getOverviewStats: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
     userLocation: PropTypes.object.isRequired,

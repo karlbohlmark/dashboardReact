@@ -51,13 +51,14 @@ class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
                     this.props.receivePageTaskLocationByStatus,
                     this.props.receivePageCompletedTasksHistogram,
                     this.props.setRangeDate)}
-                userLocation={this.props.userLocation}
                 completedTasksHistogram={this.props.completedTasksHistogram}
+                userLocation={this.props.userLocation}
                 users={this.props.users}
                 onUserLocationHandler={compose(
                     this.props.receivePageUserLocation,
@@ -87,6 +88,7 @@ OverviewContainer.propTypes = {
     completedTasksHistogram: PropTypes.object.isRequired,
 
     dateRangePicker: PropTypes.object.isRequired,
+    getOverviewStats: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -104,6 +106,7 @@ OverviewContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        getOverviewStats: ui.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         userLocation: ui.userLocation,
         completedTasksHistogram: ui.completedTasksHistogram,

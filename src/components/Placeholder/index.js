@@ -10,28 +10,31 @@ function Placeholder(props) {
     const [ maxWidth, minHeight ] = props.size;
 
     return (
-        <div
-            styleName="root"
-            style={{
-                minHeight: props.busy ? minHeight : null,
-                maxWidth: props.busy ? maxWidth : null
-            }}
-        >
-            {props.busy && (
-                <div styleName="glass">
-                    <FIcon
-                        styleName="icon"
-                        name="circle-o-notch"
-                        spin
-                    />
-                </div>
-            )}
-            {props.children}
+        <div style={props.style ? props.style : null}>
+            <div
+                styleName="root"
+                style={{
+                    minHeight: props.busy ? minHeight : null,
+                    maxWidth: props.busy ? maxWidth : null
+                }}
+            >
+                {props.busy && (
+                    <div styleName="glass">
+                        <FIcon
+                            styleName="icon"
+                            name="circle-o-notch"
+                            spin
+                        />
+                    </div>
+                )}
+                {props.children}
+            </div>
         </div>
     );
 }
 
 Placeholder.propTypes = {
+    style: PropTypes.object,
     busy: PropTypes.bool.isRequired,
     size: PropTypes_.Tuple([
         PropTypes.string.isRequired,
