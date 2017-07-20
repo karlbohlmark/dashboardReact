@@ -23,7 +23,7 @@ export function taskLocationByCategory(from, to, category) {
         }
     };
     const queryAssign = encodeURIComponent(JSON.stringify(
-        Object.assign({ category: category.length > 0 ? category : null}, query)));
+        Object.assign(category.length > 0 ? { category } : {}, query)));
     return fetch(`${config.url}${config.version}${METHOD}?query=${queryAssign}`, {
         method: 'GET',
         mode: 'cors'

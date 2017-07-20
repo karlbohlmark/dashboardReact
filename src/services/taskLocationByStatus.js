@@ -23,7 +23,7 @@ export function taskLocationByStatus(from, to, status) {
         }
     };
     const queryAssign = encodeURIComponent(JSON.stringify(
-        Object.assign({ status: status.length > 0 ? status : null}, query)));
+        Object.assign(status.length > 0 ? { status } : {}, query)));
     return fetch(`${config.url}${config.version}${METHOD}?query=${queryAssign}`, {
         method: 'GET',
         mode: 'cors'
