@@ -2,6 +2,11 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
+    merge,
+    reduce,
+    map
+} from 'lodash/fp';
+import {
     COMPLETED_TASKS,
     GOFUNDIS
 } from 'models/highchartConfig';
@@ -15,6 +20,7 @@ import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import Placeholder from 'components/Placeholder';
+import {toFloat} from "../../utils/to-float";
 
 function Overview(props) {
 
@@ -141,7 +147,22 @@ function Overview(props) {
                                             ),
                                             Just: fields => (
                                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                                    <Highchart config={COMPLETED_TASKS} />
+                                                    <Highchart config={merge(
+                                                        COMPLETED_TASKS,
+                                                        {title: {
+                                                            text: reduce(
+                                                                (sum, n) => (sum + n), 0,
+                                                                map(field => (parseFloat(field.completedTasks)),
+                                                                    fields.categoryTasks))
+                                                        },
+                                                            series: [{
+                                                                data: map(field => (
+                                                                    [field.category.name,
+                                                                        parseFloat(field.completedTasks)]
+                                                                ), fields.categoryTasks)
+                                                            }]
+                                                        }
+                                                    )} />
                                                     <div style={{
                                                         display: 'flex',
                                                         flexDirection: 'row',
@@ -183,7 +204,20 @@ function Overview(props) {
                                         ),
                                         Just: fields => (
                                             <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                                <Highchart config={GOFUNDIS} />
+                                                <Highchart config={merge(
+                                                    GOFUNDIS,
+                                                    {title: {
+                                                        text: reduce(
+                                                            (sum, n) => (sum + n), 0,
+                                                            map(field => (field.numberOfFundis), fields.fundiStatuses))
+                                                    },
+                                                        series: [{
+                                                            data: map(field => (
+                                                                [field.status, parseFloat(field.numberOfFundis)]
+                                                                ), fields.fundiStatuses)
+                                                        }]
+                                                    }
+                                                )} />
                                                 <div style={{
                                                     display: 'flex',
                                                     flexDirection: 'row',

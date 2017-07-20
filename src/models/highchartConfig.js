@@ -34,7 +34,6 @@ export const COMPLETED_TASKS = {
     },
     colors: ['#6ebe46', '#c6d92e'],
     title: {
-        text: '<strong>120</strong>',
         style: { color: '#58585a', fontSize: '18px' },
         align: 'center',
         verticalAlign: 'middle',
@@ -61,11 +60,7 @@ export const COMPLETED_TASKS = {
     series: [{
         type: 'pie',
         name: '',
-        innerSize: '70%',
-        data: [
-            ['Repair Services', 40.00],
-            ['Installations', 60.00]
-        ]
+        innerSize: '70%'
     }]
 };
 export const GOFUNDIS = {
@@ -81,7 +76,6 @@ export const GOFUNDIS = {
     },
     colors: ['#1d5c51', '#c21f50'],
     title: {
-        text: '<strong>250</strong>',
         style: { color: '#58585a', fontSize: '18px' },
         align: 'center',
         verticalAlign: 'middle',
@@ -108,11 +102,7 @@ export const GOFUNDIS = {
     series: [{
         type: 'pie',
         name: '',
-        innerSize: '70%',
-        data: [
-            ['Onboarding', 15.00],
-            ['Approved', 85.00]
-        ]
+        innerSize: '70%'
     }]
 };
 export const APPROVED_GOFUNDIS = {
