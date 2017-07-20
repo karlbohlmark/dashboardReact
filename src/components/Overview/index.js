@@ -4,7 +4,8 @@ import styles from './styles.css';
 import {
     merge,
     reduce,
-    map
+    map,
+    toString
 } from 'lodash/fp';
 import {
     COMPLETED_TASKS,
@@ -150,10 +151,10 @@ function Overview(props) {
                                                     <Highchart config={merge(
                                                         COMPLETED_TASKS,
                                                         {title: {
-                                                            text: reduce(
+                                                            text: toString(reduce(
                                                                 (sum, n) => (sum + n), 0,
                                                                 map(field => (parseFloat(field.completedTasks)),
-                                                                    fields.categoryTasks))
+                                                                    fields.categoryTasks)))
                                                         },
                                                             series: [{
                                                                 data: map(field => (
@@ -207,9 +208,9 @@ function Overview(props) {
                                                 <Highchart config={merge(
                                                     GOFUNDIS,
                                                     {title: {
-                                                        text: reduce(
+                                                        text: toString(reduce(
                                                             (sum, n) => (sum + n), 0,
-                                                            map(field => (field.numberOfFundis), fields.fundiStatuses))
+                                                            map(field => (field.numberOfFundis), fields.fundiStatuses)))
                                                     },
                                                         series: [{
                                                             data: map(field => (
