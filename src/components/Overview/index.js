@@ -21,7 +21,6 @@ import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import Placeholder from 'components/Placeholder';
-import {toFloat} from "../../utils/to-float";
 
 function Overview(props) {
 
