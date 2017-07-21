@@ -30,6 +30,10 @@ import {
     initialState as initialDateRangePicker,
     reducer as reducerDateRangePicker
 } from './dateRangePicker';
+import {
+    initialState as initialListDashboardCategories,
+    reducer as reducerListDashboardCategories
+} from './listDashboardCategories';
 
 export const initialState = {
     notifications: initialNotificationState,
@@ -39,6 +43,7 @@ export const initialState = {
     taskLocationByStatus: initialTaskLocationByStatus,
     taskLocationByCategory: initialTaskLocationByCategory,
     completedTasksHistogram: initialCompletedTasksHistogram,
+    listDashboardCategories: initialListDashboardCategories,
     dateRangePicker: initialDateRangePicker
 };
 
@@ -50,6 +55,7 @@ export function reducer(state, action) {
     const nextTaskLocationByStatus = reducerTaskLocationByStatus(state.taskLocationByStatus, action);
     const nextTaskLocationByCategory = reducerTaskLocationByCategory(state.taskLocationByCategory, action);
     const nextCompletedTasksHistogram = reducerCompletedTasksHistogram(state.completedTasksHistogram, action);
+    const nextListDashboardCategories = reducerListDashboardCategories(state.listDashboardCategories, action);
     const nextDateRangePicker = reducerDateRangePicker(state.dateRangePicker, action);
 
     if (
@@ -60,6 +66,7 @@ export function reducer(state, action) {
         state.taskLocationByStatus === nextTaskLocationByStatus &&
         state.taskLocationByCategory === nextTaskLocationByCategory &&
         state.completedTasksHistogram === nextCompletedTasksHistogram &&
+        state.listDashboardCategories === nextListDashboardCategories &&
         state.dateRangePicker === nextDateRangePicker
     ) {
         return state;
@@ -73,6 +80,7 @@ export function reducer(state, action) {
         taskLocationByStatus: nextTaskLocationByStatus,
         taskLocationByCategory: nextTaskLocationByCategory,
         completedTasksHistogram: nextCompletedTasksHistogram,
+        listDashboardCategories: nextListDashboardCategories,
         dateRangePicker: nextDateRangePicker
     };
 }
