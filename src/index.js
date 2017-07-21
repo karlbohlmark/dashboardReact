@@ -30,6 +30,9 @@ import {
 import {
     receivePage as receivePageCompletedTasksHistogram
 } from 'actions/ui/completedTaskHistogram';
+import {
+    receivePage as receivePageListDashboardCategories
+} from 'actions/ui/listDashboardCategories';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -91,6 +94,9 @@ const routes = {
                         receivePageTaskLocationByStatus
                         ), compose(
                         store.dispatch,
+                        receivePageListDashboardCategories
+                        ), compose(
+                        store.dispatch,
                         receivePageCompletedTasksHistogram
                     )),
                     path: '/dashboard/overview',
@@ -104,6 +110,9 @@ const routes = {
                         receivePageTaskLocationByStatus
                     ), compose(
                         store.dispatch,
+                        receivePageListDashboardCategories
+                    ), compose(
+                        store.dispatch,
                         receivePageCompletedTasksHistogram
                     )),
                     path: '/dashboard/tasks',
@@ -112,6 +121,10 @@ const routes = {
                     )
                 },
                 {
+                    onEnter: compose(
+                        store.dispatch,
+                        receivePageListDashboardCategories
+                    ),
                     path: '/dashboard/gofundis',
                     component: props => (
                         <GoFundis {...props} />
@@ -119,6 +132,10 @@ const routes = {
                     )
                 },
                 {
+                    onEnter: compose(
+                        store.dispatch,
+                        receivePageListDashboardCategories
+                    ),
                     path: '/dashboard/subscribers',
                     component: props => (
                         <Subscribers {...props} />
