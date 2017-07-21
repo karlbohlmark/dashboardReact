@@ -2,6 +2,12 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
+    merge,
+    reduce,
+    map,
+    toString
+} from 'lodash/fp';
+import {
     GOFUNDIS,
     APPROVED_GOFUNDIS,
     NUMBER_OF_GOFUNDIS,
@@ -16,6 +22,7 @@ import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisPanel from 'components/GoFundis/GoFundisPanel';
 import GoogleMapGoFundis from 'components/GoogleMap/GoFundis';
 import dataMapMarkerGoFundis from 'data/dataMapMarkerGoFundis';
+import Placeholder from 'components/Placeholder';
 
 function GoFundis(props) {
     return (
@@ -35,21 +42,53 @@ function GoFundis(props) {
                                 <div styleName='sub_container_header'>GOFUNDIS</div>
                                 <div styleName="list_column_itemSmall" style={{textAlign: 'center'}}>&nbsp;</div>
                                 <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={GOFUNDIS} />
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        justifyContent: 'space-around'
-                                    }}>
-                                        <LegendRow
-                                            color={'#c21f50'}
-                                            title={'Approved'}
-                                        />
-                                        <LegendRow
-                                            color={'#1d5c51'}
-                                            title={'Onboarding'}
-                                        />
-                                    </div>
+                                    {props.getOverviewStats.errors.cata({
+                                        Nothing: () => props.getOverviewStats.results.cata({
+                                            Nothing: () => (
+                                                <Placeholder
+                                                    style={{ width: 200, height: 200}}
+                                                    busy={props.getOverviewStats.busy}
+                                                    size={[ '100%', '100%' ]} />
+                                            ),
+                                            Just: fields => (
+                                                <div styleName="list_column_highcharts" style={{margin: 5}}>
+                                                    <Highchart config={merge(
+                                                        GOFUNDIS,
+                                                        {title: {
+                                                            text: toString(reduce(
+                                                                (sum, n) => (sum + n), 0,
+                                                                map(field => (field.numberOfFundis),
+                                                                    fields.fundiStatuses)))
+                                                        },
+                                                            series: [{
+                                                                data: map(field => (
+                                                                    [field.status, parseFloat(field.numberOfFundis)]
+                                                                ), fields.fundiStatuses)
+                                                            }]
+                                                        }
+                                                    )} />
+                                                    <div style={{
+                                                        display: 'flex',
+                                                        flexDirection: 'row',
+                                                        justifyContent: 'space-around'
+                                                    }}>
+                                                        {
+                                                            fields.fundiStatuses.map((field, index) => (
+                                                                <LegendRow
+                                                                    key={index}
+                                                                    color={GOFUNDIS.colors[index]}
+                                                                    title={field.status}
+                                                                />
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
+                                            )
+                                        }),
+                                        Just: errors => (
+                                            <div>{errors}</div>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
@@ -187,6 +226,7 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    getOverviewStats: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,
     goFundis: PropTypes.object.isRequired,
