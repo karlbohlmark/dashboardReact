@@ -41,6 +41,9 @@ import {
 import {
     receivePage as receivePageTaskLocationByCategory
 } from 'actions/ui/taskLocationByCategory';
+import {
+    receivePage as receivePageGetOverviewStats
+} from 'actions/ui/getOverviewStats';
 import Tasks from 'components/Tasks';
 
 
@@ -48,8 +51,10 @@ class TasksContainer extends Component {
     render() {
         return (
             <Tasks
+                getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGetOverviewStats,
                     this.props.receivePageTaskLocationByStatus,
                     this.props.receivePageCompletedTasksHistogram,
                     this.props.setRangeDate)}
@@ -76,6 +81,7 @@ TasksContainer.propTypes = {
     tasksLocationStatus: PropTypes.object.isRequired,
 
     dateRangePicker: PropTypes.object.isRequired,
+    getOverviewStats: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -86,12 +92,14 @@ TasksContainer.propTypes = {
     setRangeDate: PropTypes.func.isRequired,
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
     receivePageTaskLocationByStatus: PropTypes.func.isRequired,
-    receivePageTaskLocationByCategory: PropTypes.func.isRequired
+    receivePageTaskLocationByCategory: PropTypes.func.isRequired,
+    receivePageGetOverviewStats: PropTypes.func.isRequired
 };
 
 function select({ ui }) {
 
     return {
+        getOverviewStats: ui.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         completedTasksHistogram: ui.completedTasksHistogram,
         users: ui.googlemap.users.cata({
@@ -126,7 +134,8 @@ const bindActions = {
     setRangeDate,
     receivePageCompletedTasksHistogram,
     receivePageTaskLocationByStatus,
-    receivePageTaskLocationByCategory
+    receivePageTaskLocationByCategory,
+    receivePageGetOverviewStats
 };
 
 export default compose(
