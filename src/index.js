@@ -107,6 +107,9 @@ const routes = {
                 {
                     onEnter: compose(compose(
                         store.dispatch,
+                        receivePageGetOverviewStats
+                    ), compose(
+                        store.dispatch,
                         receivePageTaskLocationByStatus
                     ), compose(
                         store.dispatch,
@@ -121,10 +124,13 @@ const routes = {
                     )
                 },
                 {
-                    onEnter: compose(
+                    onEnter: compose( compose(
+                        store.dispatch,
+                        receivePageGetOverviewStats
+                        ), compose(
                         store.dispatch,
                         receivePageListDashboardCategories
-                    ),
+                    )),
                     path: '/dashboard/gofundis',
                     component: props => (
                         <GoFundis {...props} />
