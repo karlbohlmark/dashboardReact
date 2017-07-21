@@ -6,7 +6,7 @@ import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
-} from 'actions/ui/getOverviewStats';
+} from 'actions/ui/listDashboardCategories';
 
 export const initialState = {
     results: Nothing(),
