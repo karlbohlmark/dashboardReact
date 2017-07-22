@@ -1,23 +1,13 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
-import {
-    merge,
-    reduce,
-    map,
-    toString
-} from 'lodash/fp';
-import {
-    COMPLETED_TASKS,
-    GOFUNDIS
-} from 'models/highchartConfig';
-import Highchart from 'react-highcharts/ReactHighcharts';
+import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
+import GofundisHightChart from 'components/GofundisHightChart';
 import TasksHistogram from 'components/TasksHistogram';
 import TasksStatusMap from 'components/TasksStatusMap';
 import CategoriesMap from 'components/CategoriesMap';
 import UsersMap from 'components/UsersMap';
 import ReportRow from 'components/ListItem/ReportRow';
-import LegendRow from 'components/ListItem/LegendRow';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import Placeholder from 'components/Placeholder';
@@ -130,118 +120,8 @@ function Overview(props) {
                             display: 'flex',
                             flexDirection: 'row'
                         }}>
-                            <div style={{
-                                textAlign: 'center',
-                                backgroundColor: '#fff',
-                                marginLeft: 10,
-                                marginRight: 10
-                            }}>
-                                <div styleName='sub_container_header'>COMPLETED TASKS</div>
-                                    {props.getOverviewStats.errors.cata({
-                                        Nothing: () => props.getOverviewStats.results.cata({
-                                            Nothing: () => (
-                                                <Placeholder
-                                                    style={{ width: 200, height: 200}}
-                                                    busy={props.getOverviewStats.busy}
-                                                    size={[ '100%', '100%' ]} />
-                                            ),
-                                            Just: fields => (
-                                                <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                                    <Highchart config={merge(
-                                                        COMPLETED_TASKS,
-                                                        {title: {
-                                                            text: toString(reduce(
-                                                                (sum, n) => (sum + n), 0,
-                                                                map(field => (parseFloat(field.completedTasks)),
-                                                                    fields.categoryTasks)))
-                                                        },
-                                                            series: [{
-                                                                data: map(field => (
-                                                                    [field.category.name,
-                                                                        parseFloat(field.completedTasks)]
-                                                                ), fields.categoryTasks)
-                                                            }]
-                                                        }
-                                                    )} />
-                                                    <div style={{
-                                                        display: 'flex',
-                                                        flexDirection: 'row',
-                                                        justifyContent:
-                                                        'space-around'
-                                                    }}>
-                                                        {
-                                                            fields.categoryTasks.map((field, index) => (
-                                                            <LegendRow
-                                                            key={index}
-                                                            color={COMPLETED_TASKS.colors[index]}
-                                                            title={field.category.name}
-                                                            />
-                                                            ))
-                                                        }
-                                                    </div>
-                                                </div>
-                                            )
-                                        }),
-                                        Just: errors => (
-                                            <div>{errors}</div>
-                                        )
-                                    })}
-                            </div>
-                            <div style={{
-                                textAlign: 'center',
-                                backgroundColor: '#fff',
-                                marginLeft: 10,
-                                marginRight: 10
-                            }}>
-                                <div styleName='sub_container_header'>GOFUNDIS</div>
-                                {props.getOverviewStats.errors.cata({
-                                    Nothing: () => props.getOverviewStats.results.cata({
-                                        Nothing: () => (
-                                            <Placeholder
-                                                style={{ width: 200, height: 200}}
-                                                busy={props.getOverviewStats.busy}
-                                                size={[ '100%', '100%' ]} />
-                                        ),
-                                        Just: fields => (
-                                            <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                                <Highchart config={merge(
-                                                    GOFUNDIS,
-                                                    {title: {
-                                                        text: toString(reduce(
-                                                            (sum, n) => (sum + n), 0,
-                                                            map(field => (field.numberOfFundis), fields.fundiStatuses)))
-                                                    },
-                                                        series: [{
-                                                            data: map(field => (
-                                                                [field.status, parseFloat(field.numberOfFundis)]
-                                                                ), fields.fundiStatuses)
-                                                        }]
-                                                    }
-                                                )} />
-                                                <div style={{
-                                                    display: 'flex',
-                                                    flexDirection: 'row',
-                                                    justifyContent: 'space-around'
-                                                }}>
-                                                    {
-                                                        fields.fundiStatuses.map((field, index) => (
-                                                            <LegendRow
-                                                                key={index}
-                                                                color={GOFUNDIS.colors[index]}
-                                                                title={field.status}
-                                                            />
-                                                        ))
-                                                    }
-                                                </div>
-                                            </div>
-                                        )
-                                    }),
-                                    Just: errors => (
-                                        <div>{errors}</div>
-                                    )
-                                })}
-
-                            </div>
+                            <CompletedTasksHightChart data={props.getOverviewStats} />
+                            <GofundisHightChart data={props.getOverviewStats} />
                         </div>
                     </div>
                 </div>

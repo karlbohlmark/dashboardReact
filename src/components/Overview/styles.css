@@ -35,20 +35,9 @@
     height: 80%;
     background-color: rgb(250, 250, 250);
 }
-.sub_container_header {
-    font-size: 16px;
-    font-weight: 300;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-decoration: underline;
-}
 .list_column {
     display: flex;
     flex-direction: column;
-}
-.list_column_highcharts {
-    width: 200px;
-    // height: 200px;
 }
 .returning_subscribers {
     display: flex;

@@ -80,13 +80,6 @@
     justify-content: center;
 }
 
-.sub_container_header {
-    font-size: 16px;
-    font-weight: 300;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-decoration: underline;
-}
 .user_container_header {
     font-size: 24px;
     font-weight: 300;
@@ -94,12 +87,7 @@
     margin-bottom: 0;
     text-decoration: underline;
 }
-.inline_items_fav {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    justify-content: center;
-}
+
 .returning_subscribers {
     display: flex;
     flex-direction: row;
@@ -111,10 +99,7 @@
     display: flex;
     flex-direction: column;
 }
-.list_column_highcharts {
-    width: 200px;
-    height: 200px;
-}
+
 .users_container_empty {
     padding: 15px;
     margin-bottom: 25px;
