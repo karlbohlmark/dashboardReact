@@ -1,15 +1,18 @@
 import React, { PropTypes } from 'react';
+import {
+    map
+} from 'lodash/fp';
 import Placeholder from 'components/Placeholder';
 import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapCategory from 'components/GoogleMap/Category';
 import {
     // CATEGORY_ALL,
-    CATEGORY_NEW_INSTALL_DECODER,
-    CATEGORY_NEW_INSTALL_SIGNAL,
-    CATEGORY_NEW_INSTALL_ERROR,
-    CATEGORY_REPAIR_INSTALL_DECODER,
-    CATEGORY_REPAIR_INSTALL_SIGNAL,
-    CATEGORY_REPAIR_INSTALL_ERROR
+    // CATEGORY_NEW_INSTALL_DECODER,
+    // CATEGORY_NEW_INSTALL_SIGNAL,
+    // CATEGORY_NEW_INSTALL_ERROR,
+    // CATEGORY_REPAIR_INSTALL_DECODER,
+    // CATEGORY_REPAIR_INSTALL_SIGNAL,
+    // CATEGORY_REPAIR_INSTALL_ERROR
 } from 'models/googlemap';
 import {
     capitalize
@@ -20,22 +23,31 @@ function CategoriesMap(props) {
         <div>
             <SelectBoxItem
                 style={{width: '300px'}}
-                options={[
-                    // { value: CATEGORY_ALL,
-                    //     label: capitalize(CATEGORY_ALL) },
-                    { value: CATEGORY_NEW_INSTALL_DECODER,
-                        label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
-                    { value: CATEGORY_NEW_INSTALL_SIGNAL,
-                        label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
-                    { value: CATEGORY_NEW_INSTALL_ERROR,
-                        label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
-                    { value: CATEGORY_REPAIR_INSTALL_DECODER,
-                        label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
-                    { value: CATEGORY_REPAIR_INSTALL_SIGNAL,
-                        label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) },
-                    { value: CATEGORY_REPAIR_INSTALL_ERROR,
-                        label: capitalize(CATEGORY_REPAIR_INSTALL_ERROR) }
-                ]}
+                options={props.listCategories.errors.cata({
+                    Nothing: () => props.listCategories.results.cata({
+                        Nothing: () => ([]),
+                        Just: fields => (
+                            map(field => ({ value: field.id, label: capitalize(field.name) }), fields)
+                        )
+                    }),
+                    Just: () => ([])
+                })}
+                // options={[
+                //      // { value: CATEGORY_ALL,
+                //      //     label: capitalize(CATEGORY_ALL) },
+                //      { value: CATEGORY_NEW_INSTALL_DECODER,
+                //          label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
+                //      { value: CATEGORY_NEW_INSTALL_SIGNAL,
+                //          label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
+                //      { value: CATEGORY_NEW_INSTALL_ERROR,
+                //          label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
+                //      { value: CATEGORY_REPAIR_INSTALL_DECODER,
+                //          label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
+                //      { value: CATEGORY_REPAIR_INSTALL_SIGNAL,
+                //          label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) },
+                //      { value: CATEGORY_REPAIR_INSTALL_ERROR,
+                //          label: capitalize(CATEGORY_REPAIR_INSTALL_ERROR) }
+                //  ]}
                 onChange={props.onUiCategoriesHandler}
                 value={props.uiCategories}
 
@@ -61,6 +73,7 @@ function CategoriesMap(props) {
 }
 
 CategoriesMap.propTypes = {
+    listCategories: PropTypes.object.isRequired,
     dataTasksLocationByCategory: PropTypes.object.isRequired,
     uiCategories: PropTypes.object.isRequired,
     onUiCategoriesHandler: PropTypes.func.isRequired

@@ -18,6 +18,7 @@ function Overview(props) {
         <div>
             <SubPanel
                 title="OVERVIEW"
+                listCategories={props.listCategories}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}
@@ -142,6 +143,7 @@ function Overview(props) {
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap
+                        listCategories={props.listCategories}
                         dataTasksLocationByCategory={props.tasksLocationByCategory}
                         uiCategories={props.categories}
                         onUiCategoriesHandler={props.onChangeCategoryHandler}/>
@@ -152,6 +154,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,

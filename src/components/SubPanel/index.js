@@ -2,12 +2,15 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    CATEGORY_ALL,
-    CATEGORY_NEW_INSTALL_DECODER,
-    CATEGORY_NEW_INSTALL_SIGNAL,
-    CATEGORY_NEW_INSTALL_ERROR,
-    CATEGORY_REPAIR_INSTALL_DECODER,
-    CATEGORY_REPAIR_INSTALL_SIGNAL
+    map
+} from 'lodash/fp';
+import {
+    // CATEGORY_ALL,
+    // CATEGORY_NEW_INSTALL_DECODER,
+    // CATEGORY_NEW_INSTALL_SIGNAL,
+    // CATEGORY_NEW_INSTALL_ERROR,
+    // CATEGORY_REPAIR_INSTALL_DECODER,
+    // CATEGORY_REPAIR_INSTALL_SIGNAL
 } from 'models/googlemap';
 import {
     capitalize
@@ -30,14 +33,24 @@ function SubPanel(props) {
             <div>
                 <SelectBoxItem
                     style={{width: '300px'}}
-                    options={[
-                        { value: CATEGORY_ALL, label: capitalize(CATEGORY_ALL) },
-                        { value: CATEGORY_NEW_INSTALL_DECODER, label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
-                        { value: CATEGORY_NEW_INSTALL_SIGNAL, label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
-                        { value: CATEGORY_NEW_INSTALL_ERROR, label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
-                        { value: CATEGORY_REPAIR_INSTALL_DECODER, label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
-                        { value: CATEGORY_REPAIR_INSTALL_SIGNAL, label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) }
-                    ]}
+                    options={props.listCategories.errors.cata({
+                        Nothing: () => props.listCategories.results.cata({
+                            Nothing: () => ([]),
+                            Just: fields => (
+                                map(field => ({ value: field.id, label: capitalize(field.name) }), fields)
+                            )
+                        }),
+                        Just: () => ([])
+                    })}
+                    // options={[
+                    //     { value: CATEGORY_ALL, label: capitalize(CATEGORY_ALL) },
+                    //     { value: CATEGORY_NEW_INSTALL_DECODER, label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
+                    //     { value: CATEGORY_NEW_INSTALL_SIGNAL, label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
+                    //     { value: CATEGORY_NEW_INSTALL_ERROR, label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
+                    //     { value: CATEGORY_REPAIR_INSTALL_DECODER,
+                    //       label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
+                    //     { value: CATEGORY_REPAIR_INSTALL_SIGNAL, label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) }
+                    // ]}
                     onChange={props.onChangeCategory}
                     value={props.categories}
                     placeholder='Category'
@@ -55,6 +68,7 @@ function SubPanel(props) {
 }
 
 SubPanel.propTypes = {
+    listCategories: PropTypes.object.isRequired,
     onChangeCategory: PropTypes.func.isRequired,
     categories: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,

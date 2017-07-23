@@ -39,6 +39,7 @@ class SubscribersContainer extends Component {
     render() {
         return (
             <Subscribers
+                listCategories={this.props.listCategories}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={(from, to) => this.props.setRangeDate(from, to)}
                 categories={this.props.categories}
@@ -56,6 +57,7 @@ SubscribersContainer.propTypes = {
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
+    listCategories: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -68,6 +70,7 @@ SubscribersContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        listCategories: ui.listDashboardCategories,
         dateRangePicker: ui.dateRangePicker,
         users: ui.googlemap.users.cata({
             Nothing: () => ({

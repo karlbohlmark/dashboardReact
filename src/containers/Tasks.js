@@ -51,6 +51,7 @@ class TasksContainer extends Component {
     render() {
         return (
             <Tasks
+                listCategories={this.props.listCategories}
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
@@ -85,6 +86,7 @@ TasksContainer.propTypes = {
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
+    listCategories: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -99,6 +101,7 @@ TasksContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        listCategories: ui.listDashboardCategories,
         getOverviewStats: ui.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         completedTasksHistogram: ui.completedTasksHistogram,

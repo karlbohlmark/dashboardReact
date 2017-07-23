@@ -46,6 +46,7 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
+                listCategories={this.props.listCategories}
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
@@ -71,6 +72,7 @@ GoFundisContainer.propTypes = {
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
+    listCategories: PropTypes.object.isRequired,
     goFundis: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
@@ -84,6 +86,7 @@ GoFundisContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        listCategories: ui.listDashboardCategories,
         getOverviewStats: ui.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         users: ui.googlemap.users.cata({

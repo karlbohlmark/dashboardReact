@@ -22,6 +22,7 @@ function GoFundis(props) {
         <div>
             <SubPanel
                 title="GOFUNDIS"
+                listCategories={props.listCategories}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}
@@ -167,6 +168,7 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,

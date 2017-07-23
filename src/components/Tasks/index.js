@@ -20,6 +20,7 @@ function Tasks(props) {
         <div>
             <SubPanel
                 title="TASKS"
+                listCategories={props.listCategories}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}
@@ -265,6 +266,7 @@ function Tasks(props) {
 }
 
 Tasks.propTypes = {
+    listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,

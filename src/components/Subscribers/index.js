@@ -17,6 +17,7 @@ function Subscribers(props) {
         <div>
             <SubPanel
                 title="SUBSCRIBERS"
+                listCategories={props.listCategories}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}
@@ -147,6 +148,7 @@ function Subscribers(props) {
 }
 
 Subscribers.propTypes = {
+    listCategories: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,

@@ -54,6 +54,7 @@ class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                listCategories={this.props.listCategories}
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
@@ -96,6 +97,7 @@ OverviewContainer.propTypes = {
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
+    listCategories: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -111,6 +113,7 @@ OverviewContainer.propTypes = {
 function select({ ui }) {
 
     return {
+        listCategories: ui.listDashboardCategories,
         getOverviewStats: ui.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         userLocation: ui.userLocation,
