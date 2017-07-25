@@ -31,10 +31,10 @@ class SegmentMap extends React.Component {
         this.state = {
             mapBoundedList: [],
             currentLocation: {
+                // Todo check to props.data isArray and lenght >= 1
                 lat: head(props.data).location.lat,
                 lng: head(props.data).location.lng
-            },
-            currentZoom: MAP_ZOOM
+            }
         };
     }
     filterArr(arr) {
@@ -85,7 +85,7 @@ class SegmentMap extends React.Component {
                            onChange={this.changeMapBounds}
                            margin={[K_MARGIN_TOP, K_MARGIN_RIGHT, K_MARGIN_BOTTOM, K_MARGIN_LEFT]}
                            center={this.state.currentLocation}
-                           zoom={this.state.currentZoom}
+                           zoom={MAP_ZOOM}
                            options={createMapOptions}
                            // onChildClick={(e) => {
                            //     console.log('child click', +e, this.state.data[+e].location);
