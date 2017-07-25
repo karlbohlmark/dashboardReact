@@ -28,3 +28,6 @@ export {
     imageAsset as toImageAsset,
     capitalize
 } from './to-blob';
+export {
+    createMapOptions
+} from './common';

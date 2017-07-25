@@ -22,3 +22,9 @@ export const GOFUNDIS_STATYS_ONLINE = 'ONLINE';
 export const GOFUNDIS_ALL = 'ALL';
 
 export const SUBSCRIBERS_ALL = 'subscriber';
+
+export const K_MARGIN_TOP = 30;
+export const K_MARGIN_RIGHT = 30;
+export const K_MARGIN_BOTTOM = 30;
+export const K_MARGIN_LEFT = 30;
+export const MAP_ZOOM = 30;
