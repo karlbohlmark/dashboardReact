@@ -27,4 +27,4 @@ export const K_MARGIN_TOP = 30;
 export const K_MARGIN_RIGHT = 30;
 export const K_MARGIN_BOTTOM = 30;
 export const K_MARGIN_LEFT = 30;
-export const MAP_ZOOM = 30;
+export const MAP_ZOOM = 5;
