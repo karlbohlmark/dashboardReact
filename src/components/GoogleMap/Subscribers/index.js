@@ -1,59 +1,48 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-import GoogleMap from 'google-map-react';
-
 import styles from '../styles.css';
-
-
-import MapMark from '../MapMark';
-
 import config from 'config';
+import GoogleMap from 'google-map-react';
+import MapMark from '../MapMark';
+import {
+    head,
+    filter,
+    isArray,
+    size
+} from 'lodash/fp';
+import {
+    K_MARGIN_TOP,
+    K_MARGIN_RIGHT,
+    K_MARGIN_BOTTOM,
+    K_MARGIN_LEFT,
+    MAP_ZOOM
+} from 'models/googlemap';
+import {
+    createMapOptions
+} from 'utils';
 
-const K_MARGIN_TOP = 30;
-const K_MARGIN_RIGHT = 30;
-const K_MARGIN_BOTTOM = 30;
-const K_MARGIN_LEFT = 30;
-
+const filterArr = arr => (isArray(arr) ? filter(() => (true), arr) : (false));
+const renderMapMarks = arr => (filterArr(arr).map((item, idx) => (
+    <MapMark
+        {...item}
+        key={idx}
+        lat={item.location.lat}
+        lng={item.location.lng} />
+)));
 
 class SegmentMapSubscribers extends React.Component {
 
     constructor(props) {
         super(props);
-        this.getLocationSuccess = this.getLocationSuccess.bind(this);
         this.changeMapBounds = this.changeMapBounds.bind(this);
-        this.renderMapMarks = this.renderMapMarks.bind(this);
         this.state = {
             data: props.data,
             mapBoundedList: [],
-            currentLocation: {lat: 38.971763, lng: -97.411287},
-            currentZoom: 5,
-            positionIcon: 'ion-android-locate',
-            showSubcriber: true,
-            showGofundis: true
+            currentLocation: {
+                lat: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lat : 0,
+                lng: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lng : 0
+            }
         };
-    }
-
-    getLocationSuccess(position) {
-        this.setState({
-            positionIcon: 'ion-android-locate',
-            positionIconSpin: false,
-            currentLocation: {lat: position.coords.latitude, lng: position.coords.longitude},
-            currentZoom: 12
-        });
-    }
-
-    filterArr(arr) {
-        return arr.filter(() => (true));
-    }
-
-    renderMapMarks(arr) {
-        return (this.filterArr(arr).map((item, idx) => (
-            <MapMark
-                    {...item}
-                    key={idx}
-                    lat={item.location.lat}
-                    lng={item.location.lng} />
-            )));
     }
 
     locationInScreen(location, nw, se) {
@@ -64,35 +53,12 @@ class SegmentMapSubscribers extends React.Component {
     }
 
     changeMapBounds(newBounds) {
-        let filteredList = [];
-        filteredList = this.filterArr(this.state.data).filter(item => (
+        const filteredList = filter(item => (
             this.locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se)
-        ));
+        ), filterArr(this.props.data));
         this.setState({mapBoundedList: filteredList});
     }
 
-    createMapOptions(maps) {
-        // next props are exposed at maps
-        // "Animation", "ControlPosition", "MapTypeControlStyle", "MapTypeId",
-        // "NavigationControlStyle", "ScaleControlStyle", "StrokePosition", "SymbolPath", "ZoomControlStyle",
-        // "DirectionsStatus", "DirectionsTravelMode", "DirectionsUnitSystem", "DistanceMatrixStatus",
-        // "DistanceMatrixElementStatus", "ElevationStatus", "GeocoderLocationType", "GeocoderStatus", "KmlLayerStatus",
-        // "MaxZoomStatus", "StreetViewStatus", "TransitMode", "TransitRoutePreference", "TravelMode", "UnitSystem"
-        return {
-            disableDefaultUI: true,
-            zoomControl: true,
-            zoomControlOptions: {
-                position: maps.ControlPosition.RIGHT_BOTTOM,
-                style: maps.ZoomControlStyle.SMALL
-            },
-            mapTypeControl: false
-        };
-    }
-    componentWillMount() {
-        // this.props.subscriberHandler(false);
-        // this.props.gofundisHandler(true);
-        // this.props.allHandler(false);
-    }
     render() {
         return (
             <div id='map' styleName='google_map'>
@@ -104,8 +70,8 @@ class SegmentMapSubscribers extends React.Component {
                            onChange={this.changeMapBounds}
                            margin={[K_MARGIN_TOP, K_MARGIN_RIGHT, K_MARGIN_BOTTOM, K_MARGIN_LEFT]}
                            center={this.state.currentLocation}
-                           zoom={this.state.currentZoom}
-                           options={this.createMapOptions}
+                           zoom={MAP_ZOOM}
+                           options={createMapOptions}
                            // onChildClick={(e) => {
                            //     console.log('child click', +e, this.state.data[+e].location);
                            //     let data = this.state.data;
@@ -118,7 +84,7 @@ class SegmentMapSubscribers extends React.Component {
                            }}
                            yesIWantToUseGoogleMapApiInternals
                 >
-                    { this.renderMapMarks(this.state.data) }
+                    { renderMapMarks(this.props.data) }
                 </GoogleMap>
             </div>
         );
