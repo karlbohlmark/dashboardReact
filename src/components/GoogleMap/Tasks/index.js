@@ -42,24 +42,15 @@ class SegmentMapTask extends React.Component {
     }
 
     filterArr(arr) {
-        return isArray(arr) ? filter(item => {
-            if (item.type === TASK_STATYS_COMPLETED && TASK_STATYS_COMPLETED === this.props.uiTasks.getOrElse('')) {
-                return true;
-            }
-            if (item.type === TASK_STATYS_ASSIGNED && TASK_STATYS_ASSIGNED === this.props.uiTasks.getOrElse('')) {
-                return true;
-            }
-            if (item.type === TASK_STATYS_UNASSIGNED && TASK_STATYS_UNASSIGNED === this.props.uiTasks.getOrElse('')) {
-                return true;
-            }
-            if (item.type === TASK_STATYS_DECLINED && TASK_STATYS_DECLINED === this.props.uiTasks.getOrElse('')) {
-                return true;
-            }
-            if (item.type === TASK_STATYS_CANCELLED && TASK_STATYS_CANCELLED === this.props.uiTasks.getOrElse('')) {
-                return true;
-            }
-            return false;
-        }, arr) : (false);
+        return isArray(arr) ? filter(item => (
+            ((item.type === TASK_STATYS_COMPLETED && TASK_STATYS_COMPLETED === this.props.uiTasks.getOrElse('')) ||
+                (item.type === TASK_STATYS_ASSIGNED && TASK_STATYS_ASSIGNED === this.props.uiTasks.getOrElse('')) ||
+                (item.type === TASK_STATYS_UNASSIGNED && TASK_STATYS_UNASSIGNED === this.props.uiTasks.getOrElse('')) ||
+                (item.type === TASK_STATYS_UNASSIGNED && TASK_STATYS_UNASSIGNED === this.props.uiTasks.getOrElse('')) ||
+                (item.type === TASK_STATYS_DECLINED && TASK_STATYS_DECLINED === this.props.uiTasks.getOrElse('')) ||
+                (item.type === TASK_STATYS_CANCELLED && TASK_STATYS_CANCELLED === this.props.uiTasks.getOrElse(''))
+            )
+        ), arr) : (false);
     }
 
     renderMapMarks(arr) {
