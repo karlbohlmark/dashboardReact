@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
+import {
+    isNull
+} from 'lodash/fp';
 import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
 import GofundisHightChart from 'components/GofundisHightChart';
 import TasksHistogram from 'components/TasksHistogram';
@@ -47,8 +50,9 @@ function Overview(props) {
                                                     styleChildren={{backgroundColor: '#07944a'}}
                                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                                     upItem={
-                                                        fields.completedTasksPerDay ?
-                                                        fields.completedTasksPerDay : ''}
+                                                        fields.completedTasksPerDay &&
+                                                        !isNull(fields.completedTasksPerDay) ?
+                                                        fields.completedTasksPerDay : '0'}
                                                     item={'COMPLETED TASKS PER DAY'}
                                                     subItem={'(IN AVERAGE PER GOFUNDI)'}
                                                 >
@@ -58,8 +62,9 @@ function Overview(props) {
                                                     styleChildren={{backgroundColor: '#fbaa1a'}}
                                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                                     upItem={
-                                                        fields.activeGoFundis ?
-                                                        fields.activeGoFundis : ''}
+                                                        fields.activeGoFundis &&
+                                                        !isNull(fields.activeGoFundis) ?
+                                                        fields.activeGoFundis : '0'}
                                                     item={'ACTIVE GOFUNDIS'}
                                                     subItem={'(IN AVERAGE PER DAY)'}
                                                 >
@@ -89,8 +94,9 @@ function Overview(props) {
                                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                                     styleReportBlock={{width: 185}}
                                                     upItem={
-                                                        fields.averageCompletionTime ?
-                                                        fields.averageCompletionTime : ''}
+                                                        fields.averageCompletionTime &&
+                                                        !isNull(fields.averageCompletionTime) ?
+                                                        fields.averageCompletionTime : '0'}
                                                     item={'AVERAGE TIME FOR COMPLETION'}
                                                     subItem={'(FROM ASSIGNED TO COMPLETED)'}
                                                 >
@@ -101,8 +107,9 @@ function Overview(props) {
                                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                                     styleReportBlock={{width: 185}}
                                                     upItem={
-                                                        fields.increasePercentage ?
-                                                        fields.increasePercentage : ''}
+                                                        fields.increasePercentage &&
+                                                        !isNull(fields.increasePercentage) ?
+                                                        fields.increasePercentage : '0'}
                                                     item={'INCREASE SINCE LAST MONTH'}
                                                     subItem={'(TASKS COMPLETED)'}
                                                 >
