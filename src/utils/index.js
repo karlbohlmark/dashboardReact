@@ -33,5 +33,6 @@ export {
     locationInScreen,
     filterUser,
     filterTask,
-    filterCategory
+    filterCategory,
+    filterGoFundis
 } from './common';

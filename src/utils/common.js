@@ -12,7 +12,9 @@ import {
     CATEGORY_NEW_INSTALL_ERROR,
     CATEGORY_REPAIR_INSTALL_DECODER,
     CATEGORY_REPAIR_INSTALL_SIGNAL,
-    CATEGORY_REPAIR_INSTALL_ERROR
+    CATEGORY_REPAIR_INSTALL_ERROR,
+    GOFUNDIS_STATYS_OFFLINE,
+    GOFUNDIS_STATYS_ONLINE
 } from 'models/googlemap';
 import {
     filter,
@@ -94,5 +96,20 @@ export const filterCategory = curry(
                 )
             )
         ), arr) : (false)
+    )
+);
+
+export const filterGoFundis = curry(
+    (option, arr) => (
+        isArray(arr) ? filter(item => {
+            if (option.all.getOrElse(false)) {
+                return option.all.getOrElse(false);
+            } else if (item.type === GOFUNDIS_STATYS_OFFLINE) {
+                return option.offline.getOrElse(false);
+            } else if (item.type === GOFUNDIS_STATYS_ONLINE) {
+                return option.online.getOrElse(false);
+            }
+            return false;
+        }, arr) : (false)
     )
 );

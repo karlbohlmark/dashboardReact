@@ -7,6 +7,9 @@ import {
     NUMBER_OF_GOFUNDIS,
     LIVE_ACTIVE_GOFUNDIS
 } from 'models/highchartConfig';
+import {
+    filterGoFundis
+} from 'utils';
 import IconLoop from 'components/IconLoop';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
@@ -14,7 +17,7 @@ import LegendRow from 'components/ListItem/LegendRow';
 import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisPanel from 'components/GoFundis/GoFundisPanel';
-import GoogleMapGoFundis from 'components/GoogleMap/GoFundis';
+import GoogleMapSegment from 'components/GoogleMap';
 import dataMapMarkerGoFundis from 'data/dataMapMarkerGoFundis';
 
 function GoFundis(props) {
@@ -157,9 +160,9 @@ function GoFundis(props) {
                         onOnlineStatusHandler={props.onOnlineStatusHandler}
                         onAllStatusHandler={props.onAllStatusHandler}
                     />
-                    <GoogleMapGoFundis
-                        goFundis={props.goFundis}
+                    <GoogleMapSegment
                         data={dataMapMarkerGoFundis}
+                        filterData={filterGoFundis(props.goFundis)}
                     />
                 </Substrate>
             </div>
