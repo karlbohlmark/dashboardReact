@@ -6,15 +6,6 @@ import Placeholder from 'components/Placeholder';
 import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapSegment from 'components/GoogleMap';
 import {
-    // CATEGORY_ALL,
-    // CATEGORY_NEW_INSTALL_DECODER,
-    // CATEGORY_NEW_INSTALL_SIGNAL,
-    // CATEGORY_NEW_INSTALL_ERROR,
-    // CATEGORY_REPAIR_INSTALL_DECODER,
-    // CATEGORY_REPAIR_INSTALL_SIGNAL,
-    // CATEGORY_REPAIR_INSTALL_ERROR
-} from 'models/googlemap';
-import {
     capitalize,
     filterCategory
 } from 'utils';
@@ -33,22 +24,6 @@ function CategoriesMap(props) {
                     }),
                     Just: () => ([])
                 })}
-                // options={[
-                //      // { value: CATEGORY_ALL,
-                //      //     label: capitalize(CATEGORY_ALL) },
-                //      { value: CATEGORY_NEW_INSTALL_DECODER,
-                //          label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
-                //      { value: CATEGORY_NEW_INSTALL_SIGNAL,
-                //          label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
-                //      { value: CATEGORY_NEW_INSTALL_ERROR,
-                //          label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
-                //      { value: CATEGORY_REPAIR_INSTALL_DECODER,
-                //          label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
-                //      { value: CATEGORY_REPAIR_INSTALL_SIGNAL,
-                //          label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) },
-                //      { value: CATEGORY_REPAIR_INSTALL_ERROR,
-                //          label: capitalize(CATEGORY_REPAIR_INSTALL_ERROR) }
-                //  ]}
                 onChange={props.onUiCategoriesHandler}
                 value={props.uiCategories}
 
