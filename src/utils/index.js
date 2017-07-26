@@ -29,5 +29,6 @@ export {
     capitalize
 } from './to-blob';
 export {
-    createMapOptions
+    createMapOptions,
+    locationInScreen
 } from './common';

@@ -18,7 +18,8 @@ import {
     MAP_ZOOM
 } from 'models/googlemap';
 import {
-    createMapOptions
+    createMapOptions,
+    locationInScreen
 } from 'utils';
 
 const filterArr = arr => (isArray(arr) ? filter(() => (true), arr) : (false));
@@ -45,16 +46,9 @@ class SegmentMapSubscribers extends React.Component {
         };
     }
 
-    locationInScreen(location, nw, se) {
-        return (
-            (nw.lat > location.lat && location.lat > se.lat) &&
-            (nw.lng < location.lng && location.lng < se.lng)
-        );
-    }
-
     changeMapBounds(newBounds) {
         const filteredList = filter(item => (
-            this.locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se)
+            locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se)
         ), filterArr(this.props.data));
         this.setState({mapBoundedList: filteredList});
     }

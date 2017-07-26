@@ -15,3 +15,10 @@ export const createMapOptions = curry(
         }
     )
 );
+
+export const locationInScreen = curry(
+    (location, nw, se) => (
+        (nw.lat > location.lat && location.lat > se.lat) &&
+        (nw.lng < location.lng && location.lng < se.lng)
+    )
+);
