@@ -7,7 +7,8 @@ import MapMark from './MapMark';
 import {
     head,
     filter,
-    isArray
+    isArray,
+    size
 } from 'lodash/fp';
 import {
     USER_TYPE_SUBSCRIBER,
@@ -31,9 +32,8 @@ class SegmentMap extends React.Component {
         this.state = {
             mapBoundedList: [],
             currentLocation: {
-                // Todo check to props.data isArray and lenght >= 1
-                lat: head(props.data).location.lat,
-                lng: head(props.data).location.lng
+                lat: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lat : 0,
+                lng: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lng : 0
             }
         };
     }
