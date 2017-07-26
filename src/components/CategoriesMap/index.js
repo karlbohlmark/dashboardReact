@@ -4,7 +4,7 @@ import {
 } from 'lodash/fp';
 import Placeholder from 'components/Placeholder';
 import SelectBoxItem from 'components/SelectBoxItem';
-import GoogleMapCategory from 'components/GoogleMap/Category';
+import GoogleMapSegment from 'components/GoogleMap';
 import {
     // CATEGORY_ALL,
     // CATEGORY_NEW_INSTALL_DECODER,
@@ -15,7 +15,8 @@ import {
     // CATEGORY_REPAIR_INSTALL_ERROR
 } from 'models/googlemap';
 import {
-    capitalize
+    capitalize,
+    filterCategory
 } from 'utils';
 
 function CategoriesMap(props) {
@@ -58,9 +59,9 @@ function CategoriesMap(props) {
                         <Placeholder busy={props.dataTasksLocationByCategory.busy} size={[ '100%', '300px' ]} />
                     ),
                     Just: () => (
-                        <GoogleMapCategory
-                            uiCategories={props.uiCategories}
+                        <GoogleMapSegment
                             data={props.dataTasksLocationByCategory.results.getOrElse([])}
+                            filterData={filterCategory(props.uiCategories)}
                         />
                     )
                 }),

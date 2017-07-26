@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
-import GoogleMapUsers from 'components/GoogleMap';
+import GoogleMapSegment from 'components/GoogleMap';
 import Placeholder from 'components/Placeholder';
 import UserPanel from 'components/UserPanel';
+import {
+    filterUser
+} from 'utils';
 
 function UsersMap(props) {
     return (
@@ -17,9 +20,9 @@ function UsersMap(props) {
                         <Placeholder busy={props.dataUsersLocation.busy} size={[ '100%', '300px' ]} />
                     ),
                     Just: () => (
-                        <GoogleMapUsers
-                            uiUsers={props.uiUsers}
+                        <GoogleMapSegment
                             data={props.dataUsersLocation.results.getOrElse([])}
+                            filterData={filterUser(props.uiUsers)}
                         />
                     )
                 }),

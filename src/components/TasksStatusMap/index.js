@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Placeholder from 'components/Placeholder';
 import SelectBoxItem from 'components/SelectBoxItem';
-import GoogleMapTasks from 'components/GoogleMap/Tasks';
+import GoogleMapSegment from 'components/GoogleMap';
 import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
@@ -10,7 +10,8 @@ import {
     TASK_STATYS_CANCELLED
 } from 'models/googlemap';
 import {
-    capitalize
+    capitalize,
+    filterTask
 } from 'utils';
 
 function TasksStatusMap(props) {
@@ -34,9 +35,9 @@ function TasksStatusMap(props) {
                         <Placeholder busy={props.dataTasksLocationStatus.busy} size={[ '100%', '300px' ]} />
                     ),
                     Just: () => (
-                        <GoogleMapTasks
-                            uiTasks={props.uiTasks}
+                        <GoogleMapSegment
                             data={props.dataTasksLocationStatus.results.getOrElse([])}
+                            filterData={filterTask(props.uiTasks)}
                         />
                     )
                 }),

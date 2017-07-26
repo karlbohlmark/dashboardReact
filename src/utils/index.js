@@ -30,5 +30,8 @@ export {
 } from './to-blob';
 export {
     createMapOptions,
-    locationInScreen
+    locationInScreen,
+    filterUser,
+    filterTask,
+    filterCategory
 } from './common';

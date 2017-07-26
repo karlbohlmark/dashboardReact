@@ -11,8 +11,6 @@ import {
     size
 } from 'lodash/fp';
 import {
-    USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS,
     K_MARGIN_TOP,
     K_MARGIN_RIGHT,
     K_MARGIN_BOTTOM,
@@ -38,33 +36,21 @@ class SegmentMap extends React.Component {
             }
         };
     }
-    filterArr(arr) {
-        return isArray(arr) ? filter(item => {
-            if (this.props.uiUsers.all.getOrElse(false)) {
-                return this.props.uiUsers.all.getOrElse(false);
-            } else if (item.type === USER_TYPE_SUBSCRIBER) {
-                return this.props.uiUsers.subscriber.getOrElse(false);
-            } else if (item.type === USER_TYPE_GOFUNDIS) {
-                return this.props.uiUsers.gofundis.getOrElse(false);
-            }
-            return false;
-        }, arr) : (false);
-    }
 
     renderMapMarks(arr) {
-        return (this.filterArr(arr).map((item, idx) => (
+        return (this.props.filterData(arr).map((item, idx) => (
             <MapMark
-                    {...item}
-                    key={idx}
-                    lat={item.location.lat}
-                    lng={item.location.lng} />
-            )));
+                {...item}
+                key={idx}
+                lat={item.location.lat}
+                lng={item.location.lng} />
+        )));
     }
 
     changeMapBounds(newBounds) {
         const filteredList = filter(item => (
             locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se)
-        ), this.filterArr(this.props.data));
+        ), this.props.filterData(this.props.data));
         this.setState({mapBoundedList: filteredList});
     }
 
@@ -100,8 +86,8 @@ class SegmentMap extends React.Component {
     }
 }
 SegmentMap.propTypes = {
-    uiUsers: PropTypes.object.isRequired,
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    filterData: PropTypes.func.isRequired
 };
 
 export default CSSModules(SegmentMap, styles);
