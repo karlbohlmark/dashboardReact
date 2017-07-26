@@ -1,92 +1,71 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
+import styles from '../styles.css';
+import config from 'config';
 import GoogleMap from 'google-map-react';
+import MapMark from '../MapMark';
 import {
-    // CATEGORY_ALL,
+    head,
+    filter,
+    isArray,
+    size
+} from 'lodash/fp';
+import {
+    CATEGORY_ALL,
     CATEGORY_NEW_INSTALL_DECODER,
     CATEGORY_NEW_INSTALL_SIGNAL,
     CATEGORY_NEW_INSTALL_ERROR,
     CATEGORY_REPAIR_INSTALL_DECODER,
     CATEGORY_REPAIR_INSTALL_SIGNAL,
-    CATEGORY_REPAIR_INSTALL_ERROR
+    CATEGORY_REPAIR_INSTALL_ERROR,
+    K_MARGIN_TOP,
+    K_MARGIN_RIGHT,
+    K_MARGIN_BOTTOM,
+    K_MARGIN_LEFT,
+    MAP_ZOOM
 } from 'models/googlemap';
-import styles from '../styles.css';
-
-
-import MapMark from '../MapMark';
-
-import config from 'config';
-
-const K_MARGIN_TOP = 30;
-const K_MARGIN_RIGHT = 30;
-const K_MARGIN_BOTTOM = 30;
-const K_MARGIN_LEFT = 30;
-
+import {
+    createMapOptions
+} from 'utils';
 
 class SegmentMapCategory extends React.Component {
 
     constructor(props) {
         super(props);
-        this.getLocationSuccess = this.getLocationSuccess.bind(this);
         this.changeMapBounds = this.changeMapBounds.bind(this);
         this.renderMapMarks = this.renderMapMarks.bind(this);
         this.state = {
-            data: props.data,
             mapBoundedList: [],
-            currentLocation: {lat: 38.971763, lng: -97.411287},
-            currentZoom: 5,
-            positionIcon: 'ion-android-locate',
-            showSubcriber: true,
-            showGofundis: true
+            currentLocation: {
+                lat: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lat : 0,
+                lng: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lng : 0
+            }
         };
     }
 
-    getLocationSuccess(position) {
-        this.setState({
-            positionIcon: 'ion-android-locate',
-            positionIconSpin: false,
-            currentLocation: {lat: position.coords.latitude, lng: position.coords.longitude},
-            currentZoom: 12
-        });
-    }
-
     filterArr(arr) {
-        return arr.filter(item => {
-            // if (CATEGORY_ALL === this.props.uiCategories.getOrElse('')) {
-            //     return true;
-            // }
-            if (item.type === CATEGORY_NEW_INSTALL_DECODER &&
-                CATEGORY_NEW_INSTALL_DECODER === this.props.uiCategories.getOrElse('')
-            ) {
-                return true;
-            }
-            if (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
-                CATEGORY_NEW_INSTALL_SIGNAL === this.props.uiCategories.getOrElse('')
-            ) {
-                return true;
-            }
-            if (item.type === CATEGORY_NEW_INSTALL_ERROR &&
-                CATEGORY_NEW_INSTALL_ERROR === this.props.uiCategories.getOrElse('')
-            ) {
-                return true;
-            }
-            if (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
-                CATEGORY_REPAIR_INSTALL_DECODER === this.props.uiCategories.getOrElse('')
-            ) {
-                return true;
-            }
-            if (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
-                CATEGORY_REPAIR_INSTALL_SIGNAL === this.props.uiCategories.getOrElse('')
-            ) {
-                return true;
-            }
-            if (item.type === CATEGORY_REPAIR_INSTALL_ERROR &&
-                CATEGORY_REPAIR_INSTALL_ERROR === this.props.uiCategories.getOrElse('')
-            ) {
-                return true;
-            }
-            return false;
-        });
+        return isArray(arr) ? filter(item => (
+            ((CATEGORY_ALL === this.props.uiCategories.getOrElse('')) ||
+                (item.type === CATEGORY_NEW_INSTALL_DECODER &&
+                    CATEGORY_NEW_INSTALL_DECODER === this.props.uiCategories.getOrElse('')
+                ) ||
+                (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
+                    CATEGORY_NEW_INSTALL_SIGNAL === this.props.uiCategories.getOrElse('')
+                ) ||
+                (item.type === CATEGORY_NEW_INSTALL_ERROR &&
+                    CATEGORY_NEW_INSTALL_ERROR === this.props.uiCategories.getOrElse('')
+                ) ||
+                (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
+                    CATEGORY_REPAIR_INSTALL_DECODER === this.props.uiCategories.getOrElse('')
+                ) ||
+                (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
+                    CATEGORY_REPAIR_INSTALL_SIGNAL === this.props.uiCategories.getOrElse('')
+                ) ||
+                (item.type === CATEGORY_REPAIR_INSTALL_ERROR &&
+                    CATEGORY_REPAIR_INSTALL_ERROR === this.props.uiCategories.getOrElse('')
+                )
+            )
+        ), arr) : (false);
     }
 
     renderMapMarks(arr) {
@@ -107,32 +86,12 @@ class SegmentMapCategory extends React.Component {
     }
 
     changeMapBounds(newBounds) {
-        let filteredList = [];
-        filteredList = this.filterArr(this.state.data).filter(item => (
+        const filteredList = filter(item => (
             this.locationInScreen(item.location, newBounds.bounds.nw, newBounds.bounds.se)
-        ));
+        ), this.filterArr(this.props.data));
         this.setState({mapBoundedList: filteredList});
     }
 
-    createMapOptions(maps) {
-        // next props are exposed at maps
-        // "Animation", "ControlPosition", "MapTypeControlStyle", "MapTypeId",
-        // "NavigationControlStyle", "ScaleControlStyle", "StrokePosition", "SymbolPath", "ZoomControlStyle",
-        // "DirectionsStatus", "DirectionsTravelMode", "DirectionsUnitSystem", "DistanceMatrixStatus",
-        // "DistanceMatrixElementStatus", "ElevationStatus", "GeocoderLocationType", "GeocoderStatus", "KmlLayerStatus",
-        // "MaxZoomStatus", "StreetViewStatus", "TransitMode", "TransitRoutePreference", "TravelMode", "UnitSystem"
-        return {
-            disableDefaultUI: true,
-            zoomControl: true,
-            zoomControlOptions: {
-                position: maps.ControlPosition.RIGHT_BOTTOM,
-                style: maps.ZoomControlStyle.SMALL
-            },
-            mapTypeControl: false
-        };
-    }
-    componentWillMount() {
-    }
     render() {
         return (
             <div id='map' styleName='google_map'>
@@ -144,8 +103,8 @@ class SegmentMapCategory extends React.Component {
                            onChange={this.changeMapBounds}
                            margin={[K_MARGIN_TOP, K_MARGIN_RIGHT, K_MARGIN_BOTTOM, K_MARGIN_LEFT]}
                            center={this.state.currentLocation}
-                           zoom={this.state.currentZoom}
-                           options={this.createMapOptions}
+                           zoom={MAP_ZOOM}
+                           options={createMapOptions}
                            // onChildClick={(e) => {
                            //     console.log('child click', +e, this.state.data[+e].location);
                            //     let data = this.state.data;
@@ -158,7 +117,7 @@ class SegmentMapCategory extends React.Component {
                            }}
                            yesIWantToUseGoogleMapApiInternals
                 >
-                    { this.renderMapMarks(this.state.data) }
+                    { this.renderMapMarks(this.props.data) }
                 </GoogleMap>
             </div>
         );
