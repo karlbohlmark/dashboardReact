@@ -113,3 +113,9 @@ export const filterGoFundis = curry(
         }, arr) : (false)
     )
 );
+
+export const filterCommon = curry(
+    arr => (
+        isArray(arr) ? filter(() => (true), arr) : (false)
+    )
+);

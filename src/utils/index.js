@@ -34,5 +34,6 @@ export {
     filterUser,
     filterTask,
     filterCategory,
-    filterGoFundis
+    filterGoFundis,
+    filterCommon
 } from './common';

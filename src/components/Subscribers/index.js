@@ -9,8 +9,11 @@ import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
-import GoogleMapSubscribers from 'components/GoogleMap/Subscribers';
+import GoogleMapSegment from 'components/GoogleMap';
 import dataMapMarkerSubscribers from 'data/dataMapMarkerSubscribers';
+import {
+    filterCommon
+} from 'utils';
 
 function Subscribers(props) {
     return (
@@ -137,8 +140,9 @@ function Subscribers(props) {
                         marginTop: 10,
                         marginBottom: 10
                     }}>
-                        <GoogleMapSubscribers
+                        <GoogleMapSegment
                             data={dataMapMarkerSubscribers}
+                            filterData={filterCommon}
                         />
                     </div>
                 </Substrate>
