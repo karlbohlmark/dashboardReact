@@ -1,7 +1,4 @@
 import {
-    map
-} from 'lodash/fp';
-import {
     Just,
     Nothing
 } from 'data.maybe';
@@ -9,8 +6,7 @@ import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
-} from 'actions/ui/taskLocationByCategory';
-
+} from 'actions/queryData/getOverviewStats';
 
 export const initialState = {
     results: Nothing(),
@@ -19,7 +15,8 @@ export const initialState = {
 };
 
 export function reducer(state, action) {
-    switch (action.type) {
+    const { type, payload } = action;
+    switch (type) {
         case RECIEVE_PAGE_START: {
             return {
                 ...state,
@@ -28,14 +25,10 @@ export function reducer(state, action) {
                 errors: Nothing()
             };
         }
-
         case RECIEVE_PAGE_SUCCESS: {
             return {
                 ...state,
-                results: Just(map(item => ({
-                    ...item,
-                    type: item.category
-                }), action.payload)),
+                results: Just(payload),
                 busy: false
             };
         }
@@ -44,7 +37,7 @@ export function reducer(state, action) {
             return {
                 ...state,
                 busy: false,
-                errors: Just(action.payload)
+                errors: Just(payload)
             };
         }
 

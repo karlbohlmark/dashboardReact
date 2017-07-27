@@ -3,11 +3,11 @@ import {
 } from 'redux-batched-actions';
 
 import {
-    listDashboardCategories as listDashboardCategoriesRequest
-} from 'services/listDashboardCategories';
+    taskLocationByCategory as taskLocationByCategoryRequest
+} from 'services/taskLocationByCategory';
 
 
-export const RECIEVE_PAGE_START = 'UI/LIST_DASHBOARD_CATEGORIES/RECIEVE_PAGE_START';
+export const RECIEVE_PAGE_START = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_START';
 
 export function receivePageStart() {
     return {
@@ -15,7 +15,7 @@ export function receivePageStart() {
     };
 }
 
-export const RECIEVE_PAGE_SUCCESS = 'UI/LIST_DASHBOARD_CATEGORIES/RECIEVE_PAGE_SUCCESS';
+export const RECIEVE_PAGE_SUCCESS = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_SUCCESS';
 
 export function receivePageSuccess(page) {
     return {
@@ -24,7 +24,7 @@ export function receivePageSuccess(page) {
     };
 }
 
-export const RECIEVE_PAGE_FAILURE = 'UI/LIST_DASHBOARD_CATEGORIES/RECIEVE_PAGE_FAILURE';
+export const RECIEVE_PAGE_FAILURE = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_FAILURE';
 
 export function receivePageFailure(errors) {
     return {
@@ -35,16 +35,23 @@ export function receivePageFailure(errors) {
 
 export function receivePage() {
     return (dispatch, getState) => {
-        const { ui } = getState();
+        const { ui, queryData } = getState();
 
-        if (ui.getOverviewStats.busy) {
+        if (queryData.taskLocationByCategory.busy) {
             return Promise.resolve();
         }
-
+        const toSendCategoriesTypes = ui.googlemap.categories.cata({
+            Nothing: () => (''),
+            Just: value => (value)
+        });
         dispatch(
             receivePageStart()
         );
-        return listDashboardCategoriesRequest()
+
+        return taskLocationByCategoryRequest(
+            ui.dateRangePicker.startDate,
+            ui.dateRangePicker.endDate,
+            toSendCategoriesTypes)
             .then(data => {
                 dispatch(
                     batchActions([

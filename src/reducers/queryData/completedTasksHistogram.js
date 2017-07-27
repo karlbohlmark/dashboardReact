@@ -9,7 +9,7 @@ import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
-} from 'actions/ui/completedTaskHistogram';
+} from 'actions/queryData/completedTaskHistogram';
 
 export const initialState = {
     results: Nothing(),

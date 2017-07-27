@@ -3,11 +3,11 @@ import {
 } from 'redux-batched-actions';
 
 import {
-    taskLocationByStatus as taskLocationByStatusRequest
-} from 'services/taskLocationByStatus';
+    getOverviewStats as getOverviewStatsRequest
+} from 'services/getOverviewStats';
 
 
-export const RECIEVE_PAGE_START = 'UI/TASK_LOCATION_STATUS/RECIEVE_PAGE_START';
+export const RECIEVE_PAGE_START = 'UI/GET_OVERVIEW_STATS/RECIEVE_PAGE_START';
 
 export function receivePageStart() {
     return {
@@ -15,7 +15,7 @@ export function receivePageStart() {
     };
 }
 
-export const RECIEVE_PAGE_SUCCESS = 'UI/TASK_LOCATION_STATUS/RECIEVE_PAGE_SUCCESS';
+export const RECIEVE_PAGE_SUCCESS = 'UI/GET_OVERVIEW_STATS/RECIEVE_PAGE_SUCCESS';
 
 export function receivePageSuccess(page) {
     return {
@@ -24,7 +24,7 @@ export function receivePageSuccess(page) {
     };
 }
 
-export const RECIEVE_PAGE_FAILURE = 'UI/TASK_LOCATION_STATUS/RECIEVE_PAGE_FAILURE';
+export const RECIEVE_PAGE_FAILURE = 'UI/GET_OVERVIEW_STATS/RECIEVE_PAGE_FAILURE';
 
 export function receivePageFailure(errors) {
     return {
@@ -35,20 +35,16 @@ export function receivePageFailure(errors) {
 
 export function receivePage() {
     return (dispatch, getState) => {
-        const { ui } = getState();
+        const { ui, queryData } = getState();
 
-        if (ui.taskLocationByStatus.busy) {
+        if (queryData.getOverviewStats.busy) {
             return Promise.resolve();
         }
-        const toSendTasksTypes = ui.googlemap.tasks.cata({
-            Nothing: () => ([]),
-            Just: value => ([value.toLowerCase()])
-        });
+
         dispatch(
             receivePageStart()
         );
-
-        return taskLocationByStatusRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate, toSendTasksTypes)
+        return getOverviewStatsRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate)
             .then(data => {
                 dispatch(
                     batchActions([

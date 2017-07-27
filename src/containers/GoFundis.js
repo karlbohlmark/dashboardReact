@@ -32,13 +32,13 @@ import {
     showGoogleMapTasks,
     showGoogleMapCategory,
     showGoogleMapGoFundis
-} from 'actions/ui/GoogleMap/index';
+} from 'actions/ui/googleMap';
 import {
     setRangeDate
 } from 'actions/ui/dateRangePicker';
 import {
     receivePage as receivePageGetOverviewStats
-} from 'actions/ui/getOverviewStats';
+} from 'actions/queryData/getOverviewStats';
 import GoFundis from 'components/GoFundis';
 
 
@@ -83,11 +83,11 @@ GoFundisContainer.propTypes = {
     receivePageGetOverviewStats: PropTypes.func.isRequired
 };
 
-function select({ ui }) {
+function select({ ui, queryData }) {
 
     return {
-        listCategories: ui.listDashboardCategories,
-        getOverviewStats: ui.getOverviewStats,
+        listCategories: queryData.listDashboardCategories,
+        getOverviewStats: queryData.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         users: ui.googlemap.users.cata({
             Nothing: () => ({

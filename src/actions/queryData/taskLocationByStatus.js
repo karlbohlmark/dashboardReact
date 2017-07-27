@@ -3,11 +3,11 @@ import {
 } from 'redux-batched-actions';
 
 import {
-    taskLocationByCategory as taskLocationByCategoryRequest
-} from 'services/taskLocationByCategory';
+    taskLocationByStatus as taskLocationByStatusRequest
+} from 'services/taskLocationByStatus';
 
 
-export const RECIEVE_PAGE_START = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_START';
+export const RECIEVE_PAGE_START = 'UI/TASK_LOCATION_STATUS/RECIEVE_PAGE_START';
 
 export function receivePageStart() {
     return {
@@ -15,7 +15,7 @@ export function receivePageStart() {
     };
 }
 
-export const RECIEVE_PAGE_SUCCESS = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_SUCCESS';
+export const RECIEVE_PAGE_SUCCESS = 'UI/TASK_LOCATION_STATUS/RECIEVE_PAGE_SUCCESS';
 
 export function receivePageSuccess(page) {
     return {
@@ -24,7 +24,7 @@ export function receivePageSuccess(page) {
     };
 }
 
-export const RECIEVE_PAGE_FAILURE = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_FAILURE';
+export const RECIEVE_PAGE_FAILURE = 'UI/TASK_LOCATION_STATUS/RECIEVE_PAGE_FAILURE';
 
 export function receivePageFailure(errors) {
     return {
@@ -35,23 +35,20 @@ export function receivePageFailure(errors) {
 
 export function receivePage() {
     return (dispatch, getState) => {
-        const { ui } = getState();
+        const { ui, queryData } = getState();
 
-        if (ui.taskLocationByCategory.busy) {
+        if (queryData.taskLocationByStatus.busy) {
             return Promise.resolve();
         }
-        const toSendCategoriesTypes = ui.googlemap.categories.cata({
-            Nothing: () => (''),
-            Just: value => (value)
+        const toSendTasksTypes = ui.googlemap.tasks.cata({
+            Nothing: () => ([]),
+            Just: value => ([value.toLowerCase()])
         });
         dispatch(
             receivePageStart()
         );
 
-        return taskLocationByCategoryRequest(
-            ui.dateRangePicker.startDate,
-            ui.dateRangePicker.endDate,
-            toSendCategoriesTypes)
+        return taskLocationByStatusRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate, toSendTasksTypes)
             .then(data => {
                 dispatch(
                     batchActions([

@@ -14,7 +14,7 @@ import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
-} from 'actions/ui/userLocation';
+} from 'actions/queryData/userLocation';
 
 export const initialState = {
     results: Nothing(),

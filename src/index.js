@@ -17,22 +17,22 @@ import './base.css';
 import 'react-select/dist/react-select.css';
 import {
     receivePage as receivePageUserLocation
-} from 'actions/ui/userLocation';
+} from 'actions/queryData/userLocation';
 import {
     receivePage as receivePageGetOverviewStats
-} from 'actions/ui/getOverviewStats';
+} from 'actions/queryData/getOverviewStats';
 import {
     receivePage as receivePageTaskLocationByStatus
-} from 'actions/ui/taskLocationByStatus';
+} from 'actions/queryData/taskLocationByStatus';
 import {
     receivePage as receivePageTaskLocationByCategory
-} from 'actions/ui/taskLocationByCategory';
+} from 'actions/queryData/taskLocationByCategory';
 import {
     receivePage as receivePageCompletedTasksHistogram
-} from 'actions/ui/completedTaskHistogram';
+} from 'actions/queryData/completedTaskHistogram';
 import {
     receivePage as receivePageListDashboardCategories
-} from 'actions/ui/listDashboardCategories';
+} from 'actions/queryData/listDashboardCategories';
 
 import Root from 'containers/Root';
 import App from 'containers/App';

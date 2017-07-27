@@ -28,22 +28,22 @@ import {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory
-} from 'actions/ui/GoogleMap/index';
+} from 'actions/ui/googleMap';
 import {
     setRangeDate
 } from 'actions/ui/dateRangePicker';
 import {
     receivePage as receivePageCompletedTasksHistogram
-} from 'actions/ui/completedTaskHistogram';
+} from 'actions/queryData/completedTaskHistogram';
 import {
     receivePage as receivePageTaskLocationByStatus
-} from 'actions/ui/taskLocationByStatus';
+} from 'actions/queryData/taskLocationByStatus';
 import {
     receivePage as receivePageTaskLocationByCategory
-} from 'actions/ui/taskLocationByCategory';
+} from 'actions/queryData/taskLocationByCategory';
 import {
     receivePage as receivePageGetOverviewStats
-} from 'actions/ui/getOverviewStats';
+} from 'actions/queryData/getOverviewStats';
 import Tasks from 'components/Tasks';
 
 
@@ -98,13 +98,13 @@ TasksContainer.propTypes = {
     receivePageGetOverviewStats: PropTypes.func.isRequired
 };
 
-function select({ ui }) {
+function select({ ui, queryData }) {
 
     return {
-        listCategories: ui.listDashboardCategories,
-        getOverviewStats: ui.getOverviewStats,
+        listCategories: queryData.listDashboardCategories,
+        getOverviewStats: queryData.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
-        completedTasksHistogram: ui.completedTasksHistogram,
+        completedTasksHistogram: queryData.completedTasksHistogram,
         users: ui.googlemap.users.cata({
             Nothing: () => ({
                 subscriber: Nothing(),
@@ -118,7 +118,7 @@ function select({ ui }) {
                 all: get(USER_TYPE_ALL, fields)
             })
         }),
-        tasksLocationStatus: ui.taskLocationByStatus,
+        tasksLocationStatus: queryData.taskLocationByStatus,
         tasks: ui.googlemap.tasks.cata({
             Nothing: () => (Nothing()),
             Just: value => (Just(value))

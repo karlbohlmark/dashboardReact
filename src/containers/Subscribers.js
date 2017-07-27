@@ -28,7 +28,7 @@ import {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory
-} from 'actions/ui/GoogleMap/index';
+} from 'actions/ui/googleMap';
 import {
     setRangeDate
 } from 'actions/ui/dateRangePicker';
@@ -67,10 +67,10 @@ SubscribersContainer.propTypes = {
 
 };
 
-function select({ ui }) {
+function select({ ui, queryData }) {
 
     return {
-        listCategories: ui.listDashboardCategories,
+        listCategories: queryData.listDashboardCategories,
         dateRangePicker: ui.dateRangePicker,
         users: ui.googlemap.users.cata({
             Nothing: () => ({

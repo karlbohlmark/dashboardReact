@@ -3,11 +3,11 @@ import {
 } from 'redux-batched-actions';
 
 import {
-    getOverviewStats as getOverviewStatsRequest
-} from 'services/getOverviewStats';
+    listDashboardCategories as listDashboardCategoriesRequest
+} from 'services/listDashboardCategories';
 
 
-export const RECIEVE_PAGE_START = 'UI/GET_OVERVIEW_STATS/RECIEVE_PAGE_START';
+export const RECIEVE_PAGE_START = 'UI/LIST_DASHBOARD_CATEGORIES/RECIEVE_PAGE_START';
 
 export function receivePageStart() {
     return {
@@ -15,7 +15,7 @@ export function receivePageStart() {
     };
 }
 
-export const RECIEVE_PAGE_SUCCESS = 'UI/GET_OVERVIEW_STATS/RECIEVE_PAGE_SUCCESS';
+export const RECIEVE_PAGE_SUCCESS = 'UI/LIST_DASHBOARD_CATEGORIES/RECIEVE_PAGE_SUCCESS';
 
 export function receivePageSuccess(page) {
     return {
@@ -24,7 +24,7 @@ export function receivePageSuccess(page) {
     };
 }
 
-export const RECIEVE_PAGE_FAILURE = 'UI/GET_OVERVIEW_STATS/RECIEVE_PAGE_FAILURE';
+export const RECIEVE_PAGE_FAILURE = 'UI/LIST_DASHBOARD_CATEGORIES/RECIEVE_PAGE_FAILURE';
 
 export function receivePageFailure(errors) {
     return {
@@ -35,16 +35,16 @@ export function receivePageFailure(errors) {
 
 export function receivePage() {
     return (dispatch, getState) => {
-        const { ui } = getState();
+        const { queryData } = getState();
 
-        if (ui.getOverviewStats.busy) {
+        if (queryData.getOverviewStats.busy) {
             return Promise.resolve();
         }
 
         dispatch(
             receivePageStart()
         );
-        return getOverviewStatsRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate)
+        return listDashboardCategoriesRequest()
             .then(data => {
                 dispatch(
                     batchActions([
