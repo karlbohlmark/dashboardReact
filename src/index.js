@@ -12,7 +12,6 @@ import {
 import {
     compose
 } from 'lodash/fp';
-
 import './base.css';
 import 'react-select/dist/react-select.css';
 import {
