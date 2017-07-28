@@ -39,6 +39,9 @@ import {
 import {
     receivePage as receivePageGetOverviewStats
 } from 'actions/queryData/getOverviewStats';
+import {
+    receivePage as receivePageActiveGoFundis
+} from 'actions/queryData/activeGoFundis';
 import GoFundis from 'components/GoFundis';
 
 
@@ -56,9 +59,18 @@ class GoFundisContainer extends Component {
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
                 activeGoFundis={this.props.activeGoFundis}
                 goFundis={this.props.goFundis}
-                onOfflineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_OFFLINE, f)}
-                onOnlineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_ONLINE, f)}
-                onAllStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_ALL, f)}
+                onOfflineStatusHandler={compose(
+                    this.props.receivePageActiveGoFundis,
+                    f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_OFFLINE, f)
+                )}
+                onOnlineStatusHandler={compose(
+                    this.props.receivePageActiveGoFundis,
+                    f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_ONLINE, f)
+                )}
+                onAllStatusHandler={compose(
+                    this.props.receivePageActiveGoFundis,
+                    f => this.props.showGoogleMapGoFundis(GOFUNDIS_ALL, f)
+                )}
             />
         );
     }
@@ -82,7 +94,8 @@ GoFundisContainer.propTypes = {
     showGoogleMapCategory: PropTypes.func.isRequired,
     showGoogleMapGoFundis: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
-    receivePageGetOverviewStats: PropTypes.func.isRequired
+    receivePageGetOverviewStats: PropTypes.func.isRequired,
+    receivePageActiveGoFundis: PropTypes.func.isRequired,
 };
 
 function select({ ui, queryData }) {
@@ -135,7 +148,8 @@ const bindActions = {
     showGoogleMapCategory,
     showGoogleMapGoFundis,
     setRangeDate,
-    receivePageGetOverviewStats
+    receivePageGetOverviewStats,
+    receivePageActiveGoFundis
 };
 
 export default compose(
