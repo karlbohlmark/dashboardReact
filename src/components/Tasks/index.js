@@ -31,52 +31,85 @@ function Tasks(props) {
                 <Substrate title={'HIGHLIGHTS'}>
                     <div styleName="returning_subscribers">
                         <CompletedTasksHightChart data={props.getOverviewStats} />
-                        <div styleName="list_column" style={{marginLeft: 20}}>
-                            <ListRowReverse
-                                rightItem={165}
-                                item={'NUMBER OF TASKS REPORTED'}
-                                subItem={'(FOR SELECTED PERIOD)'}
-                            />
-                            <ListRowReverse
-                                rightItem={38}
-                                item={'ASSIGNED TASKS'}
-                                subItem={'(ASSIGNED TO GOFUNDI BUT PENDING COMPLETION)'}
-                            />
-                            <ListRowReverse
-                                rightItem={18}
-                                item={'NUMBER OF DECLINES'}
-                                subItem={'(FOR SELECTED PERIOD)'}
-                            />
-                            <ListRowReverse
-                                styleRightItem={{color: '#ed1967'}}
-                                rightItem={'45 sec'}
-                                item={'AVERAGE TIME FOR ASSINMENT'}
-                                subItem={'(FROM REQUESTED ACCEPTED)'}
-                            />
-                        </div>
-                        <div styleName="list_column" style={{marginLeft: 20}}>
-                            <ListRowReverse
-                                rightItem={2}
-                                item={'UNASSIGNED TASKS'}
-                                subItem={'(TASK NOT YET ACCEPTED BY GOFUNDI)'}
-                            />
-                            <ListRowReverse
-                                rightItem={'15%'}
-                                item={'INCREASE SINCE LAST MONTH'}
-                                subItem={'(TASKS COMPLETED)'}
-                            />
-                            <ListRowReverse
-                                rightItem={5}
-                                item={'NUMBER OF CANCELLATIONS'}
-                                subItem={'(FOR SELECTED PERIOD)'}
-                            />
-                            <ListRowReverse
-                                styleRightItem={{color: '#ed1967'}}
-                                rightItem={'1 hr'}
-                                item={'AVERAGE TIME FOR COMPLETION'}
-                                subItem={'(FROM REQUESTED TO COMPLETED)'}
-                            />
-                        </div>
+
+                        {props.tasksHighlights.errors.cata({
+                            Nothing: () => props.tasksHighlights.results.cata({
+                                Nothing: () => (
+                                    <Placeholder
+                                        style={{ width: 238, height: 254}}
+                                        busy={props.tasksHighlights.busy}
+                                        size={[ '100%', '100%' ]} />
+                                ),
+                                Just: fields => (
+                                    <div styleName="list_column" style={{marginLeft: 20}}>
+                                        <ListRowReverse
+                                            rightItem={fields.retortedTasks ? fields.retortedTasks : '0'}
+                                            item={'NUMBER OF TASKS REPORTED'}
+                                            subItem={'(FOR SELECTED PERIOD)'}
+                                        />
+                                        <ListRowReverse
+                                            rightItem={fields.assignedTasks ? fields.assignedTasks : '0'}
+                                            item={'ASSIGNED TASKS'}
+                                            subItem={'(ASSIGNED TO GOFUNDI BUT PENDING COMPLETION)'}
+                                        />
+                                        <ListRowReverse
+                                            rightItem={fields.declines ? fields.declines : '0'}
+                                            item={'NUMBER OF DECLINES'}
+                                            subItem={'(FOR SELECTED PERIOD)'}
+                                        />
+                                        <ListRowReverse
+                                            styleRightItem={{color: '#ed1967'}}
+                                            rightItem={fields.avgTimeAssinment ? fields.avgTimeAssinment : '0'}
+                                            item={'AVERAGE TIME FOR ASSINMENT'}
+                                            subItem={'(FROM REQUESTED ACCEPTED)'}
+                                        />
+                                    </div>
+                                )
+                            }),
+                            Just: errors => (
+                                <div>{errors}</div>
+                            )
+                        })}
+
+                        {props.tasksHighlights.errors.cata({
+                            Nothing: () => props.tasksHighlights.results.cata({
+                                Nothing: () => (
+                                    <Placeholder
+                                        style={{ width: 238, height: 254}}
+                                        busy={props.tasksHighlights.busy}
+                                        size={[ '100%', '100%' ]} />
+                                ),
+                                Just: fields => (
+                                    <div styleName="list_column" style={{marginLeft: 20}}>
+                                        <ListRowReverse
+                                            rightItem={fields.unassignedTasks ? fields.unassignedTasks : '0'}
+                                            item={'UNASSIGNED TASKS'}
+                                            subItem={'(TASK NOT YET ACCEPTED BY GOFUNDI)'}
+                                        />
+                                        <ListRowReverse
+                                            rightItem={fields.completedTasks ? fields.completedTasks : '0'}
+                                            item={'INCREASE SINCE LAST MONTH'}
+                                            subItem={'(TASKS COMPLETED)'}
+                                        />
+                                        <ListRowReverse
+                                            rightItem={fields.cancellations ? fields.cancellations : '0'}
+                                            item={'NUMBER OF CANCELLATIONS'}
+                                            subItem={'(FOR SELECTED PERIOD)'}
+                                        />
+                                        <ListRowReverse
+                                            styleRightItem={{color: '#ed1967'}}
+                                            rightItem={fields.avgTimeCompletion ? fields.avgTimeCompletion : '0'}
+                                            item={'AVERAGE TIME FOR COMPLETION'}
+                                            subItem={'(FROM REQUESTED TO COMPLETED)'}
+                                        />
+                                    </div>
+                                )
+                            }),
+                            Just: errors => (
+                                <div>{errors}</div>
+                            )
+                        })}
+
                     </div>
                 </Substrate>
                 <div styleName='users_container_empty'>
@@ -267,6 +300,7 @@ function Tasks(props) {
 }
 
 Tasks.propTypes = {
+    tasksHighlights: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
