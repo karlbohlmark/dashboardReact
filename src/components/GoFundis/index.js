@@ -7,18 +7,14 @@ import {
     NUMBER_OF_GOFUNDIS,
     LIVE_ACTIVE_GOFUNDIS
 } from 'models/highchartConfig';
-import {
-    filterGoFundis
-} from 'utils';
 import IconLoop from 'components/IconLoop';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import LegendRow from 'components/ListItem/LegendRow';
 import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
-import GoFundisPanel from 'components/GoFundis/GoFundisPanel';
-import GoogleMapSegment from 'components/GoogleMap';
-import Placeholder from 'components/Placeholder';
+import GoFundisMap from 'components/GoFundisMap';
+
 
 function GoFundis(props) {
     return (
@@ -154,28 +150,13 @@ function GoFundis(props) {
                     </div>
                 </div>
                 <Substrate title={'ACTIVE GO FUNDIS'}>
-                    <GoFundisPanel
+                    <GoFundisMap
+                        data={props.activeGoFundis}
                         goFundis={props.goFundis}
                         onOfflineStatusHandler={props.onOfflineStatusHandler}
                         onOnlineStatusHandler={props.onOnlineStatusHandler}
                         onAllStatusHandler={props.onAllStatusHandler}
                     />
-                    {props.activeGoFundis.errors.cata({
-                        Nothing: () => props.activeGoFundis.results.cata({
-                            Nothing: () => (
-                                <Placeholder busy={props.activeGoFundis.busy} size={[ '100%', '300px' ]} />
-                            ),
-                            Just: () => (
-                                <GoogleMapSegment
-                                    data={props.activeGoFundis.results.getOrElse([])}
-                                    filterData={filterGoFundis(props.goFundis)}
-                                />
-                            )
-                        }),
-                        Just: errors => (
-                            <div>{errors}</div>
-                        )
-                    })}
 
                 </Substrate>
             </div>
