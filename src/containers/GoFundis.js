@@ -95,7 +95,7 @@ GoFundisContainer.propTypes = {
     showGoogleMapGoFundis: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
     receivePageGetOverviewStats: PropTypes.func.isRequired,
-    receivePageActiveGoFundis: PropTypes.func.isRequired,
+    receivePageActiveGoFundis: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
