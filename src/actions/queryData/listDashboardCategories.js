@@ -6,6 +6,7 @@ import {
     listDashboardCategories as listDashboardCategoriesRequest
 } from 'services/listDashboardCategories';
 
+import dataListCategories from 'data/dataListCategories';
 
 export const RECIEVE_PAGE_START = 'UI/LIST_DASHBOARD_CATEGORIES/RECIEVE_PAGE_START';
 
@@ -45,10 +46,12 @@ export function receivePage() {
             receivePageStart()
         );
         return listDashboardCategoriesRequest()
-            .then(data => {
+            // .then(data => {
+            .then(() => {
                 dispatch(
                     batchActions([
-                        receivePageSuccess(data)
+                        // receivePageSuccess(data)
+                        receivePageSuccess(dataListCategories)
                     ])
                 );
             })
