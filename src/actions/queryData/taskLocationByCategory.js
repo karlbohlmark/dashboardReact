@@ -6,6 +6,7 @@ import {
     taskLocationByCategory as taskLocationByCategoryRequest
 } from 'services/taskLocationByCategory';
 
+import dataTaskLocationByCategory from 'data/dataTaskLocationByCategory';
 
 export const RECIEVE_PAGE_START = 'UI/TASK_LOCATION_CATEGORY/RECIEVE_PAGE_START';
 
@@ -52,10 +53,12 @@ export function receivePage() {
             ui.dateRangePicker.startDate,
             ui.dateRangePicker.endDate,
             toSendCategoriesTypes)
-            .then(data => {
+            // .then(data => {
+            .then(() => {
                 dispatch(
                     batchActions([
-                        receivePageSuccess(data)
+                        // receivePageSuccess(data)
+                        receivePageSuccess(dataTaskLocationByCategory)
                     ])
                 );
             })
