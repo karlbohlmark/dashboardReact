@@ -5,14 +5,6 @@ import {
     map
 } from 'lodash/fp';
 import {
-    // CATEGORY_ALL,
-    // CATEGORY_NEW_INSTALL_DECODER,
-    // CATEGORY_NEW_INSTALL_SIGNAL,
-    // CATEGORY_NEW_INSTALL_ERROR,
-    // CATEGORY_REPAIR_INSTALL_DECODER,
-    // CATEGORY_REPAIR_INSTALL_SIGNAL
-} from 'models/googlemap';
-import {
     capitalize
 } from 'utils';
 import SelectBoxItem from 'components/SelectBoxItem';
@@ -37,20 +29,11 @@ function SubPanel(props) {
                         Nothing: () => props.listCategories.results.cata({
                             Nothing: () => ([]),
                             Just: fields => (
-                                map(field => ({ value: field.id, label: capitalize(field.name) }), fields)
+                                map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
                             )
                         }),
                         Just: () => ([])
                     })}
-                    // options={[
-                    //     { value: CATEGORY_ALL, label: capitalize(CATEGORY_ALL) },
-                    //     { value: CATEGORY_NEW_INSTALL_DECODER, label: capitalize(CATEGORY_NEW_INSTALL_DECODER) },
-                    //     { value: CATEGORY_NEW_INSTALL_SIGNAL, label: capitalize(CATEGORY_NEW_INSTALL_SIGNAL) },
-                    //     { value: CATEGORY_NEW_INSTALL_ERROR, label: capitalize(CATEGORY_NEW_INSTALL_ERROR) },
-                    //     { value: CATEGORY_REPAIR_INSTALL_DECODER,
-                    //       label: capitalize(CATEGORY_REPAIR_INSTALL_DECODER) },
-                    //     { value: CATEGORY_REPAIR_INSTALL_SIGNAL, label: capitalize(CATEGORY_REPAIR_INSTALL_SIGNAL) }
-                    // ]}
                     onChange={props.onChangeCategory}
                     value={props.categories}
                     placeholder='Category'

@@ -34,7 +34,7 @@ export function reducer(state, action) {
                 ...state,
                 results: Just(map(item => ({
                     ...item,
-                    type: item.category
+                    type: item.category.style
                 }), action.payload)),
                 busy: false
             };

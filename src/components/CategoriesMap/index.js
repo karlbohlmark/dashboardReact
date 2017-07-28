@@ -19,7 +19,7 @@ function CategoriesMap(props) {
                     Nothing: () => props.listCategories.results.cata({
                         Nothing: () => ([]),
                         Just: fields => (
-                            map(field => ({ value: field.id, label: capitalize(field.name) }), fields)
+                            map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
                         )
                     }),
                     Just: () => ([])

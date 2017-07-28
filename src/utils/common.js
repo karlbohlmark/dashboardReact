@@ -6,7 +6,6 @@ import {
     TASK_STATYS_UNASSIGNED,
     TASK_STATYS_DECLINED,
     TASK_STATYS_CANCELLED,
-    CATEGORY_ALL,
     CATEGORY_NEW_INSTALL_DECODER,
     CATEGORY_NEW_INSTALL_SIGNAL,
     CATEGORY_NEW_INSTALL_ERROR,
@@ -75,24 +74,24 @@ export const filterTask = curry(
 export const filterCategory = curry(
     (option, arr) => (
         isArray(arr) ? filter(item => (
-            ((CATEGORY_ALL === option.getOrElse('')) ||
+            (
                 (item.type === CATEGORY_NEW_INSTALL_DECODER &&
-                    CATEGORY_NEW_INSTALL_DECODER === option.getOrElse('')
+                    item.category.name === option.getOrElse('')
                 ) ||
                 (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
-                    CATEGORY_NEW_INSTALL_SIGNAL === option.getOrElse('')
+                    item.category.name === option.getOrElse('')
                 ) ||
                 (item.type === CATEGORY_NEW_INSTALL_ERROR &&
-                    CATEGORY_NEW_INSTALL_ERROR === option.getOrElse('')
+                    item.category.name === option.getOrElse('')
                 ) ||
                 (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
-                    CATEGORY_REPAIR_INSTALL_DECODER === option.getOrElse('')
+                    item.category.name === option.getOrElse('')
                 ) ||
                 (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
-                    CATEGORY_REPAIR_INSTALL_SIGNAL === option.getOrElse('')
+                    item.category.name === option.getOrElse('')
                 ) ||
                 (item.type === CATEGORY_REPAIR_INSTALL_ERROR &&
-                    CATEGORY_REPAIR_INSTALL_ERROR === option.getOrElse('')
+                    item.category.name === option.getOrElse('')
                 )
             )
         ), arr) : (false)
