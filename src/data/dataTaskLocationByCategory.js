@@ -142,4 +142,4 @@ module.exports = [
             style: 'repair-antenna'
         }
     }
-] ;
+];

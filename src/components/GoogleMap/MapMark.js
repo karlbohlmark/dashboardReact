@@ -25,7 +25,6 @@ import styles from '../__assets__/styles.css';
 class MapMark extends React.Component {
 
     render() {
-        console.log('TASK_STATYS_COMPLETED', this.props);
         switch (this.props.type) {
             case GOFUNDIS_STATYS_OFFLINE:
                 return (
