@@ -18,7 +18,7 @@ import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisPanel from 'components/GoFundis/GoFundisPanel';
 import GoogleMapSegment from 'components/GoogleMap';
-import dataMapMarkerGoFundis from 'data/dataMapMarkerGoFundis';
+import Placeholder from 'components/Placeholder';
 
 function GoFundis(props) {
     return (
@@ -160,10 +160,23 @@ function GoFundis(props) {
                         onOnlineStatusHandler={props.onOnlineStatusHandler}
                         onAllStatusHandler={props.onAllStatusHandler}
                     />
-                    <GoogleMapSegment
-                        data={dataMapMarkerGoFundis}
-                        filterData={filterGoFundis(props.goFundis)}
-                    />
+                    {props.activeGoFundis.errors.cata({
+                        Nothing: () => props.activeGoFundis.results.cata({
+                            Nothing: () => (
+                                <Placeholder busy={props.activeGoFundis.busy} size={[ '100%', '300px' ]} />
+                            ),
+                            Just: () => (
+                                <GoogleMapSegment
+                                    data={props.activeGoFundis.results.getOrElse([])}
+                                    filterData={filterGoFundis(props.goFundis)}
+                                />
+                            )
+                        }),
+                        Just: errors => (
+                            <div>{errors}</div>
+                        )
+                    })}
+
                 </Substrate>
             </div>
         </div>
@@ -176,6 +189,7 @@ GoFundis.propTypes = {
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,
     goFundis: PropTypes.object.isRequired,
+    activeGoFundis: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
 
     onChangeCategoryHandler: PropTypes.func.isRequired,

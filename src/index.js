@@ -36,6 +36,9 @@ import {
 import {
     receivePage as receivePageGetTasksHighlights
 } from 'actions/queryData/getTasksHighlights';
+import {
+    receivePage as receivePageActiveGoFundis
+} from 'actions/queryData/activeGoFundis';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -130,7 +133,10 @@ const routes = {
                     )
                 },
                 {
-                    onEnter: compose( compose(
+                    onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageActiveGoFundis
+                        ), compose(
                         store.dispatch,
                         receivePageGetOverviewStats
                         ), compose(

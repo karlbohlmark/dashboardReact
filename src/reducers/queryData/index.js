@@ -26,6 +26,10 @@ import {
     initialState as initialGetTasksHighlights,
     reducer as reducerGetTasksHighlights
 } from './getTasksHighlights';
+import {
+    initialState as initialActiveGoFundis,
+    reducer as reducerActiveGoFundis
+} from './activeGoFundis';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -34,7 +38,8 @@ export const initialState = {
     taskLocationByCategory: initialTaskLocationByCategory,
     completedTasksHistogram: initialCompletedTasksHistogram,
     listDashboardCategories: initialListDashboardCategories,
-    getTasksHighlights: initialGetTasksHighlights
+    getTasksHighlights: initialGetTasksHighlights,
+    activeGoFundis: initialActiveGoFundis
 };
 
 export function reducer(state, action) {
@@ -45,6 +50,7 @@ export function reducer(state, action) {
     const nextCompletedTasksHistogram = reducerCompletedTasksHistogram(state.completedTasksHistogram, action);
     const nextListDashboardCategories = reducerListDashboardCategories(state.listDashboardCategories, action);
     const nextGetTasksHighlights = reducerGetTasksHighlights(state.getTasksHighlights, action);
+    const nextActiveGoFundis = reducerActiveGoFundis(state.activeGoFundis, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -52,7 +58,8 @@ export function reducer(state, action) {
         state.taskLocationByCategory === nextTaskLocationByCategory &&
         state.completedTasksHistogram === nextCompletedTasksHistogram &&
         state.listDashboardCategories === nextListDashboardCategories &&
-        state.getTasksHighlights === nextGetTasksHighlights
+        state.getTasksHighlights === nextGetTasksHighlights &&
+        state.activeGoFundis === nextActiveGoFundis
     ) {
         return state;
     }
@@ -64,6 +71,7 @@ export function reducer(state, action) {
         taskLocationByCategory: nextTaskLocationByCategory,
         completedTasksHistogram: nextCompletedTasksHistogram,
         listDashboardCategories: nextListDashboardCategories,
-        getTasksHighlights: nextGetTasksHighlights
+        getTasksHighlights: nextGetTasksHighlights,
+        activeGoFundis: nextActiveGoFundis
     };
 }

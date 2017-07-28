@@ -54,6 +54,7 @@ class GoFundisContainer extends Component {
                     this.props.setRangeDate)}
                 categories={this.props.categories}
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
+                activeGoFundis={this.props.activeGoFundis}
                 goFundis={this.props.goFundis}
                 onOfflineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_OFFLINE, f)}
                 onOnlineStatusHandler={f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_ONLINE, f)}
@@ -74,6 +75,7 @@ GoFundisContainer.propTypes = {
     categories: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     goFundis: PropTypes.object.isRequired,
+    activeGoFundis: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -86,6 +88,7 @@ GoFundisContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        activeGoFundis: queryData.activeGoFundis,
         listCategories: queryData.listDashboardCategories,
         getOverviewStats: queryData.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
