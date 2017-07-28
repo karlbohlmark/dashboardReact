@@ -30,6 +30,10 @@ import {
     initialState as initialActiveGoFundis,
     reducer as reducerActiveGoFundis
 } from './activeGoFundis';
+import {
+    initialState as initialSubscribers,
+    reducer as reducerSubscribers
+} from './subscribers';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -39,7 +43,8 @@ export const initialState = {
     completedTasksHistogram: initialCompletedTasksHistogram,
     listDashboardCategories: initialListDashboardCategories,
     getTasksHighlights: initialGetTasksHighlights,
-    activeGoFundis: initialActiveGoFundis
+    activeGoFundis: initialActiveGoFundis,
+    subscribers: initialSubscribers
 };
 
 export function reducer(state, action) {
@@ -51,6 +56,7 @@ export function reducer(state, action) {
     const nextListDashboardCategories = reducerListDashboardCategories(state.listDashboardCategories, action);
     const nextGetTasksHighlights = reducerGetTasksHighlights(state.getTasksHighlights, action);
     const nextActiveGoFundis = reducerActiveGoFundis(state.activeGoFundis, action);
+    const nextSubscribers = reducerSubscribers(state.subscribers, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -59,7 +65,8 @@ export function reducer(state, action) {
         state.completedTasksHistogram === nextCompletedTasksHistogram &&
         state.listDashboardCategories === nextListDashboardCategories &&
         state.getTasksHighlights === nextGetTasksHighlights &&
-        state.activeGoFundis === nextActiveGoFundis
+        state.activeGoFundis === nextActiveGoFundis &&
+        state.subscribers === nextSubscribers
     ) {
         return state;
     }
@@ -72,6 +79,7 @@ export function reducer(state, action) {
         completedTasksHistogram: nextCompletedTasksHistogram,
         listDashboardCategories: nextListDashboardCategories,
         getTasksHighlights: nextGetTasksHighlights,
-        activeGoFundis: nextActiveGoFundis
+        activeGoFundis: nextActiveGoFundis,
+        subscribers: nextSubscribers
     };
 }

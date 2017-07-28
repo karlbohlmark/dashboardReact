@@ -38,6 +38,9 @@ import {
 import {
     receivePage as receivePageActiveGoFundis
 } from 'actions/queryData/activeGoFundis';
+import {
+    receivePage as receivePageSubscribers
+} from 'actions/queryData/subscribers';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -149,10 +152,13 @@ const routes = {
                     )
                 },
                 {
-                    onEnter: compose(
+                    onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageSubscribers
+                        ), compose(
                         store.dispatch,
                         receivePageListDashboardCategories
-                    ),
+                    )),
                     path: '/dashboard/subscribers',
                     component: props => (
                         <Subscribers {...props} />

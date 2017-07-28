@@ -10,7 +10,7 @@ import SubPanel from 'components/SubPanel';
 import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoogleMapSegment from 'components/GoogleMap';
-import dataMapMarkerSubscribers from 'data/dataMapMarkerSubscribers';
+import Placeholder from 'components/Placeholder';
 import {
     filterCommon
 } from 'utils';
@@ -140,10 +140,23 @@ function Subscribers(props) {
                         marginTop: 10,
                         marginBottom: 10
                     }}>
-                        <GoogleMapSegment
-                            data={dataMapMarkerSubscribers}
-                            filterData={filterCommon}
-                        />
+                        {props.subscribers.errors.cata({
+                            Nothing: () => props.subscribers.results.cata({
+                                Nothing: () => (
+                                    <Placeholder busy={props.subscribers.busy} size={[ '100%', '300px' ]} />
+                                ),
+                                Just: () => (
+                                    <GoogleMapSegment
+                                        data={props.subscribers.results.getOrElse([])}
+                                        filterData={filterCommon}
+                                    />
+                                )
+                            }),
+                            Just: errors => (
+                                <div>{errors}</div>
+                            )
+                        })}
+
                     </div>
                 </Substrate>
             </div>
@@ -152,6 +165,7 @@ function Subscribers(props) {
 }
 
 Subscribers.propTypes = {
+    subscribers: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,
