@@ -4,6 +4,8 @@ import styles from './styles.css';
 import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
+import TasksHighlightsLeft from 'components/TasksHighlights/ContentLeft';
+import TasksHighlightsRight from 'components/TasksHighlights/ContentRight';
 import TasksHistogram from 'components/TasksHistogram';
 import TasksStatusMap from 'components/TasksStatusMap';
 // const ReactHighcharts = require('react-highcharts');
@@ -11,9 +13,7 @@ import TasksStatusMap from 'components/TasksStatusMap';
 // HighchartsMore(ReactHighcharts.Highcharts);
 // const HighchartsExporting = require('highcharts-exporting');
 // HighchartsExporting(ReactHighcharts.Highcharts);
-import ListRowReverse from 'components/ListItem/ListRowReverse';
 import CircularChart from './CircularChart';
-import Placeholder from 'components/Placeholder';
 
 
 function Tasks(props) {
@@ -31,85 +31,8 @@ function Tasks(props) {
                 <Substrate title={'HIGHLIGHTS'}>
                     <div styleName="returning_subscribers">
                         <CompletedTasksHightChart data={props.getOverviewStats} />
-
-                        {props.tasksHighlights.errors.cata({
-                            Nothing: () => props.tasksHighlights.results.cata({
-                                Nothing: () => (
-                                    <Placeholder
-                                        style={{ width: 238, height: 254}}
-                                        busy={props.tasksHighlights.busy}
-                                        size={[ '100%', '100%' ]} />
-                                ),
-                                Just: fields => (
-                                    <div styleName="list_column" style={{marginLeft: 20}}>
-                                        <ListRowReverse
-                                            rightItem={fields.retortedTasks ? fields.retortedTasks : '0'}
-                                            item={'NUMBER OF TASKS REPORTED'}
-                                            subItem={'(FOR SELECTED PERIOD)'}
-                                        />
-                                        <ListRowReverse
-                                            rightItem={fields.assignedTasks ? fields.assignedTasks : '0'}
-                                            item={'ASSIGNED TASKS'}
-                                            subItem={'(ASSIGNED TO GOFUNDI BUT PENDING COMPLETION)'}
-                                        />
-                                        <ListRowReverse
-                                            rightItem={fields.declines ? fields.declines : '0'}
-                                            item={'NUMBER OF DECLINES'}
-                                            subItem={'(FOR SELECTED PERIOD)'}
-                                        />
-                                        <ListRowReverse
-                                            styleRightItem={{color: '#ed1967'}}
-                                            rightItem={fields.avgTimeAssinment ? fields.avgTimeAssinment : '0'}
-                                            item={'AVERAGE TIME FOR ASSINMENT'}
-                                            subItem={'(FROM REQUESTED ACCEPTED)'}
-                                        />
-                                    </div>
-                                )
-                            }),
-                            Just: errors => (
-                                <div>{errors}</div>
-                            )
-                        })}
-
-                        {props.tasksHighlights.errors.cata({
-                            Nothing: () => props.tasksHighlights.results.cata({
-                                Nothing: () => (
-                                    <Placeholder
-                                        style={{ width: 238, height: 254}}
-                                        busy={props.tasksHighlights.busy}
-                                        size={[ '100%', '100%' ]} />
-                                ),
-                                Just: fields => (
-                                    <div styleName="list_column" style={{marginLeft: 20}}>
-                                        <ListRowReverse
-                                            rightItem={fields.unassignedTasks ? fields.unassignedTasks : '0'}
-                                            item={'UNASSIGNED TASKS'}
-                                            subItem={'(TASK NOT YET ACCEPTED BY GOFUNDI)'}
-                                        />
-                                        <ListRowReverse
-                                            rightItem={fields.completedTasks ? fields.completedTasks : '0'}
-                                            item={'INCREASE SINCE LAST MONTH'}
-                                            subItem={'(TASKS COMPLETED)'}
-                                        />
-                                        <ListRowReverse
-                                            rightItem={fields.cancellations ? fields.cancellations : '0'}
-                                            item={'NUMBER OF CANCELLATIONS'}
-                                            subItem={'(FOR SELECTED PERIOD)'}
-                                        />
-                                        <ListRowReverse
-                                            styleRightItem={{color: '#ed1967'}}
-                                            rightItem={fields.avgTimeCompletion ? fields.avgTimeCompletion : '0'}
-                                            item={'AVERAGE TIME FOR COMPLETION'}
-                                            subItem={'(FROM REQUESTED TO COMPLETED)'}
-                                        />
-                                    </div>
-                                )
-                            }),
-                            Just: errors => (
-                                <div>{errors}</div>
-                            )
-                        })}
-
+                        <TasksHighlightsLeft data={props.tasksHighlights} />
+                        <TasksHighlightsRight data={props.tasksHighlights} />
                     </div>
                 </Substrate>
                 <div styleName='users_container_empty'>

@@ -27,7 +27,7 @@ function CompletedTasksHightChart(props) {
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
                         <Placeholder
-                            style={{ width: 200, height: 200}}
+                            style={{ width: 200, height: 222}}
                             busy={props.data.busy}
                             size={[ '100%', '100%' ]} />
                     ),
