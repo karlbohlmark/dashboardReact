@@ -33,6 +33,9 @@ import {
 import {
     receivePage as receivePageListDashboardCategories
 } from 'actions/queryData/listDashboardCategories';
+import {
+    receivePage as receivePageGetTasksHighlights
+} from 'actions/queryData/getTasksHighlights';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -106,6 +109,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGetTasksHighlights
+                    ), compose(
                         store.dispatch,
                         receivePageGetOverviewStats
                     ), compose(

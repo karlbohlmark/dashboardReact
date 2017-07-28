@@ -22,6 +22,10 @@ import {
     initialState as initialListDashboardCategories,
     reducer as reducerListDashboardCategories
 } from './listDashboardCategories';
+import {
+    initialState as initialGetTasksHighlights,
+    reducer as reducerGetTasksHighlights
+} from './getTasksHighlights';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -29,7 +33,8 @@ export const initialState = {
     taskLocationByStatus: initialTaskLocationByStatus,
     taskLocationByCategory: initialTaskLocationByCategory,
     completedTasksHistogram: initialCompletedTasksHistogram,
-    listDashboardCategories: initialListDashboardCategories
+    listDashboardCategories: initialListDashboardCategories,
+    getTasksHighlights: initialGetTasksHighlights
 };
 
 export function reducer(state, action) {
@@ -39,14 +44,15 @@ export function reducer(state, action) {
     const nextTaskLocationByCategory = reducerTaskLocationByCategory(state.taskLocationByCategory, action);
     const nextCompletedTasksHistogram = reducerCompletedTasksHistogram(state.completedTasksHistogram, action);
     const nextListDashboardCategories = reducerListDashboardCategories(state.listDashboardCategories, action);
-
+    const nextGetTasksHighlights = reducerGetTasksHighlights(state.getTasksHighlights, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
         state.taskLocationByStatus === nextTaskLocationByStatus &&
         state.taskLocationByCategory === nextTaskLocationByCategory &&
         state.completedTasksHistogram === nextCompletedTasksHistogram &&
-        state.listDashboardCategories === nextListDashboardCategories
+        state.listDashboardCategories === nextListDashboardCategories &&
+        state.getTasksHighlights === nextGetTasksHighlights
     ) {
         return state;
     }
@@ -57,6 +63,7 @@ export function reducer(state, action) {
         taskLocationByStatus: nextTaskLocationByStatus,
         taskLocationByCategory: nextTaskLocationByCategory,
         completedTasksHistogram: nextCompletedTasksHistogram,
-        listDashboardCategories: nextListDashboardCategories
+        listDashboardCategories: nextListDashboardCategories,
+        getTasksHighlights: nextGetTasksHighlights
     };
 }

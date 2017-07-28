@@ -13,6 +13,7 @@ import TasksStatusMap from 'components/TasksStatusMap';
 // HighchartsExporting(ReactHighcharts.Highcharts);
 import ListRowReverse from 'components/ListItem/ListRowReverse';
 import CircularChart from './CircularChart';
+import Placeholder from 'components/Placeholder';
 
 
 function Tasks(props) {
