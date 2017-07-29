@@ -61,6 +61,7 @@ class GoFundisContainer extends Component {
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGoFundisCharts,
                     this.props.receivePageGoFundisStatuses,
                     this.props.receivePageActiveGoFundis,
                     this.props.receivePageGetOverviewStats,
