@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    NUMBER_OF_GOFUNDIS,
-    LIVE_ACTIVE_GOFUNDIS
+    NUMBER_OF_GOFUNDIS
 } from 'models/highchartConfig';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
@@ -13,10 +12,8 @@ import GoFundisMap from 'components/GoFundisMap';
 import GoFundisHightChart from 'components/GoFundisHightChart';
 import GoFundisStatuses from 'components/GoFundisStatuses';
 import GoFundisHighlights from 'components/GoFundisHighlights';
-import Placeholder from 'components/Placeholder';
-import {
-    merge
-} from 'lodash/fp';
+import GoFundisChartsRight from 'components/GoFundisCharts/ContentRight';
+
 
 function GoFundis(props) {
     return (
@@ -55,37 +52,7 @@ function GoFundis(props) {
                                 <Highchart config={NUMBER_OF_GOFUNDIS} />
                             </div>
                         </div>
-                        <div style={{ backgroundColor: '#fff', padding: 10, width: '29%'}}>
-                            <div styleName='sub_container_header'
-                                 style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                                LIVE ACTIVE GOFUNDIS
-                                <div style={{
-                                    marginLeft: 7,
-                                    width: 10,
-                                    height: 10,
-                                    backgroundColor: '#6ebe46',
-                                    borderRadius: '50%'
-                                }} />
-                            </div>
-                            {props.goFundisCharts.errors.cata({
-                                Nothing: () => props.goFundisCharts.results.cata({
-                                    Nothing: () => (
-                                        <Placeholder busy={props.goFundisCharts.busy} size={[ '100%', '190px' ]} />
-                                    ),
-                                    Just: fields => (
-                                        <div styleName="list_column_highcharts_large" style={{margin: 5}}>
-                                            <Highchart config={merge(
-                                                fields.fundiLiveActive ? fields.fundiLiveActive : {},
-                                                LIVE_ACTIVE_GOFUNDIS
-                                            )} />
-                                        </div>
-                                    )
-                                }),
-                                Just: errors => (
-                                    <div>{errors}</div>
-                                )
-                            })}
-                        </div>
+                        <GoFundisChartsRight data={props.goFundisCharts} />
                     </div>
                 </div>
                 <Substrate title={'ACTIVE GO FUNDIS'}>
