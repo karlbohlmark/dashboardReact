@@ -5,11 +5,9 @@ import {
     NUMBER_OF_GOFUNDIS,
     LIVE_ACTIVE_GOFUNDIS
 } from 'models/highchartConfig';
-import IconLoop from 'components/IconLoop';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import LegendRow from 'components/ListItem/LegendRow';
-import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisMap from 'components/GoFundisMap';
 import GoFundisHightChart from 'components/GoFundisHightChart';
