@@ -59,6 +59,8 @@ class OverviewContainer extends Component {
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
                     this.props.receivePageGetOverviewStats,
+                    this.props.receivePageUserLocation,
+                    this.props.receivePageTaskLocationByCategory,
                     this.props.receivePageTaskLocationByStatus,
                     this.props.receivePageCompletedTasksHistogram,
                     this.props.setRangeDate)}
