@@ -18,7 +18,7 @@ function SubscribersSharePerArea(props) {
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
-                        <Placeholder busy={props.data.busy} size={[ '100%', '210px' ]} />
+                        <Placeholder busy={props.data.busy} size={[ '100%', '200px' ]} />
                     ),
                     Just: fields => (
                         <div styleName="list_column_highcharts" style={{margin: 5}}>
