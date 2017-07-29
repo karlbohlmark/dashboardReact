@@ -58,6 +58,7 @@ class GoFundisContainer extends Component {
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
                     this.props.receivePageGoFundisStatuses,
+                    this.props.receivePageActiveGoFundis,
                     this.props.receivePageGetOverviewStats,
                     this.props.setRangeDate)}
                 categories={this.props.categories}
