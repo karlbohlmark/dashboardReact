@@ -32,6 +32,15 @@ import {
 import {
     setRangeDate
 } from 'actions/ui/dateRangePicker';
+import {
+    receivePage as receivePageSubscribersRatingBreakdown
+} from 'actions/queryData/subscribersRatingBreakdown';
+import {
+    receivePage as receivePageSubscribersReturning
+} from 'actions/queryData/subscribersReturning';
+import {
+    receivePage as receivePageSubscribersSharePerArea
+} from 'actions/queryData/subscribersSharePerArea';
 import Subscribers from 'components/Subscribers';
 
 
@@ -45,7 +54,11 @@ class SubscribersContainer extends Component {
                 subscribers={this.props.subscribers}
                 listCategories={this.props.listCategories}
                 dateRangePicker={this.props.dateRangePicker}
-                onRangeDate={(from, to) => this.props.setRangeDate(from, to)}
+                onRangeDate={compose(
+                    this.props.receivePageSubscribersRatingBreakdown,
+                    this.props.receivePageSubscribersReturning,
+                    this.props.receivePageSubscribersSharePerArea,
+                    this.props.setRangeDate)}
                 categories={this.props.categories}
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
             />
@@ -70,9 +83,10 @@ SubscribersContainer.propTypes = {
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
-    setRangeDate: PropTypes.func.isRequired
-
-
+    setRangeDate: PropTypes.func.isRequired,
+    receivePageSubscribersRatingBreakdown: PropTypes.func.isRequired,
+    receivePageSubscribersReturning: PropTypes.func.isRequired,
+    receivePageSubscribersSharePerArea: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
@@ -112,7 +126,10 @@ const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
-    setRangeDate
+    setRangeDate,
+    receivePageSubscribersRatingBreakdown,
+    receivePageSubscribersReturning,
+    receivePageSubscribersSharePerArea
 };
 
 export default compose(
