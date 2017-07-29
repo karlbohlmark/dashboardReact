@@ -5,7 +5,7 @@ import {
     isNull
 } from 'lodash/fp';
 import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
-import GofundisHightChart from 'components/GofundisHightChart';
+import GofundisHightChart from 'components/GoFundisHightChart';
 import TasksHistogram from 'components/TasksHistogram';
 import TasksStatusMap from 'components/TasksStatusMap';
 import CategoriesMap from 'components/CategoriesMap';

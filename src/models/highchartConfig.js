@@ -144,7 +144,7 @@ export const APPROVED_GOFUNDIS = {
     series: [{
         type: 'pie',
         name: '',
-        innerSize: '70%',
+        innerSize: '70%'
     }]
 };
 export const NUMBER_OF_GOFUNDIS = {

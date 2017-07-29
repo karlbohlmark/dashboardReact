@@ -14,7 +14,7 @@ import Highchart from 'react-highcharts/ReactHighcharts';
 import LegendRow from 'components/ListItem/LegendRow';
 import Placeholder from 'components/Placeholder';
 
-function GofundisHightChart(props) {
+function GoFundisHightChart(props) {
     return (
         <div style={{
             textAlign: 'center',
@@ -27,7 +27,7 @@ function GofundisHightChart(props) {
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
                         <Placeholder
-                            style={{ width: 200, height: 200}}
+                            style={{ width: 200, height: 222}}
                             busy={props.data.busy}
                             size={[ '100%', '100%' ]} />
                     ),
@@ -74,8 +74,8 @@ function GofundisHightChart(props) {
     );
 }
 
-GofundisHightChart.propTypes = {
+GoFundisHightChart.propTypes = {
     data: PropTypes.object.isRequired
 };
 
-export default CSSModules(GofundisHightChart, styles);
+export default CSSModules(GoFundisHightChart, styles);
