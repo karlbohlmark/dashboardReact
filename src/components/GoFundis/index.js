@@ -13,7 +13,10 @@ import GoFundisHightChart from 'components/GoFundisHightChart';
 import GoFundisStatuses from 'components/GoFundisStatuses';
 import GoFundisHighlights from 'components/GoFundisHighlights';
 import GoFundisChartsRight from 'components/GoFundisCharts/ContentRight';
-
+import Placeholder from 'components/Placeholder';
+import {
+    merge
+} from 'lodash/fp';
 
 function GoFundis(props) {
     return (
@@ -38,19 +41,37 @@ function GoFundis(props) {
                     <div styleName="returning_subscribers">
                         <div style={{ backgroundColor: '#fff', padding: 10, width: '69%'}}>
                             <div styleName='sub_container_header'>NUMBER OF GOFUNDIS</div>
-                            <div styleName="list_column_highcharts_large" style={{margin: 5}}>
-                                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-                                    <LegendRow
-                                        color={'#c21f50'}
-                                        title={'Approved'}
-                                    />
-                                    <LegendRow
-                                        color={'#1d5c51'}
-                                        title={'Onboarding'}
-                                    />
-                                </div>
-                                <Highchart config={NUMBER_OF_GOFUNDIS} />
-                            </div>
+
+                            {props.goFundisCharts.errors.cata({
+                                Nothing: () => props.goFundisCharts.results.cata({
+                                    Nothing: () => (
+                                        <Placeholder busy={props.goFundisCharts.busy} size={[ '100%', '300px' ]} />
+                                    ),
+                                    Just: fields => (
+                                        <div styleName="list_column_highcharts_large" style={{margin: 5}}>
+                                            <div style={{
+                                                display: 'flex',
+                                                flexDirection: 'row',
+                                                justifyContent: 'flex-end'
+                                            }}>
+                                                {
+                                                    fields.fundiNumber.series.map((field, index) => (
+                                                        <LegendRow
+                                                            key={index}
+                                                            color={NUMBER_OF_GOFUNDIS.colors[index]}
+                                                            title={field.name}
+                                                        />
+                                                    ))
+                                                }
+                                            </div>
+                                            <Highchart config={merge(fields.fundiNumber, NUMBER_OF_GOFUNDIS)} />
+                                        </div>
+                                    )
+                                }),
+                                Just: errors => (
+                                    <div>{errors}</div>
+                                )
+                            })}
                         </div>
                         <GoFundisChartsRight data={props.goFundisCharts} />
                     </div>

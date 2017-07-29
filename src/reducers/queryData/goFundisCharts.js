@@ -3,6 +3,9 @@ import {
     Nothing
 } from 'data.maybe';
 import {
+    formatDate
+} from 'utils/format-date';
+import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
@@ -39,6 +42,17 @@ export function reducer(state, action) {
                                     y: ser.y ? ser.y : 0
                                 })) : []
                         }]
+                    },
+                    fundiNumber: {
+                        xAxis: {
+                            categories: (payload.fundiNumber && payload.fundiNumber.xAxis) ?
+                                payload.fundiNumber.xAxis.map(field => (formatDate(field))) : []
+                        },
+                        series: (payload.fundiNumber && payload.fundiNumber.series) ?
+                            payload.fundiNumber.series.map(ser => ({
+                                name: ser.name ? ser.name : '',
+                                data: ser.data ? ser.data : []
+                            })) : []
                     }
                 }),
                 busy: false

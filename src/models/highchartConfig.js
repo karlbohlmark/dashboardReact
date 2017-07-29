@@ -171,19 +171,7 @@ export const NUMBER_OF_GOFUNDIS = {
         layout: 'vertical',
         align: 'right',
         verticalAlign: 'middle'
-    },
-    xAxis: {
-        categories:
-        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    },
-    series: [{
-        name: 'Approved',
-        data: [49, 55, 51, 66, 90, 199, 171, 241]
-    }, {
-        name: 'Onboarding',
-        data: [29, 40, 97, 21, 20, 22, 31, 44]
-    }]
+    }
 };
 export const LIVE_ACTIVE_GOFUNDIS = {
     credits: {
