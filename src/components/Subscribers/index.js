@@ -4,16 +4,13 @@ import styles from './styles.css';
 import {
     SUBSCRIBERS_SHARE_PER_AREA
 } from 'models/highchartConfig';
+import Highchart from 'react-highcharts/ReactHighcharts';
 import IconLoop from 'components/IconLoop';
+import SubscribersMap from 'components/SubscribersMap';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import ListRow from 'components/ListItem/ListRow';
-import Highchart from 'react-highcharts/ReactHighcharts';
-import GoogleMapSegment from 'components/GoogleMap';
-import Placeholder from 'components/Placeholder';
-import {
-    filterCommon
-} from 'utils';
+
 
 function Subscribers(props) {
     return (
@@ -136,28 +133,7 @@ function Subscribers(props) {
                 </Substrate>
 
                 <Substrate title={'SUBSCRIBERS'}>
-                    <div style={{
-                        marginTop: 10,
-                        marginBottom: 10
-                    }}>
-                        {props.subscribers.errors.cata({
-                            Nothing: () => props.subscribers.results.cata({
-                                Nothing: () => (
-                                    <Placeholder busy={props.subscribers.busy} size={[ '100%', '300px' ]} />
-                                ),
-                                Just: () => (
-                                    <GoogleMapSegment
-                                        data={props.subscribers.results.getOrElse([])}
-                                        filterData={filterCommon}
-                                    />
-                                )
-                            }),
-                            Just: errors => (
-                                <div>{errors}</div>
-                            )
-                        })}
-
-                    </div>
+                    <SubscribersMap data={props.subscribers} />
                 </Substrate>
             </div>
         </div>
