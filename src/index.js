@@ -41,6 +41,9 @@ import {
 import {
     receivePage as receivePageSubscribers
 } from 'actions/queryData/subscribers';
+import {
+    receivePage as receivePageSubscribersReturning
+} from 'actions/queryData/subscribersReturning';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -153,6 +156,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageSubscribersReturning
+                        ), compose(
                         store.dispatch,
                         receivePageSubscribers
                         ), compose(

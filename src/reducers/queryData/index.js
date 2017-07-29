@@ -34,6 +34,10 @@ import {
     initialState as initialSubscribers,
     reducer as reducerSubscribers
 } from './subscribers';
+import {
+    initialState as initialSubscribersReturning,
+    reducer as reducerSubscribersReturning
+} from './subscribersReturning';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -44,7 +48,8 @@ export const initialState = {
     listDashboardCategories: initialListDashboardCategories,
     getTasksHighlights: initialGetTasksHighlights,
     activeGoFundis: initialActiveGoFundis,
-    subscribers: initialSubscribers
+    subscribers: initialSubscribers,
+    subscribersReturning: initialSubscribersReturning
 };
 
 export function reducer(state, action) {
@@ -57,6 +62,7 @@ export function reducer(state, action) {
     const nextGetTasksHighlights = reducerGetTasksHighlights(state.getTasksHighlights, action);
     const nextActiveGoFundis = reducerActiveGoFundis(state.activeGoFundis, action);
     const nextSubscribers = reducerSubscribers(state.subscribers, action);
+    const nextSubscribersReturning = reducerSubscribersReturning(state.subscribersReturning, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -66,7 +72,8 @@ export function reducer(state, action) {
         state.listDashboardCategories === nextListDashboardCategories &&
         state.getTasksHighlights === nextGetTasksHighlights &&
         state.activeGoFundis === nextActiveGoFundis &&
-        state.subscribers === nextSubscribers
+        state.subscribers === nextSubscribers &&
+        state.subscribersReturning === nextSubscribersReturning
     ) {
         return state;
     }
@@ -80,6 +87,7 @@ export function reducer(state, action) {
         listDashboardCategories: nextListDashboardCategories,
         getTasksHighlights: nextGetTasksHighlights,
         activeGoFundis: nextActiveGoFundis,
-        subscribers: nextSubscribers
+        subscribers: nextSubscribers,
+        subscribersReturning: nextSubscribersReturning
     };
 }

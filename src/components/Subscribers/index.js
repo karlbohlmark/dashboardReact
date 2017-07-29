@@ -10,7 +10,7 @@ import SubscribersMap from 'components/SubscribersMap';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 import ListRow from 'components/ListItem/ListRow';
-
+import SubscribersReturning from 'components/SubscribersReturning';
 
 function Subscribers(props) {
     return (
@@ -79,57 +79,7 @@ function Subscribers(props) {
                 </Substrate>
 
                 <Substrate title={'RETURNING SUBSCRIBERS'}>
-                    <div styleName="returning_subscribers">
-                        <div styleName="list_column">
-                            <ListRow
-                                leftItem={15}
-                                item={'NUMBER OF RETURNING SUBSCRIBERS'}
-                            />
-                            <ListRow
-                                leftItem={10}
-                                item={'NUMBER OF FOLLOW UP TASKS'}
-                                subItem={'(SAME SUBSCRIBER SAME CATEGORY)'}
-                            />
-                            <ListRow
-                                leftItem={5}
-                                item={'NUMBER OF RECURRING TASKS'}
-                                subItem={'(SAME SUBSCRIBER DIFFERENT CATEGORY)'}
-                            />
-                        </div>
-                        <div styleName="list_column">
-                            <div styleName="list_row_reverse">
-                                <div styleName="list_item_number_default">12%</div>
-                                <div styleName="list_column_item_line">
-                                    <strong styleName="strong_number">2</strong>
-                                    &nbsp;TASKS
-                                </div>
-                            </div>
-                            <div styleName="list_row_reverse">
-                                <div styleName="list_item_number_default">10.05%</div>
-                                <div styleName="list_column_item_line">
-                                    <strong styleName="strong_number">3</strong>
-                                    &nbsp;TASKS COMPLETED
-                                </div>
-                            </div>
-                        </div>
-                        <div styleName="list_column">
-                            <div styleName="list_row_reverse">
-                                <div styleName="list_item_number_default">9.3%</div>
-                                <div styleName="list_column_item_line">
-                                    <strong styleName="strong_number">4</strong>
-                                    &nbsp;TASKS COMPLETED
-                                </div>
-                            </div>
-                            <div styleName="list_row_reverse">
-                                <div styleName="list_item_number_default">1%</div>
-                                <div styleName="list_column_item_line">
-                                    <small>+</small>
-                                    <strong styleName="strong_number">5</strong>
-                                    &nbsp;TASKS COMPLETED
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <SubscribersReturning data={props.subscribersReturning} />
                 </Substrate>
 
                 <Substrate title={'SUBSCRIBERS'}>
@@ -141,6 +91,7 @@ function Subscribers(props) {
 }
 
 Subscribers.propTypes = {
+    subscribersReturning: PropTypes.object.isRequired,
     subscribers: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
