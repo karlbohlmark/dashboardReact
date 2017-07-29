@@ -39,6 +39,7 @@ class SubscribersContainer extends Component {
     render() {
         return (
             <Subscribers
+                subscribersRatingBreakdown={this.props.subscribersRatingBreakdown}
                 subscribersReturning={this.props.subscribersReturning}
                 subscribers={this.props.subscribers}
                 listCategories={this.props.listCategories}
@@ -62,6 +63,7 @@ SubscribersContainer.propTypes = {
     listCategories: PropTypes.object.isRequired,
     subscribers: PropTypes.object.isRequired,
     subscribersReturning: PropTypes.object.isRequired,
+    subscribersRatingBreakdown: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -74,6 +76,7 @@ SubscribersContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        subscribersRatingBreakdown: queryData.subscribersRatingBreakdown,
         subscribersReturning: queryData.subscribersReturning,
         subscribers: queryData.subscribers,
         listCategories: queryData.listDashboardCategories,

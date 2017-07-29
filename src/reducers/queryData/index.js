@@ -38,6 +38,10 @@ import {
     initialState as initialSubscribersReturning,
     reducer as reducerSubscribersReturning
 } from './subscribersReturning';
+import {
+    initialState as initialSubscribersRatingBreakdown,
+    reducer as reducerSubscribersRatingBreakdown
+} from './subscribersRatingBreakdown';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -49,7 +53,8 @@ export const initialState = {
     getTasksHighlights: initialGetTasksHighlights,
     activeGoFundis: initialActiveGoFundis,
     subscribers: initialSubscribers,
-    subscribersReturning: initialSubscribersReturning
+    subscribersReturning: initialSubscribersReturning,
+    subscribersRatingBreakdown: initialSubscribersRatingBreakdown
 };
 
 export function reducer(state, action) {
@@ -63,6 +68,7 @@ export function reducer(state, action) {
     const nextActiveGoFundis = reducerActiveGoFundis(state.activeGoFundis, action);
     const nextSubscribers = reducerSubscribers(state.subscribers, action);
     const nextSubscribersReturning = reducerSubscribersReturning(state.subscribersReturning, action);
+    const nextSubscribersRatingBreakdown = reducerSubscribersRatingBreakdown(state.subscribersRatingBreakdown, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -73,7 +79,8 @@ export function reducer(state, action) {
         state.getTasksHighlights === nextGetTasksHighlights &&
         state.activeGoFundis === nextActiveGoFundis &&
         state.subscribers === nextSubscribers &&
-        state.subscribersReturning === nextSubscribersReturning
+        state.subscribersReturning === nextSubscribersReturning &&
+        state.subscribersRatingBreakdown === nextSubscribersRatingBreakdown
     ) {
         return state;
     }
@@ -88,6 +95,7 @@ export function reducer(state, action) {
         getTasksHighlights: nextGetTasksHighlights,
         activeGoFundis: nextActiveGoFundis,
         subscribers: nextSubscribers,
-        subscribersReturning: nextSubscribersReturning
+        subscribersReturning: nextSubscribersReturning,
+        subscribersRatingBreakdown: nextSubscribersRatingBreakdown
     };
 }
