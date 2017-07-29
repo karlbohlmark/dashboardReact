@@ -13,6 +13,10 @@ import GoFundisMap from 'components/GoFundisMap';
 import GoFundisHightChart from 'components/GoFundisHightChart';
 import GoFundisStatuses from 'components/GoFundisStatuses';
 import GoFundisHighlights from 'components/GoFundisHighlights';
+import Placeholder from 'components/Placeholder';
+import {
+    merge
+} from 'lodash/fp';
 
 function GoFundis(props) {
     return (
@@ -63,9 +67,24 @@ function GoFundis(props) {
                                     borderRadius: '50%'
                                 }} />
                             </div>
-                            <div styleName="list_column_highcharts_large" style={{margin: 5}}>
-                                <Highchart config={LIVE_ACTIVE_GOFUNDIS} />
-                            </div>
+                            {props.goFundisCharts.errors.cata({
+                                Nothing: () => props.goFundisCharts.results.cata({
+                                    Nothing: () => (
+                                        <Placeholder busy={props.goFundisCharts.busy} size={[ '100%', '190px' ]} />
+                                    ),
+                                    Just: fields => (
+                                        <div styleName="list_column_highcharts_large" style={{margin: 5}}>
+                                            <Highchart config={merge(
+                                                fields.fundiLiveActive ? fields.fundiLiveActive : {},
+                                                LIVE_ACTIVE_GOFUNDIS
+                                            )} />
+                                        </div>
+                                    )
+                                }),
+                                Just: errors => (
+                                    <div>{errors}</div>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
@@ -85,6 +104,7 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    goFundisCharts: PropTypes.object.isRequired,
     goFundisStatuses: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,

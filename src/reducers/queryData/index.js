@@ -50,6 +50,10 @@ import {
     initialState as initialGoFundisStatuses,
     reducer as reducerGoFundisStatuses
 } from './goFundisStatuses';
+import {
+    initialState as initialGoFundisCharts,
+    reducer as reducerGoFundisCharts
+} from './goFundisCharts';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -64,7 +68,8 @@ export const initialState = {
     subscribersReturning: initialSubscribersReturning,
     subscribersRatingBreakdown: initialSubscribersRatingBreakdown,
     subscribersSharePerArea: initialSubscribersSharePerArea,
-    goFundisStatuses: initialGoFundisStatuses
+    goFundisStatuses: initialGoFundisStatuses,
+    goFundisCharts: initialGoFundisCharts
 };
 
 export function reducer(state, action) {
@@ -81,6 +86,7 @@ export function reducer(state, action) {
     const nextSubscribersRatingBreakdown = reducerSubscribersRatingBreakdown(state.subscribersRatingBreakdown, action);
     const nextSubscribersSharePerArea = reducerSubscribersSharePerArea(state.subscribersSharePerArea, action);
     const nextGoFundisStatuses = reducerGoFundisStatuses(state.goFundisStatuses, action);
+    const nextGoFundisCharts = reducerGoFundisCharts(state.goFundisCharts, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -94,7 +100,8 @@ export function reducer(state, action) {
         state.subscribersReturning === nextSubscribersReturning &&
         state.subscribersRatingBreakdown === nextSubscribersRatingBreakdown &&
         state.subscribersSharePerArea === nextSubscribersSharePerArea &&
-        state.goFundisStatuses === nextGoFundisStatuses
+        state.goFundisStatuses === nextGoFundisStatuses &&
+        state.goFundisCharts === nextGoFundisCharts
     ) {
         return state;
     }
@@ -112,6 +119,7 @@ export function reducer(state, action) {
         subscribersReturning: nextSubscribersReturning,
         subscribersRatingBreakdown: nextSubscribersRatingBreakdown,
         subscribersSharePerArea: nextSubscribersSharePerArea,
-        goFundisStatuses: nextGoFundisStatuses
+        goFundisStatuses: nextGoFundisStatuses,
+        goFundisCharts: nextGoFundisCharts
     };
 }

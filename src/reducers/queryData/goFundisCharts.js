@@ -6,7 +6,7 @@ import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
-} from 'actions/queryData/subscribersSharePerArea';
+} from 'actions/queryData/goFundisCharts';
 
 export const initialState = {
     results: Nothing(),
@@ -29,15 +29,17 @@ export function reducer(state, action) {
             return {
                 ...state,
                 results: Just({
-                    series: [{
-                        data: payload.series && payload.series.data ?
-                            payload.series.data.map(ser => ({
-                                ...ser,
-                                drilldown: null,
-                                name: ser.name ? ser.name : '',
-                                y: ser.y ? ser.y : 0
-                            })) : []
-                    }]
+                    fundiLiveActive: {
+                        series: [{
+                            data: (payload.fundiLiveActive && payload.fundiLiveActive.series) ?
+                                payload.fundiLiveActive.series.data.map(ser => ({
+                                    ...ser,
+                                    drilldown: null,
+                                    name: ser.name ? ser.name : '',
+                                    y: ser.y ? ser.y : 0
+                                })) : []
+                        }]
+                    }
                 }),
                 busy: false
             };

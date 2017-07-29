@@ -22,7 +22,7 @@ function SubscribersSharePerArea(props) {
                     ),
                     Just: fields => (
                         <div styleName="list_column_highcharts" style={{margin: 5}}>
-                            <Highchart config={merge(fields, SUBSCRIBERS_SHARE_PER_AREA)} />
+                            <Highchart config={merge(fields ? fields : {}, SUBSCRIBERS_SHARE_PER_AREA)} />
                         </div>
                     )
                 }),

@@ -53,6 +53,9 @@ import {
 import {
     receivePage as receivePageGoFundisStatuses
 } from 'actions/queryData/goFundisStatuses';
+import {
+    receivePage as receivePageGoFundisCharts
+} from 'actions/queryData/goFundisCharts';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -148,6 +151,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGoFundisCharts
+                        ), compose(
                         store.dispatch,
                         receivePageActiveGoFundis
                         ), compose(

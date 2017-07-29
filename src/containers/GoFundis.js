@@ -45,6 +45,9 @@ import {
 import {
     receivePage as receivePageGoFundisStatuses
 } from 'actions/queryData/goFundisStatuses';
+import {
+    receivePage as receivePageGoFundisCharts
+} from 'actions/queryData/goFundisCharts';
 import GoFundis from 'components/GoFundis';
 
 
@@ -52,6 +55,7 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
+                goFundisCharts={this.props.goFundisCharts}
                 goFundisStatuses={this.props.goFundisStatuses}
                 listCategories={this.props.listCategories}
                 getOverviewStats={this.props.getOverviewStats}
@@ -95,6 +99,7 @@ GoFundisContainer.propTypes = {
     goFundis: PropTypes.object.isRequired,
     activeGoFundis: PropTypes.object.isRequired,
     goFundisStatuses: PropTypes.object.isRequired,
+    goFundisCharts: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -103,12 +108,14 @@ GoFundisContainer.propTypes = {
     setRangeDate: PropTypes.func.isRequired,
     receivePageGetOverviewStats: PropTypes.func.isRequired,
     receivePageActiveGoFundis: PropTypes.func.isRequired,
-    receivePageGoFundisStatuses: PropTypes.func.isRequired
+    receivePageGoFundisStatuses: PropTypes.func.isRequired,
+    receivePageGoFundisCharts: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
+        goFundisCharts: queryData.goFundisCharts,
         goFundisStatuses: queryData.goFundisStatuses,
         activeGoFundis: queryData.activeGoFundis,
         listCategories: queryData.listDashboardCategories,
@@ -159,7 +166,8 @@ const bindActions = {
     setRangeDate,
     receivePageGetOverviewStats,
     receivePageActiveGoFundis,
-    receivePageGoFundisStatuses
+    receivePageGoFundisStatuses,
+    receivePageGoFundisCharts
 };
 
 export default compose(

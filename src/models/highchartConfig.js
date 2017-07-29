@@ -231,24 +231,7 @@ export const LIVE_ACTIVE_GOFUNDIS = {
 
     series: [{
         name: 'Area',
-        colorByPoint: false,
-        data: [{
-            name: '-1 hr',
-            y: 150,
-            drilldown: null
-        }, {
-            name: '-10 min',
-            y: 53,
-            drilldown: null
-        }, {
-            name: '-5 min',
-            y: 203,
-            drilldown: null
-        }, {
-            name: 'Now',
-            y: 186,
-            drilldown: null
-        }]
+        colorByPoint: false
     }]
 };
 export const SUBSCRIBERS_SHARE_PER_AREA = {
