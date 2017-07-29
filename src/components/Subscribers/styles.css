@@ -13,10 +13,7 @@
     width: 200px;
     height: 200px;
 }
-.reparate_item {
-    display: flex;
-    flex-direction: row;
-}
+
 .sub_container_header {
     font-size: 16px;
     font-weight: 300;
