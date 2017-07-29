@@ -14,7 +14,7 @@ import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisMap from 'components/GoFundisMap';
 import GoFundisHightChart from 'components/GoFundisHightChart';
 import GoFundisStatuses from 'components/GoFundisStatuses';
-
+import GoFundisHighlights from 'components/GoFundisHighlights';
 
 function GoFundis(props) {
     return (
@@ -32,47 +32,7 @@ function GoFundis(props) {
                     <div styleName="returning_subscribers">
                         <GoFundisHightChart data={props.getOverviewStats} />
                         <GoFundisStatuses data={props.goFundisStatuses} />
-                        <div>
-                            <div styleName="reparate_item">
-                                <div styleName="list_column" style={{marginLeft: 20}}>
-                                    <ListRow
-                                        style={{marginTop: '7px', marginBottom: '7px'}}
-                                        leftItem={<IconLoop number={5} name={'star'} />}
-                                        item={'AVERAGE GOFUNDI RATING'}
-                                    />
-                                    <ListRow
-                                        style={{marginTop: '7px', marginBottom: '7px'}}
-                                        leftItem={25}
-                                        item={'ACTIVE GOFUNDIS'}
-                                        subItem={'(IN AVERAGE PER DAY)'}
-                                    />
-                                    <ListRow
-                                        style={{marginTop: '7px', marginBottom: '7px'}}
-                                        leftItem={'32 yrs'}
-                                        item={'AVERAGE GOFUNDIS AGE'}
-                                    />
-                                    <ListRow
-                                        style={{marginTop: '7px', marginBottom: '7px'}}
-                                        leftItem={'12%'}
-                                        item={'GOFUNDIS WITH FOLLOW UP JOBS'}
-                                        subItem={'(SAME CUSTOMER & SAME CATEGORY TYPE)'}
-                                    />
-                                    <ListRow
-                                        style={{marginTop: '7px', marginBottom: '7px'}}
-                                        leftItem={'5%'}
-                                        item={'GOFUNDIS WITH FOLLOW UP JOBS'}
-                                        subItem={'(SAME CUSTOMER & SAME CATEGORY TYPE)'}
-                                    />
-                                    <ListRow
-                                        style={{marginTop: '7px', marginBottom: '7px'}}
-                                        styleLeftItem={{color: '#ed1967'}}
-                                        leftItem={'00:45 hr'}
-                                        item={'AVERAGE TIME OF COMPLETION'}
-                                        subItem={'(FROM ACCEPTED TO COMPLETED)'}
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                        <GoFundisHighlights data={props.goFundisStatuses} />
                     </div>
                 </Substrate>
                 <div styleName='users_container_empty'>
