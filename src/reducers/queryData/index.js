@@ -42,6 +42,10 @@ import {
     initialState as initialSubscribersRatingBreakdown,
     reducer as reducerSubscribersRatingBreakdown
 } from './subscribersRatingBreakdown';
+import {
+    initialState as initialSubscribersSharePerArea,
+    reducer as reducerSubscribersSharePerArea
+} from './subscribersSharePerArea';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -54,7 +58,8 @@ export const initialState = {
     activeGoFundis: initialActiveGoFundis,
     subscribers: initialSubscribers,
     subscribersReturning: initialSubscribersReturning,
-    subscribersRatingBreakdown: initialSubscribersRatingBreakdown
+    subscribersRatingBreakdown: initialSubscribersRatingBreakdown,
+    subscribersSharePerArea: initialSubscribersSharePerArea
 };
 
 export function reducer(state, action) {
@@ -69,6 +74,7 @@ export function reducer(state, action) {
     const nextSubscribers = reducerSubscribers(state.subscribers, action);
     const nextSubscribersReturning = reducerSubscribersReturning(state.subscribersReturning, action);
     const nextSubscribersRatingBreakdown = reducerSubscribersRatingBreakdown(state.subscribersRatingBreakdown, action);
+    const nextSubscribersSharePerArea = reducerSubscribersSharePerArea(state.subscribersSharePerArea, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -80,7 +86,8 @@ export function reducer(state, action) {
         state.activeGoFundis === nextActiveGoFundis &&
         state.subscribers === nextSubscribers &&
         state.subscribersReturning === nextSubscribersReturning &&
-        state.subscribersRatingBreakdown === nextSubscribersRatingBreakdown
+        state.subscribersRatingBreakdown === nextSubscribersRatingBreakdown &&
+        state.subscribersSharePerArea === nextSubscribersSharePerArea
     ) {
         return state;
     }
@@ -96,6 +103,7 @@ export function reducer(state, action) {
         activeGoFundis: nextActiveGoFundis,
         subscribers: nextSubscribers,
         subscribersReturning: nextSubscribersReturning,
-        subscribersRatingBreakdown: nextSubscribersRatingBreakdown
+        subscribersRatingBreakdown: nextSubscribersRatingBreakdown,
+        subscribersSharePerArea: nextSubscribersSharePerArea
     };
 }

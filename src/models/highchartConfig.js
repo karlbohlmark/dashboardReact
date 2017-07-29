@@ -302,27 +302,6 @@ export const SUBSCRIBERS_SHARE_PER_AREA = {
 
     series: [{
         name: 'Area',
-        colorByPoint: false,
-        data: [{
-            name: 'Livington',
-            y: 15800,
-            drilldown: null
-        }, {
-            name: 'Westlands',
-            y: 5323,
-            drilldown: null
-        }, {
-            name: 'Kibra',
-            y: 2963,
-            drilldown: null
-        }, {
-            name: 'Kiambu',
-            y: 1286,
-            drilldown: null
-        }, {
-            name: 'Ruaka',
-            y: 3265,
-            drilldown: null
-        }]
+        colorByPoint: false
     }]
 };
