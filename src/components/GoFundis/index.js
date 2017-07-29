@@ -7,6 +7,12 @@ import {
     NUMBER_OF_GOFUNDIS,
     LIVE_ACTIVE_GOFUNDIS
 } from 'models/highchartConfig';
+import {
+    merge,
+    reduce,
+    map,
+    toString
+} from 'lodash/fp';
 import IconLoop from 'components/IconLoop';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
@@ -14,6 +20,7 @@ import LegendRow from 'components/ListItem/LegendRow';
 import ListRow from 'components/ListItem/ListRow';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import GoFundisMap from 'components/GoFundisMap';
+import Placeholder from 'components/Placeholder';
 
 
 function GoFundis(props) {
@@ -51,23 +58,52 @@ function GoFundis(props) {
                                         borderRadius: '50%'
                                     }} />
                                 </div>
-                                <div styleName="list_column_highcharts" style={{margin: 5}}>
-                                    <Highchart config={APPROVED_GOFUNDIS} />
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        justifyContent: 'space-around'
-                                    }}>
-                                        <LegendRow
-                                            color={'#f2ec2b'}
-                                            title={'Offline'}
-                                        />
-                                        <LegendRow
-                                            color={'#f5ab33'}
-                                            title={'Online'}
-                                        />
-                                    </div>
-                                </div>
+                                {props.goFundisStatuses.errors.cata({
+                                    Nothing: () => props.goFundisStatuses.results.cata({
+                                        Nothing: () => (
+                                            <Placeholder
+                                                style={{ width: 200, height: 200}}
+                                                busy={props.goFundisStatuses.busy}
+                                                size={[ '100%', '100%' ]} />
+                                        ),
+                                        Just: fields => (
+                                            <div styleName="list_column_highcharts" style={{margin: 5}}>
+                                                <Highchart config={merge(
+                                                    APPROVED_GOFUNDIS,
+                                                    {title: {
+                                                        text: toString(reduce(
+                                                            (sum, n) => (sum + n), 0,
+                                                            map(field => (field.numberOfFundis), fields.fundiStatuses)))
+                                                    },
+                                                        series: [{
+                                                            data: map(field => (
+                                                                [field.status, parseFloat(field.numberOfFundis)]
+                                                            ), fields.fundiStatuses)
+                                                        }]
+                                                    }
+                                                )} />
+                                                <div style={{
+                                                    display: 'flex',
+                                                    flexDirection: 'row',
+                                                    justifyContent: 'space-around'
+                                                }}>
+                                                    {
+                                                        fields.fundiStatuses.map((field, index) => (
+                                                            <LegendRow
+                                                                key={index}
+                                                                color={APPROVED_GOFUNDIS.colors[index]}
+                                                                title={field.status}
+                                                            />
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                        )
+                                    }),
+                                    Just: errors => (
+                                        <div>{errors}</div>
+                                    )
+                                })}
                             </div>
                         </div>
                         <div>
@@ -165,6 +201,7 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    goFundisStatuses: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,

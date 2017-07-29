@@ -46,6 +46,10 @@ import {
     initialState as initialSubscribersSharePerArea,
     reducer as reducerSubscribersSharePerArea
 } from './subscribersSharePerArea';
+import {
+    initialState as initialGoFundisStatuses,
+    reducer as reducerGoFundisStatuses
+} from './goFundisStatuses';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -59,7 +63,8 @@ export const initialState = {
     subscribers: initialSubscribers,
     subscribersReturning: initialSubscribersReturning,
     subscribersRatingBreakdown: initialSubscribersRatingBreakdown,
-    subscribersSharePerArea: initialSubscribersSharePerArea
+    subscribersSharePerArea: initialSubscribersSharePerArea,
+    goFundisStatuses: initialGoFundisStatuses
 };
 
 export function reducer(state, action) {
@@ -75,6 +80,7 @@ export function reducer(state, action) {
     const nextSubscribersReturning = reducerSubscribersReturning(state.subscribersReturning, action);
     const nextSubscribersRatingBreakdown = reducerSubscribersRatingBreakdown(state.subscribersRatingBreakdown, action);
     const nextSubscribersSharePerArea = reducerSubscribersSharePerArea(state.subscribersSharePerArea, action);
+    const nextGoFundisStatuses = reducerGoFundisStatuses(state.goFundisStatuses, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -87,7 +93,8 @@ export function reducer(state, action) {
         state.subscribers === nextSubscribers &&
         state.subscribersReturning === nextSubscribersReturning &&
         state.subscribersRatingBreakdown === nextSubscribersRatingBreakdown &&
-        state.subscribersSharePerArea === nextSubscribersSharePerArea
+        state.subscribersSharePerArea === nextSubscribersSharePerArea &&
+        state.goFundisStatuses === nextGoFundisStatuses
     ) {
         return state;
     }
@@ -104,6 +111,7 @@ export function reducer(state, action) {
         subscribers: nextSubscribers,
         subscribersReturning: nextSubscribersReturning,
         subscribersRatingBreakdown: nextSubscribersRatingBreakdown,
-        subscribersSharePerArea: nextSubscribersSharePerArea
+        subscribersSharePerArea: nextSubscribersSharePerArea,
+        goFundisStatuses: nextGoFundisStatuses
     };
 }

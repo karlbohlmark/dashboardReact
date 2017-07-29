@@ -50,6 +50,9 @@ import {
 import {
     receivePage as receivePageSubscribersSharePerArea
 } from 'actions/queryData/subscribersSharePerArea';
+import {
+    receivePage as receivePageGoFundisStatuses
+} from 'actions/queryData/goFundisStatuses';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -147,6 +150,9 @@ const routes = {
                     onEnter: compose(compose(
                         store.dispatch,
                         receivePageActiveGoFundis
+                        ), compose(
+                        store.dispatch,
+                        receivePageGoFundisStatuses
                         ), compose(
                         store.dispatch,
                         receivePageGetOverviewStats

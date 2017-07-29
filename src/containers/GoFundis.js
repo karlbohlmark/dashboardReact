@@ -42,6 +42,9 @@ import {
 import {
     receivePage as receivePageActiveGoFundis
 } from 'actions/queryData/activeGoFundis';
+import {
+    receivePage as receivePageGoFundisStatuses
+} from 'actions/queryData/goFundisStatuses';
 import GoFundis from 'components/GoFundis';
 
 
@@ -49,10 +52,12 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
+                goFundisStatuses={this.props.goFundisStatuses}
                 listCategories={this.props.listCategories}
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGoFundisStatuses,
                     this.props.receivePageGetOverviewStats,
                     this.props.setRangeDate)}
                 categories={this.props.categories}
@@ -88,6 +93,7 @@ GoFundisContainer.propTypes = {
     listCategories: PropTypes.object.isRequired,
     goFundis: PropTypes.object.isRequired,
     activeGoFundis: PropTypes.object.isRequired,
+    goFundisStatuses: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -95,12 +101,14 @@ GoFundisContainer.propTypes = {
     showGoogleMapGoFundis: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
     receivePageGetOverviewStats: PropTypes.func.isRequired,
-    receivePageActiveGoFundis: PropTypes.func.isRequired
+    receivePageActiveGoFundis: PropTypes.func.isRequired,
+    receivePageGoFundisStatuses: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
+        goFundisStatuses: queryData.goFundisStatuses,
         activeGoFundis: queryData.activeGoFundis,
         listCategories: queryData.listDashboardCategories,
         getOverviewStats: queryData.getOverviewStats,
@@ -149,7 +157,8 @@ const bindActions = {
     showGoogleMapGoFundis,
     setRangeDate,
     receivePageGetOverviewStats,
-    receivePageActiveGoFundis
+    receivePageActiveGoFundis,
+    receivePageGoFundisStatuses
 };
 
 export default compose(

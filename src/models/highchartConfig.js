@@ -118,7 +118,6 @@ export const APPROVED_GOFUNDIS = {
     },
     colors: ['#f5ab33', '#f2ec2b'],
     title: {
-        text: '<strong>200</strong>',
         style: { color: '#58585a', fontSize: '18px' },
         align: 'center',
         verticalAlign: 'middle',
@@ -146,10 +145,6 @@ export const APPROVED_GOFUNDIS = {
         type: 'pie',
         name: '',
         innerSize: '70%',
-        data: [
-            ['Online', 80.00],
-            ['Offline', 20.00]
-        ]
     }]
 };
 export const NUMBER_OF_GOFUNDIS = {
