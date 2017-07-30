@@ -7,7 +7,8 @@ module.exports = [
             {
                 category: {
                     name: 'new installations decoder',
-                    style: 'install_decoder',
+                    style: 'new-installation-decoder',
+                    shortStyle: 'install_decoder',
                     shortName: 'decoder'
                 },
                 reported: '1 every minute',
@@ -17,7 +18,8 @@ module.exports = [
             {
                 category: {
                     name: 'new installations antenna / signal',
-                    style: 'install_antena',
+                    style: 'new-installation-antenna',
+                    shortStyle: 'install_antena',
                     shortName: 'antena/signal'
                 },
                 reported: '1 every hour',
@@ -27,7 +29,8 @@ module.exports = [
             {
                 category: {
                     name: 'new installations other / error',
-                    style: 'install_error',
+                    style: 'new-installation-other',
+                    shortStyle: 'install_error',
                     shortName: 'other/error'
                 },
                 reported: '1 every 2 hours',
@@ -44,7 +47,8 @@ module.exports = [
             {
                 category: {
                     name: 'repair installations decoder',
-                    style: 'repair_install_decoder',
+                    style: 'repair-decoder',
+                    shortStyle: 'repair_install_decoder',
                     shortName: 'decoder'
                 },
                 reported: '1 every 10 days',
@@ -54,7 +58,8 @@ module.exports = [
             {
                 category: {
                     name: 'repair installations antenna / signal',
-                    style: 'repair_install_antena',
+                    style: 'repair-antenna',
+                    shortStyle: 'repair_install_antena',
                     shortName: 'antena/signal'
                 },
                 reported: '1 every 30 days',
@@ -64,7 +69,8 @@ module.exports = [
             {
                 category: {
                     name: 'repair installations other / error',
-                    style: 'repair_install_error',
+                    style: 'repair-other',
+                    shortStyle: 'repair_install_error',
                     shortName: 'other/error'
                 },
                 reported: '1 every 6 days',
