@@ -1,6 +1,11 @@
 .reparate_item_col {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    height: 72px;
+    width: 10%;
+    align-self: flex-end;
+    background-color: #8f9092;
 }
 .returning_subscribers {
     display: flex;
@@ -20,4 +25,26 @@
     font-size: 12px;
     font-weight: 300;
     color: #fff;
+}
+.container_category_item {
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.container_bottom {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(88, 88, 90);
+    height: 72px;
+}
+.container_middle {
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
 }
