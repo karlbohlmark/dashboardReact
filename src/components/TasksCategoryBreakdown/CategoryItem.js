@@ -25,7 +25,7 @@ function CategoryItem(props) {
 
 CategoryItem.propTypes = {
     category: PropTypes.object.isRequired,
-    subCategories: PropTypes.array.isRequired,
+    subCategories: PropTypes.array.isRequired
 };
 
 export default CSSModules(CategoryItem, styles);
