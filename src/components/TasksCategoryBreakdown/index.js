@@ -4,7 +4,7 @@ import styles from './styles.css';
 import {
     isArray
 } from 'lodash/fp';
-import CircularChart from 'components/CircularChart';
+import CircularChartItem from 'components/CircularChart/CircularChartItem';
 import Placeholder from 'components/Placeholder';
 
 
@@ -50,37 +50,7 @@ function TasksCategoryBreakdown(props) {
                                         zIndex: 1
                                     }}>
                                         {isArray(field.subCategories) ? field.subCategories.map((subCat, item) => (
-                                            <CircularChart
-                                                key={item}
-                                                className={(subCat.category && subCat.category.shortStyle) ?
-                                                    subCat.category.shortStyle : null}
-                                                percentage={subCat.percentage ? subCat.percentage : 0}
-                                                strokeWidth={5}
-                                                upder={
-                                                    <div styleName="reparate_item_col"
-                                                         style={{width: '100%', backgroundColor: '#58585a'}}>
-                                                        <div styleName="small_text_panel">
-                                                            {subCat.reported ?
-                                                                subCat.reported.toString().toUpperCase() : ''
-                                                            }
-                                                        </div>
-                                                        <div styleName="small_text_panel">
-                                                            {subCat.completed ?
-                                                                subCat.completed.toString().toUpperCase() : ''
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                }
-                                            >
-                                                <div styleName={(subCat.category && subCat.category.style) ?
-                                                        subCat.category.style : 'new-installation-decoder'
-                                                } />
-                                                <div styleName="small_text">
-                                                    {(subCat.category && subCat.category.shortName) ?
-                                                        subCat.category.shortName.toString().toUpperCase() : ''
-                                                    }
-                                                </div>
-                                            </CircularChart>
+                                            <CircularChartItem key={item} {...subCat} />
                                         )) : null}
                                     </div>
                                     <div style={{

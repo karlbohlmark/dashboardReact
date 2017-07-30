@@ -1,3 +1,39 @@
+.new-installation-antenna {
+    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-antenna.svg") no-repeat;
+    background-size: cover;
+    width: 56px;
+    height: 56px;
+}
+.new-installation-other {
+    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-other.svg") no-repeat;
+    background-size: cover;
+    width: 56px;
+    height: 56px;
+}
+.new-installation-decoder {
+    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-decoder.svg") no-repeat;
+    background-size: cover;
+    width: 56px;
+    height: 56px;
+}
+.repair-antenna {
+    background: rgba(249, 249, 249, 0) url("../__assets__/repair-antenna.svg") no-repeat;
+    background-size: cover;
+    width: 56px;
+    height: 56px;
+}
+.repair-decoder {
+    background: rgba(249, 249, 249, 0) url("../__assets__/repair-decoder.svg") no-repeat;
+    background-size: cover;
+    width: 56px;
+    height: 56px;
+}
+.repair-other {
+    background: rgba(249, 249, 249, 0) url("../__assets__/repair-other.svg") no-repeat;
+    background-size: cover;
+    width: 56px;
+    height: 56px;
+}
 .reparate_item_col {
     display: flex;
     flex-direction: column;
@@ -26,6 +62,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.small_text {
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 5px;
 }
 .small_text_panel {
     margin: 10px;
