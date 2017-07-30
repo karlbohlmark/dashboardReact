@@ -12,6 +12,9 @@ import {
 import {
     compose
 } from 'lodash/fp';
+import {
+    setStatus
+} from 'actions/ui/hamburger';
 import Page from 'components/Page';
 
 class AppContainer extends Component {
@@ -24,17 +27,21 @@ class AppContainer extends Component {
 
 AppContainer.propTypes = {
     router: routerShape.isRequired,
-    location: locationShape.isRequired
+    location: locationShape.isRequired,
+
+    setStatus: PropTypes.func.isRequired,
+    hamburger: PropTypes.object.isRequired
 };
 
 function select({ ui }) {
 
     return {
+        hamburger: ui.hamburger
     };
 }
 
 const bindActions = {
-
+    setStatus
 };
 
 export default compose(

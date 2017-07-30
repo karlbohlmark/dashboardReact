@@ -10,22 +10,29 @@ import {
     initialState as initialDateRangePicker,
     reducer as reducerDateRangePicker
 } from './dateRangePicker';
+import {
+    initialState as initialHamburger,
+    reducer as reducerHamburger
+} from './hamburger';
 
 export const initialState = {
     notifications: initialNotificationState,
     googlemap: initialGoogleMapState,
-    dateRangePicker: initialDateRangePicker
+    dateRangePicker: initialDateRangePicker,
+    hamburger: initialHamburger
 };
 
 export function reducer(state, action) {
     const nextNotification = reducerNotification(state.notifications, action);
     const nextGoogleMap = reducerGoogleMap(state.googlemap, action);
     const nextDateRangePicker = reducerDateRangePicker(state.dateRangePicker, action);
+    const nextHamburger = reducerHamburger(state.hamburger, action);
 
     if (
         state.notifications === nextNotification &&
         state.googlemap === nextGoogleMap &&
-        state.dateRangePicker === nextDateRangePicker
+        state.dateRangePicker === nextDateRangePicker &&
+        state.hamburger === nextHamburger
     ) {
         return state;
     }
@@ -33,6 +40,7 @@ export function reducer(state, action) {
     return {
         notifications: nextNotification,
         googlemap: nextGoogleMap,
-        dateRangePicker: nextDateRangePicker
+        dateRangePicker: nextDateRangePicker,
+        hamburger: nextHamburger
     };
 }

@@ -28,9 +28,9 @@ function Page(props) {
                 </Navbar.Header>
                 <Hamburger
                     style={{float: 'right'}}
-                    active={true}
+                    active={props.hamburger.active}
                     type="slider"
-                    onClick={() => console.log('click')}
+                    onClick={props.setStatus}
                 />
             </Navbar>
 
@@ -93,7 +93,9 @@ function Page(props) {
 }
 
 Page.propTypes = {
-    children: PropTypes.element
+    children: PropTypes.element,
+    hamburger: PropTypes.object.isRequired,
+    setStatus: PropTypes.func.isRequired
 };
 
 export default CSSModules(Page, styles);
