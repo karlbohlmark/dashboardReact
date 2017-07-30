@@ -14,6 +14,7 @@ import {
 } from 'lodash/fp';
 import './base.css';
 import 'react-select/dist/react-select.css';
+import 'hamburgers/dist/hamburgers.css';
 import {
     receivePage as receivePageUserLocation
 } from 'actions/queryData/userLocation';

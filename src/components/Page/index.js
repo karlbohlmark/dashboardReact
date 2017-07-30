@@ -8,6 +8,7 @@ import {
     NavItem
 } from 'react-bootstrap';
 import CSSModules from 'react-css-modules';
+import Hamburger from 'react-hamburgers';
 
 import styles from './styles.css';
 
@@ -25,16 +26,12 @@ function Page(props) {
                         REPORTING SYSTEM
                     </Navbar.Brand>
                 </Navbar.Header>
-
-                <Nav pullRight>
-                    <LinkContainer to="/logout">
-                        <NavItem>
-                            <span style={textStyle}>
-                                Logout
-                            </span>
-                        </NavItem>
-                    </LinkContainer>
-                </Nav>
+                <Hamburger
+                    style={{float: 'right'}}
+                    active={true}
+                    type="slider"
+                    onClick={() => console.log('click')}
+                />
             </Navbar>
 
             <div styleName="container">

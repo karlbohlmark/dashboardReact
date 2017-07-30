@@ -3159,6 +3159,10 @@ grid-index@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/grid-index/-/grid-index-1.0.0.tgz#ad2c5d54ce5b35437faff1d70a9aeb3d1d261110"
 
+hamburgers@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-0.9.1.tgz#49bc3bca667a693a8458388c9ef265ae611348d5"
+
 handle-thing@^1.2.4:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -5654,6 +5658,14 @@ react-fontawesome@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/react-fontawesome/-/react-fontawesome-1.5.0.tgz#879d1b2aa5c48bba551e9237f84993217b5645c4"
 
+react-hamburgers@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-hamburgers/-/react-hamburgers-1.0.0.tgz#0347e7ebfec8eed63bc9fe0aed61c350eba1bbfc"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.5.10"
+    react "^15.5.4"
+
 react-highcharts@^11.5.0:
   version "11.5.0"
   resolved "https://registry.yarnpkg.com/react-highcharts/-/react-highcharts-11.5.0.tgz#2812cdc56ef1057e59cbc9c4dbed79b72d8505ae"
@@ -5769,6 +5781,16 @@ react@^15.4.2:
     fbjs "^0.8.4"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react@^15.5.4:
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+  dependencies:
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
