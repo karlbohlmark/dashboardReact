@@ -54,6 +54,10 @@ import {
     initialState as initialGoFundisCharts,
     reducer as reducerGoFundisCharts
 } from './goFundisCharts';
+import {
+    initialState as initialTaskCategoryBreakdown,
+    reducer as reducerTaskCategoryBreakdown
+} from './taskCategoryBreakdown';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -69,7 +73,8 @@ export const initialState = {
     subscribersRatingBreakdown: initialSubscribersRatingBreakdown,
     subscribersSharePerArea: initialSubscribersSharePerArea,
     goFundisStatuses: initialGoFundisStatuses,
-    goFundisCharts: initialGoFundisCharts
+    goFundisCharts: initialGoFundisCharts,
+    taskCategoryBreakdown: initialTaskCategoryBreakdown
 };
 
 export function reducer(state, action) {
@@ -87,6 +92,7 @@ export function reducer(state, action) {
     const nextSubscribersSharePerArea = reducerSubscribersSharePerArea(state.subscribersSharePerArea, action);
     const nextGoFundisStatuses = reducerGoFundisStatuses(state.goFundisStatuses, action);
     const nextGoFundisCharts = reducerGoFundisCharts(state.goFundisCharts, action);
+    const nextTaskCategoryBreakdown = reducerTaskCategoryBreakdown(state.taskCategoryBreakdown, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -101,7 +107,8 @@ export function reducer(state, action) {
         state.subscribersRatingBreakdown === nextSubscribersRatingBreakdown &&
         state.subscribersSharePerArea === nextSubscribersSharePerArea &&
         state.goFundisStatuses === nextGoFundisStatuses &&
-        state.goFundisCharts === nextGoFundisCharts
+        state.goFundisCharts === nextGoFundisCharts &&
+        state.taskCategoryBreakdown === nextTaskCategoryBreakdown
     ) {
         return state;
     }
@@ -120,6 +127,7 @@ export function reducer(state, action) {
         subscribersRatingBreakdown: nextSubscribersRatingBreakdown,
         subscribersSharePerArea: nextSubscribersSharePerArea,
         goFundisStatuses: nextGoFundisStatuses,
-        goFundisCharts: nextGoFundisCharts
+        goFundisCharts: nextGoFundisCharts,
+        taskCategoryBreakdown: nextTaskCategoryBreakdown
     };
 }

@@ -223,6 +223,7 @@ function Tasks(props) {
 }
 
 Tasks.propTypes = {
+    tasksCategoryBreakdown: PropTypes.object.isRequired,
     tasksHighlights: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,

@@ -21,6 +21,9 @@ import {
     receivePage as receivePageGetOverviewStats
 } from 'actions/queryData/getOverviewStats';
 import {
+    receivePage as receivePageTaskCategoryBreakdown
+} from 'actions/queryData/taskCategoryBreakdown';
+import {
     receivePage as receivePageTaskLocationByStatus
 } from 'actions/queryData/taskLocationByStatus';
 import {
@@ -129,6 +132,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageTaskCategoryBreakdown
+                    ), compose(
                         store.dispatch,
                         receivePageGetTasksHighlights
                     ), compose(
