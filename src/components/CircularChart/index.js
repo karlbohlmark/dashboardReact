@@ -1,39 +1,38 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
 import CircularProgressbar from 'react-circular-progressbar';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 
-class CircularChart extends Component {
-    render() {
-        return (
-            <div>
-                <div styleName="outer" className={this.props.className ? this.props.className : 'install_decoder'} >
-                    <CircularProgressbar
-                        initialAnimation
-                        percentage={this.props.percentage ? this.props.percentage : 0}
-                        textForPercentage={() => ''}
-                        strokeWidth={this.props.strokeWidth ? this.props.strokeWidth : 5}
-                    />
-                    <div styleName="inner">
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center'
-                        }}>
-                            {this.props.children}
-                        </div>
+function CircularChart(props) {
+    return (
+        <div>
+            <div styleName="outer" className={props.className ? props.className : 'install_decoder'} >
+                <CircularProgressbar
+                    initialAnimation
+                    percentage={props.percentage ? props.percentage : 0}
+                    textForPercentage={() => ''}
+                    strokeWidth={props.strokeWidth ? props.strokeWidth : 5}
+                />
+                <div styleName="inner">
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    }}>
+                        {props.children}
                     </div>
                 </div>
-                <div styleName="under_spinner">
-                    <strong>{`${this.props.percentage}%`}</strong>
-                </div>
-                {
-                    this.props.upder ? this.props.upder : null
-                }
             </div>
-        );
-    }
+            <div styleName="under_spinner">
+                <strong>{`${props.percentage}%`}</strong>
+            </div>
+            {
+                props.upder ? props.upder : null
+            }
+        </div>
+    );
 }
+
 CircularChart.propTypes = {
     children: PropTypes.oneOfType([
         React.PropTypes.element,
