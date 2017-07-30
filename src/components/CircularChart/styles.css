@@ -1,0 +1,35 @@
+.reparate_item_col {
+    display: flex;
+    flex-direction: column;
+}
+.under_spinner {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.outer {
+    width: 140px;
+    height:140px;
+    background:inherit;
+    position:relative;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.inner {
+    position:absolute;
+    width: 80px;
+    height: 80px;
+    background:inherit;
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+    margin-right: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.small_text_panel {
+    margin: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #fff;
+}

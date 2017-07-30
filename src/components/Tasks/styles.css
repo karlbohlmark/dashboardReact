@@ -9,76 +9,6 @@
      composes: root;
  }
 }
-.new-installation-antenna {
-    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-antenna.svg") no-repeat;
-    background-size: cover;
-    width: 56px;
-    height: 56px;
-}
-
-.new-installation-other {
-    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-other.svg") no-repeat;
-    background-size: cover;
-    width: 56px;
-    height: 56px;
-}
-
-.new-installation-decoder {
-    background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-decoder.svg") no-repeat;
-    background-size: cover;
-    width: 56px;
-    height: 56px;
-}
-
-.repair-antenna {
-    background: rgba(249, 249, 249, 0) url("../__assets__/repair-antenna.svg") no-repeat;
-    background-size: cover;
-    width: 56px;
-    height: 56px;
-}
-
-.repair-decoder {
-    background: rgba(249, 249, 249, 0) url("../__assets__/repair-decoder.svg") no-repeat;
-    background-size: cover;
-    width: 56px;
-    height: 56px;
-}
-
-.repair-other {
-    background: rgba(249, 249, 249, 0) url("../__assets__/repair-other.svg") no-repeat;
-    background-size: cover;
-    width: 56px;
-    height: 56px;
-}
-.reparate_item_col {
-    display: flex;
-    flex-direction: column;
-}
-.under_spinner {
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.outer {
-    width: 140px;
-    height:140px;
-    background:inherit;
-    position:relative;
-    margin-left: 3px;
-    margin-right: 3px;
-}
-.inner {
-    position:absolute;
-    width: 80px;
-    height: 80px;
-    background:inherit;
-    top: calc(50% - 40px);
-    left: calc(50% - 40px);
-    margin-right: -40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .user_container_header {
     font-size: 24px;
@@ -100,22 +30,4 @@
     padding: 15px;
     margin-bottom: 25px;
 
-}
-.container_header_sub {
-    font-size: 24px;
-    font-weight: 300;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.small_text {
-    font-size: 12px;
-    font-weight: 300;
-    margin-top: 5px;
-}
-.small_text_panel {
-    margin: 10px;
-    font-size: 12px;
-    font-weight: 300;
-    color: #fff;
 }

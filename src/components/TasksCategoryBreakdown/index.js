@@ -4,7 +4,7 @@ import styles from './styles.css';
 import {
     isArray
 } from 'lodash/fp';
-import CircularChart from 'components/Tasks/CircularChart';
+import CircularChart from 'components/CircularChart';
 import Placeholder from 'components/Placeholder';
 
 
