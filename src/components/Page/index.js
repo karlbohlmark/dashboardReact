@@ -8,7 +8,7 @@ import {
     NavItem
 } from 'react-bootstrap';
 import CSSModules from 'react-css-modules';
-import Hamburger from 'react-hamburgers';
+import Hamburger from 'components/Hamburger';
 
 import styles from './styles.css';
 
