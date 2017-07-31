@@ -4,7 +4,7 @@ import styles from './styles.css';
 import {
     isArray
 } from 'lodash/fp';
-import CategoryItem from 'components/TasksCategoryBreakdown/CategoryItem';
+import CategoryItem from 'components/Tasks/CategoryBreakdown/CategoryItem';
 import Placeholder from 'components/Placeholder';
 
 

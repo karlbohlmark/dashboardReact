@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
-import SubscribersMap from 'components/SubscribersMap';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
-import SubscribersReturning from 'components/SubscribersReturning';
-import SubscribersRatingBreakdown from 'components/SubscribersRatingBreakdown';
-import SubscribersSharePerArea from 'components/SubscribersSharePerArea';
+import SubscribersMap from 'components/Subscribers/Map';
+import SubscribersReturning from 'components/Subscribers/Returning';
+import SubscribersRatingBreakdown from 'components/Subscribers/RatingBreakdown';
+import SubscribersSharePerArea from 'components/Subscribers/SharePerArea';
 
 function Subscribers(props) {
     return (

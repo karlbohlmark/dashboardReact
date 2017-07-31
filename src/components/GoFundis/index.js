@@ -5,12 +5,12 @@ import styles from './styles.css';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
 
-import GoFundisMap from 'components/GoFundisMap';
-import GoFundisHightChart from 'components/GoFundisHightChart';
-import GoFundisStatuses from 'components/GoFundisStatuses';
-import GoFundisHighlights from 'components/GoFundisHighlights';
-import GoFundisChartsRight from 'components/GoFundisCharts/ContentRight';
-import GoFundisChartsLeft from 'components/GoFundisCharts/ContentLeft';
+import GoFundisMap from 'components/GoFundis/Map';
+import GoFundisHightChart from 'components/GoFundis/HightChart';
+import GoFundisStatuses from 'components/GoFundis/Statuses';
+import GoFundisHighlights from 'components/GoFundis/Highlights';
+import GoFundisChartsRight from 'components/GoFundis/Charts/ContentRight';
+import GoFundisChartsLeft from 'components/GoFundis/Charts/ContentLeft';
 
 
 function GoFundis(props) {

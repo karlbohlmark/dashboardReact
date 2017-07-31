@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
-import GoFundisPanel from 'components/GoFundisMap/GoFundisPanel';
+import GoFundisPanel from 'components/GoFundis/Map/GoFundisPanel';
 import GoogleMapSegment from 'components/GoogleMap';
 import Placeholder from 'components/Placeholder';
 import {
