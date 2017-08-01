@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './styles.css';
+import styles from '../styles.css';
 import IconLoop from 'components/IconLoop';
 import ListRow from 'components/ListItem/ListRow';
 import Placeholder from 'components/Placeholder';

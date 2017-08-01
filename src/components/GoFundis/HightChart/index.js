@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './styles.css';
+import styles from '../styles.css';
 import {
     merge,
     reduce,
@@ -32,7 +32,7 @@ function GoFundisHightChart(props) {
                             size={[ '100%', '100%' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column_highcharts" style={{margin: 5}}>
+                        <div styleName="list_column_highcharts_fundi" style={{margin: 5}}>
                             <Highchart config={merge(
                                 GOFUNDIS,
                                 {title: {

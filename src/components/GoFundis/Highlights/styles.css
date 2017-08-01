@@ -1,8 +1,0 @@
-.reparate_item {
-    display: flex;
-    flex-direction: row;
-}
-.list_column {
-    display: flex;
-    flex-direction: column;
-}

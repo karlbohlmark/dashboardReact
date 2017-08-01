@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import CheckBoxItem from 'components/CheckBoxItem';
 
-import styles from './styles.css';
+import styles from '../styles.css';
 
 function GoFundisPanel(props) {
     return (
