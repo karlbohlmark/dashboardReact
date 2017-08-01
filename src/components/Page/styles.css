@@ -26,12 +26,10 @@
 .fotter_brand_right{
     float: right;
 }
-
 .nav {
     // flex: 0 0 200px;
     margin: -20px 0 0;
 }
-
 .children {
     /*flex: 1 1 auto;*/
     /*width: 0; !* it fix MKP-427 *!*/

@@ -9,14 +9,12 @@
     font-weight: normal;
     font-style: normal;
 }
-
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: "fontello";
         src: url("./font/icons.svg?65146471#fontello") format("svg");
     }
 }
-
 .root {
     &:before,
     &:after {
@@ -54,12 +52,10 @@
         /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
     }
 }
-
 .ticket {
     composes: root;
     &:before { content: "\e800"; }
 }
-
 .clock {
     composes: root;
     &:before { content: "\e801"; }
