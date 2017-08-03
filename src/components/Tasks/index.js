@@ -44,9 +44,9 @@ function Tasks(props) {
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <TasksStatusMap
-                        dataTasksLocationStatus={props.tasksLocationStatus}
-                        uiTasks={props.tasks}
-                        onUiTasksHandler={props.onChangeTaskStatusHandler}/>
+                        data={props.tasksLocationStatus}
+                        value={props.tasks}
+                        onChange={props.onChangeTaskStatusHandler}/>
                 </Substrate>
             </div>
         </div>

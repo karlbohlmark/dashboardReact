@@ -25,19 +25,19 @@ function TasksStatusMap(props) {
                     { value: TASK_STATYS_DECLINED, label: capitalize(TASK_STATYS_DECLINED) },
                     { value: TASK_STATYS_CANCELLED, label: capitalize(TASK_STATYS_CANCELLED) }
                 ]}
-                onChange={props.onUiTasksHandler}
-                value={props.uiTasks}
+                onChange={props.onChange}
+                value={props.value}
 
             />
-            {props.dataTasksLocationStatus.errors.cata({
-                Nothing: () => props.dataTasksLocationStatus.results.cata({
+            {props.data.errors.cata({
+                Nothing: () => props.data.results.cata({
                     Nothing: () => (
-                        <Placeholder busy={props.dataTasksLocationStatus.busy} size={[ '100%', '300px' ]} />
+                        <Placeholder busy={props.data.busy} size={[ '100%', '300px' ]} />
                     ),
                     Just: () => (
                         <GoogleMapSegment
-                            data={props.dataTasksLocationStatus.results.getOrElse([])}
-                            filterData={filterTask(props.uiTasks)}
+                            data={props.data.results.getOrElse([])}
+                            filterData={filterTask(props.value)}
                         />
                     )
                 }),
@@ -50,9 +50,9 @@ function TasksStatusMap(props) {
 }
 
 TasksStatusMap.propTypes = {
-    dataTasksLocationStatus: PropTypes.object.isRequired,
-    uiTasks: PropTypes.object.isRequired,
-    onUiTasksHandler: PropTypes.func.isRequired
+    data: PropTypes.object.isRequired,
+    value: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 
 export default TasksStatusMap;

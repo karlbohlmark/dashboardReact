@@ -38,25 +38,25 @@ function Overview(props) {
                 </div>
                 <Substrate title={'USERS'}>
                     <UsersMap
-                        dataUsersLocation={props.userLocation}
-                        uiUsers={props.users}
-                        onUiUsersHandler={props.onUserLocationHandler}/>
+                        data={props.userLocation}
+                        value={props.users}
+                        onChange={props.onUserLocationHandler}/>
                 </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>
                     <TasksHistogram data={props.completedTasksHistogram}/>
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <TasksStatusMap
-                        dataTasksLocationStatus={props.tasksLocationStatus}
-                        uiTasks={props.tasks}
-                        onUiTasksHandler={props.onChangeTaskStatusHandler}/>
+                        data={props.tasksLocationStatus}
+                        value={props.tasks}
+                        onChange={props.onChangeTaskStatusHandler}/>
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap
-                        listCategories={props.listCategories}
-                        dataTasksLocationByCategory={props.tasksLocationByCategory}
-                        uiCategories={props.categories}
-                        onUiCategoriesHandler={props.onChangeCategoryHandler}/>
+                        options={props.listCategories}
+                        data={props.tasksLocationByCategory}
+                        value={props.categories}
+                        onChange={props.onChangeCategoryHandler}/>
                 </Substrate>
             </div>
         </div>

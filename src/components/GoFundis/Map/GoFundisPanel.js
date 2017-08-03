@@ -8,14 +8,14 @@ function GoFundisPanel(props) {
     return (
         <div styleName='row_items'>
             <CheckBoxItem
-                value={props.goFundis.all.getOrElse(false)}
+                value={props.value.all.getOrElse(false)}
                 onChange={props.onAllStatusHandler}
             >
                 All
             </CheckBoxItem>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.goFundis.online.getOrElse(false)}
+                    value={props.value.online.getOrElse(false)}
                     onChange={props.onOnlineStatusHandler}
                 >
                     Online
@@ -26,7 +26,7 @@ function GoFundisPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.goFundis.offline.getOrElse(false)}
+                    value={props.value.offline.getOrElse(false)}
                     onChange={props.onOfflineStatusHandler}
                 >
                     OffLine
@@ -41,7 +41,7 @@ function GoFundisPanel(props) {
 }
 
 GoFundisPanel.propTypes = {
-    goFundis: PropTypes.object.isRequired,
+    value: PropTypes.object.isRequired,
 
     onAllStatusHandler: PropTypes.func.isRequired,
     onOnlineStatusHandler: PropTypes.func.isRequired,

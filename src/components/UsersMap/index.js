@@ -10,19 +10,19 @@ function UsersMap(props) {
     return (
         <div>
             <UserPanel
-                uiUsers={props.uiUsers}
-                onUiUsersHandler={props.onUiUsersHandler}
+                value={props.value}
+                onChange={props.onChange}
             />
 
-            {props.dataUsersLocation.errors.cata({
-                Nothing: () => props.dataUsersLocation.results.cata({
+            {props.data.errors.cata({
+                Nothing: () => props.data.results.cata({
                     Nothing: () => (
-                        <Placeholder busy={props.dataUsersLocation.busy} size={[ '100%', '300px' ]} />
+                        <Placeholder busy={props.data.busy} size={[ '100%', '300px' ]} />
                     ),
                     Just: () => (
                         <GoogleMapSegment
-                            data={props.dataUsersLocation.results.getOrElse([])}
-                            filterData={filterUser(props.uiUsers)}
+                            data={props.data.results.getOrElse([])}
+                            filterData={filterUser(props.value)}
                         />
                     )
                 }),
@@ -35,9 +35,9 @@ function UsersMap(props) {
 }
 
 UsersMap.propTypes = {
-    dataUsersLocation: PropTypes.object.isRequired,
-    uiUsers: PropTypes.object.isRequired,
-    onUiUsersHandler: PropTypes.func.isRequired
+    data: PropTypes.object.isRequired,
+    value: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 
 export default UsersMap;

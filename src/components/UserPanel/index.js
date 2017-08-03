@@ -12,15 +12,15 @@ function UserPanel(props) {
     return (
         <div styleName='row_items'>
             <CheckBoxItem
-                value={props.uiUsers.all.getOrElse(false)}
-                onChange={f => props.onUiUsersHandler(USER_TYPE_ALL, f)}
+                value={props.value.all.getOrElse(false)}
+                onChange={f => props.onChange(USER_TYPE_ALL, f)}
             >
                 All
             </CheckBoxItem>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.uiUsers.subscriber.getOrElse(false)}
-                    onChange={f => props.onUiUsersHandler(USER_TYPE_SUBSCRIBER, f)}
+                    value={props.value.subscriber.getOrElse(false)}
+                    onChange={f => props.onChange(USER_TYPE_SUBSCRIBER, f)}
                 >
                     Subscribers
                 </CheckBoxItem>
@@ -30,8 +30,8 @@ function UserPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.uiUsers.gofundis.getOrElse(false)}
-                    onChange={f => props.onUiUsersHandler(USER_TYPE_GOFUNDIS, f)}
+                    value={props.value.gofundis.getOrElse(false)}
+                    onChange={f => props.onChange(USER_TYPE_GOFUNDIS, f)}
                 >
                     GoFundis
                 </CheckBoxItem>
@@ -44,8 +44,8 @@ function UserPanel(props) {
 }
 
 UserPanel.propTypes = {
-    uiUsers: PropTypes.object.isRequired,
-    onUiUsersHandler: PropTypes.func.isRequired
+    value: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 
 export default CSSModules(UserPanel, styles);

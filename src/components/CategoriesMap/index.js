@@ -15,8 +15,8 @@ function CategoriesMap(props) {
         <div>
             <SelectBoxItem
                 style={{width: '300px'}}
-                options={props.listCategories.errors.cata({
-                    Nothing: () => props.listCategories.results.cata({
+                options={props.options.errors.cata({
+                    Nothing: () => props.options.results.cata({
                         Nothing: () => ([]),
                         Just: fields => (
                             map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
@@ -24,19 +24,19 @@ function CategoriesMap(props) {
                     }),
                     Just: () => ([])
                 })}
-                onChange={props.onUiCategoriesHandler}
-                value={props.uiCategories}
+                onChange={props.onChange}
+                value={props.value}
 
             />
-            {props.dataTasksLocationByCategory.errors.cata({
-                Nothing: () => props.dataTasksLocationByCategory.results.cata({
+            {props.data.errors.cata({
+                Nothing: () => props.data.results.cata({
                     Nothing: () => (
-                        <Placeholder busy={props.dataTasksLocationByCategory.busy} size={[ '100%', '300px' ]} />
+                        <Placeholder busy={props.data.busy} size={[ '100%', '300px' ]} />
                     ),
                     Just: () => (
                         <GoogleMapSegment
-                            data={props.dataTasksLocationByCategory.results.getOrElse([])}
-                            filterData={filterCategory(props.uiCategories)}
+                            data={props.data.results.getOrElse([])}
+                            filterData={filterCategory(props.value)}
                         />
                     )
                 }),
@@ -49,10 +49,10 @@ function CategoriesMap(props) {
 }
 
 CategoriesMap.propTypes = {
-    listCategories: PropTypes.object.isRequired,
-    dataTasksLocationByCategory: PropTypes.object.isRequired,
-    uiCategories: PropTypes.object.isRequired,
-    onUiCategoriesHandler: PropTypes.func.isRequired
+    options: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired,
+    value: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 
 export default CategoriesMap;

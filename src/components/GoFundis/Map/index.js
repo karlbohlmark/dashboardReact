@@ -13,10 +13,10 @@ function GoFundisMap(props) {
     return (
         <div>
             <GoFundisPanel
-                goFundis={props.goFundis}
-                onOfflineStatusHandler={props.onOfflineStatusHandler}
-                onOnlineStatusHandler={props.onOnlineStatusHandler}
-                onAllStatusHandler={props.onAllStatusHandler}
+                value={props.value}
+                onOfflineStatusHandler={props.onOfflineStatus}
+                onOnlineStatusHandler={props.onOnlineStatus}
+                onAllStatusHandler={props.onAllStatus}
             />
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
@@ -26,7 +26,7 @@ function GoFundisMap(props) {
                     Just: () => (
                         <GoogleMapSegment
                             data={props.data.results.getOrElse([])}
-                            filterData={filterGoFundis(props.goFundis)}
+                            filterData={filterGoFundis(props.value)}
                         />
                     )
                 }),
@@ -39,12 +39,12 @@ function GoFundisMap(props) {
 }
 
 GoFundisMap.propTypes = {
-    goFundis: PropTypes.object.isRequired,
+    value: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
 
-    onAllStatusHandler: PropTypes.func.isRequired,
-    onOnlineStatusHandler: PropTypes.func.isRequired,
-    onOfflineStatusHandler: PropTypes.func.isRequired
+    onAllStatus: PropTypes.func.isRequired,
+    onOnlineStatus: PropTypes.func.isRequired,
+    onOfflineStatus: PropTypes.func.isRequired
 };
 
 export default CSSModules(GoFundisMap, styles);

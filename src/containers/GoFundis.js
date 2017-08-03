@@ -70,6 +70,7 @@ class GoFundisContainer extends Component {
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
                 activeGoFundis={this.props.activeGoFundis}
                 goFundis={this.props.goFundis}
+                // TODO send one props (not 3 count)
                 onOfflineStatusHandler={compose(
                     this.props.receivePageActiveGoFundis,
                     f => this.props.showGoogleMapGoFundis(GOFUNDIS_STATYS_OFFLINE, f)

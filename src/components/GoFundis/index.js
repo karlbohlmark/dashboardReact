@@ -41,10 +41,10 @@ function GoFundis(props) {
                 <Substrate title={'ACTIVE GO FUNDIS'}>
                     <GoFundisMap
                         data={props.activeGoFundis}
-                        goFundis={props.goFundis}
-                        onOfflineStatusHandler={props.onOfflineStatusHandler}
-                        onOnlineStatusHandler={props.onOnlineStatusHandler}
-                        onAllStatusHandler={props.onAllStatusHandler}
+                        value={props.goFundis}
+                        onOfflineStatus={props.onOfflineStatusHandler}
+                        onOnlineStatus={props.onOnlineStatusHandler}
+                        onAllStatus={props.onAllStatusHandler}
                     />
 
                 </Substrate>
