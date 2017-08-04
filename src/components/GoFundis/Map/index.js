@@ -14,9 +14,7 @@ function GoFundisMap(props) {
         <div>
             <GoFundisPanel
                 value={props.value}
-                onOfflineStatusHandler={props.onOfflineStatus}
-                onOnlineStatusHandler={props.onOnlineStatus}
-                onAllStatusHandler={props.onAllStatus}
+                onChange={props.onChangeStatus}
             />
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
@@ -42,9 +40,7 @@ GoFundisMap.propTypes = {
     value: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
 
-    onAllStatus: PropTypes.func.isRequired,
-    onOnlineStatus: PropTypes.func.isRequired,
-    onOfflineStatus: PropTypes.func.isRequired
+    onChangeStatus: PropTypes.func.isRequired
 };
 
 export default CSSModules(GoFundisMap, styles);

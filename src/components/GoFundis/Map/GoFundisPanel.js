@@ -1,22 +1,26 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-import CheckBoxItem from 'components/CheckBoxItem';
-
 import styles from '../styles.css';
+import CheckBoxItem from 'components/CheckBoxItem';
+import {
+    GOFUNDIS_STATYS_OFFLINE,
+    GOFUNDIS_STATYS_ONLINE,
+    GOFUNDIS_ALL
+} from 'models/googlemap';
 
 function GoFundisPanel(props) {
     return (
         <div styleName='row_items'>
             <CheckBoxItem
                 value={props.value.all.getOrElse(false)}
-                onChange={props.onAllStatusHandler}
+                onChange={f => props.onChange(GOFUNDIS_ALL, f)}
             >
                 All
             </CheckBoxItem>
             <div styleName='inline_items'>
                 <CheckBoxItem
                     value={props.value.online.getOrElse(false)}
-                    onChange={props.onOnlineStatusHandler}
+                    onChange={f => props.onChange(GOFUNDIS_STATYS_ONLINE, f)}
                 >
                     Online
                 </CheckBoxItem>
@@ -27,7 +31,7 @@ function GoFundisPanel(props) {
             <div styleName='inline_items'>
                 <CheckBoxItem
                     value={props.value.offline.getOrElse(false)}
-                    onChange={props.onOfflineStatusHandler}
+                    onChange={f => props.onChange(GOFUNDIS_STATYS_OFFLINE, f)}
                 >
                     OffLine
                 </CheckBoxItem>
@@ -43,9 +47,7 @@ function GoFundisPanel(props) {
 GoFundisPanel.propTypes = {
     value: PropTypes.object.isRequired,
 
-    onAllStatusHandler: PropTypes.func.isRequired,
-    onOnlineStatusHandler: PropTypes.func.isRequired,
-    onOfflineStatusHandler: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired
 };
 
 export default CSSModules(GoFundisPanel, styles);

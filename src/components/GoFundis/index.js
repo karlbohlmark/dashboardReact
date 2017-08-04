@@ -42,9 +42,7 @@ function GoFundis(props) {
                     <GoFundisMap
                         data={props.activeGoFundis}
                         value={props.goFundis}
-                        onOfflineStatus={props.onOfflineStatusHandler}
-                        onOnlineStatus={props.onOnlineStatusHandler}
-                        onAllStatus={props.onAllStatusHandler}
+                        onChangeStatus={props.onChangeStatus}
                     />
 
                 </Substrate>
@@ -65,9 +63,7 @@ GoFundis.propTypes = {
     categories: PropTypes.object.isRequired,
 
     onChangeCategoryHandler: PropTypes.func.isRequired,
-    onOfflineStatusHandler: PropTypes.func.isRequired,
-    onOnlineStatusHandler: PropTypes.func.isRequired,
-    onAllStatusHandler: PropTypes.func.isRequired
+    onChangeStatus: PropTypes.func.isRequired
 };
 
 export default CSSModules(GoFundis, styles);
