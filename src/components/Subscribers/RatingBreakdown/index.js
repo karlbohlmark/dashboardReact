@@ -10,7 +10,7 @@ function SubscribersRatingBreakdown(props) {
         <div>
             <div styleName='sub_container_header'>RATING BREAKDOWN</div>
             <div styleName="reparate_item">
-                <div styleName="list_column" style={{marginRight: 20}}>
+                <div styleName="list_column" style={{marginRight: 20, minWidth: 140}}>
                     {props.data.errors.cata({
                         Nothing: () => props.data.results.cata({
                             Nothing: () => (
@@ -49,7 +49,7 @@ function SubscribersRatingBreakdown(props) {
                         )
                     })}
                 </div>
-                <div styleName="list_column" style={{marginLeft: 20}}>
+                <div styleName="list_column" style={{marginLeft: 20, marginRight: 20, minWidth: 255}}>
                     {props.data.errors.cata({
                         Nothing: () => props.data.results.cata({
                             Nothing: () => (
