@@ -50,7 +50,6 @@ import {
 } from 'actions/queryData/goFundisCharts';
 import GoFundis from 'components/GoFundis';
 
-
 class GoFundisContainer extends Component {
     render() {
         return (

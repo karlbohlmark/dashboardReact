@@ -6,7 +6,6 @@ import {
 } from 'lodash/fp';
 import CircularChartItem from 'components/CircularChart/CircularChartItem';
 
-
 function CategoryItem(props) {
     return (
         <div styleName='container_category_item' style={{minWidth: 450}}>

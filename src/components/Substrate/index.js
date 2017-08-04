@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 
-
 const Substrate = props => (
     <div styleName='substrate_container'>
         {

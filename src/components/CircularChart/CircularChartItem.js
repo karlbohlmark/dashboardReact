@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import CircularChart from 'components/CircularChart';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
+import CircularChart from 'components/CircularChart';
 
 function CircularChartItem(props) {
     return (

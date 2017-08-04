@@ -7,7 +7,6 @@ import {
 import CategoryItem from 'components/Tasks/CategoryBreakdown/CategoryItem';
 import Placeholder from 'components/Placeholder';
 
-
 function TasksCategoryBreakdown(props) {
     return (
         <div>

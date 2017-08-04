@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react';
-import {
-    times
-} from 'lodash/fp';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import FIcon from 'react-fontawesome';
-
+import {
+    times
+} from 'lodash/fp';
 
 const IconLoop = props => (
     <div styleName="list_item_star">

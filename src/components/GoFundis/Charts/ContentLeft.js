@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-import Highchart from 'react-highcharts/ReactHighcharts';
 import styles from '../styles.css';
+import Highchart from 'react-highcharts/ReactHighcharts';
 import {
     merge
 } from 'lodash/fp';

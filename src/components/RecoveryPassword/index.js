@@ -14,7 +14,6 @@ import {
     Button
 } from 'react-bootstrap';
 
-
 function RecoveryPassword() {
 
     return (

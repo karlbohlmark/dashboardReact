@@ -70,4 +70,3 @@ Tasks.propTypes = {
 };
 
 export default CSSModules(Tasks, styles);
-

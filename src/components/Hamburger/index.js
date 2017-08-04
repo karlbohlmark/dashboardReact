@@ -12,9 +12,9 @@ export default function Hamburger({ active, type, ...props }) {
 
     return (
         <div className={cNames} {...props}>
-      <span className="hamburger-box">
-        <span className="hamburger-inner" />
-      </span>
+            <span className="hamburger-box">
+                <span className="hamburger-inner" />
+            </span>
         </div>
     );
 }

@@ -47,4 +47,3 @@ TasksHistogram.propTypes = {
 };
 
 export default TasksHistogram;
-

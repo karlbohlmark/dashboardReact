@@ -56,4 +56,3 @@ TasksStatusMap.propTypes = {
 };
 
 export default TasksStatusMap;
-

@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 
-
 const ListRow = props => (
     <div styleName="list_row" style={props.style ? props.style : null}>
         {

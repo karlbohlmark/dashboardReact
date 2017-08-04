@@ -1,17 +1,14 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
-
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
-
 import GoFundisMap from 'components/GoFundis/Map';
 import GoFundisHightChart from 'components/GoFundis/HightChart';
 import GoFundisStatuses from 'components/GoFundis/Statuses';
 import GoFundisHighlights from 'components/GoFundis/Highlights';
 import GoFundisChartsRight from 'components/GoFundis/Charts/ContentRight';
 import GoFundisChartsLeft from 'components/GoFundis/Charts/ContentLeft';
-
 
 function GoFundis(props) {
     return (

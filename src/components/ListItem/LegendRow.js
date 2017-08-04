@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './styles.css';
 import {
     assign
 } from 'lodash/fp';
-import CSSModules from 'react-css-modules';
-import styles from './styles.css';
-
 
 const LegendRow = props => (
     <div styleName="legend_item" style={props.style ? props.style : null}>

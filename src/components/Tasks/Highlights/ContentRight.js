@@ -54,4 +54,3 @@ TasksHighlightsRight.propTypes = {
 };
 
 export default CSSModules(TasksHighlightsRight, styles);
-

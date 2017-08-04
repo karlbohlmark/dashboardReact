@@ -11,7 +11,6 @@ import SelectBoxItem from 'components/SelectBoxItem';
 import DateRangePickerItem from 'components/DateRangePickerItem';
 import Autosuggest from 'components/Autosuggest';
 
-
 function SubPanel(props) {
     return (
         <div styleName='sub_panel_row' style={{alignItems: 'center'}}>

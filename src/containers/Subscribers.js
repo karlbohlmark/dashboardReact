@@ -43,7 +43,6 @@ import {
 } from 'actions/queryData/subscribersSharePerArea';
 import Subscribers from 'components/Subscribers';
 
-
 class SubscribersContainer extends Component {
     render() {
         return (

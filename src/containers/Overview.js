@@ -49,7 +49,6 @@ import {
 } from 'actions/queryData/getOverviewStats';
 import Overview from 'components/Overview';
 
-
 class OverviewContainer extends Component {
     render() {
         return (

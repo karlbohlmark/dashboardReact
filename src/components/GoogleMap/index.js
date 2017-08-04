@@ -61,19 +61,11 @@ class SegmentMap extends React.Component {
                            bootstrapURLKeys={{
                                key: `${config.googlemap.secret}`
                            }}
-                           // experimental={false}
                            onChange={this.changeMapBounds}
                            margin={[K_MARGIN_TOP, K_MARGIN_RIGHT, K_MARGIN_BOTTOM, K_MARGIN_LEFT]}
                            center={this.state.currentLocation}
                            zoom={MAP_ZOOM}
                            options={createMapOptions}
-                           // onChildClick={(e) => {
-                           //     console.log('child click', +e, this.state.data[+e].location);
-                           //     let data = this.state.data;
-                           //     data[+e].showInfo = true;
-                           //     this.setState({data});
-                           // } }
-                           // onClick={(e) => { console.log(e); } }
                            onGoogleApiLoaded={({map, maps}) => {
                                this.setState({ map, maps});
                            }}

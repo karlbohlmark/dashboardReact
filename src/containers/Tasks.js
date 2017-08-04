@@ -46,7 +46,6 @@ import {
 } from 'actions/queryData/getOverviewStats';
 import Tasks from 'components/Tasks';
 
-
 class TasksContainer extends Component {
     render() {
         return (

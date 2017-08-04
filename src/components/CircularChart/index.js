@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import CircularProgressbar from 'react-circular-progressbar';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
+import CircularProgressbar from 'react-circular-progressbar';
 
 function CircularChart(props) {
     return (

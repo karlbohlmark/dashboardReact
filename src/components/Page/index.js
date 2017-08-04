@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './styles.css';
 import {
     LinkContainer
 } from 'react-router-bootstrap';
@@ -7,11 +9,7 @@ import {
     Nav,
     NavItem
 } from 'react-bootstrap';
-import CSSModules from 'react-css-modules';
 import Hamburger from 'components/Hamburger';
-
-import styles from './styles.css';
-
 
 const textStyle = {
     color: '#000'

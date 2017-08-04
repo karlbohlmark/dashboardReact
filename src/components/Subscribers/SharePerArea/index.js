@@ -8,7 +8,6 @@ import {
 import {
     SUBSCRIBERS_SHARE_PER_AREA
 } from 'models/highchartConfig';
-
 import Placeholder from 'components/Placeholder';
 
 function SubscribersSharePerArea(props) {

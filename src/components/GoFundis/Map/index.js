@@ -8,7 +8,6 @@ import {
     filterGoFundis
 } from 'utils';
 
-
 function GoFundisMap(props) {
     return (
         <div>

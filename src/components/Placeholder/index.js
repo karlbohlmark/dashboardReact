@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react';
 import FIcon from 'react-fontawesome';
 import CSSModules from 'react-css-modules';
-
 import styles from './styles.css';
 import PropTypes_ from 'utils/prop-types';
-
 
 function Placeholder(props) {
     const [ maxWidth, minHeight ] = props.size;

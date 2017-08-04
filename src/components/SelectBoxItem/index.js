@@ -1,15 +1,13 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
+import styles from './styles.css';
 import Select from 'react-select';
 import {
     compose,
     property
 } from 'lodash/fp';
 
-import styles from './styles.css';
-
 const pValue = property('value');
-
 
 function SelectBoxItem(props) {
     return (

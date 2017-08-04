@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 
-
 const ListRowReverse = props => (
     <div styleName="list_row_reverse" style={{marginTop: 5, marginBottom: 5}}>
         {

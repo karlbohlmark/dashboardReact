@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
+import styles from './styles.css';
 import {
     Checkbox
 } from 'react-bootstrap';
@@ -7,8 +8,6 @@ import {
     compose,
     property
 } from 'lodash/fp';
-
-import styles from './styles.css';
 
 const pTarget = property('target');
 const pTargetChecked = compose(

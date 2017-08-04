@@ -4,7 +4,6 @@ import styles from './styles.css';
 import FIcon from 'react-fontawesome';
 
 const ReportRow = props => (
-
     <div styleName="report_row"
          style={props.style ? props.style : null}>
         <div styleName="report_left"

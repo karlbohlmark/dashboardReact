@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-import CheckBoxItem from 'components/CheckBoxItem';
+import styles from './styles.css';
 import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
     USER_TYPE_ALL
 } from 'models/googlemap';
-import styles from './styles.css';
+import CheckBoxItem from 'components/CheckBoxItem';
 
 function UserPanel(props) {
     return (
