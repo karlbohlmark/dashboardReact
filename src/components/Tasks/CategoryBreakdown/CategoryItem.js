@@ -9,7 +9,7 @@ import CircularChartItem from 'components/CircularChart/CircularChartItem';
 
 function CategoryItem(props) {
     return (
-        <div styleName='container_category_item'>
+        <div styleName='container_category_item' style={{minWidth: 450}}>
             <div styleName='container_header_sub'>
                 {(props.category && props.category.name) ? props.category.name.toString().toUpperCase() : ''}
             </div>

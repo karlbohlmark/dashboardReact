@@ -17,7 +17,7 @@ function GoFundisHighlights(props) {
                             size={[ '100%', '100%' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column" style={{marginLeft: 20}}>
+                        <div styleName="list_column" style={{marginLeft: 20, minWidth: 275}}>
                             <ListRow
                                 style={{marginTop: '7px', marginBottom: '7px'}}
                                 leftItem={<IconLoop number={

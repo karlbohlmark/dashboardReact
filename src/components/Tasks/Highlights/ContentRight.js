@@ -16,7 +16,7 @@ function TasksHighlightsRight(props) {
                             size={[ '100%', '100%' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column" style={{marginLeft: 20}}>
+                        <div styleName="list_column" style={{marginLeft: 20, minWidth: 239}}>
                             <ListRowReverse
                                 rightItem={fields.unassignedTasks ? fields.unassignedTasks : '0'}
                                 item={'UNASSIGNED TASKS'}
