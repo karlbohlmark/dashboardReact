@@ -7,10 +7,10 @@ import Placeholder from 'components/Placeholder';
 
 function SubscribersRatingBreakdown(props) {
     return (
-        <div>
+        <div style={{flexWrap: 'wrap', justifyContent: 'space-around'}}>
             <div styleName='sub_container_header'>RATING BREAKDOWN</div>
-            <div styleName="reparate_item">
-                <div styleName="list_column" style={{marginRight: 20, minWidth: 140}}>
+            <div styleName="reparate_item" style={{flexWrap: 'wrap', justifyContent: 'space-around'}}>
+                <div styleName="list_column" style={{margin: 10, minWidth: 140, flexWrap: 'wrap', justifyContent: 'space-around'}}>
                     {props.data.errors.cata({
                         Nothing: () => props.data.results.cata({
                             Nothing: () => (
@@ -49,7 +49,7 @@ function SubscribersRatingBreakdown(props) {
                         )
                     })}
                 </div>
-                <div styleName="list_column" style={{marginLeft: 20, marginRight: 20, minWidth: 255}}>
+                <div styleName="list_column" style={{margin: 10, minWidth: 255}}>
                     {props.data.errors.cata({
                         Nothing: () => props.data.results.cata({
                             Nothing: () => (

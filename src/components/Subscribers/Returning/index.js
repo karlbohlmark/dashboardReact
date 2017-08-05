@@ -6,8 +6,8 @@ import Placeholder from 'components/Placeholder';
 
 function SubscribersReturning(props) {
     return (
-        <div styleName="returning_subscribers">
-            <div style={{marginRight: 20, minWidth: 235}}>
+        <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
+            <div style={{margin: 10, minWidth: 235}}>
                 {props.data.errors.cata({
                     Nothing: () => props.data.results.cata({
                         Nothing: () => (
@@ -41,7 +41,7 @@ function SubscribersReturning(props) {
                 })}
 
             </div>
-            <div style={{marginRight: 20, minWidth: 200}}>
+            <div style={{margin: 10, minWidth: 200}}>
                 {props.data.errors.cata({
                     Nothing: () => props.data.results.cata({
                         Nothing: () => (
@@ -78,7 +78,7 @@ function SubscribersReturning(props) {
                     )
                 })}
             </div>
-            <div style={{marginRight: 20, minWidth: 200}}>
+            <div style={{margin: 10, minWidth: 200}}>
                 {props.data.errors.cata({
                     Nothing: () => props.data.results.cata({
                         Nothing: () => (
