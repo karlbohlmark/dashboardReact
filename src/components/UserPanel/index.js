@@ -10,13 +10,15 @@ import CheckBoxItem from 'components/CheckBoxItem';
 
 function UserPanel(props) {
     return (
-        <div styleName='row_items'>
-            <CheckBoxItem
-                value={props.value.all.getOrElse(false)}
-                onChange={f => props.onChange(USER_TYPE_ALL, f)}
-            >
-                All
-            </CheckBoxItem>
+        <div styleName='row_items' style={{flexWrap: 'wrap'}}>
+            <div styleName='inline_items'>
+                <CheckBoxItem
+                    value={props.value.all.getOrElse(false)}
+                    onChange={f => props.onChange(USER_TYPE_ALL, f)}
+                >
+                    All
+                </CheckBoxItem>
+            </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
                     value={props.value.subscriber.getOrElse(false)}
