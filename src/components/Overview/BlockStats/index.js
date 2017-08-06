@@ -12,9 +12,11 @@ function OverviewBlockStats(props) {
         <div style={{
             display: 'flex',
             flexDirection: 'row',
-            alignSelf: 'center'
+            alignSelf: 'center',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around'
         }}>
-            <div styleName="list_column" style={{marginLeft: 0}}>
+            <div styleName="list_column" style={{margin: 10}}>
                 {props.data.errors.cata({
                     Nothing: () => props.data.results.cata({
                         Nothing: () => (
@@ -57,7 +59,7 @@ function OverviewBlockStats(props) {
                     )
                 })}
             </div>
-            <div styleName="list_column" style={{marginLeft: 20}}>
+            <div styleName="list_column" style={{margin: 10}}>
                 {props.data.errors.cata({
                     Nothing: () => props.data.results.cata({
                         Nothing: () => (

@@ -25,11 +25,13 @@ function Overview(props) {
             />
             <div styleName='root'>
                 <div styleName='users_container_empty'>
-                    <div styleName="returning_subscribers">
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
                         <OverviewBlockStats data={props.getOverviewStats}/>
                         <div style={{
                             display: 'flex',
-                            flexDirection: 'row'
+                            flexDirection: 'row',
+                            flexWrap: 'wrap',
+                            justifyContent: 'space-around'
                         }}>
                             <CompletedTasksHightChart data={props.getOverviewStats} />
                             <GofundisHightChart data={props.getOverviewStats} />
