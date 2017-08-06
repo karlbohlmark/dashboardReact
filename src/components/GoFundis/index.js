@@ -23,7 +23,7 @@ function GoFundis(props) {
             />
             <div styleName='root'>
                 <Substrate title={'HIGHLIGHTS'}>
-                    <div styleName="returning_subscribers">
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
                         <GoFundisHightChart data={props.getOverviewStats} />
                         <GoFundisStatuses data={props.goFundisStatuses} />
                         <GoFundisHighlights data={props.goFundisStatuses} />

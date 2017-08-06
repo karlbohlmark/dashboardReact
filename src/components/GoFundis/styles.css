@@ -16,7 +16,7 @@
 .returning_subscribers {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 15px;
     margin-bottom: 10px;
 }
@@ -51,6 +51,7 @@
 .row_items {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-bottom: 15px;
 }
 .gofundis_inner {

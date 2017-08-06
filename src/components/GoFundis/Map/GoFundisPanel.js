@@ -11,12 +11,14 @@ import {
 function GoFundisPanel(props) {
     return (
         <div styleName='row_items'>
-            <CheckBoxItem
-                value={props.value.all.getOrElse(false)}
-                onChange={f => props.onChange(GOFUNDIS_ALL, f)}
-            >
-                All
-            </CheckBoxItem>
+            <div styleName='inline_items'>
+                <CheckBoxItem
+                    value={props.value.all.getOrElse(false)}
+                    onChange={f => props.onChange(GOFUNDIS_ALL, f)}
+                >
+                    All
+                </CheckBoxItem>
+            </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
                     value={props.value.online.getOrElse(false)}
