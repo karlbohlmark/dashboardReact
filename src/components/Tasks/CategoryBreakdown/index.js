@@ -9,21 +9,23 @@ import Placeholder from 'components/Placeholder';
 
 function TasksCategoryBreakdown(props) {
     return (
-        <div>
+        <div >
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
                         <Placeholder busy={props.data.busy} size={[ '100%', '332px' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="returning_subscribers">
-                            <div styleName="reparate_item_col">
-                                <div styleName="small_text_panel">REPORTED</div>
-                                <div styleName="small_text_panel">COMPLETED</div>
+                        <div style={{overflow: 'auto', flexWrap: 'wrap', display: 'flex', flexDirection: 'row'}}>
+                            <div styleName="returning_subscribers" >
+                                <div styleName="reparate_item_col">
+                                    <div styleName="small_text_panel">REPORTED</div>
+                                    <div styleName="small_text_panel">COMPLETED</div>
+                                </div>
+                                {isArray(fields) ? fields.map((field, index) => (
+                                    <CategoryItem key={index} {...field} />
+                                )) : null}
                             </div>
-                            {isArray(fields) ? fields.map((field, index) => (
-                                <CategoryItem key={index} {...field} />
-                            )) : null}
                         </div>
                     )
                 }),

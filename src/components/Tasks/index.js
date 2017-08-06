@@ -29,7 +29,7 @@ function Tasks(props) {
             />
             <div styleName='root'>
                 <Substrate title={'HIGHLIGHTS'}>
-                    <div styleName="returning_subscribers">
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
                         <CompletedTasksHightChart data={props.getOverviewStats} />
                         <TasksHighlightsLeft data={props.tasksHighlights} />
                         <TasksHighlightsRight data={props.tasksHighlights} />
