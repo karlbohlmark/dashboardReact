@@ -74,12 +74,25 @@ function Overview(props) {
                         onChange={props.onChangeTaskStatusHandler}/>
                 </Substrate>
 
+                <div>
+                    <div styleName='category_panel_title'>Users statistics</div>
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
+
+                    </div>
+                </div>
                 <Substrate title={'USERS'}>
                     <UsersMap
                         data={props.userLocation}
                         value={props.users}
                         onChange={props.onUserLocationHandler}/>
                 </Substrate>
+
+                <div>
+                    <div styleName='category_panel_title'>Category statistics</div>
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
+
+                    </div>
+                </div>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap
                         options={props.listCategories}
@@ -87,6 +100,13 @@ function Overview(props) {
                         value={props.categories}
                         onChange={props.onChangeCategoryHandler}/>
                 </Substrate>
+
+                <div>
+                    <div styleName='category_panel_title'>Payment statistics</div>
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
+
+                    </div>
+                </div>
             </div>
         </div>
     );
