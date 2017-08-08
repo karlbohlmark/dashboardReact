@@ -19,7 +19,8 @@ function CompletedTasksHightChart(props) {
         <div style={{
             textAlign: 'center',
             backgroundColor: '#fff',
-            margin: 10
+            margin: 10,
+            alignSelf: 'center'
         }}>
             <div styleName='sub_container_header'>COMPLETED TASKS</div>
             {props.data.errors.cata({

@@ -2,6 +2,9 @@ export const COMPLETED_TASKS_LINE = {
     credits: {
         enabled: false
     },
+    chart: {
+        height: 180
+    },
     colors: ['#6ebe46', '#c6d92e'],
     title: {
         text: ''

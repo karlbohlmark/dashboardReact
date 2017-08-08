@@ -6,18 +6,20 @@ import FIcon from 'react-fontawesome';
 const ReportRow = props => (
     <div styleName="report_row"
          style={props.style ? props.style : null}>
-        <div styleName="report_left"
-            style={props.styleChildren ? props.styleChildren : null}>
-            {
-                props.children ? props.children :
-                    <FIcon
-                        size={'2x'}
-                        name={'user-circle'}
-                        styleName='inline_items'
-                        style={{color: '#ffffff'}}
-                    />
-            }
-        </div>
+        {props.children ?
+            <div styleName="report_left"
+                 style={props.styleChildren ? props.styleChildren : null}>
+                {
+                    props.children ? props.children :
+                        <FIcon
+                            size={'2x'}
+                            name={'user-circle'}
+                            styleName='inline_items'
+                            style={{color: '#ffffff'}}
+                        />
+                }
+            </div> : null}
+
         <div styleName='report_block'
              style={props.styleReportBlock ? props.styleReportBlock : null}>
             {
