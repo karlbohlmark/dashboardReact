@@ -9,8 +9,10 @@ function SubscribersRatingBreakdown(props) {
     return (
         <div style={{flexWrap: 'wrap', justifyContent: 'space-around'}}>
             <div styleName='sub_container_header'>RATING BREAKDOWN</div>
-            <div styleName="reparate_item" style={{flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                <div styleName="list_column" style={{margin: 10, minWidth: 140, flexWrap: 'wrap', justifyContent: 'space-around'}}>
+            <div styleName="reparate_item"
+                 style={{flexWrap: 'wrap', justifyContent: 'space-around'}}>
+                <div styleName="list_column"
+                     style={{margin: 10, minWidth: 140, flexWrap: 'wrap', justifyContent: 'space-around'}}>
                     {props.data.errors.cata({
                         Nothing: () => props.data.results.cata({
                             Nothing: () => (

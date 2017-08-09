@@ -45,7 +45,7 @@ function OverviewPaymentStatistics(props) {
                                             fields.totalTaskValue.title.toUpperCase() : ''}
                                     // subItem={'(IN AVERAGE PER GOFUNDI)'}
                                 >
-                                    <div styleName="completed-tasks" />
+                                    <div styleName="line-chart" />
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
