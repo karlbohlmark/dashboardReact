@@ -20,147 +20,29 @@ function OverviewTaskLiveStatistics(props) {
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
                         <Placeholder
-                            style={{width: 125, height: 75}}
+                            style={{width: '100%', height: 84}}
                             busy={props.data.busy}
                             size={[ '100%', '100%' ]} />
                     ),
-                    Just: fields => (
-                            <ReportRow
-                                style={{margin: 5}}
-                                styleUpItem={{color: '#F47323', textOverflow: 'ellipsis', overflow: 'hidden'}}
-                                styleReportBlock={{width: 125}}
-                                upItem={
-                                    fields.completedTasksPerDay &&
-                                    !isNull(fields.completedTasksPerDay) ?
-                                        fields.completedTasksPerDay : '0'}
-                                item={'UNASSIGNED TASKS'}
-                            />
-                    )
-                }),
-                Just: errors => (
-                    <div>{errors}</div>
-                )
-            })}
-            {props.data.errors.cata({
-                Nothing: () => props.data.results.cata({
-                    Nothing: () => (
-                        <Placeholder
-                            style={{width: 125, height: 75}}
-                            busy={props.data.busy}
-                            size={[ '100%', '100%' ]} />
-                    ),
-                    Just: fields => (
+                    Just: fields => fields.map((field, index) => (
                         <ReportRow
+                            key={index}
                             style={{margin: 5}}
-                            styleUpItem={{color: '#C21F50', textOverflow: 'ellipsis', overflow: 'hidden'}}
+                            styleUpItem={{
+                                color: field.color && !isNull(field.color) ? field.color : '#F47323',
+                                textOverflow: 'ellipsis',
+                                overflow: 'hidden'}}
                             styleReportBlock={{width: 125}}
                             upItem={
-                                fields.completedTasksPerDay &&
-                                !isNull(fields.completedTasksPerDay) ?
-                                    fields.completedTasksPerDay : '0'}
-                            item={'ASSIGNED TASKS'}
+                                field.value &&
+                                !isNull(field.value) ?
+                                    field.value : '0'}
+                            item={
+                                field.title &&
+                                !isNull(field.title) ?
+                                    field.title : ''}
                         />
-                    )
-                }),
-                Just: errors => (
-                    <div>{errors}</div>
-                )
-            })}
-            {props.data.errors.cata({
-                Nothing: () => props.data.results.cata({
-                    Nothing: () => (
-                        <Placeholder
-                            style={{width: 125, height: 75}}
-                            busy={props.data.busy}
-                            size={[ '100%', '100%' ]} />
-                    ),
-                    Just: fields => (
-                        <ReportRow
-                            style={{margin: 5}}
-                            styleUpItem={{color: '#0C3A37', textOverflow: 'ellipsis', overflow: 'hidden'}}
-                            styleReportBlock={{width: 125}}
-                            upItem={
-                                fields.completedTasksPerDay &&
-                                !isNull(fields.completedTasksPerDay) ?
-                                    fields.completedTasksPerDay : '0'}
-                            item={'PERFORMED TASKS'}
-                        />
-                    )
-                }),
-                Just: errors => (
-                    <div>{errors}</div>
-                )
-            })}
-            {props.data.errors.cata({
-                Nothing: () => props.data.results.cata({
-                    Nothing: () => (
-                        <Placeholder
-                            style={{width: 125, height: 75}}
-                            busy={props.data.busy}
-                            size={[ '100%', '100%' ]} />
-                    ),
-                    Just: fields => (
-                        <ReportRow
-                            style={{margin: 5}}
-                            styleUpItem={{color: '#6FBE47', textOverflow: 'ellipsis', overflow: 'hidden'}}
-                            styleReportBlock={{width: 125}}
-                            upItem={
-                                fields.completedTasksPerDay &&
-                                !isNull(fields.completedTasksPerDay) ?
-                                    fields.completedTasksPerDay : '0'}
-                            item={'COMPLETED TASKS'}
-                        />
-                    )
-                }),
-                Just: errors => (
-                    <div>{errors}</div>
-                )
-            })}
-            {props.data.errors.cata({
-                Nothing: () => props.data.results.cata({
-                    Nothing: () => (
-                        <Placeholder
-                            style={{width: 125, height: 75}}
-                            busy={props.data.busy}
-                            size={[ '100%', '100%' ]} />
-                    ),
-                    Just: fields => (
-                        <ReportRow
-                            style={{margin: 5}}
-                            styleUpItem={{color: '#ED2324', textOverflow: 'ellipsis', overflow: 'hidden'}}
-                            styleReportBlock={{width: 125}}
-                            upItem={
-                                fields.completedTasksPerDay &&
-                                !isNull(fields.completedTasksPerDay) ?
-                                    fields.completedTasksPerDay : '0'}
-                            item={'CANCELLED TASKS'}
-                        />
-                    )
-                }),
-                Just: errors => (
-                    <div>{errors}</div>
-                )
-            })}
-            {props.data.errors.cata({
-                Nothing: () => props.data.results.cata({
-                    Nothing: () => (
-                        <Placeholder
-                            style={{width: 125, height: 75}}
-                            busy={props.data.busy}
-                            size={[ '100%', '100%' ]} />
-                    ),
-                    Just: fields => (
-                        <ReportRow
-                            style={{margin: 5}}
-                            styleUpItem={{color: '#FFDE00', textOverflow: 'ellipsis', overflow: 'hidden'}}
-                            styleReportBlock={{width: 125}}
-                            upItem={
-                                fields.completedTasksPerDay &&
-                                !isNull(fields.completedTasksPerDay) ?
-                                    fields.completedTasksPerDay : '0'}
-                            item={'SCHEDULED TASKS'}
-                        />
-                    )
+                    ))
                 }),
                 Just: errors => (
                     <div>{errors}</div>

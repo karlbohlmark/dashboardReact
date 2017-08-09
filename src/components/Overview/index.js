@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
+import {
+    REVENUE_LINE,
+    COMPLETED_TASKS_LINE
+} from 'models/highchartConfig';
 import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
 import OverviewTaskStatistics from 'components/Overview/TaskStatistics';
 import OverviewTaskLiveStatistics from 'components/Overview/TaskStatistics/Live';
@@ -43,7 +47,10 @@ function Overview(props) {
                                 fontWeight: 300,
                                 textDecoration: 'underline'
                             }}>{'COMPLETED TASKS'}</div>
-                            <TasksHistogram data={props.completedTasksHistogram}/>
+                            <TasksHistogram
+                                data={props.completedTasksHistogram}
+                                model={COMPLETED_TASKS_LINE}
+                            />
                         </div>
                     </div>
                 </div>
@@ -66,8 +73,7 @@ function Overview(props) {
                             borderRadius: '50%'
                         }} />
                     </div>
-                    <OverviewTaskLiveStatistics data={props.getOverviewStats}/>
-                    // getLiveStats
+                    <OverviewTaskLiveStatistics data={props.getLiveStats}/>
                 </div>
                 <Substrate title={'TASK STATUS'}>
                     <TasksStatusMap
@@ -109,7 +115,10 @@ function Overview(props) {
                         <OverviewPaymentStatistics data={props.getOverviewStats}/>
                     </div>
                     <Substrate title={'REVENUE'}>
-                        <TasksHistogram data={props.getRevenueHistogram}/>
+                        <TasksHistogram
+                            data={props.getRevenueHistogram}
+                            model={REVENUE_LINE}
+                        />
                     </Substrate>
                 </div>
             </div>

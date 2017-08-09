@@ -2,9 +2,6 @@ import React, { PropTypes } from 'react';
 import {
     merge
 } from 'lodash/fp';
-import {
-    REVENUE_LINE
-} from 'models/highchartConfig';
 import Highchart from 'react-highcharts/ReactHighcharts';
 import Placeholder from 'components/Placeholder';
 import LegendRow from 'components/ListItem/LegendRow';
@@ -15,7 +12,11 @@ function TasksHistogram(props) {
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
-                        <Placeholder busy={props.data.busy} size={[ '100%', '240px' ]} />
+                        <Placeholder
+                            busy={props.data.busy}
+                            size={[ '100%', (props.model.chart && props.model.chart.height) ?
+                                `${props.model.chart.height.toString()}px` : '240px' ]}
+                        />
                     ),
                     Just: fields => (
                         <div>
@@ -24,13 +25,13 @@ function TasksHistogram(props) {
                                     fields.series.map((field, index) => (
                                         <LegendRow
                                             key={index}
-                                            color={REVENUE_LINE.colors[index]}
+                                            color={props.model.colors[index]}
                                             title={field.name}
                                         />
                                     ))
                                 }
                             </div>
-                            <Highchart config={merge(fields, REVENUE_LINE)} />
+                            <Highchart config={merge(fields, props.model)} />
                         </div>
                     )
                 }),
@@ -43,7 +44,8 @@ function TasksHistogram(props) {
 }
 
 TasksHistogram.propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    model: PropTypes.object.isRequired
 };
 
 export default TasksHistogram;
