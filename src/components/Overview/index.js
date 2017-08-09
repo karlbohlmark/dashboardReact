@@ -112,7 +112,7 @@ function Overview(props) {
                 <div>
                     <div styleName='category_panel_title'>Payment statistics</div>
                     <div styleName="returning_subscribers" style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
-                        <OverviewPaymentStatistics data={props.getOverviewStats}/>
+                        <OverviewPaymentStatistics data={props.getPaymentStatistics}/>
                     </div>
                     <Substrate title={'REVENUE'}>
                         <TasksHistogram
@@ -127,6 +127,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    getPaymentStatistics: PropTypes.object.isRequired,
     getLiveStats: PropTypes.object.isRequired,
     getRevenueHistogram: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,

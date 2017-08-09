@@ -28,27 +28,41 @@ function OverviewPaymentStatistics(props) {
                         Just: fields => (
                             <div>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#07944a'}}
+                                    styleChildren={{
+                                        backgroundColor: (fields.totalTaskValue.color &&
+                                            !isNull(fields.totalTaskValue.color)) ?
+                                            fields.totalTaskValue.color : '#07944a'
+                                    }}
                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 200}}
                                     upItem={
-                                        fields.completedTasksPerDay &&
-                                        !isNull(fields.completedTasksPerDay) ?
-                                            fields.completedTasksPerDay : '0'}
-                                    item={'TOTAL TASKS VALUE'}
+                                        fields.totalTaskValue &&
+                                        !isNull(fields.totalTaskValue.value) ?
+                                            fields.totalTaskValue.value : '0'}
+                                    item={
+                                        fields.totalTaskValue &&
+                                        !isNull(fields.totalTaskValue.title) ?
+                                            fields.totalTaskValue.title.toUpperCase() : ''}
                                     // subItem={'(IN AVERAGE PER GOFUNDI)'}
                                 >
                                     <div styleName="completed-tasks" />
                                 </ReportRow>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#F2EC2B'}}
+                                    styleChildren={{
+                                        backgroundColor: (fields.totalGoFundiEarnings.color &&
+                                            !isNull(fields.totalGoFundiEarnings.color)) ?
+                                            fields.totalGoFundiEarnings.color : '#07944a'
+                                    }}
                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 200}}
                                     upItem={
-                                        fields.increasePercentage &&
-                                        !isNull(fields.increasePercentage) ?
-                                            fields.increasePercentage : '0'}
-                                    item={'TOTAL GOFUNDI EARNINGS'}
+                                        fields.totalGoFundiEarnings &&
+                                        !isNull(fields.totalGoFundiEarnings.value) ?
+                                            fields.totalGoFundiEarnings.value : '0'}
+                                    item={
+                                        fields.totalGoFundiEarnings &&
+                                        !isNull(fields.totalGoFundiEarnings.title) ?
+                                            fields.totalGoFundiEarnings.title.toUpperCase() : ''}
                                     // subItem={'(TASKS COMPLETED)'}
                                 >
                                     <div styleName="line-chart" />
@@ -73,27 +87,41 @@ function OverviewPaymentStatistics(props) {
                         Just: fields => (
                             <div>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#C53752'}}
+                                    styleChildren={{
+                                        backgroundColor: (fields.paidOutTasks.color &&
+                                            !isNull(fields.paidOutTasks.color)) ?
+                                            fields.paidOutTasks.color : '#07944a'
+                                    }}
                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 165}}
                                     upItem={
-                                        fields.completedTasksPerDay &&
-                                        !isNull(fields.completedTasksPerDay) ?
-                                            fields.completedTasksPerDay : '0'}
-                                    item={'PAID OUT TASKS'}
+                                        fields.paidOutTasks &&
+                                        !isNull(fields.paidOutTasks.value) ?
+                                            fields.paidOutTasks.value : '0'}
+                                    item={
+                                        fields.paidOutTasks &&
+                                        !isNull(fields.paidOutTasks.title) ?
+                                            fields.paidOutTasks.title.toUpperCase() : ''}
                                     // subItem={'(IN AVERAGE PER GOFUNDI)'}
                                 >
                                     <div styleName="line-chart" />
                                 </ReportRow>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#F47321'}}
+                                    styleChildren={{
+                                        backgroundColor: (fields.pendingPayments.color &&
+                                            !isNull(fields.pendingPayments.color)) ?
+                                            fields.pendingPayments.color : '#07944a'
+                                    }}
                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 165}}
                                     upItem={
-                                        fields.increasePercentage &&
-                                        !isNull(fields.increasePercentage) ?
-                                            fields.increasePercentage : '0'}
-                                    item={'PENDING PAYMENTS'}
+                                        fields.pendingPayments &&
+                                        !isNull(fields.pendingPayments.value) ?
+                                            fields.pendingPayments.value : '0'}
+                                    item={
+                                        fields.pendingPayments &&
+                                        !isNull(fields.pendingPayments.title) ?
+                                            fields.pendingPayments.title.toUpperCase() : ''}
                                     // subItem={'(TASKS COMPLETED)'}
                                 >
                                     <div styleName="line-chart" />

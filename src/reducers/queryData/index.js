@@ -66,6 +66,10 @@ import {
     initialState as initialLiveStats,
     reducer as reducerLiveStats
 } from './getLiveStats';
+import {
+    initialState as initialPaymentStatistics,
+    reducer as reducerPaymentStatistics
+} from './getPaymentStatistics';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -84,7 +88,8 @@ export const initialState = {
     goFundisCharts: initialGoFundisCharts,
     taskCategoryBreakdown: initialTaskCategoryBreakdown,
     getRevenueHistogram: initialRevenueHistogram,
-    getLiveStats: initialLiveStats
+    getLiveStats: initialLiveStats,
+    getPaymentStatistics: initialPaymentStatistics
 };
 
 export function reducer(state, action) {
@@ -105,6 +110,7 @@ export function reducer(state, action) {
     const nextTaskCategoryBreakdown = reducerTaskCategoryBreakdown(state.taskCategoryBreakdown, action);
     const nextRevenueHistogram = reducerRevenueHistogram(state.getRevenueHistogram, action);
     const nextLiveStats = reducerLiveStats(state.getLiveStats, action);
+    const nextPaymentStatistics = reducerPaymentStatistics(state.getPaymentStatistics, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -122,7 +128,8 @@ export function reducer(state, action) {
         state.goFundisCharts === nextGoFundisCharts &&
         state.taskCategoryBreakdown === nextTaskCategoryBreakdown &&
         state.getRevenueHistogram === nextRevenueHistogram &&
-        state.getLiveStats === nextLiveStats
+        state.getLiveStats === nextLiveStats &&
+        state.getPaymentStatistics === nextPaymentStatistics
     ) {
         return state;
     }
@@ -144,6 +151,7 @@ export function reducer(state, action) {
         goFundisCharts: nextGoFundisCharts,
         taskCategoryBreakdown: nextTaskCategoryBreakdown,
         getRevenueHistogram: nextRevenueHistogram,
-        getLiveStats: nextLiveStats
+        getLiveStats: nextLiveStats,
+        getPaymentStatistics: nextPaymentStatistics
     };
 }
