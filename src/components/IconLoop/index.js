@@ -7,7 +7,7 @@ import {
 } from 'lodash/fp';
 
 const IconLoop = props => (
-    <div styleName="list_item_star">
+    <div styleName="list_item_star" style={props.style ? props.style : null}>
         {
             times(i => (
                 props.children ? props.children :
@@ -27,7 +27,8 @@ IconLoop.propTypes = {
         React.PropTypes.object
     ]),
     name: PropTypes.string,
-    number: PropTypes.number
+    number: PropTypes.number,
+    style: React.PropTypes.object
 };
 
 export default CSSModules(IconLoop, styles);

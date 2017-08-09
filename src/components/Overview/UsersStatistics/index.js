@@ -15,152 +15,311 @@ function OverviewUsersStatistics(props) {
             flexDirection: 'row',
             alignSelf: 'center',
             flexWrap: 'wrap',
-            justifyContent: 'space-around'
+            justifyContent: 'space-around',
+            width: '100%'
         }}>
-            <div styleName="list_column" style={{margin: 10}}>
-                {props.data.errors.cata({
-                    Nothing: () => props.data.results.cata({
-                        Nothing: () => (
-                            <Placeholder
-                                style={{width: 235, height: 190}}
-                                busy={props.data.busy}
-                                size={[ '220px', '190px' ]} />
-                        ),
-                        Just: fields => (
-                            <div style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'flex-end'
-                            }}>
-                                <ReportRow
-                                    styleChildren={{
-                                        backgroundColor: '#FBAA1A'
-                                    }}
-                                    styleUpItem={{
-                                        color: (fields.activeGoFundis.color &&
-                                            !isNull(fields.activeGoFundis.color)) ?
-                                            fields.activeGoFundis.color : '#FBAA1A',
-                                        textOverflow: 'ellipsis',
-                                        overflow: 'hidden'}}
-                                    styleReportBlock={{width: 200}}
-                                    upItem={
-                                        fields.activeGoFundis &&
-                                        !isNull(fields.activeGoFundis.value) ?
-                                            fields.activeGoFundis.value : '0'}
-                                    item={
-                                        fields.activeGoFundis &&
-                                        !isNull(fields.activeGoFundis.title) ?
-                                            fields.activeGoFundis.title.toUpperCase() : ''}
-                                >
-                                    <div styleName="user" />
-                                </ReportRow>
-                                <ReportRow
-                                    styleUpItem={{
-                                        color: (fields.averageTravelDistance.color &&
-                                            !isNull(fields.averageTravelDistance.color)) ?
-                                            fields.averageTravelDistance.color : '#FBAA1A',
-                                        textOverflow: 'ellipsis',
-                                        overflow: 'hidden'}}
-                                    styleReportBlock={{width: 200}}
-                                    upItem={
-                                        fields.averageTravelDistance &&
-                                        !isNull(fields.averageTravelDistance.value) ?
-                                            fields.averageTravelDistance.value : '0'}
-                                    item={
-                                        fields.averageTravelDistance &&
-                                        !isNull(fields.averageTravelDistance.title) ?
-                                            fields.averageTravelDistance.title.toUpperCase() : ''}
-                                />
-                                <ReportRow
-                                    styleUpItem={{
-                                        color: (fields.averageRating.color &&
-                                            !isNull(fields.averageRating.color)) ?
-                                            fields.averageRating.color : '#FBAA1A',
-                                        textOverflow: 'ellipsis',
-                                        overflow: 'hidden'}}
-                                    styleReportBlock={{width: 200}}
-                                    upItem={
-                                        fields.averageRating &&
-                                        !isNull(fields.averageRating.value) ?
-                                            (
-                                                <IconLoop number={
-                                                    Math.floor(fields.averageRating.value ?
-                                                        parseFloat(fields.averageRating.value).toFixed(2) : 0)
-                                                } name={'star'} />
-                                            ) : '0'}
+            <div style={{
+                margin: 10
+            }}>
+                <div style={{
+                    backgroundColor: '#fff',
+                    textAlign: 'center',
+                    padding: 10
+                }}>
+                    GOFUNDIS
+                </div>
 
-                                    item={
-                                        fields.averageRating &&
-                                        !isNull(fields.averageRating.title) ?
-                                            fields.averageRating.title.toUpperCase() : ''}
-                                />
-                            </div>
+                <div styleName="list_column" style={{marginTop: 10, marginBottom: 10}}>
+                    {props.data.errors.cata({
+                        Nothing: () => props.data.results.cata({
+                            Nothing: () => (
+                                <Placeholder
+                                    style={{width: '100%', height: 190}}
+                                    busy={props.data.busy}
+                                    size={[ '100%', '100%' ]} />
+                            ),
+                            Just: fields => (
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    flexWrap: 'wrap',
+                                    justifyContent: 'center'
+                                }}>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-end',
+                                        marginRight: 5,
+                                        marginLeft: 5
+                                    }}>
+                                        <ReportRow
+                                            styleChildren={{
+                                                backgroundColor: '#FBAA1A'
+                                            }}
+                                            styleUpItem={{
+                                                color: (fields.activeGoFundis.color &&
+                                                    !isNull(fields.activeGoFundis.color)) ?
+                                                    fields.activeGoFundis.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.activeGoFundis &&
+                                                !isNull(fields.activeGoFundis.value) ?
+                                                    fields.activeGoFundis.value : '0'}
+                                            item={
+                                                fields.activeGoFundis &&
+                                                !isNull(fields.activeGoFundis.title) ?
+                                                    fields.activeGoFundis.title.toUpperCase() : ''}
+                                            subItem={'(in average per day)'.toUpperCase()}
+                                        >
+                                            <div styleName="user" />
+                                        </ReportRow>
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.averageTravelDistance.color &&
+                                                    !isNull(fields.averageTravelDistance.color)) ?
+                                                    fields.averageTravelDistance.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.averageTravelDistance &&
+                                                !isNull(fields.averageTravelDistance.value) ?
+                                                    fields.averageTravelDistance.value : '0'}
+                                            item={
+                                                fields.averageTravelDistance &&
+                                                !isNull(fields.averageTravelDistance.title) ?
+                                                    fields.averageTravelDistance.title.toUpperCase() : ''}
+                                            subItem={'\u00a0'.toUpperCase()}
+                                        />
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.averageRating.color &&
+                                                    !isNull(fields.averageRating.color)) ?
+                                                    fields.averageRating.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.averageRating &&
+                                                !isNull(fields.averageRating.value) ?
+                                                    (
+                                                        <IconLoop number={
+                                                            Math.floor(fields.averageRating.value ?
+                                                                parseFloat(fields.averageRating.value).toFixed(2) : 0)
+                                                        } name={'star'} style={{height: '30px'}} />
+                                                    ) : '0'}
+
+                                            item={
+                                                fields.averageRating &&
+                                                !isNull(fields.averageRating.title) ?
+                                                    fields.averageRating.title.toUpperCase() : ''}
+                                        />
+                                    </div>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-end',
+                                        marginRight: 5,
+                                        marginLeft: 5
+                                    }}>
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.averageExecutionTime.color &&
+                                                    !isNull(fields.averageExecutionTime.color)) ?
+                                                    fields.averageExecutionTime.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.averageExecutionTime &&
+                                                !isNull(fields.averageExecutionTime.value) ?
+                                                    fields.averageExecutionTime.value : '0'}
+                                            item={
+                                                fields.averageExecutionTime &&
+                                                !isNull(fields.averageExecutionTime.title) ?
+                                                    fields.averageExecutionTime.title.toUpperCase() : ''}
+                                            subItem={'\u00a0'.toUpperCase()}
+                                        />
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.averageResponseTime.color &&
+                                                    !isNull(fields.averageResponseTime.color)) ?
+                                                    fields.averageResponseTime.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.averageResponseTime &&
+                                                !isNull(fields.averageResponseTime.value) ?
+                                                    fields.averageResponseTime.value : '0'}
+                                            item={
+                                                fields.averageResponseTime &&
+                                                !isNull(fields.averageResponseTime.title) ?
+                                                    fields.averageResponseTime.title.toUpperCase() : ''}
+                                            subItem={'\u00a0'.toUpperCase()}
+                                        />
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.averageCompletionTime.color &&
+                                                    !isNull(fields.averageCompletionTime.color)) ?
+                                                    fields.averageCompletionTime.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.averageCompletionTime &&
+                                                !isNull(fields.averageCompletionTime.value) ?
+                                                    fields.averageCompletionTime.value : '0'}
+
+                                            item={
+                                                fields.averageCompletionTime &&
+                                                !isNull(fields.averageCompletionTime.title) ?
+                                                    fields.averageCompletionTime.title.toUpperCase() : ''}
+                                        />
+                                    </div>
+
+                                </div>
+                            )
+                        }),
+                        Just: errors => (
+                            <div>{errors}</div>
                         )
-                    }),
-                    Just: errors => (
-                        <div>{errors}</div>
-                    )
-                })}
+                    })}
+                </div>
             </div>
-            {/*<div styleName="list_column" style={{margin: 10}}>*/}
-                {/*{props.data.errors.cata({*/}
-                    {/*Nothing: () => props.data.results.cata({*/}
-                        {/*Nothing: () => (*/}
-                            {/*<Placeholder*/}
-                                {/*style={{width: 200, height: 190}}*/}
-                                {/*busy={props.data.busy}*/}
-                                {/*size={[ '220px', '190px' ]} />*/}
-                        {/*),*/}
-                        {/*Just: fields => (*/}
-                            {/*<div>*/}
-                                {/*<ReportRow*/}
-                                    {/*styleChildren={{*/}
-                                        {/*backgroundColor: (fields.paidOutTasks.color &&*/}
-                                            {/*!isNull(fields.paidOutTasks.color)) ?*/}
-                                            {/*fields.paidOutTasks.color : '#07944a'*/}
-                                    {/*}}*/}
-                                    {/*styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}*/}
-                                    {/*styleReportBlock={{width: 165}}*/}
-                                    {/*upItem={*/}
-                                        {/*fields.paidOutTasks &&*/}
-                                        {/*!isNull(fields.paidOutTasks.value) ?*/}
-                                            {/*fields.paidOutTasks.value : '0'}*/}
-                                    {/*item={*/}
-                                        {/*fields.paidOutTasks &&*/}
-                                        {/*!isNull(fields.paidOutTasks.title) ?*/}
-                                            {/*fields.paidOutTasks.title.toUpperCase() : ''}*/}
-                                    {/*// subItem={'(IN AVERAGE PER GOFUNDI)'}*/}
-                                {/*>*/}
-                                    {/*<div styleName="line-chart" />*/}
-                                {/*</ReportRow>*/}
-                                {/*<ReportRow*/}
-                                    {/*styleChildren={{*/}
-                                        {/*backgroundColor: (fields.pendingPayments.color &&*/}
-                                            {/*!isNull(fields.pendingPayments.color)) ?*/}
-                                            {/*fields.pendingPayments.color : '#07944a'*/}
-                                    {/*}}*/}
-                                    {/*styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}*/}
-                                    {/*styleReportBlock={{width: 165}}*/}
-                                    {/*upItem={*/}
-                                        {/*fields.pendingPayments &&*/}
-                                        {/*!isNull(fields.pendingPayments.value) ?*/}
-                                            {/*fields.pendingPayments.value : '0'}*/}
-                                    {/*item={*/}
-                                        {/*fields.pendingPayments &&*/}
-                                        {/*!isNull(fields.pendingPayments.title) ?*/}
-                                            {/*fields.pendingPayments.title.toUpperCase() : ''}*/}
-                                    {/*// subItem={'(TASKS COMPLETED)'}*/}
-                                {/*>*/}
-                                    {/*<div styleName="line-chart" />*/}
-                                {/*</ReportRow>*/}
-                            {/*</div>*/}
-                        {/*)*/}
-                    {/*}),*/}
-                    {/*Just: errors => (*/}
-                        {/*<div>{errors}</div>*/}
-                    {/*)*/}
-                {/*})}*/}
-            {/*</div>*/}
+            <div style={{
+                margin: 10
+            }}>
+                <div style={{
+                    backgroundColor: '#fff',
+                    textAlign: 'center',
+                    padding: 10
+                }}>
+                    SUBSCRIBERS
+                </div>
+
+                <div styleName="list_column" style={{marginTop: 10, marginBottom: 10}}>
+                    {props.data.errors.cata({
+                        Nothing: () => props.data.results.cata({
+                            Nothing: () => (
+                                <Placeholder
+                                    style={{width: '100%', height: 190}}
+                                    busy={props.data.busy}
+                                    size={[ '100%', '100%' ]} />
+                            ),
+                            Just: fields => (
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    flexWrap: 'wrap',
+                                    justifyContent: 'center'
+                                }}>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-end',
+                                        marginRight: 5,
+                                        marginLeft: 5
+                                    }}>
+                                        <ReportRow
+                                            styleChildren={{
+                                                backgroundColor: '#C6D92D'
+                                            }}
+                                            styleUpItem={{
+                                                color: (fields.averageNumberOfReportedIssues.color &&
+                                                    !isNull(fields.averageNumberOfReportedIssues.color)) ?
+                                                    fields.averageNumberOfReportedIssues.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.averageNumberOfReportedIssues &&
+                                                !isNull(fields.averageNumberOfReportedIssues.value) ?
+                                                    fields.averageNumberOfReportedIssues.value : '0'}
+                                            item={
+                                                fields.averageNumberOfReportedIssues &&
+                                                !isNull(fields.averageNumberOfReportedIssues.title) ?
+                                                    fields.averageNumberOfReportedIssues.title.toUpperCase() : ''}
+                                            subItem={'(per subscriber)'.toUpperCase()}
+                                        >
+                                            <div styleName="user" />
+                                        </ReportRow>
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.percentageOfFollowUpTasks.color &&
+                                                    !isNull(fields.percentageOfFollowUpTasks.color)) ?
+                                                    fields.percentageOfFollowUpTasks.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.percentageOfFollowUpTasks &&
+                                                !isNull(fields.percentageOfFollowUpTasks.value) ?
+                                                    fields.percentageOfFollowUpTasks.value : '0'}
+                                            item={
+                                                fields.percentageOfFollowUpTasks &&
+                                                !isNull(fields.percentageOfFollowUpTasks.title) ?
+                                                    fields.percentageOfFollowUpTasks.title.toUpperCase() : ''}
+                                            subItem={'(same subscriber-same category)'.toUpperCase()}
+                                        />
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.percentageOfRecurringTasks.color &&
+                                                    !isNull(fields.percentageOfRecurringTasks.color)) ?
+                                                    fields.percentageOfRecurringTasks.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.percentageOfRecurringTasks &&
+                                                !isNull(fields.percentageOfRecurringTasks.value) ?
+                                                    fields.percentageOfRecurringTasks.value : '0'}
+
+                                            item={
+                                                fields.percentageOfRecurringTasks &&
+                                                !isNull(fields.percentageOfRecurringTasks.title) ?
+                                                    fields.percentageOfRecurringTasks.title.toUpperCase() : ''}
+                                            subItem={'(same subscriber-different category)'.toUpperCase()}
+                                        />
+                                    </div>
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-end',
+                                        marginRight: 5,
+                                        marginLeft: 5
+                                    }}>
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.preferredTimeForService.color &&
+                                                    !isNull(fields.preferredTimeForService.color)) ?
+                                                    fields.preferredTimeForService.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.preferredTimeForService &&
+                                                !isNull(fields.preferredTimeForService.value) ?
+                                                    fields.preferredTimeForService.value : '0'}
+                                            item={
+                                                fields.preferredTimeForService &&
+                                                !isNull(fields.preferredTimeForService.title) ?
+                                                    fields.preferredTimeForService.title.toUpperCase() : ''}
+                                            subItem={'\u00a0'.toUpperCase()}
+                                        />
+                                    </div>
+                                </div>
+                            )
+                        }),
+                        Just: errors => (
+                            <div>{errors}</div>
+                        )
+                    })}
+                </div>
+            </div>
+
         </div>
     );
 }
