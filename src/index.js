@@ -19,6 +19,9 @@ import {
     receivePage as receivePageUserLocation
 } from 'actions/queryData/userLocation';
 import {
+    receivePage as receivePageGetRevenueHistogram
+} from 'actions/queryData/getRevenueHistogram';
+import {
     receivePage as receivePageGetOverviewStats
 } from 'actions/queryData/getOverviewStats';
 import {
@@ -108,6 +111,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGetRevenueHistogram
+                        ), compose(
                         store.dispatch,
                         receivePageUserLocation
                         ), compose(

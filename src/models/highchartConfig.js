@@ -1,3 +1,29 @@
+export const REVENUE_LINE = {
+    credits: {
+        enabled: false
+    },
+    chart: {
+        height: 180
+    },
+    colors: ['#c6d92e', '#6ebe46'],
+    title: {
+        text: ''
+    },
+    subtitle: {
+        text: ''
+    },
+    yAxis: {
+        title: {
+            text: 'Earnings'
+        }
+    },
+    legend: {
+        enabled: false,
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    }
+};
 export const COMPLETED_TASKS_LINE = {
     credits: {
         enabled: false

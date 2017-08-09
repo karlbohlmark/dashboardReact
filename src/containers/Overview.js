@@ -47,16 +47,21 @@ import {
 import {
     receivePage as receivePageGetOverviewStats
 } from 'actions/queryData/getOverviewStats';
+import {
+    receivePage as receivePageGetRevenueHistogram
+} from 'actions/queryData/getRevenueHistogram';
 import Overview from 'components/Overview';
 
 class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                getRevenueHistogram={this.props.getRevenueHistogram}
                 listCategories={this.props.listCategories}
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGetRevenueHistogram,
                     this.props.receivePageGetOverviewStats,
                     this.props.receivePageUserLocation,
                     this.props.receivePageTaskLocationByCategory,
@@ -108,12 +113,14 @@ OverviewContainer.propTypes = {
     receivePageUserLocation: PropTypes.func.isRequired,
     receivePageTaskLocationByStatus: PropTypes.func.isRequired,
     receivePageTaskLocationByCategory: PropTypes.func.isRequired,
-    receivePageGetOverviewStats: PropTypes.func.isRequired
+    receivePageGetOverviewStats: PropTypes.func.isRequired,
+    receivePageGetRevenueHistogram: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
+        getRevenueHistogram: queryData.getRevenueHistogram,
         listCategories: queryData.listDashboardCategories,
         getOverviewStats: queryData.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
@@ -154,7 +161,8 @@ const bindActions = {
     receivePageUserLocation,
     receivePageTaskLocationByStatus,
     receivePageTaskLocationByCategory,
-    receivePageGetOverviewStats
+    receivePageGetOverviewStats,
+    receivePageGetRevenueHistogram
 };
 
 export default compose(

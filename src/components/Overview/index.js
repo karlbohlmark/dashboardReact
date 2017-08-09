@@ -4,9 +4,10 @@ import styles from './styles.css';
 import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
 import OverviewTaskStatistics from 'components/Overview/TaskStatistics';
 import OverviewTaskLiveStatistics from 'components/Overview/TaskStatistics/Live';
+import OverviewPaymentStatistics from 'components/Overview/PaymentStatistics';
 // import OverviewBlockStats from 'components/Overview/BlockStats';
 // import GofundisHightChart from 'components/GoFundis/HightChart';
-import TasksHistogram from 'components/Tasks/Histogram';
+import TasksHistogram from 'components/Overview/PaymentStatistics/Histogram';
 import TasksStatusMap from 'components/Tasks/StatusMap';
 import CategoriesMap from 'components/CategoriesMap';
 import UsersMap from 'components/UsersMap';
@@ -103,9 +104,12 @@ function Overview(props) {
 
                 <div>
                     <div styleName='category_panel_title'>Payment statistics</div>
-                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
-
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
+                        <OverviewPaymentStatistics data={props.getOverviewStats}/>
                     </div>
+                    <Substrate title={'REVENUE'}>
+                        <TasksHistogram data={props.getRevenueHistogram}/>
+                    </Substrate>
                 </div>
             </div>
         </div>
@@ -113,6 +117,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    getRevenueHistogram: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,

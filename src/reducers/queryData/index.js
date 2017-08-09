@@ -58,6 +58,10 @@ import {
     initialState as initialTaskCategoryBreakdown,
     reducer as reducerTaskCategoryBreakdown
 } from './taskCategoryBreakdown';
+import {
+    initialState as initialRevenueHistogram,
+    reducer as reducerRevenueHistogram
+} from './getRevenueHistogram';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -74,7 +78,8 @@ export const initialState = {
     subscribersSharePerArea: initialSubscribersSharePerArea,
     goFundisStatuses: initialGoFundisStatuses,
     goFundisCharts: initialGoFundisCharts,
-    taskCategoryBreakdown: initialTaskCategoryBreakdown
+    taskCategoryBreakdown: initialTaskCategoryBreakdown,
+    getRevenueHistogram: initialRevenueHistogram
 };
 
 export function reducer(state, action) {
@@ -93,6 +98,7 @@ export function reducer(state, action) {
     const nextGoFundisStatuses = reducerGoFundisStatuses(state.goFundisStatuses, action);
     const nextGoFundisCharts = reducerGoFundisCharts(state.goFundisCharts, action);
     const nextTaskCategoryBreakdown = reducerTaskCategoryBreakdown(state.taskCategoryBreakdown, action);
+    const nextRevenueHistogram = reducerRevenueHistogram(state.getRevenueHistogram, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -108,7 +114,8 @@ export function reducer(state, action) {
         state.subscribersSharePerArea === nextSubscribersSharePerArea &&
         state.goFundisStatuses === nextGoFundisStatuses &&
         state.goFundisCharts === nextGoFundisCharts &&
-        state.taskCategoryBreakdown === nextTaskCategoryBreakdown
+        state.taskCategoryBreakdown === nextTaskCategoryBreakdown &&
+        state.getRevenueHistogram === nextRevenueHistogram
     ) {
         return state;
     }
@@ -128,6 +135,7 @@ export function reducer(state, action) {
         subscribersSharePerArea: nextSubscribersSharePerArea,
         goFundisStatuses: nextGoFundisStatuses,
         goFundisCharts: nextGoFundisCharts,
-        taskCategoryBreakdown: nextTaskCategoryBreakdown
+        taskCategoryBreakdown: nextTaskCategoryBreakdown,
+        getRevenueHistogram: nextRevenueHistogram
     };
 }
