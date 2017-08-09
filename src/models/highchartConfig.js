@@ -3,9 +3,9 @@ export const REVENUE_LINE = {
         enabled: false
     },
     chart: {
-        height: 180
+        height: 240
     },
-    colors: ['#c6d92e', '#6ebe46'],
+    colors: ['#c6d92e'],
     title: {
         text: ''
     },

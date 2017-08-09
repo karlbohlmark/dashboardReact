@@ -50,17 +50,22 @@ import {
 import {
     receivePage as receivePageGetRevenueHistogram
 } from 'actions/queryData/getRevenueHistogram';
+import {
+    receivePage as receivePageGetLiveStats
+} from 'actions/queryData/getLiveStats';
 import Overview from 'components/Overview';
 
 class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                getLiveStats={this.props.getLiveStats}
                 getRevenueHistogram={this.props.getRevenueHistogram}
                 listCategories={this.props.listCategories}
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGetLiveStats,
                     this.props.receivePageGetRevenueHistogram,
                     this.props.receivePageGetOverviewStats,
                     this.props.receivePageUserLocation,
@@ -100,6 +105,8 @@ OverviewContainer.propTypes = {
 
     dateRangePicker: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
+    getRevenueHistogram: PropTypes.object.isRequired,
+    getLiveStats: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -114,12 +121,14 @@ OverviewContainer.propTypes = {
     receivePageTaskLocationByStatus: PropTypes.func.isRequired,
     receivePageTaskLocationByCategory: PropTypes.func.isRequired,
     receivePageGetOverviewStats: PropTypes.func.isRequired,
-    receivePageGetRevenueHistogram: PropTypes.func.isRequired
+    receivePageGetRevenueHistogram: PropTypes.func.isRequired,
+    receivePageGetLiveStats: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
+        getLiveStats: queryData.getLiveStats,
         getRevenueHistogram: queryData.getRevenueHistogram,
         listCategories: queryData.listDashboardCategories,
         getOverviewStats: queryData.getOverviewStats,
@@ -162,7 +171,8 @@ const bindActions = {
     receivePageTaskLocationByStatus,
     receivePageTaskLocationByCategory,
     receivePageGetOverviewStats,
-    receivePageGetRevenueHistogram
+    receivePageGetRevenueHistogram,
+    receivePageGetLiveStats
 };
 
 export default compose(

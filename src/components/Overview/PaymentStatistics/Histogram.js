@@ -15,7 +15,7 @@ function TasksHistogram(props) {
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
-                        <Placeholder busy={props.data.busy} size={[ '100%', '180px' ]} />
+                        <Placeholder busy={props.data.busy} size={[ '100%', '240px' ]} />
                     ),
                     Just: fields => (
                         <div>

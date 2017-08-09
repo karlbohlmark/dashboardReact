@@ -62,6 +62,10 @@ import {
     initialState as initialRevenueHistogram,
     reducer as reducerRevenueHistogram
 } from './getRevenueHistogram';
+import {
+    initialState as initialLiveStats,
+    reducer as reducerLiveStats
+} from './getLiveStats';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -79,7 +83,8 @@ export const initialState = {
     goFundisStatuses: initialGoFundisStatuses,
     goFundisCharts: initialGoFundisCharts,
     taskCategoryBreakdown: initialTaskCategoryBreakdown,
-    getRevenueHistogram: initialRevenueHistogram
+    getRevenueHistogram: initialRevenueHistogram,
+    getLiveStats: initialLiveStats
 };
 
 export function reducer(state, action) {
@@ -99,6 +104,7 @@ export function reducer(state, action) {
     const nextGoFundisCharts = reducerGoFundisCharts(state.goFundisCharts, action);
     const nextTaskCategoryBreakdown = reducerTaskCategoryBreakdown(state.taskCategoryBreakdown, action);
     const nextRevenueHistogram = reducerRevenueHistogram(state.getRevenueHistogram, action);
+    const nextLiveStats = reducerLiveStats(state.getLiveStats, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -115,7 +121,8 @@ export function reducer(state, action) {
         state.goFundisStatuses === nextGoFundisStatuses &&
         state.goFundisCharts === nextGoFundisCharts &&
         state.taskCategoryBreakdown === nextTaskCategoryBreakdown &&
-        state.getRevenueHistogram === nextRevenueHistogram
+        state.getRevenueHistogram === nextRevenueHistogram &&
+        state.getLiveStats === nextLiveStats
     ) {
         return state;
     }
@@ -136,6 +143,7 @@ export function reducer(state, action) {
         goFundisStatuses: nextGoFundisStatuses,
         goFundisCharts: nextGoFundisCharts,
         taskCategoryBreakdown: nextTaskCategoryBreakdown,
-        getRevenueHistogram: nextRevenueHistogram
+        getRevenueHistogram: nextRevenueHistogram,
+        getLiveStats: nextLiveStats
     };
 }

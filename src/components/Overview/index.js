@@ -67,6 +67,7 @@ function Overview(props) {
                         }} />
                     </div>
                     <OverviewTaskLiveStatistics data={props.getOverviewStats}/>
+                    // getLiveStats
                 </div>
                 <Substrate title={'TASK STATUS'}>
                     <TasksStatusMap
@@ -117,6 +118,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    getLiveStats: PropTypes.object.isRequired,
     getRevenueHistogram: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
