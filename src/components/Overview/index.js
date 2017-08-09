@@ -9,6 +9,7 @@ import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
 import OverviewTaskStatistics from 'components/Overview/TaskStatistics';
 import OverviewTaskLiveStatistics from 'components/Overview/TaskStatistics/Live';
 import OverviewPaymentStatistics from 'components/Overview/PaymentStatistics';
+import OverviewUsersStatistics from 'components/Overview/UsersStatistics';
 // import OverviewBlockStats from 'components/Overview/BlockStats';
 // import GofundisHightChart from 'components/GoFundis/HightChart';
 import TasksHistogram from 'components/Overview/PaymentStatistics/Histogram';
@@ -84,8 +85,8 @@ function Overview(props) {
 
                 <div>
                     <div styleName='category_panel_title'>Users statistics</div>
-                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
-
+                    <div styleName="returning_subscribers" style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
+                        <OverviewUsersStatistics data={props.getUserStats}/>
                     </div>
                 </div>
                 <Substrate title={'USERS'}>
@@ -129,6 +130,7 @@ function Overview(props) {
 Overview.propTypes = {
     getPaymentStatistics: PropTypes.object.isRequired,
     getLiveStats: PropTypes.object.isRequired,
+    getUserStats: PropTypes.object.isRequired,
     getRevenueHistogram: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,

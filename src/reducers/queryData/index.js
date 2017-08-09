@@ -67,6 +67,10 @@ import {
     reducer as reducerLiveStats
 } from './getLiveStats';
 import {
+    initialState as initialUserStats,
+    reducer as reducerUserStats
+} from './getUserStats';
+import {
     initialState as initialPaymentStatistics,
     reducer as reducerPaymentStatistics
 } from './getPaymentStatistics';
@@ -89,7 +93,8 @@ export const initialState = {
     taskCategoryBreakdown: initialTaskCategoryBreakdown,
     getRevenueHistogram: initialRevenueHistogram,
     getLiveStats: initialLiveStats,
-    getPaymentStatistics: initialPaymentStatistics
+    getPaymentStatistics: initialPaymentStatistics,
+    getUserStats: initialUserStats
 };
 
 export function reducer(state, action) {
@@ -111,6 +116,7 @@ export function reducer(state, action) {
     const nextRevenueHistogram = reducerRevenueHistogram(state.getRevenueHistogram, action);
     const nextLiveStats = reducerLiveStats(state.getLiveStats, action);
     const nextPaymentStatistics = reducerPaymentStatistics(state.getPaymentStatistics, action);
+    const nextUserStats = reducerUserStats(state.getUserStats, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -129,7 +135,8 @@ export function reducer(state, action) {
         state.taskCategoryBreakdown === nextTaskCategoryBreakdown &&
         state.getRevenueHistogram === nextRevenueHistogram &&
         state.getLiveStats === nextLiveStats &&
-        state.getPaymentStatistics === nextPaymentStatistics
+        state.getPaymentStatistics === nextPaymentStatistics &&
+        state.getUserStats === nextUserStats
     ) {
         return state;
     }
@@ -152,6 +159,7 @@ export function reducer(state, action) {
         taskCategoryBreakdown: nextTaskCategoryBreakdown,
         getRevenueHistogram: nextRevenueHistogram,
         getLiveStats: nextLiveStats,
-        getPaymentStatistics: nextPaymentStatistics
+        getPaymentStatistics: nextPaymentStatistics,
+        getUserStats: nextUserStats
     };
 }

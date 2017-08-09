@@ -28,6 +28,9 @@ import {
     receivePage as receivePageGetLiveStats
 } from 'actions/queryData/getLiveStats';
 import {
+    receivePage as receivePageGetUserStats
+} from 'actions/queryData/getUserStats';
+import {
     receivePage as receivePageGetOverviewStats
 } from 'actions/queryData/getOverviewStats';
 import {
@@ -117,6 +120,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGetUserStats
+                        ), compose(
                         store.dispatch,
                         receivePageGetPaymentStatistics
                         ), compose(

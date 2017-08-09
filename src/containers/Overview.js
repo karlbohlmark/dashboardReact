@@ -54,6 +54,9 @@ import {
     receivePage as receivePageGetLiveStats
 } from 'actions/queryData/getLiveStats';
 import {
+    receivePage as receivePageGetUserStats
+} from 'actions/queryData/getUserStats';
+import {
     receivePage as receivePageGetPaymentStatistics
 } from 'actions/queryData/getPaymentStatistics';
 import Overview from 'components/Overview';
@@ -62,6 +65,7 @@ class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                getUserStats={this.props.getUserStats}
                 getPaymentStatistics={this.props.getPaymentStatistics}
                 getLiveStats={this.props.getLiveStats}
                 getRevenueHistogram={this.props.getRevenueHistogram}
@@ -69,6 +73,7 @@ class OverviewContainer extends Component {
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGetUserStats,
                     this.props.receivePageGetPaymentStatistics,
                     this.props.receivePageGetLiveStats,
                     this.props.receivePageGetRevenueHistogram,
@@ -112,6 +117,7 @@ OverviewContainer.propTypes = {
     getOverviewStats: PropTypes.object.isRequired,
     getRevenueHistogram: PropTypes.object.isRequired,
     getLiveStats: PropTypes.object.isRequired,
+    getUserStats: PropTypes.object.isRequired,
     getPaymentStatistics: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
@@ -129,7 +135,8 @@ OverviewContainer.propTypes = {
     receivePageGetOverviewStats: PropTypes.func.isRequired,
     receivePageGetRevenueHistogram: PropTypes.func.isRequired,
     receivePageGetLiveStats: PropTypes.func.isRequired,
-    receivePageGetPaymentStatistics: PropTypes.func.isRequired
+    receivePageGetPaymentStatistics: PropTypes.func.isRequired,
+    receivePageGetUserStats: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
@@ -137,6 +144,7 @@ function select({ ui, queryData }) {
     return {
         getPaymentStatistics: queryData.getPaymentStatistics,
         getLiveStats: queryData.getLiveStats,
+        getUserStats: queryData.getUserStats,
         getRevenueHistogram: queryData.getRevenueHistogram,
         listCategories: queryData.listDashboardCategories,
         getOverviewStats: queryData.getOverviewStats,
@@ -181,7 +189,8 @@ const bindActions = {
     receivePageGetOverviewStats,
     receivePageGetRevenueHistogram,
     receivePageGetLiveStats,
-    receivePageGetPaymentStatistics
+    receivePageGetPaymentStatistics,
+    receivePageGetUserStats
 };
 
 export default compose(
