@@ -41,7 +41,7 @@ function OverviewTaskStatistics(props) {
                                     <div styleName="completed-tasks" />
                                 </ReportRow>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#c21e51'}}
+                                    styleChildren={{backgroundColor: '#F2EC2B'}}
                                     styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 185}}
                                     upItem={

@@ -59,12 +59,16 @@ import {
 import {
     receivePage as receivePageGetPaymentStatistics
 } from 'actions/queryData/getPaymentStatistics';
+import {
+    receivePage as receivePageGetCategoryStatistics
+} from 'actions/queryData/getCategoryStatistics';
 import Overview from 'components/Overview';
 
 class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                getCategoryStatistics={this.props.getCategoryStatistics}
                 getUserStats={this.props.getUserStats}
                 getPaymentStatistics={this.props.getPaymentStatistics}
                 getLiveStats={this.props.getLiveStats}
@@ -73,6 +77,7 @@ class OverviewContainer extends Component {
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGetCategoryStatistics,
                     this.props.receivePageGetUserStats,
                     this.props.receivePageGetPaymentStatistics,
                     this.props.receivePageGetLiveStats,
@@ -119,6 +124,7 @@ OverviewContainer.propTypes = {
     getLiveStats: PropTypes.object.isRequired,
     getUserStats: PropTypes.object.isRequired,
     getPaymentStatistics: PropTypes.object.isRequired,
+    getCategoryStatistics: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -136,12 +142,14 @@ OverviewContainer.propTypes = {
     receivePageGetRevenueHistogram: PropTypes.func.isRequired,
     receivePageGetLiveStats: PropTypes.func.isRequired,
     receivePageGetPaymentStatistics: PropTypes.func.isRequired,
-    receivePageGetUserStats: PropTypes.func.isRequired
+    receivePageGetUserStats: PropTypes.func.isRequired,
+    receivePageGetCategoryStatistics: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
+        getCategoryStatistics: queryData.getCategoryStatistics,
         getPaymentStatistics: queryData.getPaymentStatistics,
         getLiveStats: queryData.getLiveStats,
         getUserStats: queryData.getUserStats,
@@ -190,7 +198,8 @@ const bindActions = {
     receivePageGetRevenueHistogram,
     receivePageGetLiveStats,
     receivePageGetPaymentStatistics,
-    receivePageGetUserStats
+    receivePageGetUserStats,
+    receivePageGetCategoryStatistics
 };
 
 export default compose(

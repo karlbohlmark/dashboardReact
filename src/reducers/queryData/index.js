@@ -74,6 +74,10 @@ import {
     initialState as initialPaymentStatistics,
     reducer as reducerPaymentStatistics
 } from './getPaymentStatistics';
+import {
+    initialState as initialCategoryStatistics,
+    reducer as reducerCategoryStatistics
+} from './getCategoryStatistics';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -94,7 +98,8 @@ export const initialState = {
     getRevenueHistogram: initialRevenueHistogram,
     getLiveStats: initialLiveStats,
     getPaymentStatistics: initialPaymentStatistics,
-    getUserStats: initialUserStats
+    getUserStats: initialUserStats,
+    getCategoryStatistics: initialCategoryStatistics
 };
 
 export function reducer(state, action) {
@@ -117,6 +122,7 @@ export function reducer(state, action) {
     const nextLiveStats = reducerLiveStats(state.getLiveStats, action);
     const nextPaymentStatistics = reducerPaymentStatistics(state.getPaymentStatistics, action);
     const nextUserStats = reducerUserStats(state.getUserStats, action);
+    const nextCategoryStatistics = reducerCategoryStatistics(state.getCategoryStatistics, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -136,7 +142,8 @@ export function reducer(state, action) {
         state.getRevenueHistogram === nextRevenueHistogram &&
         state.getLiveStats === nextLiveStats &&
         state.getPaymentStatistics === nextPaymentStatistics &&
-        state.getUserStats === nextUserStats
+        state.getUserStats === nextUserStats &&
+        state.getCategoryStatistics === nextCategoryStatistics
     ) {
         return state;
     }
@@ -160,6 +167,7 @@ export function reducer(state, action) {
         getRevenueHistogram: nextRevenueHistogram,
         getLiveStats: nextLiveStats,
         getPaymentStatistics: nextPaymentStatistics,
-        getUserStats: nextUserStats
+        getUserStats: nextUserStats,
+        getCategoryStatistics: nextCategoryStatistics
     };
 }

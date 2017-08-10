@@ -10,6 +10,8 @@ import OverviewTaskStatistics from 'components/Overview/TaskStatistics';
 import OverviewTaskLiveStatistics from 'components/Overview/TaskStatistics/Live';
 import OverviewPaymentStatistics from 'components/Overview/PaymentStatistics';
 import OverviewUsersStatistics from 'components/Overview/UsersStatistics';
+import OverviewCategoryStatistics from 'components/Overview/CategoryStatistics';
+
 // import OverviewBlockStats from 'components/Overview/BlockStats';
 // import GofundisHightChart from 'components/GoFundis/HightChart';
 import TasksHistogram from 'components/Overview/PaymentStatistics/Histogram';
@@ -102,6 +104,9 @@ function Overview(props) {
 
                     </div>
                 </div>
+                <Substrate>
+                    {/*<OverviewCategoryStatistics data={props.getCategoryStatistics} />*/}
+                </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap
                         options={props.listCategories}
@@ -128,6 +133,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    getCategoryStatistics: PropTypes.object.isRequired,
     getPaymentStatistics: PropTypes.object.isRequired,
     getLiveStats: PropTypes.object.isRequired,
     getUserStats: PropTypes.object.isRequired,
