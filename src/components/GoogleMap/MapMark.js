@@ -8,8 +8,9 @@ import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_DECLINED,
     TASK_STATYS_CANCELLED,
+    TASK_STATYS_SCHEDULED,
+    TASK_STATYS_RATED,
     CATEGORY_NEW_INSTALL_DECODER,
     CATEGORY_NEW_INSTALL_SIGNAL,
     CATEGORY_NEW_INSTALL_ERROR,
@@ -54,9 +55,11 @@ function MapMark(props) {
             return (<div styleName="assigned-tasks" />);
         case TASK_STATYS_UNASSIGNED:
             return (<div styleName="unasigned-tasks" />);
-        case TASK_STATYS_DECLINED:
-            return (<div styleName="declined-tasks" />);
         case TASK_STATYS_CANCELLED:
+            return (<div styleName="cancelled-tasks" />);
+        case TASK_STATYS_SCHEDULED:
+            return (<div styleName="cancelled-tasks" />);
+        case TASK_STATYS_RATED:
             return (<div styleName="cancelled-tasks" />);
         case CATEGORY_NEW_INSTALL_DECODER:
             return (<div styleName="new-installation-decoder" />);

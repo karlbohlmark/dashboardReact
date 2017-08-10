@@ -6,7 +6,9 @@ import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_CANCELLED
+    TASK_STATYS_CANCELLED,
+    TASK_STATYS_SCHEDULED,
+    TASK_STATYS_RATED
 } from 'models/googlemap';
 import CheckBoxItem from 'components/CheckBoxItem';
 
@@ -51,6 +53,22 @@ function TaskPanel(props) {
                     onChange={f => props.onChange(TASK_STATYS_CANCELLED, f)}
                 >
                     Cancelled
+                </CheckBoxItem>
+            </div>
+            <div styleName='inline_items'>
+                <CheckBoxItem
+                    value={props.value.scheduled.getOrElse(false)}
+                    onChange={f => props.onChange(TASK_STATYS_SCHEDULED, f)}
+                >
+                    Scheduled
+                </CheckBoxItem>
+            </div>
+            <div styleName='inline_items'>
+                <CheckBoxItem
+                    value={props.value.rated.getOrElse(false)}
+                    onChange={f => props.onChange(TASK_STATYS_RATED, f)}
+                >
+                    Rated
                 </CheckBoxItem>
             </div>
         </div>
