@@ -27,7 +27,7 @@ function CategoryItem(props) {
                         `${props.name.toString().split(' ').join('-')}-${subCat.icon.toString().split('.svg').join('')}`
                         }
                         name={subCat.name}
-                        percentage={parseFloat(subCat.value) + 1}
+                        percentage={parseFloat(subCat.value)}
                         key={item}
                     />
                 )) : null}

@@ -24,6 +24,7 @@ import {
 export const createMapOptions = curry(
     maps => (
         {
+            scrollwheel: false,
             disableDefaultUI: true,
             zoomControl: true,
             zoomControlOptions: {
