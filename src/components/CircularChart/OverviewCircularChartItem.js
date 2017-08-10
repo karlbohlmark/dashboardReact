@@ -6,11 +6,11 @@ import CircularChart from 'components/CircularChart';
 function CircularChartItem(props) {
     return (
         <CircularChart
-            className='install_decoder'
+            className={props.className ? props.className : 'install_decoder'}
             percentage={props.percentage ? props.percentage : 0}
             strokeWidth={5}
         >
-            <div styleName='new-installation-decoder' />
+            <div styleName={props.classNameIcon ? props.classNameIcon : 'new-installation-decoder'} />
             <div styleName="small_text">
                 {props.name ? props.name.toString().split(' ').join('').toUpperCase() : ''}
             </div>
@@ -19,6 +19,8 @@ function CircularChartItem(props) {
 }
 
 CircularChartItem.propTypes = {
+    className: PropTypes.string.isRequired,
+    classNameIcon: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     percentage: PropTypes.number.isRequired
 };

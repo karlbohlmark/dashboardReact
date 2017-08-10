@@ -20,7 +20,12 @@ function CategoryItem(props) {
             >
                 {isArray(props.subCategories) ? props.subCategories.map((subCat, item) => (
                     <CircularChartItem
-                        // className="install_decoder"
+                        className={
+                        `${props.name.toString().split(' ').join('_')}_${subCat.icon.toString().split('.svg').join('')}`
+                        }
+                        classNameIcon={
+                        `${props.name.toString().split(' ').join('-')}-${subCat.icon.toString().split('.svg').join('')}`
+                        }
                         name={subCat.name}
                         percentage={parseFloat(subCat.value) + 1}
                         key={item}

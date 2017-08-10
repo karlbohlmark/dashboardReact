@@ -1,34 +1,34 @@
-.new-installation-antenna {
+.new-installation-antenna, .new-installations-antenna {
     background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-antenna.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
-.new-installation-other {
+.new-installation-other, .new-installations-other {
     background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-other.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
-.new-installation-decoder {
+.new-installation-decoder, .new-installations-decoder {
     background: rgba(249, 249, 249, 0) url("../__assets__/new-installation-decoder.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
-.repair-antenna {
+.repair-antenna, .repair-installations-antenna {
     background: rgba(249, 249, 249, 0) url("../__assets__/repair-antenna.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
-.repair-decoder {
+.repair-decoder, .repair-installations-decoder {
     background: rgba(249, 249, 249, 0) url("../__assets__/repair-decoder.svg") no-repeat;
     background-size: cover;
     width: 56px;
     height: 56px;
 }
-.repair-other {
+.repair-other, .repair-installations-other {
     background: rgba(249, 249, 249, 0) url("../__assets__/repair-other.svg") no-repeat;
     background-size: cover;
     width: 56px;

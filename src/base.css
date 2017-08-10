@@ -46,6 +46,74 @@
     dominant-baseline: middle;
     text-anchor: middle;
 }
+
+.new_installations_decoder .CircularProgressbar .CircularProgressbar-path {
+    stroke: #c6d92c;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.new_installations_decoder .CircularProgressbar .CircularProgressbar-text {
+    fill: #c6d92c;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.new_installations_antenna .CircularProgressbar .CircularProgressbar-path {
+    stroke: #ed1967;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.new_installations_antenna .CircularProgressbar .CircularProgressbar-text {
+    fill: #ed1967;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.new_installations_other .CircularProgressbar .CircularProgressbar-path {
+    stroke: #6cbd45;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.new_installations_other .CircularProgressbar .CircularProgressbar-text {
+    fill: #6cbd45;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.repair_installations_decoder .CircularProgressbar .CircularProgressbar-path {
+    stroke: #f2ec2b;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.repair_installations_decoder .CircularProgressbar .CircularProgressbar-text {
+    fill: #f2ec2b;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.repair_installations_antenna .CircularProgressbar .CircularProgressbar-path {
+    stroke: #f47321;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.repair_installations_antenna .CircularProgressbar .CircularProgressbar-text {
+    fill: #f47321;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+.repair_installations_other .CircularProgressbar .CircularProgressbar-path {
+    stroke: #000;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.repair_installations_other .CircularProgressbar .CircularProgressbar-text {
+    fill: #000;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+
 .install_decoder .CircularProgressbar .CircularProgressbar-path {
     stroke: #c6d92c;
     stroke-linecap: round;
