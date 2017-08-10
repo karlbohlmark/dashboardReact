@@ -38,13 +38,28 @@ export function reducer(state = initialState, action) {
                 })
             };
         }
+        // case SHOW_TASKS: {
+        //
+        //     return {
+        //         ...state,
+        //         tasks: state.tasks.cata({
+        //             Just: () => !isNil(payload.type) ? Just(payload.type) : Nothing(),
+        //             Nothing: () => !isNil(payload.type) ? Just(payload.type) : Nothing()
+        //         })
+        //     };
+        // }
         case SHOW_TASKS: {
 
             return {
                 ...state,
                 tasks: state.tasks.cata({
-                    Just: () => !isNil(payload.type) ? Just(payload.type) : Nothing(),
-                    Nothing: () => !isNil(payload.type) ? Just(payload.type) : Nothing()
+                    Just: entity => (Just({
+                        ...entity,
+                        [ payload.type ]: payload.value
+                    })),
+                    Nothing: () => (Just({
+                        [ payload.type ]: payload.value
+                    }))
                 })
             };
         }

@@ -1,33 +1,17 @@
 import React, { PropTypes } from 'react';
 import Placeholder from 'components/Placeholder';
-import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapSegment from 'components/GoogleMap';
+import TaskPanel from 'components/Tasks/StatusMap/TaskPanel';
 import {
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
-    TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_DECLINED,
-    TASK_STATYS_CANCELLED
-} from 'models/googlemap';
-import {
-    capitalize,
     filterTask
 } from 'utils';
 
 function TasksStatusMap(props) {
     return (
         <div>
-            <SelectBoxItem
-                options={[
-                    { value: TASK_STATYS_COMPLETED, label: capitalize(TASK_STATYS_COMPLETED) },
-                    { value: TASK_STATYS_ASSIGNED, label: capitalize(TASK_STATYS_ASSIGNED) },
-                    { value: TASK_STATYS_UNASSIGNED, label: capitalize(TASK_STATYS_UNASSIGNED) },
-                    { value: TASK_STATYS_DECLINED, label: capitalize(TASK_STATYS_DECLINED) },
-                    { value: TASK_STATYS_CANCELLED, label: capitalize(TASK_STATYS_CANCELLED) }
-                ]}
-                onChange={props.onChange}
+            <TaskPanel
                 value={props.value}
-
+                onChange={props.onChange}
             />
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({

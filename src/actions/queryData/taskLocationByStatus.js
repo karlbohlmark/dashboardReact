@@ -40,9 +40,10 @@ export function receivePage() {
         if (queryData.taskLocationByStatus.busy) {
             return Promise.resolve();
         }
+        // TODO fix tasks send query
         const toSendTasksTypes = ui.googlemap.tasks.cata({
             Nothing: () => ([]),
-            Just: value => ([value.toLowerCase()])
+            Just: () => ([])
         });
         dispatch(
             receivePageStart()

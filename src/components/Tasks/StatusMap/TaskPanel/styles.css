@@ -1,0 +1,11 @@
+.inline_items {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-left: 10px;
+}
+.row_items {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}

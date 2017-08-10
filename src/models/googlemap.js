@@ -8,6 +8,7 @@ export const TASK_STATYS_ASSIGNED = 'ASSIGNED';
 export const TASK_STATYS_UNASSIGNED = 'UNASSIGNED';
 export const TASK_STATYS_DECLINED = 'DECLINED';
 export const TASK_STATYS_CANCELLED = 'CANCELLED';
+export const TASK_STATYS_ALL = 'ALL';
 
 export const CATEGORY_NEW_INSTALL_DECODER = 'new-installation-decoder';
 export const CATEGORY_NEW_INSTALL_SIGNAL = 'new-installation-antenna';

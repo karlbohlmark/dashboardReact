@@ -4,7 +4,6 @@ import {
     TASK_STATYS_COMPLETED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_DECLINED,
     TASK_STATYS_CANCELLED,
     CATEGORY_NEW_INSTALL_DECODER,
     CATEGORY_NEW_INSTALL_SIGNAL,
@@ -60,15 +59,20 @@ export const filterUser = curry(
 
 export const filterTask = curry(
     (option, arr) => (
-        isArray(arr) ? filter(item => (
-            ((item.type === TASK_STATYS_COMPLETED && TASK_STATYS_COMPLETED === option.getOrElse('')) ||
-                (item.type === TASK_STATYS_ASSIGNED && TASK_STATYS_ASSIGNED === option.getOrElse('')) ||
-                (item.type === TASK_STATYS_UNASSIGNED && TASK_STATYS_UNASSIGNED === option.getOrElse('')) ||
-                (item.type === TASK_STATYS_UNASSIGNED && TASK_STATYS_UNASSIGNED === option.getOrElse('')) ||
-                (item.type === TASK_STATYS_DECLINED && TASK_STATYS_DECLINED === option.getOrElse('')) ||
-                (item.type === TASK_STATYS_CANCELLED && TASK_STATYS_CANCELLED === option.getOrElse(''))
-            )
-        ), arr) : (false)
+        isArray(arr) ? filter(item => {
+            if (option.all.getOrElse(false)) {
+                return option.all.getOrElse(false);
+            } else if (item.type === TASK_STATYS_COMPLETED) {
+                return option.completed.getOrElse(false);
+            } else if (item.type === TASK_STATYS_ASSIGNED) {
+                return option.assigned.getOrElse(false);
+            } else if (item.type === TASK_STATYS_UNASSIGNED) {
+                return option.unassigned.getOrElse(false);
+            } else if (item.type === TASK_STATYS_CANCELLED) {
+                return option.cancelled.getOrElse(false);
+            }
+            return false;
+        }, arr) : (false)
     )
 );
 
