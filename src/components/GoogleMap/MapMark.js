@@ -23,7 +23,7 @@ import {
 } from 'models/googlemap';
 
 function MapMark(props) {
-
+    // TODO style for new tasks types
     switch (props.type) {
         case GOFUNDIS_STATYS_OFFLINE:
             return (
