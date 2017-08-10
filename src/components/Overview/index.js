@@ -101,11 +101,10 @@ function Overview(props) {
                 <div>
                     <div styleName='category_panel_title'>Category statistics</div>
                     <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
-
                     </div>
                 </div>
                 <Substrate>
-                    {/*<OverviewCategoryStatistics data={props.getCategoryStatistics} />*/}
+                    <OverviewCategoryStatistics data={props.getCategoryStatistics} />
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap

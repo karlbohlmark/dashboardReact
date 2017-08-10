@@ -61,7 +61,12 @@
     text-transform: uppercase;
 
 }
-
+.container_category_item_stat {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
 .container_category_item {
     text-align: center;
     align-items: center;

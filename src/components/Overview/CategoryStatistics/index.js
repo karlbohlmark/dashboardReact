@@ -4,7 +4,7 @@ import styles from '../styles.css';
 import {
     isArray
 } from 'lodash/fp';
-import CategoryItem from 'components/Tasks/CategoryBreakdown/CategoryItem';
+import CategoryItem from 'components/Overview/CategoryStatistics/CategoryItem';
 import Placeholder from 'components/Placeholder';
 
 function OverviewCategoryStatistics(props) {
@@ -16,12 +16,17 @@ function OverviewCategoryStatistics(props) {
                         <Placeholder busy={props.data.busy} size={[ '100%', '332px' ]} />
                     ),
                     Just: fields => (
-                        <div style={{overflow: 'auto', flexWrap: 'wrap', display: 'flex', flexDirection: 'row'}}>
-                            <div styleName="returning_subscribers" >
-                                {isArray(fields) ? fields.map((field, index) => (
-                                    <CategoryItem key={index} {...field} />
+                        <div styleName="returning_subscribers" style={{
+                            flexWrap: 'wrap',
+                            flexDirection: 'row-reverse'
+                        }}>
+                            {(fields.categoryGroups && isArray(fields.categoryGroups)) ?
+                                fields.categoryGroups.map((field, index) => (
+                                    <CategoryItem
+                                        key={index}
+                                        name={field.name}
+                                        subCategories={field.children} />
                                 )) : null}
-                            </div>
                         </div>
                     )
                 }),
