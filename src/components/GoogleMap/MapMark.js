@@ -51,19 +51,47 @@ function MapMark(props) {
                 </div>
             );
         case TASK_STATYS_PERFORMED:
-            return (<div styleName="completed-tasks" />);
+            return (
+                <div styleName="subscribers_user_block" style={{backgroundColor: '#0B3B37'}}>
+                    <div styleName="loading_inner" />
+                </div>
+            );
         case TASK_STATYS_COMPLETED:
-            return (<div styleName="completed-tasks" />);
+            return (
+                <div styleName="subscribers_user_block" style={{backgroundColor: '#07944A'}}>
+                    <div styleName="check_inner" />
+                </div>
+            );
         case TASK_STATYS_ASSIGNED:
-            return (<div styleName="assigned-tasks" />);
+            return (
+                <div styleName="subscribers_user_block" style={{backgroundColor: '#C21F50'}}>
+                    <div styleName="loading_inner" />
+                </div>
+            );
         case TASK_STATYS_UNASSIGNED:
-            return (<div styleName="unasigned-tasks" />);
+            return (
+                <div styleName="subscribers_user_block" style={{backgroundColor: '#F47321'}}>
+                    <div styleName="next_inner" />
+                </div>
+            );
         case TASK_STATYS_CANCELLED:
-            return (<div styleName="cancelled-tasks" />);
+            return (
+                <div styleName="subscribers_user_block" style={{backgroundColor: '#ED1C24'}}>
+                    <div styleName="cancelled_inner" />
+                </div>
+            );
         case TASK_STATYS_SCHEDULED:
-            return (<div styleName="cancelled-tasks" />);
+            return (
+                <div styleName="subscribers_user_block" style={{backgroundColor: '#FFDE00'}}>
+                    <div styleName="time_inner" />
+                </div>
+            );
         case TASK_STATYS_RATED:
-            return (<div styleName="cancelled-tasks" />);
+            return (
+                <div styleName="subscribers_user_block">
+                    <div styleName="user_inner" />
+                </div>
+            );
         case CATEGORY_NEW_INSTALL_DECODER:
             return (<div styleName="new-installation-decoder" />);
         case CATEGORY_NEW_INSTALL_SIGNAL:
