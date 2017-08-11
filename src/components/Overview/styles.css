@@ -47,6 +47,34 @@
     height: 80%;
     background-color: rgb(250, 250, 250);
 }
+.money-bag {
+    -webkit-mask-image: url("../__assets__/money-bag.svg");
+    mask-image: url("../__assets__/money-bag.svg");
+    width: 68%;
+    height: 78%;
+    background-color: rgb(250, 250, 250);
+}
+.loading {
+    -webkit-mask-image: url("../__assets__/loading.svg");
+    mask-image: url("../__assets__/loading.svg");
+    width: 70%;
+    height: 70%;
+    background-color: rgb(250, 250, 250);
+}
+.logout {
+    -webkit-mask-image: url("../__assets__/logout.svg");
+    mask-image: url("../__assets__/logout.svg");
+    width: 70%;
+    height: 70%;
+    background-color: rgb(250, 250, 250);
+}
+.check {
+    -webkit-mask-image: url("../__assets__/circular-check-button.svg");
+    mask-image: url("../__assets__/circular-check-button.svg");
+    width: 68%;
+    height: 68%;
+    background-color: rgb(250, 250, 250);
+}
 .list_column {
     display: flex;
     flex-direction: column;

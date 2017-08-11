@@ -45,7 +45,7 @@ function OverviewPaymentStatistics(props) {
                                             fields.totalTaskValue.title.toUpperCase() : ''}
                                     // subItem={'(IN AVERAGE PER GOFUNDI)'}
                                 >
-                                    <div styleName="line-chart" />
+                                    <div styleName="check" />
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
@@ -65,7 +65,7 @@ function OverviewPaymentStatistics(props) {
                                             fields.totalGoFundiEarnings.title.toUpperCase() : ''}
                                     // subItem={'(TASKS COMPLETED)'}
                                 >
-                                    <div styleName="line-chart" />
+                                    <div styleName="money-bag" />
                                 </ReportRow>
                             </div>
                         )
@@ -104,7 +104,7 @@ function OverviewPaymentStatistics(props) {
                                             fields.paidOutTasks.title.toUpperCase() : ''}
                                     // subItem={'(IN AVERAGE PER GOFUNDI)'}
                                 >
-                                    <div styleName="line-chart" />
+                                    <div styleName="logout" />
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
@@ -124,7 +124,7 @@ function OverviewPaymentStatistics(props) {
                                             fields.pendingPayments.title.toUpperCase() : ''}
                                     // subItem={'(TASKS COMPLETED)'}
                                 >
-                                    <div styleName="line-chart" />
+                                    <div styleName="loading" />
                                 </ReportRow>
                             </div>
                         )
