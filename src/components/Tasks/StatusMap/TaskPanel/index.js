@@ -36,8 +36,8 @@ function TaskPanel(props) {
                         >
                             Unassigned
                         </CheckBoxItem>
-                        <div styleName="subscribers_user_block">
-                            <div styleName="user_inner" />
+                        <div styleName="subscribers_user_block" style={{backgroundColor: '#F47321'}}>
+                            <div styleName="next_inner" />
                         </div>
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
@@ -47,8 +47,8 @@ function TaskPanel(props) {
                         >
                             Assigned
                         </CheckBoxItem>
-                        <div styleName="subscribers_user_block">
-                            <div styleName="user_inner" />
+                        <div styleName="subscribers_user_block" style={{backgroundColor: '#C21F50'}}>
+                            <div styleName="loading_inner" />
                         </div>
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
@@ -69,8 +69,8 @@ function TaskPanel(props) {
                         >
                             Performed
                         </CheckBoxItem>
-                        <div styleName="subscribers_user_block">
-                            <div styleName="user_inner" />
+                        <div styleName="subscribers_user_block" style={{backgroundColor: '#0B3B37'}}>
+                            <div styleName="loading_inner" />
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@ function TaskPanel(props) {
                         >
                             Completed
                         </CheckBoxItem>
-                        <div styleName="subscribers_user_block">
-                            <div styleName="user_inner" />
+                        <div styleName="subscribers_user_block" style={{backgroundColor: '#07944A'}}>
+                            <div styleName="check_inner" />
                         </div>
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
@@ -93,8 +93,8 @@ function TaskPanel(props) {
                         >
                             Cancelled
                         </CheckBoxItem>
-                        <div styleName="subscribers_user_block">
-                            <div styleName="user_inner" />
+                        <div styleName="subscribers_user_block" style={{backgroundColor: '#ED1C24'}}>
+                            <div styleName="cancelled_inner" />
                         </div>
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
@@ -104,8 +104,8 @@ function TaskPanel(props) {
                         >
                             Scheduled
                         </CheckBoxItem>
-                        <div styleName="subscribers_user_block">
-                            <div styleName="user_inner" />
+                        <div styleName="subscribers_user_block" style={{backgroundColor: '#ED1C24'}}>
+                            <div styleName="time_inner" />
                         </div>
                     </div>
                 </div>
