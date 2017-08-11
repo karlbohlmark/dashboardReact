@@ -3,14 +3,17 @@ import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
     TASK_STATYS_ALL,
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_CANCELLED,
-    TASK_STATYS_SCHEDULED,
+    TASK_STATYS_ASSIGNED,
+    TASK_STATYS_PERFORMED,
     TASK_STATYS_RATED,
-    TASK_STATYS_PERFORMED
+    TASK_STATYS_COMPLETED,
+    TASK_STATYS_CANCELLED,
+    TASK_STATYS_SCHEDULED
 } from 'models/googlemap';
+import {
+    capitalize
+} from 'utils';
 import CheckBoxItem from 'components/CheckBoxItem';
 
 function TaskPanel(props) {
@@ -24,7 +27,7 @@ function TaskPanel(props) {
                     value={props.value.all.getOrElse(false)}
                     onChange={f => props.onChange(TASK_STATYS_ALL, f)}
                 >
-                    All
+                    {capitalize(TASK_STATYS_ALL)}
                 </CheckBoxItem>
             </div>
             <div>
@@ -34,7 +37,7 @@ function TaskPanel(props) {
                             value={props.value.unassigned.getOrElse(false)}
                             onChange={f => props.onChange(TASK_STATYS_UNASSIGNED, f)}
                         >
-                            Unassigned
+                            {capitalize(TASK_STATYS_UNASSIGNED)}
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block" style={{backgroundColor: '#F47321'}}>
                             <div styleName="next_inner" />
@@ -45,7 +48,7 @@ function TaskPanel(props) {
                             value={props.value.assigned.getOrElse(false)}
                             onChange={f => props.onChange(TASK_STATYS_ASSIGNED, f)}
                         >
-                            Assigned
+                            {capitalize(TASK_STATYS_ASSIGNED)}
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block" style={{backgroundColor: '#C21F50'}}>
                             <div styleName="loading_inner" />
@@ -56,7 +59,7 @@ function TaskPanel(props) {
                             value={props.value.rated.getOrElse(false)}
                             onChange={f => props.onChange(TASK_STATYS_RATED, f)}
                         >
-                            Rated
+                            {capitalize(TASK_STATYS_RATED)}
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block">
                             <div styleName="user_inner" />
@@ -67,7 +70,7 @@ function TaskPanel(props) {
                             value={props.value.performed.getOrElse(false)}
                             onChange={f => props.onChange(TASK_STATYS_PERFORMED, f)}
                         >
-                            Performed
+                            {capitalize(TASK_STATYS_PERFORMED)}
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block" style={{backgroundColor: '#0B3B37'}}>
                             <div styleName="loading_inner" />
@@ -80,7 +83,7 @@ function TaskPanel(props) {
                             value={props.value.completed.getOrElse(false)}
                             onChange={f => props.onChange(TASK_STATYS_COMPLETED, f)}
                         >
-                            Completed
+                            {capitalize(TASK_STATYS_COMPLETED)}
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block" style={{backgroundColor: '#07944A'}}>
                             <div styleName="check_inner" />
@@ -91,7 +94,7 @@ function TaskPanel(props) {
                             value={props.value.cancelled.getOrElse(false)}
                             onChange={f => props.onChange(TASK_STATYS_CANCELLED, f)}
                         >
-                            Cancelled
+                            {capitalize(TASK_STATYS_CANCELLED)}
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block" style={{backgroundColor: '#ED1C24'}}>
                             <div styleName="cancelled_inner" />
@@ -102,9 +105,9 @@ function TaskPanel(props) {
                             value={props.value.scheduled.getOrElse(false)}
                             onChange={f => props.onChange(TASK_STATYS_SCHEDULED, f)}
                         >
-                            Scheduled
+                            {capitalize(TASK_STATYS_SCHEDULED)}
                         </CheckBoxItem>
-                        <div styleName="subscribers_user_block" style={{backgroundColor: '#ED1C24'}}>
+                        <div styleName="subscribers_user_block" style={{backgroundColor: '#FFDE00'}}>
                             <div styleName="time_inner" />
                         </div>
                     </div>

@@ -5,12 +5,13 @@ import styles from '../__assets__/styles.css';
 import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
     TASK_STATYS_UNASSIGNED,
+    TASK_STATYS_ASSIGNED,
+    TASK_STATYS_PERFORMED,
+    TASK_STATYS_RATED,
+    TASK_STATYS_COMPLETED,
     TASK_STATYS_CANCELLED,
     TASK_STATYS_SCHEDULED,
-    TASK_STATYS_RATED,
     CATEGORY_NEW_INSTALL_DECODER,
     CATEGORY_NEW_INSTALL_SIGNAL,
     CATEGORY_NEW_INSTALL_ERROR,
@@ -49,6 +50,8 @@ function MapMark(props) {
                     <div styleName="user_inner" />
                 </div>
             );
+        case TASK_STATYS_PERFORMED:
+            return (<div styleName="completed-tasks" />);
         case TASK_STATYS_COMPLETED:
             return (<div styleName="completed-tasks" />);
         case TASK_STATYS_ASSIGNED:
