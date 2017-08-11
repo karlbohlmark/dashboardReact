@@ -8,7 +8,8 @@ import {
     TASK_STATYS_UNASSIGNED,
     TASK_STATYS_CANCELLED,
     TASK_STATYS_SCHEDULED,
-    TASK_STATYS_RATED
+    TASK_STATYS_RATED,
+    TASK_STATYS_PERFORMED
 } from 'models/googlemap';
 import CheckBoxItem from 'components/CheckBoxItem';
 
@@ -56,6 +57,17 @@ function TaskPanel(props) {
                             onChange={f => props.onChange(TASK_STATYS_RATED, f)}
                         >
                             Rated
+                        </CheckBoxItem>
+                        <div styleName="subscribers_user_block">
+                            <div styleName="user_inner" />
+                        </div>
+                    </div>
+                    <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
+                        <CheckBoxItem
+                            value={props.value.performed.getOrElse(false)}
+                            onChange={f => props.onChange(TASK_STATYS_PERFORMED, f)}
+                        >
+                            Performed
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block">
                             <div styleName="user_inner" />

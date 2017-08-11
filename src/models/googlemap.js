@@ -3,13 +3,15 @@ export const USER_TYPE_GOFUNDIS = 'GOFUNDIS';
 export const USER_TYPE_ALL = 'ALL';
 export const USER_TYPES = [USER_TYPE_SUBSCRIBER, USER_TYPE_GOFUNDIS, USER_TYPE_ALL];
 
-export const TASK_STATYS_COMPLETED = 'COMPLETED';
-export const TASK_STATYS_ASSIGNED = 'ASSIGNED';
-export const TASK_STATYS_UNASSIGNED = 'UNASSIGNED';
-export const TASK_STATYS_RATED = 'RATED';
-export const TASK_STATYS_SCHEDULED = 'SCHEDULED';
-export const TASK_STATYS_CANCELLED = 'CANCELLED';
 export const TASK_STATYS_ALL = 'ALL';
+export const TASK_STATYS_UNASSIGNED = 'UNASSIGNED';
+export const TASK_STATYS_ASSIGNED = 'ASSIGNED';
+export const TASK_STATYS_PERFORMED = 'PERFORMED';
+export const TASK_STATYS_RATED = 'RATED';
+export const TASK_STATYS_COMPLETED = 'COMPLETED';
+export const TASK_STATYS_CANCELLED = 'CANCELLED';
+export const TASK_STATYS_SCHEDULED = 'SCHEDULED';
+
 
 export const CATEGORY_NEW_INSTALL_DECODER = 'new-installation-decoder';
 export const CATEGORY_NEW_INSTALL_SIGNAL = 'new-installation-antenna';

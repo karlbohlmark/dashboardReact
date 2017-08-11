@@ -29,7 +29,8 @@ import {
     TASK_STATYS_UNASSIGNED,
     TASK_STATYS_CANCELLED,
     TASK_STATYS_RATED,
-    TASK_STATYS_SCHEDULED
+    TASK_STATYS_SCHEDULED,
+    TASK_STATYS_PERFORMED
 } from 'models/googlemap';
 import {
     showGoogleMapUser,
@@ -188,6 +189,7 @@ function select({ ui, queryData }) {
                 cancelled: Nothing(),
                 scheduled: Nothing(),
                 rated: Nothing(),
+                performed: Nothing(),
                 all: Nothing()
             }),
             Just: fields => ({
@@ -198,6 +200,7 @@ function select({ ui, queryData }) {
                 cancelled: get(TASK_STATYS_CANCELLED, fields),
                 scheduled: get(TASK_STATYS_SCHEDULED, fields),
                 rated: get(TASK_STATYS_RATED, fields),
+                performed: get(TASK_STATYS_PERFORMED, fields),
                 all: get(TASK_STATYS_ALL, fields)
             })
         }),

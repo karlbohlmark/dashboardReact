@@ -7,6 +7,7 @@ import {
     TASK_STATYS_CANCELLED,
     TASK_STATYS_RATED,
     TASK_STATYS_SCHEDULED,
+    TASK_STATYS_PERFORMED,
     CATEGORY_NEW_INSTALL_DECODER,
     CATEGORY_NEW_INSTALL_SIGNAL,
     CATEGORY_NEW_INSTALL_ERROR,
@@ -72,7 +73,7 @@ export const filterTask = curry(
                 return option.unassigned.getOrElse(false);
             } else if (item.type === TASK_STATYS_CANCELLED) {
                 return option.cancelled.getOrElse(false);
-            } else if (item.type === TASK_STATYS_CANCELLED) {
+            } else if (item.type === TASK_STATYS_PERFORMED) {
                 return option.cancelled.getOrElse(false);
             } else if (item.type === TASK_STATYS_SCHEDULED) {
                 return option.scheduled.getOrElse(false);
