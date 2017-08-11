@@ -18,7 +18,7 @@ function OverviewCategoryStatistics(props) {
                     Just: fields => (
                         <div styleName="returning_subscribers" style={{
                             flexWrap: 'wrap',
-                            flexDirection: 'row-reverse'
+                            flexDirection: 'row'
                         }}>
                             {(fields.categoryGroups && isArray(fields.categoryGroups)) ?
                                 fields.categoryGroups.map((field, index) => (
