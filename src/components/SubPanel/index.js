@@ -24,15 +24,21 @@ function SubPanel(props) {
             <div>
                 <SelectBoxItem
                     style={{width: 200}}
-                    options={props.listCategories.errors.cata({
-                        Nothing: () => props.listCategories.results.cata({
-                            Nothing: () => ([]),
-                            Just: fields => (
-                                map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
-                            )
-                        }),
-                        Just: () => ([])
+                    options={props.listCategories.cata({
+                        Nothing: () => ([]),
+                        Just: fields => (
+                            map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
+                        )
                     })}
+                    // options={props.listCategories.errors.cata({
+                    //     Nothing: () => props.listCategories.results.cata({
+                    //         Nothing: () => ([]),
+                    //         Just: fields => (
+                    //             map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
+                    //         )
+                    //     }),
+                    //     Just: () => ([])
+                    // })}
                     onChange={props.onChangeCategory}
                     value={props.categories}
                     placeholder='Category'

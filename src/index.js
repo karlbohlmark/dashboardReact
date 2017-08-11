@@ -164,6 +164,9 @@ const routes = {
                 {
                     onEnter: compose(compose(
                         store.dispatch,
+                        receivePageGetCategoryStatistics
+                    ), compose(
+                        store.dispatch,
                         receivePageTaskCategoryBreakdown
                     ), compose(
                         store.dispatch,
@@ -189,6 +192,9 @@ const routes = {
                 {
                     onEnter: compose(compose(
                         store.dispatch,
+                        receivePageGetCategoryStatistics
+                        ), compose(
+                        store.dispatch,
                         receivePageGoFundisCharts
                         ), compose(
                         store.dispatch,
@@ -211,6 +217,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGetCategoryStatistics
+                        ), compose(
                         store.dispatch,
                         receivePageSubscribersSharePerArea
                         ), compose(

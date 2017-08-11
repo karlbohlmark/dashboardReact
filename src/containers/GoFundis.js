@@ -10,7 +10,11 @@ import {
     connect
 } from 'react-redux';
 import {
-    compose
+    compose,
+    isArray,
+    map,
+    reduce,
+    union
 } from 'lodash/fp';
 import {
     get
@@ -110,7 +114,25 @@ function select({ ui, queryData }) {
         goFundisCharts: queryData.goFundisCharts,
         goFundisStatuses: queryData.goFundisStatuses,
         activeGoFundis: queryData.activeGoFundis,
-        listCategories: queryData.listDashboardCategories,
+        // listCategories: queryData.listDashboardCategories,
+        listCategories: queryData.getCategoryStatistics.results.cata({
+            Nothing: () => Nothing(),
+            Just: fields => (Just(
+                (fields.categoryGroups && isArray(fields.categoryGroups)) ?
+                    reduce(
+                        (result, subarray) => (
+                            union(result, subarray)
+                        ), [],
+                        map(field => (
+                            isArray(field.children) ? map(subCat => ({
+                                style:
+                    `${field.name.toString().split(' ').join('_')}_${subCat.icon.toString().split('.svg').join('')}`,
+                                name:
+                    `${field.name.toString()} ${subCat.name.toString()}`
+                            }), field.children) : Nothing()
+                        ), fields.categoryGroups)) : Nothing()
+            ))
+        }),
         getOverviewStats: queryData.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         users: ui.googlemap.users.cata({

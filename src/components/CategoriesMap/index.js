@@ -15,19 +15,31 @@ function CategoriesMap(props) {
         <div>
             <SelectBoxItem
                 style={{width: '300px'}}
-                options={props.options.errors.cata({
-                    Nothing: () => props.options.results.cata({
-                        Nothing: () => ([]),
-                        Just: fields => (
-                            map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
-                        )
-                    }),
-                    Just: () => ([])
+                options={props.options.cata({
+                    Nothing: () => ([]),
+                    Just: fields => (
+                        map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
+                    )
                 })}
                 onChange={props.onChange}
                 value={props.value}
 
             />
+            {/*<SelectBoxItem*/}
+                {/*style={{width: '300px'}}*/}
+                {/*options={props.options.errors.cata({*/}
+                    {/*Nothing: () => props.options.results.cata({*/}
+                        {/*Nothing: () => ([]),*/}
+                        {/*Just: fields => (*/}
+                            {/*map(field => ({ value: field.name, label: capitalize(field.name) }), fields)*/}
+                        {/*)*/}
+                    {/*}),*/}
+                    {/*Just: () => ([])*/}
+                {/*})}*/}
+                {/*onChange={props.onChange}*/}
+                {/*value={props.value}*/}
+
+            {/*/>*/}
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
