@@ -2,7 +2,12 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    map
+    map,
+    property,
+    join,
+    split,
+    compose,
+    curry
 } from 'lodash/fp';
 import Select from 'react-select';
 import Placeholder from 'components/Placeholder';
@@ -14,10 +19,23 @@ import {
 } from 'utils';
 
 const itemWidth = ['120px', '160px', '135px'];
-const styleType = (field, cat) => (
-    `${field.name.toString().split(' ').join('-')}-${cat.icon.toString().split('.svg').join('')}`
+const pName = property('name');
+const pIcon = property('icon');
+const pNameDone = compose(
+    join('-'),
+    split(' '),
+    pName
 );
-
+const pIconDone = compose(
+    join(''),
+    split('.svg'),
+    pIcon
+);
+const styleType = curry(
+    (field, cat) => (
+        `${pNameDone(field)}-${pIconDone(cat)}`
+    )
+);
 function CategoriesMap(props) {
     return (
         <div>
@@ -64,15 +82,15 @@ function CategoriesMap(props) {
                                                         value={false}
                                                         // inline={true}
                                                         onChange={f =>
-                                                            console.log(`CheckBoxItem ${subCat.name.toString()}`, f)
+                                                            console.log(`CheckBoxItem ${pName(subCat)}`, f)
                                                         }
                                                     >
                                                         <div styleName='inner_column'>
                                                             <div>
-                                                                {`${capitalize(subCat.name.toString())}`}
+                                                                {`${capitalize(pName(subCat))}`}
                                                             </div>
                                                             <div styleName="label_small">
-                                                                {`${capitalize(field.name.toString())}`}
+                                                                {`${capitalize(pName(field))}`}
                                                             </div>
                                                         </div>
 
