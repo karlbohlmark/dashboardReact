@@ -19,8 +19,9 @@ function CheckBoxItem(props) {
     return (
         <div style={{ }}>
             <Checkbox
+                style={props.style ? props.style : null}
                 checked={props.value}
-                inline={false}
+                inline={props.inline ? props.inline : false}
                 onChange={compose(
                     props.onChange,
                     pTargetChecked
@@ -33,10 +34,17 @@ function CheckBoxItem(props) {
 }
 
 CheckBoxItem.propTypes = {
-    children: PropTypes.string,
+    children: PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.array,
+        React.PropTypes.string,
+        React.PropTypes.object
+    ]),
 
     value: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    inline: PropTypes.bool,
+    style: PropTypes.object
 };
 
 export default CSSModules(CheckBoxItem, styles);

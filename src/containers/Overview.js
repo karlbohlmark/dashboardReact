@@ -80,6 +80,7 @@ class OverviewContainer extends Component {
     render() {
         return (
             <Overview
+                commonCategories={this.props.commonCategories}
                 getCategoryStatistics={this.props.getCategoryStatistics}
                 getUserStats={this.props.getUserStats}
                 getPaymentStatistics={this.props.getPaymentStatistics}
@@ -141,6 +142,7 @@ OverviewContainer.propTypes = {
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
+    commonCategories: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -167,6 +169,7 @@ function select({ ui, queryData }) {
         getUserStats: queryData.getUserStats,
         getRevenueHistogram: queryData.getRevenueHistogram,
         // listCategories: queryData.listDashboardCategories,
+        commonCategories: queryData.getCategoryStatistics,
         listCategories: queryData.getCategoryStatistics.results.cata({
             Nothing: () => Nothing(),
             Just: fields => (Just(

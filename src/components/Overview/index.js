@@ -108,6 +108,7 @@ function Overview(props) {
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap
+                        commonCategories={props.commonCategories}
                         options={props.listCategories}
                         data={props.tasksLocationByCategory}
                         value={props.categories}
@@ -138,6 +139,7 @@ Overview.propTypes = {
     getUserStats: PropTypes.object.isRequired,
     getRevenueHistogram: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,
+    commonCategories: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
     dateRangePicker: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
