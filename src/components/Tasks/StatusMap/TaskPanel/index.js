@@ -6,7 +6,6 @@ import {
     TASK_STATYS_UNASSIGNED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_PERFORMED,
-    TASK_STATYS_RATED,
     TASK_STATYS_COMPLETED,
     TASK_STATYS_CANCELLED,
     TASK_STATYS_SCHEDULED
@@ -52,17 +51,6 @@ function TaskPanel(props) {
                         </CheckBoxItem>
                         <div styleName="subscribers_user_block" style={{backgroundColor: '#C21F50'}}>
                             <div styleName="loading_inner" />
-                        </div>
-                    </div>
-                    <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
-                        <CheckBoxItem
-                            value={props.value.rated.getOrElse(false)}
-                            onChange={f => props.onChange(TASK_STATYS_RATED, f)}
-                        >
-                            {capitalize(TASK_STATYS_RATED)}
-                        </CheckBoxItem>
-                        <div styleName="subscribers_user_block">
-                            <div styleName="user_inner" />
                         </div>
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
