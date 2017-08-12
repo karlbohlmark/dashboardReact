@@ -7,7 +7,7 @@ import {
 import {
     capitalize
 } from 'utils';
-import SelectBoxItem from 'components/SelectBoxItem';
+import Select from 'react-select';
 import DateRangePickerItem from 'components/DateRangePickerItem';
 import Autosuggest from 'components/Autosuggest';
 
@@ -22,27 +22,18 @@ function SubPanel(props) {
                 <Autosuggest/>
             </div>
             <div>
-                <SelectBoxItem
+                <Select
                     style={{width: 200}}
+                    multi={true}
                     options={props.listCategories.cata({
                         Nothing: () => ([]),
                         Just: fields => (
-                            map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
+                            map(field => ({ value: field.style, label: capitalize(field.name) }), fields)
                         )
                     })}
-                    // options={props.listCategories.errors.cata({
-                    //     Nothing: () => props.listCategories.results.cata({
-                    //         Nothing: () => ([]),
-                    //         Just: fields => (
-                    //             map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
-                    //         )
-                    //     }),
-                    //     Just: () => ([])
-                    // })}
+                    value={props.categories.getOrElse(null)}
                     onChange={props.onChangeCategory}
-                    value={props.categories}
                     placeholder='Category'
-
                 />
             </div>
             <div >

@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import {
     map
 } from 'lodash/fp';
+import Select from 'react-select';
 import Placeholder from 'components/Placeholder';
-import SelectBoxItem from 'components/SelectBoxItem';
 import GoogleMapSegment from 'components/GoogleMap';
 import {
     capitalize,
@@ -11,20 +11,19 @@ import {
 } from 'utils';
 
 function CategoriesMap(props) {
-    console.log("CategoriesMap :::", props);
     return (
         <div>
-            <SelectBoxItem
+            <Select
                 style={{width: '300px'}}
+                multi={true}
                 options={props.options.cata({
                     Nothing: () => ([]),
                     Just: fields => (
-                        map(field => ({ value: field.name, label: capitalize(field.name) }), fields)
+                        map(field => ({ value: field.style, label: capitalize(field.name) }), fields)
                     )
                 })}
+                value={props.value.getOrElse(null)}
                 onChange={props.onChange}
-                value={props.value}
-
             />
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({

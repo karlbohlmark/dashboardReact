@@ -8,19 +8,15 @@ import {
     TASK_STATYS_RATED,
     TASK_STATYS_SCHEDULED,
     TASK_STATYS_PERFORMED,
-    CATEGORY_NEW_INSTALL_DECODER,
-    CATEGORY_NEW_INSTALL_SIGNAL,
-    CATEGORY_NEW_INSTALL_ERROR,
-    CATEGORY_REPAIR_INSTALL_DECODER,
-    CATEGORY_REPAIR_INSTALL_SIGNAL,
-    CATEGORY_REPAIR_INSTALL_ERROR,
+    // CATEGORY_ALL,
     GOFUNDIS_STATYS_OFFLINE,
     GOFUNDIS_STATYS_ONLINE
 } from 'models/googlemap';
 import {
     filter,
     isArray,
-    curry
+    curry,
+    some
 } from 'lodash/fp';
 
 export const createMapOptions = curry(
@@ -85,33 +81,42 @@ export const filterTask = curry(
     )
 );
 
+// export const filterCategory = curry(
+//     (option, arr) => (
+//         isArray(arr) ? filter(item => (
+//             (
+//                 (item.type === CATEGORY_NEW_INSTALL_DECODER &&
+//                     item.category.name === option.getOrElse('')
+//                 ) ||
+//                 (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
+//                     item.category.name === option.getOrElse('')
+//                 ) ||
+//                 (item.type === CATEGORY_NEW_INSTALL_ERROR &&
+//                     item.category.name === option.getOrElse('')
+//                 ) ||
+//                 (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
+//                     item.category.name === option.getOrElse('')
+//                 ) ||
+//                 (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
+//                     item.category.name === option.getOrElse('')
+//                 ) ||
+//                 (item.type === CATEGORY_REPAIR_INSTALL_ERROR &&
+//                     item.category.name === option.getOrElse('')
+//                 )
+//             )
+//         ), arr) : (false)
+//     )
+// );
+
 export const filterCategory = curry(
     (option, arr) => (
         isArray(arr) ? filter(item => (
             (
-                (item.type === CATEGORY_NEW_INSTALL_DECODER &&
-                    item.category.name === option.getOrElse('')
-                ) ||
-                (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
-                    item.category.name === option.getOrElse('')
-                ) ||
-                (item.type === CATEGORY_NEW_INSTALL_ERROR &&
-                    item.category.name === option.getOrElse('')
-                ) ||
-                (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
-                    item.category.name === option.getOrElse('')
-                ) ||
-                (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
-                    item.category.name === option.getOrElse('')
-                ) ||
-                (item.type === CATEGORY_REPAIR_INSTALL_ERROR &&
-                    item.category.name === option.getOrElse('')
-                )
+                some(opt => (opt.value.toString().split('_').join('-') === item.type), option.getOrElse([]))
             )
         ), arr) : (false)
     )
 );
-
 export const filterGoFundis = curry(
     (option, arr) => (
         isArray(arr) ? filter(item => {

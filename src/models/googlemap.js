@@ -13,12 +13,13 @@ export const TASK_STATYS_CANCELLED = 'CANCELLED';
 export const TASK_STATYS_SCHEDULED = 'SCHEDULED';
 
 
-export const CATEGORY_NEW_INSTALL_DECODER = 'new-installation-decoder';
-export const CATEGORY_NEW_INSTALL_SIGNAL = 'new-installation-antenna';
-export const CATEGORY_NEW_INSTALL_ERROR = 'new-installation-other';
-export const CATEGORY_REPAIR_INSTALL_DECODER = 'repair-decoder';
-export const CATEGORY_REPAIR_INSTALL_SIGNAL = 'repair-antenna';
-export const CATEGORY_REPAIR_INSTALL_ERROR = 'repair-other';
+export const CATEGORY_NEW_INSTALL_DECODER = 'new-installations-decoder';
+export const CATEGORY_NEW_INSTALL_SIGNAL = 'new-installations-antenna';
+export const CATEGORY_NEW_INSTALL_ERROR = 'new-installations-other';
+export const CATEGORY_REPAIR_INSTALL_DECODER = 'repair-installations-decoder';
+export const CATEGORY_REPAIR_INSTALL_SIGNAL = 'repair-installations-antenna';
+export const CATEGORY_REPAIR_INSTALL_ERROR = 'repair-installations-other';
+export const CATEGORY_ALL = 'ALL';
 
 export const GOFUNDIS_STATYS_OFFLINE = 'OFFLINE';
 export const GOFUNDIS_STATYS_ONLINE = 'ONLINE';

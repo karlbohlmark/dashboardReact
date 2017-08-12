@@ -23,9 +23,9 @@ export const showGoogleMapTasks = curry(
 export const SHOW_CATEGORY = 'UI/GOOGLEMAP/SHOW_CATEGORY';
 
 export const showGoogleMapCategory = curry(
-    type => ({
+    value => ({
         type: SHOW_CATEGORY,
-        payload: { type }
+        payload: { value }
     })
 );
 

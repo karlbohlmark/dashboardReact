@@ -68,8 +68,8 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 categories: state.categories.cata({
-                    Just: () => !isNil(payload.type) ? Just(payload.type) : Nothing(),
-                    Nothing: () => !isNil(payload.type) ? Just(payload.type) : Nothing()
+                    Just: () => !isNil(payload.value) ? Just(payload.value) : Nothing(),
+                    Nothing: () => !isNil(payload.value) ? Just(payload.value) : Nothing()
                 })
             };
         }

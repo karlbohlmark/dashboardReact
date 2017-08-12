@@ -25,6 +25,7 @@ import {
 
 function MapMark(props) {
     // TODO style for new tasks types
+    // console.log('MapMark ::', props);
     switch (props.type) {
         case GOFUNDIS_STATYS_OFFLINE:
             return (
