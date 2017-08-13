@@ -13,8 +13,12 @@ import {
 } from 'actions/ui/googleMap';
 
 export const initialState = {
-    users: Nothing(),
-    tasks: Nothing(),
+    users: Just({
+        ALL: true
+    }),
+    tasks: Just({
+        ALL: true
+    }),
     categories: Nothing(),
     goFundis: Nothing()
 };
