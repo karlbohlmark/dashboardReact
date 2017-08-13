@@ -8,13 +8,14 @@ import {
     TASK_STATYS_RATED,
     TASK_STATYS_SCHEDULED,
     TASK_STATYS_PERFORMED,
-    // CATEGORY_ALL,
+    CATEGORY_ALL,
     GOFUNDIS_STATYS_OFFLINE,
     GOFUNDIS_STATYS_ONLINE
 } from 'models/googlemap';
 import {
     compose,
     filter,
+    findIndex,
     isArray,
     curry,
     some,
@@ -155,11 +156,16 @@ export const filterTask = curry(
 export const filterCategory = curry(
     (option, arr) => (
         isArray(arr) ? filter(item => (
+            (!!~findIndex({
+                value: CATEGORY_ALL,
+                label: capitalize(CATEGORY_ALL)
+            }, option.getOrElse([]))) ||
             (
                 some(opt => (opt.value.toString().split('_').join('-') === item.type), option.getOrElse([]))
             )
         ), arr) : (false)
     )
+
 );
 export const filterGoFundis = curry(
     (option, arr) => (

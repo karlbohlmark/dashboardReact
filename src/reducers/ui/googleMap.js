@@ -28,7 +28,8 @@ export const initialState = {
     categories: Nothing(),
     goFundis: Just({
         ALL: true
-    })
+    }),
+    allCategories: Nothing()
 };
 
 const pObq = property('obq');
@@ -85,6 +86,7 @@ export function reducer(state = initialState, action) {
 
             return {
                 ...state,
+                allCategories: Nothing(),
                 categories: state.categories.cata({
                     Just: entity => (payload.value) ?
                         (Just(concat(entity, payload.obq))) :

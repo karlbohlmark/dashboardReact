@@ -10,6 +10,9 @@ import Placeholder from 'components/Placeholder';
 import GoogleMapSegment from 'components/GoogleMap';
 import CheckBoxItem from 'components/CheckBoxItem';
 import {
+    CATEGORY_ALL
+} from 'models/googlemap';
+import {
     capitalize,
     filterCategory,
     pName,
@@ -38,6 +41,21 @@ function CategoriesMap(props) {
                 display: 'flex',
                 flexDirection: 'row'
             }}>
+                <div styleName='column_items' style={{alignSelf: 'auto'}}>
+                    <CheckBoxItem
+                        value={(!!~findIndex({
+                            value: CATEGORY_ALL,
+                            label: capitalize(CATEGORY_ALL)
+                        }, props.value.getOrElse([])))}
+                        onChange={f =>
+                            props.onCheckBox({
+                                value: CATEGORY_ALL,
+                                label: capitalize(CATEGORY_ALL)
+                            }, f)}
+                    >
+                        {capitalize(CATEGORY_ALL)}
+                    </CheckBoxItem>
+                </div>
                 <div styleName='column_items' style={{flexWrap: 'wrap', marginBottom: 0}}>
                     {props.commonCategories.errors.cata({
                         Nothing: () => props.commonCategories.results.cata({
