@@ -11,13 +11,18 @@ import {
     Just
 } from 'data.maybe';
 import {
+    CATEGORY_ALL
+} from 'models/googlemap';
+import {
     SHOW_USERS,
     SHOW_TASKS,
     SHOW_CATEGORY,
     SET_CATEGORY,
     SHOW_GOFUNDIS
 } from 'actions/ui/googleMap';
-
+import {
+    capitalize
+} from 'utils';
 export const initialState = {
     users: Just({
         ALL: true
@@ -25,11 +30,13 @@ export const initialState = {
     tasks: Just({
         ALL: true
     }),
-    categories: Nothing(),
+    categories: Just([{
+        value: CATEGORY_ALL,
+        label: capitalize(CATEGORY_ALL)
+    }]),
     goFundis: Just({
         ALL: true
-    }),
-    allCategories: Nothing()
+    })
 };
 
 const pObq = property('obq');
