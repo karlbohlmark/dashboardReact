@@ -25,15 +25,25 @@ export {
 } from './to-int';
 export {
     dataURItoBlob as toBlob,
-    imageAsset as toImageAsset,
-    capitalize
+    imageAsset as toImageAsset
 } from './to-blob';
 export {
+    capitalize,
     createMapOptions,
     locationInScreen,
     filterUser,
     filterTask,
     filterCategory,
     filterGoFundis,
-    filterCommon
+    filterCommon,
+    pSplitJoin,
+    pChildren,
+    pName,
+    pIcon,
+    pNameStyleType,
+    pNameValueType,
+    pIconStyleType,
+    styleType,
+    valueType,
+    labelType
 } from './common';

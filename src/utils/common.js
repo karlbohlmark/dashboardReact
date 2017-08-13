@@ -13,12 +13,56 @@ import {
     GOFUNDIS_STATYS_ONLINE
 } from 'models/googlemap';
 import {
+    compose,
     filter,
     isArray,
     curry,
-    some
+    some,
+    join,
+    split,
+    property
 } from 'lodash/fp';
 
+export const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toLowerCase();
+export const pChildren = property('children');
+export const pName = property('name');
+export const pIcon = property('icon');
+export const pSplitJoin = curry(
+    (joinLetter, splitLetter) => compose(
+        join(joinLetter),
+        split(splitLetter)
+    )
+);
+export const pNameStyleType = compose(
+    pSplitJoin('-', ' '),
+    pName
+);
+export const pNameValueType = compose(
+    pSplitJoin('_', ' '),
+    pName
+);
+
+export const pIconStyleType = compose(
+    pSplitJoin('', '.svg'),
+    pIcon
+);
+
+export const styleType = curry(
+    (field, cat) => (
+        `${pNameStyleType(field)}-${pIconStyleType(cat)}`
+    )
+);
+export const valueType = curry(
+    (field, cat) => (
+        `${pNameValueType(field)}_${pIconStyleType(cat)}`
+    )
+);
+
+export const labelType = curry(
+    (field, cat) => (
+        capitalize(`${pName(field)} ${pName(cat)}`)
+    )
+);
 export const createMapOptions = curry(
     maps => (
         {

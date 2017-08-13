@@ -29,6 +29,15 @@ export const showGoogleMapCategory = curry(
     })
 );
 
+export const SET_CATEGORY = 'UI/GOOGLEMAP/SET_CATEGORY';
+
+export const setGoogleMapCategory = curry(
+    (obq, value) => ({
+        type: SET_CATEGORY,
+        payload: { obq, value }
+    })
+);
+
 export const SHOW_GOFUNDIS = 'UI/GOOGLEMAP/SHOW_GOFUNDIS';
 
 export const showGoogleMapGoFundis = curry(

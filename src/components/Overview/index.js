@@ -112,6 +112,7 @@ function Overview(props) {
                         options={props.listCategories}
                         data={props.tasksLocationByCategory}
                         value={props.categories}
+                        onCheckBox={props.onChangeCategory}
                         onChange={props.onChangeCategoryHandler}/>
                 </Substrate>
 
@@ -147,6 +148,7 @@ Overview.propTypes = {
     tasksLocationByCategory: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,
+    onChangeCategory: PropTypes.func.isRequired,
     tasksLocationStatus: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     onChangeTaskStatusHandler: PropTypes.func.isRequired,

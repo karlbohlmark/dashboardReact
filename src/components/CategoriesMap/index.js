@@ -3,11 +3,7 @@ import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
     map,
-    property,
-    join,
-    split,
-    compose,
-    curry
+    findIndex
 } from 'lodash/fp';
 import Select from 'react-select';
 import Placeholder from 'components/Placeholder';
@@ -15,27 +11,14 @@ import GoogleMapSegment from 'components/GoogleMap';
 import CheckBoxItem from 'components/CheckBoxItem';
 import {
     capitalize,
-    filterCategory
+    filterCategory,
+    pName,
+    labelType,
+    styleType,
+    valueType
 } from 'utils';
-
 const itemWidth = ['120px', '160px', '135px'];
-const pName = property('name');
-const pIcon = property('icon');
-const pNameDone = compose(
-    join('-'),
-    split(' '),
-    pName
-);
-const pIconDone = compose(
-    join(''),
-    split('.svg'),
-    pIcon
-);
-const styleType = curry(
-    (field, cat) => (
-        `${pNameDone(field)}-${pIconDone(cat)}`
-    )
-);
+
 function CategoriesMap(props) {
     return (
         <div>
@@ -79,10 +62,16 @@ function CategoriesMap(props) {
                                                         //     flexDirection: 'column',
                                                         //     justifyContent: 'center'
                                                         // }}
-                                                        value={false}
+                                                        value={(!!~findIndex({
+                                                            value: valueType(field, subCat),
+                                                            label: labelType(field, subCat)
+                                                        }, props.value.getOrElse([])))}
                                                         // inline={true}
                                                         onChange={f =>
-                                                            console.log(`CheckBoxItem ${pName(subCat)}`, f)
+                                                            props.onCheckBox({
+                                                                value: valueType(field, subCat),
+                                                                label: labelType(field, subCat)
+                                                            }, f)
                                                         }
                                                     >
                                                         <div styleName='inner_column'>
@@ -97,7 +86,7 @@ function CategoriesMap(props) {
                                                     </CheckBoxItem>
                                                     <div styleName={styleType(field, subCat)} />
                                                 </div>
-                                            ), )
+                                            ))
                                         }
                                     </div>
                                 ))
@@ -135,7 +124,8 @@ CategoriesMap.propTypes = {
     options: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
     value: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    onCheckBox: PropTypes.func.isRequired
 };
 
 export default CSSModules(CategoriesMap, styles);

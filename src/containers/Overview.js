@@ -14,11 +14,7 @@ import {
     isArray,
     map,
     reduce,
-    union,
-    property,
-    join,
-    split,
-    curry
+    union
 } from 'lodash/fp';
 import {
     get
@@ -43,7 +39,8 @@ import {
 import {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    setGoogleMapCategory
 } from 'actions/ui/googleMap';
 import {
     setRangeDate
@@ -79,25 +76,11 @@ import {
     receivePage as receivePageGetCategoryStatistics
 } from 'actions/queryData/getCategoryStatistics';
 import Overview from 'components/Overview';
-
-const pChildren = property('children');
-const pName = property('name');
-const pIcon = property('icon');
-const pNameDone = compose(
-    join('_'),
-    split(' '),
-    pName
-);
-const pIconDone = compose(
-    join(''),
-    split('.svg'),
-    pIcon
-);
-const styleType = curry(
-    (field, cat) => (
-        `${pNameDone(field)}_${pIconDone(cat)}`
-    )
-);
+import {
+    pChildren,
+    pName,
+    valueType
+} from 'utils';
 
 class OverviewContainer extends Component {
     render() {
@@ -140,6 +123,7 @@ class OverviewContainer extends Component {
                 onChangeCategoryHandler={compose(
                     this.props.receivePageTaskLocationByCategory,
                     this.props.showGoogleMapCategory)}
+                onChangeCategory={this.props.setGoogleMapCategory}
             />
         );
     }
@@ -170,6 +154,7 @@ OverviewContainer.propTypes = {
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
+    setGoogleMapCategory: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
     receivePageUserLocation: PropTypes.func.isRequired,
@@ -203,7 +188,7 @@ function select({ ui, queryData }) {
                         ), [],
                         map(field => (
                             isArray(pChildren(field)) ? map(subCat => ({
-                                style: styleType(field, subCat),
+                                style: valueType(field, subCat),
                                 name: `${pName(field)} ${pName(subCat)}`
                             }), pChildren(field)) : Nothing()
                         ), fields.categoryGroups)) : Nothing()
@@ -262,6 +247,7 @@ const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
+    setGoogleMapCategory,
     setRangeDate,
     receivePageCompletedTasksHistogram,
     receivePageUserLocation,

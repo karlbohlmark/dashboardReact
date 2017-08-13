@@ -14,11 +14,7 @@ import {
     isArray,
     map,
     reduce,
-    union,
-    property,
-    join,
-    split,
-    curry
+    union
 } from 'lodash/fp';
 import {
     get
@@ -57,25 +53,11 @@ import {
     receivePage as receivePageGoFundisCharts
 } from 'actions/queryData/goFundisCharts';
 import GoFundis from 'components/GoFundis';
-
-const pChildren = property('children');
-const pName = property('name');
-const pIcon = property('icon');
-const pNameDone = compose(
-    join('_'),
-    split(' '),
-    pName
-);
-const pIconDone = compose(
-    join(''),
-    split('.svg'),
-    pIcon
-);
-const styleType = curry(
-    (field, cat) => (
-        `${pNameDone(field)}_${pIconDone(cat)}`
-    )
-);
+import {
+    pChildren,
+    pName,
+    valueType
+} from 'utils';
 
 class GoFundisContainer extends Component {
     render() {
@@ -148,7 +130,7 @@ function select({ ui, queryData }) {
                         ), [],
                         map(field => (
                             isArray(pChildren(field)) ? map(subCat => ({
-                                style: styleType(field, subCat),
+                                style: valueType(field, subCat),
                                 name: `${pName(field)} ${pName(subCat)}`
                             }), pChildren(field)) : Nothing()
                         ), fields.categoryGroups)) : Nothing()
