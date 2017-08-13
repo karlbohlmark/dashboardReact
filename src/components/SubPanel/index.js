@@ -2,8 +2,12 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    map
+    map,
+    concat
 } from 'lodash/fp';
+import {
+    CATEGORY_ALL
+} from 'models/googlemap';
 import {
     capitalize
 } from 'utils';
@@ -28,7 +32,12 @@ function SubPanel(props) {
                     options={props.listCategories.cata({
                         Nothing: () => ([]),
                         Just: fields => (
-                            map(field => ({ value: field.style, label: capitalize(field.name) }), fields)
+                            concat([{
+                                value: CATEGORY_ALL,
+                                label: capitalize(CATEGORY_ALL)
+                            }],
+                            map(field => ({ value: field.style, label: capitalize(field.name) }), fields))
+
                         )
                     })}
                     value={props.categories.getOrElse(null)}
