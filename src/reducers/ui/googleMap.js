@@ -5,7 +5,9 @@ import {
     reject,
     curry,
     property,
-    isEqual
+    isEqual,
+    size,
+    filter
 } from 'lodash/fp';
 import {
     Nothing,
@@ -41,7 +43,33 @@ export const initialState = {
 };
 
 const pObq = property('obq');
+const pValue = property('value');
 
+const checkAllCategorySelectEnd = curry(
+    payload => (
+        (findIndex({value: CATEGORY_ALL,
+            label: capitalize(CATEGORY_ALL)
+        }, pValue(payload)) === size(pValue(payload)) -1 && size(pValue(payload)) !== 1) ?
+            (Just([{value: CATEGORY_ALL,
+                label: capitalize(CATEGORY_ALL)
+            }])) :
+            (Just(reject({value: CATEGORY_ALL,
+                label: capitalize(CATEGORY_ALL)
+            }, pValue(payload))))
+    )
+);
+
+const checkAllCategorySelect = curry(
+    payload => (
+        (findIndex({value: CATEGORY_ALL,
+            label: capitalize(CATEGORY_ALL)
+        }, pValue(payload)) === 0 && size(pValue(payload)) !== 1) ?
+            (Just(reject({value: CATEGORY_ALL,
+                label: capitalize(CATEGORY_ALL)
+            }, pValue(payload)))) :
+            checkAllCategorySelectEnd(payload)
+    )
+);
 const checkAllCategory = curry(
     (payload, entity) => (
         (isEqual({
@@ -122,7 +150,9 @@ export function reducer(state = initialState, action) {
                 ...state,
                 categories: state.categories.cata({
                     // filter with add when have allCategory and other
-                    Just: () => !isNil(payload.value) ? Just(payload.value) : Nothing(),
+                    // Just: () => !isNil(payload.value) ? Just(payload.value) : Nothing(),
+
+                    Just: entity => !isNil(payload.value) ? checkAllCategorySelect(payload) : Nothing(),
                     Nothing: () => !isNil(payload.value) ? Just(payload.value) : Nothing()
                 })
             };
