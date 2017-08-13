@@ -4,7 +4,8 @@ import {
     findIndex,
     reject,
     curry,
-    property
+    property,
+    isEqual
 } from 'lodash/fp';
 import {
     Nothing,
@@ -40,6 +41,20 @@ export const initialState = {
 };
 
 const pObq = property('obq');
+
+const checkAllCategory = curry(
+    (payload, entity) => (
+        (isEqual({
+            value: CATEGORY_ALL,
+            label: capitalize(CATEGORY_ALL)
+        }, pObq(payload))) ?
+            (Just([pObq(payload)])) :
+            (Just(concat(pObq(payload), reject({
+                value: CATEGORY_ALL,
+                label: capitalize(CATEGORY_ALL)
+            }, entity))))
+    )
+);
 const filterCategory = curry(
     (payload, entity) => (
         (!~findIndex(pObq(payload), entity)) ? (Just(entity)) : (Just(reject(pObq(payload), entity)))
@@ -95,7 +110,7 @@ export function reducer(state = initialState, action) {
                 ...state,
                 categories: state.categories.cata({
                     Just: entity => (payload.value) ?
-                        (Just(concat(entity, payload.obq))) :
+                        checkAllCategory(payload, entity) :
                         filterCategory(payload, entity),
                     Nothing: () => !isNil(payload.obq) ? Just([payload.obq]) : Nothing()
                 })
@@ -106,6 +121,7 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 categories: state.categories.cata({
+                    // filter with add when have allCategory and other
                     Just: () => !isNil(payload.value) ? Just(payload.value) : Nothing(),
                     Nothing: () => !isNil(payload.value) ? Just(payload.value) : Nothing()
                 })
