@@ -93,7 +93,6 @@ export function reducer(state = initialState, action) {
 
             return {
                 ...state,
-                allCategories: Nothing(),
                 categories: state.categories.cata({
                     Just: entity => (payload.value) ?
                         (Just(concat(entity, payload.obq))) :
