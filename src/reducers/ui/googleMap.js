@@ -48,7 +48,7 @@ const checkAllCategorySelectEnd = curry(
     payload => (
         (findIndex({value: CATEGORY_ALL,
             label: capitalize(CATEGORY_ALL)
-        }, pValue(payload)) === size(pValue(payload)) - 1 && size(pValue(payload)) !== 1) ?
+        }, pValue(payload)) === size(pValue(payload)) - 1 && size(pValue(payload)) >= 1) ?
             (Just([{value: CATEGORY_ALL,
                 label: capitalize(CATEGORY_ALL)
             }])) :
@@ -62,11 +62,18 @@ const checkAllCategorySelect = curry(
     payload => (
         (findIndex({value: CATEGORY_ALL,
             label: capitalize(CATEGORY_ALL)
-        }, pValue(payload)) === 0 && size(pValue(payload)) !== 1) ?
+        }, pValue(payload)) === 0 && size(pValue(payload)) >= 1) ?
             (Just(reject({value: CATEGORY_ALL,
                 label: capitalize(CATEGORY_ALL)
             }, pValue(payload)))) :
             checkAllCategorySelectEnd(payload)
+    )
+);
+const checkAllCategorySelectEmpty = curry(
+    payload => (
+        (size(pValue(payload)) === 1) ?
+            (Just(pValue(payload))) :
+            checkAllCategorySelect(payload)
     )
 );
 const checkAllCategory = curry(
@@ -148,7 +155,7 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 categories: state.categories.cata({
-                    Just: () => !isNil(payload.value) ? checkAllCategorySelect(payload) : Nothing(),
+                    Just: () => !isNil(payload.value) ? checkAllCategorySelectEmpty(payload) : Nothing(),
                     Nothing: () => !isNil(payload.value) ? Just(payload.value) : Nothing()
                 })
             };
