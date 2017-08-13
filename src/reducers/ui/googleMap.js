@@ -20,7 +20,9 @@ export const initialState = {
         ALL: true
     }),
     categories: Nothing(),
-    goFundis: Nothing()
+    goFundis: Just({
+        ALL: true
+    })
 };
 
 export function reducer(state = initialState, action) {
