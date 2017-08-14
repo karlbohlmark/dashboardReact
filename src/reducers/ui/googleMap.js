@@ -13,7 +13,8 @@ import {
     Just
 } from 'data.maybe';
 import {
-    CATEGORY_ALL
+    CATEGORY_ALL,
+    TASK_STATYS_ALL
 } from 'models/googlemap';
 import {
     SHOW_USERS,
@@ -29,9 +30,10 @@ export const initialState = {
     users: Just({
         ALL: true
     }),
-    tasks: Just({
-        ALL: true
-    }),
+    // tasks: Just({
+    //     ALL: true
+    // }),
+    tasks: Just(['ALL']),
     categories: Just([{
         value: CATEGORY_ALL,
         label: capitalize(CATEGORY_ALL)
@@ -76,6 +78,19 @@ const checkAllCategorySelectEmpty = curry(
             checkAllCategorySelect(payload)
     )
 );
+const checkAllTask = curry(
+    (payload, entity) => (
+        (isEqual(TASK_STATYS_ALL, payload.type)) ?
+            (Just([payload.type])) :
+            (Just(concat(payload.type, reject(rItem => rItem === TASK_STATYS_ALL, entity))))
+    )
+);
+const filterTask = curry(
+    (payload, entity) => (
+        (!~findIndex(item => (item === payload.type), entity)) ?
+            (Just(entity)) : (Just(reject(rItem => rItem === payload.type, entity)))
+    )
+);
 const checkAllCategory = curry(
     (payload, entity) => (
         (isEqual({
@@ -113,28 +128,15 @@ export function reducer(state = initialState, action) {
                 })
             };
         }
-        // case SHOW_TASKS: {
-        //
-        //     return {
-        //         ...state,
-        //         tasks: state.tasks.cata({
-        //             Just: () => !isNil(payload.type) ? Just(payload.type) : Nothing(),
-        //             Nothing: () => !isNil(payload.type) ? Just(payload.type) : Nothing()
-        //         })
-        //     };
-        // }
         case SHOW_TASKS: {
 
             return {
                 ...state,
                 tasks: state.tasks.cata({
-                    Just: entity => (Just({
-                        ...entity,
-                        [ payload.type ]: payload.value
-                    })),
-                    Nothing: () => (Just({
-                        [ payload.type ]: payload.value
-                    }))
+                    Just: entity => (payload.value) ?
+                        checkAllTask(payload, entity) :
+                        filterTask(payload, entity),
+                    Nothing: () => !isNil(payload.type) ? Just([payload.type]) : Nothing()
                 })
             };
         }

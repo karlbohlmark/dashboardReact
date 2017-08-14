@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
+    findIndex
+} from 'lodash/fp';
+import {
     TASK_STATYS_ALL,
     TASK_STATYS_UNASSIGNED,
     TASK_STATYS_ASSIGNED,
@@ -23,7 +26,7 @@ function TaskPanel(props) {
         }}>
             <div styleName='inline_items' style={{alignSelf: 'auto'}}>
                 <CheckBoxItem
-                    value={props.value.all.getOrElse(false)}
+                    value={(!!~findIndex(item => (item === TASK_STATYS_ALL), props.value.getOrElse([])))}
                     onChange={f => props.onChange(TASK_STATYS_ALL, f)}
                 >
                     {capitalize(TASK_STATYS_ALL)}
@@ -33,7 +36,7 @@ function TaskPanel(props) {
                 <div styleName='row_items' style={{flexWrap: 'wrap', marginBottom: 0}}>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
                         <CheckBoxItem
-                            value={props.value.unassigned.getOrElse(false)}
+                            value={(!!~findIndex(item => (item === TASK_STATYS_UNASSIGNED), props.value.getOrElse([])))}
                             onChange={f => props.onChange(TASK_STATYS_UNASSIGNED, f)}
                         >
                             {capitalize(TASK_STATYS_UNASSIGNED)}
@@ -44,7 +47,7 @@ function TaskPanel(props) {
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
                         <CheckBoxItem
-                            value={props.value.assigned.getOrElse(false)}
+                            value={(!!~findIndex(item => (item === TASK_STATYS_ASSIGNED), props.value.getOrElse([])))}
                             onChange={f => props.onChange(TASK_STATYS_ASSIGNED, f)}
                         >
                             {capitalize(TASK_STATYS_ASSIGNED)}
@@ -55,7 +58,7 @@ function TaskPanel(props) {
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
                         <CheckBoxItem
-                            value={props.value.performed.getOrElse(false)}
+                            value={(!!~findIndex(item => (item === TASK_STATYS_PERFORMED), props.value.getOrElse([])))}
                             onChange={f => props.onChange(TASK_STATYS_PERFORMED, f)}
                         >
                             {capitalize(TASK_STATYS_PERFORMED)}
@@ -68,7 +71,7 @@ function TaskPanel(props) {
                 <div styleName='row_items' style={{flexWrap: 'wrap'}}>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
                         <CheckBoxItem
-                            value={props.value.completed.getOrElse(false)}
+                            value={(!!~findIndex(item => (item === TASK_STATYS_COMPLETED), props.value.getOrElse([])))}
                             onChange={f => props.onChange(TASK_STATYS_COMPLETED, f)}
                         >
                             {capitalize(TASK_STATYS_COMPLETED)}
@@ -79,7 +82,7 @@ function TaskPanel(props) {
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
                         <CheckBoxItem
-                            value={props.value.cancelled.getOrElse(false)}
+                            value={(!!~findIndex(item => (item === TASK_STATYS_CANCELLED), props.value.getOrElse([])))}
                             onChange={f => props.onChange(TASK_STATYS_CANCELLED, f)}
                         >
                             {capitalize(TASK_STATYS_CANCELLED)}
@@ -90,7 +93,7 @@ function TaskPanel(props) {
                     </div>
                     <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
                         <CheckBoxItem
-                            value={props.value.scheduled.getOrElse(false)}
+                            value={(!!~findIndex(item => (item === TASK_STATYS_SCHEDULED), props.value.getOrElse([])))}
                             onChange={f => props.onChange(TASK_STATYS_SCHEDULED, f)}
                         >
                             {capitalize(TASK_STATYS_SCHEDULED)}

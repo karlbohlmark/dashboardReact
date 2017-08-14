@@ -1,13 +1,7 @@
 import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
-    TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_CANCELLED,
-    TASK_STATYS_RATED,
-    TASK_STATYS_SCHEDULED,
-    TASK_STATYS_PERFORMED,
+    TASK_STATYS_ALL,
     CATEGORY_ALL,
     GOFUNDIS_STATYS_OFFLINE,
     GOFUNDIS_STATYS_ONLINE
@@ -103,55 +97,15 @@ export const filterUser = curry(
 
 export const filterTask = curry(
     (option, arr) => (
-        isArray(arr) ? filter(item => {
-            if (option.all.getOrElse(false)) {
-                return option.all.getOrElse(false);
-            } else if (item.type === TASK_STATYS_COMPLETED) {
-                return option.completed.getOrElse(false);
-            } else if (item.type === TASK_STATYS_ASSIGNED) {
-                return option.assigned.getOrElse(false);
-            } else if (item.type === TASK_STATYS_UNASSIGNED) {
-                return option.unassigned.getOrElse(false);
-            } else if (item.type === TASK_STATYS_CANCELLED) {
-                return option.cancelled.getOrElse(false);
-            } else if (item.type === TASK_STATYS_PERFORMED) {
-                return option.cancelled.getOrElse(false);
-            } else if (item.type === TASK_STATYS_SCHEDULED) {
-                return option.scheduled.getOrElse(false);
-            } else if (item.type === TASK_STATYS_RATED) {
-                return option.rated.getOrElse(false);
-            }
-            return false;
-        }, arr) : (false)
+        isArray(arr) ? filter(item => (
+            (!!~findIndex(optionItem => optionItem === TASK_STATYS_ALL, option.getOrElse([]))) ||
+            (
+                some(someOption => (someOption === item.type), option.getOrElse([]))
+            )
+        ), arr) : (false)
     )
-);
 
-// export const filterCategory = curry(
-//     (option, arr) => (
-//         isArray(arr) ? filter(item => (
-//             (
-//                 (item.type === CATEGORY_NEW_INSTALL_DECODER &&
-//                     item.category.name === option.getOrElse('')
-//                 ) ||
-//                 (item.type === CATEGORY_NEW_INSTALL_SIGNAL &&
-//                     item.category.name === option.getOrElse('')
-//                 ) ||
-//                 (item.type === CATEGORY_NEW_INSTALL_ERROR &&
-//                     item.category.name === option.getOrElse('')
-//                 ) ||
-//                 (item.type === CATEGORY_REPAIR_INSTALL_DECODER &&
-//                     item.category.name === option.getOrElse('')
-//                 ) ||
-//                 (item.type === CATEGORY_REPAIR_INSTALL_SIGNAL &&
-//                     item.category.name === option.getOrElse('')
-//                 ) ||
-//                 (item.type === CATEGORY_REPAIR_INSTALL_ERROR &&
-//                     item.category.name === option.getOrElse('')
-//                 )
-//             )
-//         ), arr) : (false)
-//     )
-// );
+);
 
 export const filterCategory = curry(
     (option, arr) => (

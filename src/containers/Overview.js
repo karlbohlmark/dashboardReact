@@ -26,15 +26,7 @@ import {
 import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
-    USER_TYPE_ALL,
-    TASK_STATYS_ALL,
-    TASK_STATYS_COMPLETED,
-    TASK_STATYS_ASSIGNED,
-    TASK_STATYS_UNASSIGNED,
-    TASK_STATYS_CANCELLED,
-    TASK_STATYS_RATED,
-    TASK_STATYS_SCHEDULED,
-    TASK_STATYS_PERFORMED
+    USER_TYPE_ALL
 } from 'models/googlemap';
 import {
     showGoogleMapUser,
@@ -212,34 +204,9 @@ function select({ ui, queryData }) {
             })
         }),
         tasksLocationStatus: queryData.taskLocationByStatus,
-        tasks: ui.googlemap.tasks.cata({
-            Nothing: () => ({
-                completed: Nothing(),
-                assigned: Nothing(),
-                unassigned: Nothing(),
-                cancelled: Nothing(),
-                scheduled: Nothing(),
-                rated: Nothing(),
-                performed: Nothing(),
-                all: Nothing()
-            }),
-            Just: fields => ({
-                ...fields,
-                completed: get(TASK_STATYS_COMPLETED, fields),
-                assigned: get(TASK_STATYS_ASSIGNED, fields),
-                unassigned: get(TASK_STATYS_UNASSIGNED, fields),
-                cancelled: get(TASK_STATYS_CANCELLED, fields),
-                scheduled: get(TASK_STATYS_SCHEDULED, fields),
-                rated: get(TASK_STATYS_RATED, fields),
-                performed: get(TASK_STATYS_PERFORMED, fields),
-                all: get(TASK_STATYS_ALL, fields)
-            })
-        }),
+        tasks: ui.googlemap.tasks,
         tasksLocationByCategory: queryData.taskLocationByCategory,
-        categories: ui.googlemap.categories.cata({
-            Nothing: () => (Nothing()),
-            Just: value => (Just(value))
-        })
+        categories: ui.googlemap.categories
     };
 }
 
