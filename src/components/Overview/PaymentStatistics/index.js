@@ -29,11 +29,17 @@ function OverviewPaymentStatistics(props) {
                             <div>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.totalTaskValue.color &&
+                                        backgroundColor: (fields.totalTaskValue.iconBackground &&
+                                            !isNull(fields.totalTaskValue.iconBackground)) ?
+                                            fields.totalTaskValue.iconBackground : '#07944a'
+                                    }}
+                                    styleUpItem={{
+                                        textOverflow: 'ellipsis',
+                                        overflow: 'hidden',
+                                        color: (fields.totalTaskValue.color &&
                                             !isNull(fields.totalTaskValue.color)) ?
                                             fields.totalTaskValue.color : '#07944a'
                                     }}
-                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 200}}
                                     upItem={
                                         fields.totalTaskValue &&
@@ -49,11 +55,17 @@ function OverviewPaymentStatistics(props) {
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.totalGoFundiEarnings.color &&
+                                        backgroundColor: (fields.totalGoFundiEarnings.iconBackground &&
+                                            !isNull(fields.totalGoFundiEarnings.iconBackground)) ?
+                                            fields.totalGoFundiEarnings.iconBackground : '#07944a'
+                                    }}
+                                    styleUpItem={{
+                                        textOverflow: 'ellipsis',
+                                        overflow: 'hidden',
+                                        color: (fields.totalGoFundiEarnings.color &&
                                             !isNull(fields.totalGoFundiEarnings.color)) ?
                                             fields.totalGoFundiEarnings.color : '#07944a'
                                     }}
-                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 200}}
                                     upItem={
                                         fields.totalGoFundiEarnings &&
@@ -88,11 +100,17 @@ function OverviewPaymentStatistics(props) {
                             <div>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.paidOutTasks.color &&
+                                        backgroundColor: (fields.paidOutTasks.iconBackground &&
+                                            !isNull(fields.paidOutTasks.iconBackground)) ?
+                                            fields.paidOutTasks.iconBackground : '#07944a'
+                                    }}
+                                    styleUpItem={{
+                                        textOverflow: 'ellipsis',
+                                        overflow: 'hidden',
+                                        color: (fields.paidOutTasks.color &&
                                             !isNull(fields.paidOutTasks.color)) ?
                                             fields.paidOutTasks.color : '#07944a'
                                     }}
-                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 165}}
                                     upItem={
                                         fields.paidOutTasks &&
@@ -108,11 +126,17 @@ function OverviewPaymentStatistics(props) {
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.pendingPayments.color &&
+                                        backgroundColor: (fields.pendingPayments.iconBackground &&
+                                            !isNull(fields.pendingPayments.iconBackground)) ?
+                                            fields.pendingPayments.iconBackground : '#07944a'
+                                    }}
+                                    styleUpItem={{
+                                        textOverflow: 'ellipsis',
+                                        overflow: 'hidden',
+                                        color: (fields.pendingPayments.color &&
                                             !isNull(fields.pendingPayments.color)) ?
                                             fields.pendingPayments.color : '#07944a'
                                     }}
-                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
                                     styleReportBlock={{width: 165}}
                                     upItem={
                                         fields.pendingPayments &&

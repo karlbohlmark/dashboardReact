@@ -3,6 +3,7 @@ import {
     USER_TYPE_GOFUNDIS,
     TASK_STATYS_ALL,
     CATEGORY_ALL,
+    USER_TYPE_ALL,
     GOFUNDIS_STATYS_OFFLINE,
     GOFUNDIS_STATYS_ONLINE
 } from 'models/googlemap';
@@ -82,19 +83,15 @@ export const locationInScreen = curry(
 
 export const filterUser = curry(
     (option, arr) => (
-        isArray(arr) ? filter(item => {
-            if (option.all.getOrElse(false)) {
-                return option.all.getOrElse(false);
-            } else if (item.type === USER_TYPE_SUBSCRIBER) {
-                return option.subscriber.getOrElse(false);
-            } else if (item.type === USER_TYPE_GOFUNDIS) {
-                return option.gofundis.getOrElse(false);
-            }
-            return false;
-        }, arr) : (false)
+        isArray(arr) ? filter(item => (
+            (!!~findIndex(optionItem => optionItem === USER_TYPE_ALL, option.getOrElse([]))) ||
+            (
+                some(someOption => (someOption === item.type), option.getOrElse([]))
+            )
+        ), arr) : (false)
     )
-);
 
+);
 export const filterTask = curry(
     (option, arr) => (
         isArray(arr) ? filter(item => (

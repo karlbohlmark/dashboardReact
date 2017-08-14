@@ -9,6 +9,9 @@ import {
     getTypesArray
 } from 'utils';
 import {
+    USER_TYPES
+} from 'actions/ui/googleMap';
+import {
     listUserLocations as listUserLocationsRequest
 } from 'services/userLocation';
 
@@ -49,14 +52,14 @@ export function receivePage() {
         const userTypes = ['subscriber', 'gofundi'];
         const toSendUserTypes = ui.googlemap.users.cata({
             Nothing: () => (userTypes),
-            Just: fields => getTypesArray(fields, userTypes)
+            Just: fields => (fields)
 
         });
         dispatch(
             receivePageStart()
         );
-
-        return listUserLocationsRequest(uniq(flatten(toSendUserTypes)))
+        console.log('receivePage :: ', userTypes, toSendUserTypes);
+        return listUserLocationsRequest()
             .then(data => {
                 dispatch(
                     batchActions([

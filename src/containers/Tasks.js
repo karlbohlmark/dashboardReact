@@ -17,17 +17,9 @@ import {
     union
 } from 'lodash/fp';
 import {
-    get
-} from 'utils';
-import {
     Nothing,
     Just
 } from 'data.maybe';
-import {
-    USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS,
-    USER_TYPE_ALL
-} from 'models/googlemap';
 import {
     showGoogleMapUser,
     showGoogleMapTasks,
@@ -135,19 +127,7 @@ function select({ ui, queryData }) {
         getOverviewStats: queryData.getOverviewStats,
         dateRangePicker: ui.dateRangePicker,
         completedTasksHistogram: queryData.completedTasksHistogram,
-        users: ui.googlemap.users.cata({
-            Nothing: () => ({
-                subscriber: Nothing(),
-                gofundis: Nothing(),
-                all: Nothing()
-            }),
-            Just: fields => ({
-                ...fields,
-                subscriber: get(USER_TYPE_SUBSCRIBER, fields),
-                gofundis: get(USER_TYPE_GOFUNDIS, fields),
-                all: get(USER_TYPE_ALL, fields)
-            })
-        }),
+        users: ui.googlemap.users,
         tasksLocationStatus: queryData.taskLocationByStatus,
         tasks: ui.googlemap.tasks,
         categories: ui.googlemap.categories

@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
+    findIndex
+} from 'lodash/fp';
+import {
     USER_TYPE_SUBSCRIBER,
     USER_TYPE_GOFUNDIS,
     USER_TYPE_ALL
@@ -13,7 +16,7 @@ function UserPanel(props) {
         <div styleName='row_items' style={{flexWrap: 'wrap'}}>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.value.all.getOrElse(false)}
+                    value={(!!~findIndex(item => (item === USER_TYPE_ALL), props.value.getOrElse([])))}
                     onChange={f => props.onChange(USER_TYPE_ALL, f)}
                 >
                     All
@@ -21,7 +24,7 @@ function UserPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.value.subscriber.getOrElse(false)}
+                    value={(!!~findIndex(item => (item === USER_TYPE_SUBSCRIBER), props.value.getOrElse([])))}
                     onChange={f => props.onChange(USER_TYPE_SUBSCRIBER, f)}
                 >
                     Subscribers
@@ -32,7 +35,7 @@ function UserPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.value.gofundis.getOrElse(false)}
+                    value={(!!~findIndex(item => (item === USER_TYPE_GOFUNDIS), props.value.getOrElse([])))}
                     onChange={f => props.onChange(USER_TYPE_GOFUNDIS, f)}
                 >
                     GoFundis

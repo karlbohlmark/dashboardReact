@@ -38,7 +38,8 @@ export function reducer(state, action) {
                 ...state,
                 results: Just(map(item => ({
                     ...item,
-                    type: item.userType === 'subscriber' ? USER_TYPE_SUBSCRIBER : USER_TYPE_GOFUNDIS
+                    // TODO check userType and return it
+                    type: item.type === 'subscriber' ? USER_TYPE_SUBSCRIBER : USER_TYPE_GOFUNDIS
                 }), action.payload)),
                 busy: false
             };

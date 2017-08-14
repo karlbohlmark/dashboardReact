@@ -14,7 +14,8 @@ import {
 } from 'data.maybe';
 import {
     CATEGORY_ALL,
-    TASK_STATYS_ALL
+    TASK_STATYS_ALL,
+    USER_TYPE_ALL
 } from 'models/googlemap';
 import {
     SHOW_USERS,
@@ -27,12 +28,7 @@ import {
     capitalize
 } from 'utils';
 export const initialState = {
-    users: Just({
-        ALL: true
-    }),
-    // tasks: Just({
-    //     ALL: true
-    // }),
+    users: Just(['ALL']),
     tasks: Just(['ALL']),
     categories: Just([{
         value: CATEGORY_ALL,
@@ -79,6 +75,21 @@ const checkAllCategorySelectEmpty = curry(
             checkAllCategorySelect(payload)
     )
 );
+
+const checkAllUser = curry(
+    (payload, entity) => (
+        (isEqual(USER_TYPE_ALL, pType(payload))) ?
+            (Just([pType(payload)])) :
+            (Just(concat(pType(payload), reject(rItem => rItem === USER_TYPE_ALL, entity))))
+    )
+);
+const filterUser = curry(
+    (payload, entity) => (
+        (!~findIndex(item => (item === pType(payload)), entity)) ?
+            (Just(entity)) : (Just(reject(rItem => rItem === pType(payload), entity)))
+    )
+);
+
 const checkAllTask = curry(
     (payload, entity) => (
         (isEqual(TASK_STATYS_ALL, pType(payload))) ?
@@ -119,13 +130,10 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 users: state.users.cata({
-                    Just: entity => (Just({
-                        ...entity,
-                        [ payload.type ]: payload.value
-                    })),
-                    Nothing: () => (Just({
-                        [ payload.type ]: payload.value
-                    }))
+                    Just: entity => (pValue(payload)) ?
+                        checkAllUser(payload, entity) :
+                        filterUser(payload, entity),
+                    Nothing: () => !isNil(pType(payload)) ? Just([pType(payload)]) : Nothing()
                 })
             };
         }
