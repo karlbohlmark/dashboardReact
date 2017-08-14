@@ -43,6 +43,7 @@ export const initialState = {
     })
 };
 
+const pType = property('type');
 const pObq = property('obq');
 const pValue = property('value');
 
@@ -80,15 +81,15 @@ const checkAllCategorySelectEmpty = curry(
 );
 const checkAllTask = curry(
     (payload, entity) => (
-        (isEqual(TASK_STATYS_ALL, payload.type)) ?
-            (Just([payload.type])) :
-            (Just(concat(payload.type, reject(rItem => rItem === TASK_STATYS_ALL, entity))))
+        (isEqual(TASK_STATYS_ALL, pType(payload))) ?
+            (Just([pType(payload)])) :
+            (Just(concat(pType(payload), reject(rItem => rItem === TASK_STATYS_ALL, entity))))
     )
 );
 const filterTask = curry(
     (payload, entity) => (
-        (!~findIndex(item => (item === payload.type), entity)) ?
-            (Just(entity)) : (Just(reject(rItem => rItem === payload.type, entity)))
+        (!~findIndex(item => (item === pType(payload)), entity)) ?
+            (Just(entity)) : (Just(reject(rItem => rItem === pType(payload), entity)))
     )
 );
 const checkAllCategory = curry(
@@ -133,10 +134,10 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 tasks: state.tasks.cata({
-                    Just: entity => (payload.value) ?
+                    Just: entity => (pValue(payload)) ?
                         checkAllTask(payload, entity) :
                         filterTask(payload, entity),
-                    Nothing: () => !isNil(payload.type) ? Just([payload.type]) : Nothing()
+                    Nothing: () => !isNil(pType(payload)) ? Just([pType(payload)]) : Nothing()
                 })
             };
         }
@@ -145,10 +146,10 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 categories: state.categories.cata({
-                    Just: entity => (payload.value) ?
+                    Just: entity => (pValue(payload)) ?
                         checkAllCategory(payload, entity) :
                         filterCategory(payload, entity),
-                    Nothing: () => !isNil(payload.obq) ? Just([payload.obq]) : Nothing()
+                    Nothing: () => !isNil(pObq(payload)) ? Just([pObq(payload)]) : Nothing()
                 })
             };
         }
@@ -157,8 +158,8 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 categories: state.categories.cata({
-                    Just: () => !isNil(payload.value) ? checkAllCategorySelectEmpty(payload) : Nothing(),
-                    Nothing: () => !isNil(payload.value) ? Just(payload.value) : Nothing()
+                    Just: () => !isNil(pValue(payload)) ? checkAllCategorySelectEmpty(payload) : Nothing(),
+                    Nothing: () => !isNil(pValue(payload)) ? Just(pValue(payload)) : Nothing()
                 })
             };
         }
