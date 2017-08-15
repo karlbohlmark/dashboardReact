@@ -3,6 +3,9 @@ import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import CheckBoxItem from 'components/CheckBoxItem';
 import {
+    findIndex
+} from 'lodash/fp';
+import {
     GOFUNDIS_STATYS_OFFLINE,
     GOFUNDIS_STATYS_ONLINE,
     GOFUNDIS_ALL
@@ -13,7 +16,7 @@ function GoFundisPanel(props) {
         <div styleName='row_items'>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.value.all.getOrElse(false)}
+                    value={(!!~findIndex(item => (item === GOFUNDIS_ALL), props.value.getOrElse([])))}
                     onChange={f => props.onChange(GOFUNDIS_ALL, f)}
                 >
                     All
@@ -21,7 +24,7 @@ function GoFundisPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.value.online.getOrElse(false)}
+                    value={(!!~findIndex(item => (item === GOFUNDIS_STATYS_ONLINE), props.value.getOrElse([])))}
                     onChange={f => props.onChange(GOFUNDIS_STATYS_ONLINE, f)}
                 >
                     Online
@@ -32,7 +35,7 @@ function GoFundisPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={props.value.offline.getOrElse(false)}
+                    value={(!!~findIndex(item => (item === GOFUNDIS_STATYS_OFFLINE), props.value.getOrElse([])))}
                     onChange={f => props.onChange(GOFUNDIS_STATYS_OFFLINE, f)}
                 >
                     OffLine

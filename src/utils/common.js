@@ -1,11 +1,8 @@
 import {
-    USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS,
     TASK_STATYS_ALL,
     CATEGORY_ALL,
     USER_TYPE_ALL,
-    GOFUNDIS_STATYS_OFFLINE,
-    GOFUNDIS_STATYS_ONLINE
+    GOFUNDIS_ALL
 } from 'models/googlemap';
 import {
     compose,
@@ -118,19 +115,17 @@ export const filterCategory = curry(
     )
 
 );
+
 export const filterGoFundis = curry(
     (option, arr) => (
-        isArray(arr) ? filter(item => {
-            if (option.all.getOrElse(false)) {
-                return option.all.getOrElse(false);
-            } else if (item.type === GOFUNDIS_STATYS_OFFLINE) {
-                return option.offline.getOrElse(false);
-            } else if (item.type === GOFUNDIS_STATYS_ONLINE) {
-                return option.online.getOrElse(false);
-            }
-            return false;
-        }, arr) : (false)
+        isArray(arr) ? filter(item => (
+            (!!~findIndex(optionItem => optionItem === GOFUNDIS_ALL, option.getOrElse([]))) ||
+            (
+                some(someOption => (someOption === item.type), option.getOrElse([]))
+            )
+        ), arr) : (false)
     )
+
 );
 
 export const filterCommon = curry(

@@ -138,19 +138,7 @@ function select({ ui, queryData }) {
         users: ui.googlemap.users,
         tasks: ui.googlemap.tasks,
         categories: ui.googlemap.categories,
-        goFundis: ui.googlemap.goFundis.cata({
-            Nothing: () => ({
-                offline: Nothing(),
-                online: Nothing(),
-                all: Nothing()
-            }),
-            Just: fields => ({
-                ...fields,
-                offline: get(GOFUNDIS_STATYS_OFFLINE, fields),
-                online: get(GOFUNDIS_STATYS_ONLINE, fields),
-                all: get(GOFUNDIS_ALL, fields)
-            })
-        })
+        goFundis: ui.googlemap.goFundis
     };
 }
 

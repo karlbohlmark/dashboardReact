@@ -15,7 +15,8 @@ import {
 import {
     CATEGORY_ALL,
     TASK_STATYS_ALL,
-    USER_TYPE_ALL
+    USER_TYPE_ALL,
+    GOFUNDIS_ALL
 } from 'models/googlemap';
 import {
     SHOW_USERS,
@@ -34,9 +35,7 @@ export const initialState = {
         value: CATEGORY_ALL,
         label: capitalize(CATEGORY_ALL)
     }]),
-    goFundis: Just({
-        ALL: true
-    })
+    goFundis: Just(['ALL'])
 };
 
 const pType = property('type');
@@ -73,6 +72,20 @@ const checkAllCategorySelectEmpty = curry(
         (size(pValue(payload)) === 1) ?
             (Just(pValue(payload))) :
             checkAllCategorySelect(payload)
+    )
+);
+
+const checkAllGoFundis = curry(
+    (payload, entity) => (
+        (isEqual(GOFUNDIS_ALL, pType(payload))) ?
+            (Just([pType(payload)])) :
+            (Just(concat(pType(payload), reject(rItem => rItem === GOFUNDIS_ALL, entity))))
+    )
+);
+const filterGoFundis = curry(
+    (payload, entity) => (
+        (!~findIndex(item => (item === pType(payload)), entity)) ?
+            (Just(entity)) : (Just(reject(rItem => rItem === pType(payload), entity)))
     )
 );
 
@@ -171,19 +184,15 @@ export function reducer(state = initialState, action) {
                 })
             };
         }
-        // TODO gofundis chackbox
         case SHOW_GOFUNDIS: {
 
             return {
                 ...state,
                 goFundis: state.goFundis.cata({
-                    Just: entity => (Just({
-                        ...entity,
-                        [ payload.type ]: payload.value
-                    })),
-                    Nothing: () => (Just({
-                        [ payload.type ]: payload.value
-                    }))
+                    Just: entity => (pValue(payload)) ?
+                        checkAllGoFundis(payload, entity) :
+                        filterGoFundis(payload, entity),
+                    Nothing: () => !isNil(pType(payload)) ? Just([pType(payload)]) : Nothing()
                 })
             };
         }
