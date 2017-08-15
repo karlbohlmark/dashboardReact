@@ -88,7 +88,7 @@ function Overview(props) {
                 </Substrate>
 
                 <div>
-                    <div styleName='category_panel_title'>Users statistics</div>
+                    <div styleName='category_panel_title'>User statistics</div>
                     <div styleName="returning_subscribers" style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
                         <OverviewUsersStatistics data={props.getUserStats}/>
                     </div>
