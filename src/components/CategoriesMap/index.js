@@ -25,23 +25,14 @@ const itemWidth = ['120px', '160px', '135px'];
 function CategoriesMap(props) {
     return (
         <div>
-            <Select
-                style={{width: '300px'}}
-                multi={true}
-                options={props.options.cata({
-                    Nothing: () => ([]),
-                    Just: fields => (
-                        map(field => ({ value: field.style, label: capitalize(field.name) }), fields)
-                    )
-                })}
-                value={props.value.getOrElse(null)}
-                onChange={props.onChange}
-            />
             <div style={{
                 display: 'flex',
-                flexDirection: 'row'
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                marginTop: '10px',
+                marginBottom: '10px'
             }}>
-                <div styleName='column_items' style={{alignSelf: 'auto'}}>
+                <div styleName='inline_items' style={{alignSelf: 'auto'}}>
                     <CheckBoxItem
                         value={(!!~findIndex({
                             value: CATEGORY_ALL,
@@ -56,65 +47,58 @@ function CategoriesMap(props) {
                         {capitalize(CATEGORY_ALL)}
                     </CheckBoxItem>
                 </div>
-                <div styleName='column_items' style={{flexWrap: 'wrap', marginBottom: 0}}>
-                    {props.commonCategories.errors.cata({
-                        Nothing: () => props.commonCategories.results.cata({
-                            Nothing: () => (
-                                <div />
-                            ),
-                            Just: fields => (
-                                fields.categoryGroups.map((field, index) => (
-                                    <div key={index}
-                                         styleName='row_items'>
-                                        {
-                                            field.children.map((subCat, subIndex) => (
-                                                <div key={subIndex}
-                                                     styleName='inline_items'
-                                                     style={{
-                                                         justifyContent: 'space-between',
-                                                         alignItems: 'center',
-                                                         width: itemWidth[subIndex]}}>
-                                                    <CheckBoxItem
-                                                        // style={{
-                                                        //     display: 'flex',
-                                                        //     flexDirection: 'column',
-                                                        //     justifyContent: 'center'
-                                                        // }}
-                                                        value={(!!~findIndex({
-                                                            value: valueType(field, subCat),
-                                                            label: labelType(field, subCat)
-                                                        }, props.value.getOrElse([])))}
-                                                        // inline={true}
-                                                        onChange={f =>
-                                                            props.onCheckBox({
-                                                                value: valueType(field, subCat),
-                                                                label: labelType(field, subCat)
-                                                            }, f)
-                                                        }
-                                                    >
-                                                        <div styleName='inner_column'>
-                                                            <div>
-                                                                {`${capitalize(pName(subCat))}`}
-                                                            </div>
-                                                            <div styleName="label_small">
-                                                                {`${capitalize(pName(field))}`}
-                                                            </div>
-                                                        </div>
-
-                                                    </CheckBoxItem>
-                                                    <div styleName={styleType(field, subCat)} />
+                {props.commonCategories.errors.cata({
+                    Nothing: () => props.commonCategories.results.cata({
+                        Nothing: () => (
+                            <div />
+                        ),
+                        Just: fields => (
+                            fields.categoryGroups.map(field => (
+                                field.children.map((subCat, subIndex) => (
+                                    <div key={subIndex}
+                                         styleName='inline_items'
+                                         style={{
+                                             justifyContent: 'space-between',
+                                             alignItems: 'center',
+                                             width: itemWidth[subIndex]}}>
+                                        <CheckBoxItem
+                                            // style={{
+                                            //     display: 'flex',
+                                            //     flexDirection: 'column',
+                                            //     justifyContent: 'center'
+                                            // }}
+                                            value={(!!~findIndex({
+                                                value: valueType(field, subCat),
+                                                label: labelType(field, subCat)
+                                            }, props.value.getOrElse([])))}
+                                            // inline={true}
+                                            onChange={f =>
+                                                props.onCheckBox({
+                                                    value: valueType(field, subCat),
+                                                    label: labelType(field, subCat)
+                                                }, f)
+                                            }
+                                        >
+                                            <div styleName='inner_column'>
+                                                <div>
+                                                    {`${capitalize(pName(subCat))}`}
                                                 </div>
-                                            ))
-                                        }
+                                                <div styleName="label_small">
+                                                    {`${capitalize(pName(field))}`}
+                                                </div>
+                                            </div>
+
+                                        </CheckBoxItem>
+                                        <div styleName={styleType(field, subCat)} />
                                     </div>
                                 ))
-                            )
-                        }),
-                        Just: errors => (
-                            <div>{errors}</div>
+                            ))
                         )
-                    })}
-                </div>
+                    }),
+                    Just: errors => (
+                        <div>{errors}</div>
+                    )
+                })}
 
             </div>
             {props.data.errors.cata({
