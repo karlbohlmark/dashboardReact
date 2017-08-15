@@ -49,6 +49,9 @@ import {
 } from 'utils';
 
 class GoFundisContainer extends Component {
+    shouldComponentUpdate(nextProps) {
+        return (!(this.props.hamburger !== nextProps.hamburger));
+    }
     render() {
         return (
             <GoFundis
@@ -93,6 +96,7 @@ GoFundisContainer.propTypes = {
     goFundisStatuses: PropTypes.object.isRequired,
     goFundisCharts: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
+    hamburger: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -108,6 +112,7 @@ GoFundisContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        hamburger: ui.hamburger,
         getDashboardSettings: queryData.getDashboardSettings,
         goFundisCharts: queryData.goFundisCharts,
         goFundisStatuses: queryData.goFundisStatuses,

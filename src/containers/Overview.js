@@ -67,6 +67,9 @@ import {
 } from 'utils';
 
 class OverviewContainer extends Component {
+    shouldComponentUpdate(nextProps) {
+        return (!(this.props.hamburger !== nextProps.hamburger));
+    }
     render() {
         return (
             <Overview
@@ -124,6 +127,7 @@ OverviewContainer.propTypes = {
     tasksLocationStatus: PropTypes.object.isRequired,
     userLocation: PropTypes.object.isRequired,
     completedTasksHistogram: PropTypes.object.isRequired,
+    hamburger: PropTypes.object.isRequired,
 
     dateRangePicker: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
@@ -159,6 +163,7 @@ OverviewContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        hamburger: ui.hamburger,
         getDashboardSettings: queryData.getDashboardSettings,
         getCategoryStatistics: queryData.getCategoryStatistics,
         getPaymentStatistics: queryData.getPaymentStatistics,

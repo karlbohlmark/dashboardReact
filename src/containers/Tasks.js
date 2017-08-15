@@ -48,6 +48,9 @@ import {
 } from 'utils';
 
 class TasksContainer extends Component {
+    shouldComponentUpdate(nextProps) {
+        return (!(this.props.hamburger !== nextProps.hamburger));
+    }
     render() {
         return (
             <Tasks
@@ -94,6 +97,7 @@ TasksContainer.propTypes = {
     tasksHighlights: PropTypes.object.isRequired,
     tasksCategoryBreakdown: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
+    hamburger: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -108,6 +112,7 @@ TasksContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        hamburger: ui.hamburger,
         getDashboardSettings: queryData.getDashboardSettings,
         tasksCategoryBreakdown: queryData.taskCategoryBreakdown,
         tasksHighlights: queryData.getTasksHighlights,

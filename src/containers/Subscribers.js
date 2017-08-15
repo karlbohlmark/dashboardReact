@@ -45,6 +45,9 @@ import {
 } from 'utils';
 
 class SubscribersContainer extends Component {
+    shouldComponentUpdate(nextProps) {
+        return (!(this.props.hamburger !== nextProps.hamburger));
+    }
     render() {
         return (
             <Subscribers
@@ -81,6 +84,7 @@ SubscribersContainer.propTypes = {
     subscribersRatingBreakdown: PropTypes.object.isRequired,
     subscribersSharePerArea: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
+    hamburger: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -94,6 +98,7 @@ SubscribersContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        hamburger: ui.hamburger,
         getDashboardSettings: queryData.getDashboardSettings,
         subscribersSharePerArea: queryData.subscribersSharePerArea,
         subscribersRatingBreakdown: queryData.subscribersRatingBreakdown,
