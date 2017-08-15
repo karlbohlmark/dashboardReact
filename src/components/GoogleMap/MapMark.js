@@ -4,7 +4,7 @@ import CSSModules from 'react-css-modules';
 import styles from '../__assets__/styles.css';
 import {
     USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS,
+    USER_TYPE_GOFUNDI,
     TASK_STATYS_UNASSIGNED,
     TASK_STATYS_ASSIGNED,
     TASK_STATYS_PERFORMED,
@@ -44,7 +44,7 @@ function MapMark(props) {
                     <div styleName="user_inner" />
                 </div>
             );
-        case USER_TYPE_GOFUNDIS:
+        case USER_TYPE_GOFUNDI:
             return (
                 <div styleName="gofundis_user_block">
                     <div styleName="user_inner" />

@@ -12,7 +12,7 @@ import {
 } from 'data.maybe';
 import {
     USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS,
+    USER_TYPE_GOFUNDI,
     USER_TYPE_ALL,
     USER_TYPES
 } from 'models/googlemap';
@@ -35,7 +35,7 @@ const getTypes = curry(
             switch (key) {
                 case USER_TYPE_SUBSCRIBER:
                     return userTypes[0];
-                case USER_TYPE_GOFUNDIS:
+                case USER_TYPE_GOFUNDI:
                     return userTypes[1];
                 case USER_TYPE_ALL:
                     return userTypes;

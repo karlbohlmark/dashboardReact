@@ -6,9 +6,12 @@ import {
 } from 'lodash/fp';
 import {
     USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS,
+    USER_TYPE_GOFUNDI,
     USER_TYPE_ALL
 } from 'models/googlemap';
+import {
+    capitalize
+} from 'utils';
 import CheckBoxItem from 'components/CheckBoxItem';
 
 function UserPanel(props) {
@@ -19,7 +22,7 @@ function UserPanel(props) {
                     value={(!!~findIndex(item => (item === USER_TYPE_ALL), props.value.getOrElse([])))}
                     onChange={f => props.onChange(USER_TYPE_ALL, f)}
                 >
-                    All
+                    {capitalize(USER_TYPE_ALL)}
                 </CheckBoxItem>
             </div>
             <div styleName='inline_items'>
@@ -27,7 +30,7 @@ function UserPanel(props) {
                     value={(!!~findIndex(item => (item === USER_TYPE_SUBSCRIBER), props.value.getOrElse([])))}
                     onChange={f => props.onChange(USER_TYPE_SUBSCRIBER, f)}
                 >
-                    Subscribers
+                    {capitalize(`${USER_TYPE_SUBSCRIBER}s`)}
                 </CheckBoxItem>
                 <div styleName="subscribers_user_block">
                     <div styleName="user_inner" />
@@ -35,10 +38,10 @@ function UserPanel(props) {
             </div>
             <div styleName='inline_items'>
                 <CheckBoxItem
-                    value={(!!~findIndex(item => (item === USER_TYPE_GOFUNDIS), props.value.getOrElse([])))}
-                    onChange={f => props.onChange(USER_TYPE_GOFUNDIS, f)}
+                    value={(!!~findIndex(item => (item === USER_TYPE_GOFUNDI), props.value.getOrElse([])))}
+                    onChange={f => props.onChange(USER_TYPE_GOFUNDI, f)}
                 >
-                    GoFundis
+                    {capitalize(`${USER_TYPE_GOFUNDI}s`)}
                 </CheckBoxItem>
                 <div styleName="gofundis_user_block">
                     <div styleName="user_inner" />

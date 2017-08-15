@@ -2,10 +2,6 @@ import {
     map
 } from 'lodash/fp';
 import {
-    USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDIS
-} from 'models/googlemap';
-import {
     Just,
     Nothing
 } from 'data.maybe';
@@ -38,8 +34,7 @@ export function reducer(state, action) {
                 ...state,
                 results: Just(map(item => ({
                     ...item,
-                    // TODO check userType and return it
-                    type: item.type === 'subscriber' ? USER_TYPE_SUBSCRIBER : USER_TYPE_GOFUNDIS
+                    type: item.type.toUpperCase()
                 }), action.payload)),
                 busy: false
             };
