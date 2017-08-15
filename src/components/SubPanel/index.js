@@ -22,10 +22,10 @@ function SubPanel(props) {
                 props.title ? <div styleName='sub_panel_title'>{props.title}</div> : null
             }
 
-            <div style={{width: 200}}>
+            <div styleName='sub_panel_filter' style={{width: 200}}>
                 <Autosuggest/>
             </div>
-            <div>
+            <div styleName='sub_panel_filter'>
                 <Select
                     style={{width: 200}}
                     multi={true}
@@ -45,7 +45,7 @@ function SubPanel(props) {
                     placeholder='Category'
                 />
             </div>
-            <div >
+            <div styleName='sub_panel_filter'>
                 <DateRangePickerItem
                     dateRangePicker={props.dateRangePicker}
                     onRangeDate={props.onRangeDate}

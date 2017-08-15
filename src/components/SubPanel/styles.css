@@ -10,3 +10,7 @@
     font-weight: 400;
 
 }
+
+.sub_panel_filter {
+    display: none;
+}
