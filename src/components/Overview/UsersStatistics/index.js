@@ -27,7 +27,7 @@ function OverviewUsersStatistics(props) {
                     padding: 10,
                     fontWeight: 500
                 }}>
-                    GOFUNDIS
+                    FUNDIS
                 </div>
 
                 <div styleName="list_column" style={{marginTop: 10, marginBottom: 10}}>
@@ -140,28 +140,6 @@ function OverviewUsersStatistics(props) {
                                     }}>
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.averageExecutionTime &&
-                                                    has('color', fields.averageExecutionTime)) ?
-                                                    fields.averageExecutionTime.color : '#FBAA1A',
-                                                textOverflow: 'ellipsis',
-                                                overflow: 'hidden'}}
-                                            styleReportBlock={{width: 200}}
-                                            upItem={
-                                                fields.averageExecutionTime &&
-                                                has('value', fields.averageExecutionTime) ?
-                                                    fields.averageExecutionTime.value : '0'}
-                                            item={
-                                                fields.averageExecutionTime &&
-                                                has('title', fields.averageExecutionTime) ?
-                                                    fields.averageExecutionTime.title.toUpperCase() : ''}
-                                            subItem={
-                                                fields.averageExecutionTime &&
-                                                has('subtitle', fields.averageExecutionTime) ?
-                                                    fields.averageExecutionTime.subtitle.toUpperCase() :
-                                                    '\u00a0'.toUpperCase()}
-                                        />
-                                        <ReportRow
-                                            styleUpItem={{
                                                 color: (fields.averageResponseTime &&
                                                     has('color', fields.averageResponseTime)) ?
                                                     fields.averageResponseTime.color : '#FBAA1A',
@@ -180,6 +158,28 @@ function OverviewUsersStatistics(props) {
                                                 fields.averageResponseTime &&
                                                 has('subtitle', fields.averageResponseTime) ?
                                                     fields.averageResponseTime.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
+                                        />
+                                        <ReportRow
+                                            styleUpItem={{
+                                                color: (fields.averageExecutionTime &&
+                                                    has('color', fields.averageExecutionTime)) ?
+                                                    fields.averageExecutionTime.color : '#FBAA1A',
+                                                textOverflow: 'ellipsis',
+                                                overflow: 'hidden'}}
+                                            styleReportBlock={{width: 200}}
+                                            upItem={
+                                                fields.averageExecutionTime &&
+                                                has('value', fields.averageExecutionTime) ?
+                                                    fields.averageExecutionTime.value : '0'}
+                                            item={
+                                                fields.averageExecutionTime &&
+                                                has('title', fields.averageExecutionTime) ?
+                                                    fields.averageExecutionTime.title.toUpperCase() : ''}
+                                            subItem={
+                                                fields.averageExecutionTime &&
+                                                has('subtitle', fields.averageExecutionTime) ?
+                                                    fields.averageExecutionTime.subtitle.toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
