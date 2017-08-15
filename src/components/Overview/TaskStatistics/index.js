@@ -28,28 +28,60 @@ function OverviewTaskStatistics(props) {
                         Just: fields => (
                             <div>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#07944a'}}
-                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
+                                    styleChildren={{
+                                        backgroundColor: (fields.completedTasksPerDay.iconBackground &&
+                                            !isNull(fields.completedTasksPerDay.iconBackground)) ?
+                                            fields.completedTasksPerDay.iconBackground : '#07944a'
+                                    }}
+                                    styleUpItem={{
+                                        textOverflow: 'ellipsis',
+                                        overflow: 'hidden',
+                                        color: (fields.completedTasksPerDay.color &&
+                                            !isNull(fields.completedTasksPerDay.color)) ?
+                                            fields.completedTasksPerDay.color : '#07944a'
+                                    }}
                                     styleReportBlock={{width: 185}}
                                     upItem={
                                         fields.completedTasksPerDay &&
-                                        !isNull(fields.completedTasksPerDay) ?
-                                            fields.completedTasksPerDay : '0'}
-                                    item={'COMPLETED TASKS PER DAY'}
-                                    subItem={'(IN AVERAGE PER GOFUNDI)'}
+                                        !isNull(fields.completedTasksPerDay.value) ?
+                                            fields.completedTasksPerDay.value : '0'}
+                                    item={
+                                        fields.completedTasksPerDay &&
+                                        !isNull(fields.completedTasksPerDay.title) ?
+                                            fields.completedTasksPerDay.title.toUpperCase() : ''}
+                                    subItem={
+                                        fields.completedTasksPerDay &&
+                                        !isNull(fields.completedTasksPerDay.subtitle) ?
+                                            fields.completedTasksPerDay.subtitle.toUpperCase() : ''}
                                 >
-                                    <div styleName="completed-tasks" />
+                                    <div styleName="check" />
                                 </ReportRow>
                                 <ReportRow
-                                    styleChildren={{backgroundColor: '#F2EC2B'}}
-                                    styleUpItem={{textOverflow: 'ellipsis', overflow: 'hidden'}}
+                                    styleChildren={{
+                                        backgroundColor: (fields.increasePercentage.iconBackground &&
+                                            !isNull(fields.increasePercentage.iconBackground)) ?
+                                            fields.increasePercentage.iconBackground : '#07944a'
+                                    }}
+                                    styleUpItem={{
+                                        textOverflow: 'ellipsis',
+                                        overflow: 'hidden',
+                                        color: (fields.increasePercentage.color &&
+                                            !isNull(fields.increasePercentage.color)) ?
+                                            fields.increasePercentage.color : '#07944a'
+                                    }}
                                     styleReportBlock={{width: 185}}
                                     upItem={
                                         fields.increasePercentage &&
-                                        !isNull(fields.increasePercentage) ?
-                                            fields.increasePercentage : '0'}
-                                    item={'INCREASE SINCE LAST MONTH'}
-                                    subItem={'(TASKS COMPLETED)'}
+                                        !isNull(fields.increasePercentage.value) ?
+                                            fields.increasePercentage.value : '0'}
+                                    item={
+                                        fields.increasePercentage &&
+                                        !isNull(fields.increasePercentage.title) ?
+                                            fields.increasePercentage.title.toUpperCase() : ''}
+                                    subItem={
+                                        fields.increasePercentage &&
+                                        !isNull(fields.increasePercentage.subtitle) ?
+                                            fields.increasePercentage.subtitle.toUpperCase() : ''}
                                 >
                                     <div styleName="line-chart" />
                                 </ReportRow>

@@ -171,6 +171,7 @@ export function reducer(state = initialState, action) {
                 })
             };
         }
+        // TODO gofundis chackbox
         case SHOW_GOFUNDIS: {
 
             return {
