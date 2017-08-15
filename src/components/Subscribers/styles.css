@@ -1,10 +1,11 @@
 .root {
     display: block;
     padding: 15px;
-    margin: * * 20px;
     border: 1px solid #ddd;
     border-radius: 0;
     line-height: 1.4;
+    max-width: 1100px;
+    margin: auto;
     &_compact {
         composes: root;
     }

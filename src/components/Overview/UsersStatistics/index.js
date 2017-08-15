@@ -24,7 +24,8 @@ function OverviewUsersStatistics(props) {
                 <div style={{
                     backgroundColor: '#fff',
                     textAlign: 'center',
-                    padding: 10
+                    padding: 10,
+                    fontWeight: 500
                 }}>
                     GOFUNDIS
                 </div>
@@ -221,7 +222,8 @@ function OverviewUsersStatistics(props) {
                 <div style={{
                     backgroundColor: '#fff',
                     textAlign: 'center',
-                    padding: 10
+                    padding: 10,
+                    fontWeight: 500
                 }}>
                     SUBSCRIBERS
                 </div>
