@@ -66,7 +66,8 @@ function Overview(props) {
                         justifyContent: 'center',
                         display: 'flex',
                         flexDirection: 'row',
-                        alignItems: 'center'}}>
+                        alignItems: 'center',
+                        marginBottom: '10px'}}>
                         LIVE STATUS
                         <div style={{
                             marginLeft: 10,
