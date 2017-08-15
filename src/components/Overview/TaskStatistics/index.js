@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import {
-    isNull
+    has
 } from 'lodash/fp';
 import Placeholder from 'components/Placeholder';
 import ReportRow from 'components/ListItem/ReportRow';
@@ -29,58 +29,58 @@ function OverviewTaskStatistics(props) {
                             <div>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.completedTasksPerDay.iconBackground &&
-                                            !isNull(fields.completedTasksPerDay.iconBackground)) ?
+                                        backgroundColor: (fields.completedTasksPerDay &&
+                                            has('iconBackground', fields.completedTasksPerDay)) ?
                                             fields.completedTasksPerDay.iconBackground : '#07944a'
                                     }}
                                     styleUpItem={{
                                         textOverflow: 'ellipsis',
                                         overflow: 'hidden',
-                                        color: (fields.completedTasksPerDay.color &&
-                                            !isNull(fields.completedTasksPerDay.color)) ?
+                                        color: (fields.completedTasksPerDay &&
+                                            has('color', fields.completedTasksPerDay)) ?
                                             fields.completedTasksPerDay.color : '#07944a'
                                     }}
                                     styleReportBlock={{width: 185}}
                                     upItem={
                                         fields.completedTasksPerDay &&
-                                        !isNull(fields.completedTasksPerDay.value) ?
+                                        has('value', fields.completedTasksPerDay) ?
                                             fields.completedTasksPerDay.value : '0'}
                                     item={
                                         fields.completedTasksPerDay &&
-                                        !isNull(fields.completedTasksPerDay.title) ?
+                                        has('title', fields.completedTasksPerDay) ?
                                             fields.completedTasksPerDay.title.toUpperCase() : ''}
                                     subItem={
                                         fields.completedTasksPerDay &&
-                                        !isNull(fields.completedTasksPerDay.subtitle) ?
+                                        has('subtitle', fields.completedTasksPerDay) ?
                                             fields.completedTasksPerDay.subtitle.toUpperCase() : ''}
                                 >
                                     <div styleName="check" />
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.increasePercentage.iconBackground &&
-                                            !isNull(fields.increasePercentage.iconBackground)) ?
+                                        backgroundColor: (fields.increasePercentage &&
+                                            has('iconBackground', fields.increasePercentage)) ?
                                             fields.increasePercentage.iconBackground : '#07944a'
                                     }}
                                     styleUpItem={{
                                         textOverflow: 'ellipsis',
                                         overflow: 'hidden',
-                                        color: (fields.increasePercentage.color &&
-                                            !isNull(fields.increasePercentage.color)) ?
+                                        color: (fields.increasePercentage &&
+                                            has('color', fields.increasePercentage)) ?
                                             fields.increasePercentage.color : '#07944a'
                                     }}
                                     styleReportBlock={{width: 185}}
                                     upItem={
                                         fields.increasePercentage &&
-                                        !isNull(fields.increasePercentage.value) ?
+                                        has('value', fields.increasePercentage) ?
                                             fields.increasePercentage.value : '0'}
                                     item={
                                         fields.increasePercentage &&
-                                        !isNull(fields.increasePercentage.title) ?
+                                        has('title', fields.increasePercentage) ?
                                             fields.increasePercentage.title.toUpperCase() : ''}
                                     subItem={
                                         fields.increasePercentage &&
-                                        !isNull(fields.increasePercentage.subtitle) ?
+                                        has('subtitle', fields.increasePercentage) ?
                                             fields.increasePercentage.subtitle.toUpperCase() : ''}
                                 >
                                     <div styleName="line-chart" />

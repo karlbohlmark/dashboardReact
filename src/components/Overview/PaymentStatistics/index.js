@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import {
-    isNull
+    has
 } from 'lodash/fp';
 import Placeholder from 'components/Placeholder';
 import ReportRow from 'components/ListItem/ReportRow';
@@ -29,25 +29,25 @@ function OverviewPaymentStatistics(props) {
                             <div>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.totalTaskValue.iconBackground &&
-                                            !isNull(fields.totalTaskValue.iconBackground)) ?
+                                        backgroundColor: (fields.totalTaskValue &&
+                                            has('iconBackground', fields.totalTaskValue)) ?
                                             fields.totalTaskValue.iconBackground : '#07944a'
                                     }}
                                     styleUpItem={{
                                         textOverflow: 'ellipsis',
                                         overflow: 'hidden',
-                                        color: (fields.totalTaskValue.color &&
-                                            !isNull(fields.totalTaskValue.color)) ?
+                                        color: (fields.totalTaskValue &&
+                                            has('color', fields.totalTaskValue)) ?
                                             fields.totalTaskValue.color : '#07944a'
                                     }}
                                     styleReportBlock={{width: 200}}
                                     upItem={
                                         fields.totalTaskValue &&
-                                        !isNull(fields.totalTaskValue.value) ?
+                                        has('value', fields.totalTaskValue) ?
                                             fields.totalTaskValue.value : '0'}
                                     item={
                                         fields.totalTaskValue &&
-                                        !isNull(fields.totalTaskValue.title) ?
+                                        has('title', fields.totalTaskValue) ?
                                             fields.totalTaskValue.title.toUpperCase() : ''}
                                     // subItem={'(IN AVERAGE PER GOFUNDI)'}
                                 >
@@ -55,25 +55,25 @@ function OverviewPaymentStatistics(props) {
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.totalGoFundiEarnings.iconBackground &&
-                                            !isNull(fields.totalGoFundiEarnings.iconBackground)) ?
+                                        backgroundColor: (fields.totalGoFundiEarnings &&
+                                            has('iconBackground', fields.totalGoFundiEarnings)) ?
                                             fields.totalGoFundiEarnings.iconBackground : '#07944a'
                                     }}
                                     styleUpItem={{
                                         textOverflow: 'ellipsis',
                                         overflow: 'hidden',
-                                        color: (fields.totalGoFundiEarnings.color &&
-                                            !isNull(fields.totalGoFundiEarnings.color)) ?
+                                        color: (fields.totalGoFundiEarnings &&
+                                            has('color', fields.totalGoFundiEarnings)) ?
                                             fields.totalGoFundiEarnings.color : '#07944a'
                                     }}
                                     styleReportBlock={{width: 200}}
                                     upItem={
                                         fields.totalGoFundiEarnings &&
-                                        !isNull(fields.totalGoFundiEarnings.value) ?
+                                        has('value', fields.totalGoFundiEarnings) ?
                                             fields.totalGoFundiEarnings.value : '0'}
                                     item={
                                         fields.totalGoFundiEarnings &&
-                                        !isNull(fields.totalGoFundiEarnings.title) ?
+                                        has('title', fields.totalGoFundiEarnings) ?
                                             fields.totalGoFundiEarnings.title.toUpperCase() : ''}
                                     // subItem={'(TASKS COMPLETED)'}
                                 >
@@ -100,25 +100,25 @@ function OverviewPaymentStatistics(props) {
                             <div>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.paidOutTasks.iconBackground &&
-                                            !isNull(fields.paidOutTasks.iconBackground)) ?
+                                        backgroundColor: (fields.paidOutTasks &&
+                                            has('iconBackground', fields.paidOutTasks)) ?
                                             fields.paidOutTasks.iconBackground : '#07944a'
                                     }}
                                     styleUpItem={{
                                         textOverflow: 'ellipsis',
                                         overflow: 'hidden',
-                                        color: (fields.paidOutTasks.color &&
-                                            !isNull(fields.paidOutTasks.color)) ?
+                                        color: (fields.paidOutTasks &&
+                                            has('color', fields.paidOutTasks)) ?
                                             fields.paidOutTasks.color : '#07944a'
                                     }}
                                     styleReportBlock={{width: 165}}
                                     upItem={
                                         fields.paidOutTasks &&
-                                        !isNull(fields.paidOutTasks.value) ?
+                                        has('value', fields.paidOutTasks) ?
                                             fields.paidOutTasks.value : '0'}
                                     item={
                                         fields.paidOutTasks &&
-                                        !isNull(fields.paidOutTasks.title) ?
+                                        has('title', fields.paidOutTasks) ?
                                             fields.paidOutTasks.title.toUpperCase() : ''}
                                     // subItem={'(IN AVERAGE PER GOFUNDI)'}
                                 >
@@ -126,25 +126,25 @@ function OverviewPaymentStatistics(props) {
                                 </ReportRow>
                                 <ReportRow
                                     styleChildren={{
-                                        backgroundColor: (fields.pendingPayments.iconBackground &&
-                                            !isNull(fields.pendingPayments.iconBackground)) ?
+                                        backgroundColor: (fields.pendingPayments &&
+                                            has('iconBackground', fields.pendingPayments)) ?
                                             fields.pendingPayments.iconBackground : '#07944a'
                                     }}
                                     styleUpItem={{
                                         textOverflow: 'ellipsis',
                                         overflow: 'hidden',
-                                        color: (fields.pendingPayments.color &&
-                                            !isNull(fields.pendingPayments.color)) ?
+                                        color: (fields.pendingPayments &&
+                                            has('color', fields.pendingPayments)) ?
                                             fields.pendingPayments.color : '#07944a'
                                     }}
                                     styleReportBlock={{width: 165}}
                                     upItem={
                                         fields.pendingPayments &&
-                                        !isNull(fields.pendingPayments.value) ?
+                                        has('value', fields.pendingPayments) ?
                                             fields.pendingPayments.value : '0'}
                                     item={
                                         fields.pendingPayments &&
-                                        !isNull(fields.pendingPayments.title) ?
+                                        has('title', fields.pendingPayments) ?
                                             fields.pendingPayments.title.toUpperCase() : ''}
                                     // subItem={'(TASKS COMPLETED)'}
                                 >

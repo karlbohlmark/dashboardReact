@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import {
-    isNull
+    has
 } from 'lodash/fp';
 import Placeholder from 'components/Placeholder';
 import ReportRow from 'components/ListItem/ReportRow';
@@ -57,53 +57,61 @@ function OverviewUsersStatistics(props) {
                                                 backgroundColor: '#FBAA1A'
                                             }}
                                             styleUpItem={{
-                                                color: (fields.activeGoFundis.color &&
-                                                    !isNull(fields.activeGoFundis.color)) ?
+                                                color: (fields.activeGoFundis &&
+                                                    has('color', fields.activeGoFundis)) ?
                                                     fields.activeGoFundis.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.activeGoFundis &&
-                                                !isNull(fields.activeGoFundis.value) ?
+                                                has('value', fields.activeGoFundis) ?
                                                     fields.activeGoFundis.value : '0'}
                                             item={
                                                 fields.activeGoFundis &&
-                                                !isNull(fields.activeGoFundis.title) ?
+                                                has('title', fields.activeGoFundis) ?
                                                     fields.activeGoFundis.title.toUpperCase() : ''}
-                                            subItem={'(in average per day)'.toUpperCase()}
+                                            subItem={
+                                                fields.activeGoFundis &&
+                                                has('subtitle', fields.activeGoFundis) ?
+                                                    fields.activeGoFundis.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         >
                                             <div styleName="user" />
                                         </ReportRow>
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.averageTravelDistance.color &&
-                                                    !isNull(fields.averageTravelDistance.color)) ?
+                                                color: (fields.averageTravelDistance &&
+                                                    has('color', fields.averageTravelDistance)) ?
                                                     fields.averageTravelDistance.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageTravelDistance &&
-                                                !isNull(fields.averageTravelDistance.value) ?
+                                                has('value', fields.averageTravelDistance) ?
                                                     fields.averageTravelDistance.value : '0'}
                                             item={
                                                 fields.averageTravelDistance &&
-                                                !isNull(fields.averageTravelDistance.title) ?
+                                                has('title', fields.averageTravelDistance) ?
                                                     fields.averageTravelDistance.title.toUpperCase() : ''}
-                                            subItem={'\u00a0'.toUpperCase()}
+                                            subItem={
+                                                fields.averageTravelDistance &&
+                                                has('subtitle', fields.averageTravelDistance) ?
+                                                    fields.averageTravelDistance.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.averageRating.color &&
-                                                    !isNull(fields.averageRating.color)) ?
+                                                color: (fields.averageRating &&
+                                                    has('color', fields.averageRating)) ?
                                                     fields.averageRating.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageRating &&
-                                                !isNull(fields.averageRating.value) ?
+                                                has('value', fields.averageRating) ?
                                                     (
                                                         <IconLoop number={
                                                             Math.floor(fields.averageRating.value ?
@@ -113,8 +121,13 @@ function OverviewUsersStatistics(props) {
 
                                             item={
                                                 fields.averageRating &&
-                                                !isNull(fields.averageRating.title) ?
+                                                has('title', fields.averageRating) ?
                                                     fields.averageRating.title.toUpperCase() : ''}
+                                            subItem={
+                                                fields.averageTravelDistance &&
+                                                has('subtitle', fields.averageTravelDistance) ?
+                                                    fields.averageTravelDistance.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                     </div>
                                     <div style={{
@@ -126,57 +139,70 @@ function OverviewUsersStatistics(props) {
                                     }}>
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.averageExecutionTime.color &&
-                                                    !isNull(fields.averageExecutionTime.color)) ?
+                                                color: (fields.averageExecutionTime &&
+                                                    has('color', fields.averageExecutionTime)) ?
                                                     fields.averageExecutionTime.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageExecutionTime &&
-                                                !isNull(fields.averageExecutionTime.value) ?
+                                                has('value', fields.averageExecutionTime) ?
                                                     fields.averageExecutionTime.value : '0'}
                                             item={
                                                 fields.averageExecutionTime &&
-                                                !isNull(fields.averageExecutionTime.title) ?
+                                                has('title', fields.averageExecutionTime) ?
                                                     fields.averageExecutionTime.title.toUpperCase() : ''}
-                                            subItem={'\u00a0'.toUpperCase()}
+                                            subItem={
+                                                fields.averageTravelDistance &&
+                                                has('subtitle', fields.averageTravelDistance) ?
+                                                    fields.averageTravelDistance.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.averageResponseTime.color &&
-                                                    !isNull(fields.averageResponseTime.color)) ?
+                                                color: (fields.averageResponseTime &&
+                                                    has('color', fields.averageResponseTime)) ?
                                                     fields.averageResponseTime.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageResponseTime &&
-                                                !isNull(fields.averageResponseTime.value) ?
+                                                has('value', fields.averageResponseTime) ?
                                                     fields.averageResponseTime.value : '0'}
                                             item={
                                                 fields.averageResponseTime &&
-                                                !isNull(fields.averageResponseTime.title) ?
+                                                has('title', fields.averageResponseTime) ?
                                                     fields.averageResponseTime.title.toUpperCase() : ''}
-                                            subItem={'\u00a0'.toUpperCase()}
+                                            subItem={
+                                                fields.averageResponseTime &&
+                                                has('subtitle', fields.averageResponseTime) ?
+                                                    fields.averageResponseTime.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.averageCompletionTime.color &&
-                                                    !isNull(fields.averageCompletionTime.color)) ?
+                                                color: (fields.averageCompletionTime &&
+                                                    has('color', fields.averageCompletionTime)) ?
                                                     fields.averageCompletionTime.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageCompletionTime &&
-                                                !isNull(fields.averageCompletionTime.value) ?
+                                                has('value', fields.averageCompletionTime) ?
                                                     fields.averageCompletionTime.value : '0'}
 
                                             item={
                                                 fields.averageCompletionTime &&
-                                                !isNull(fields.averageCompletionTime.title) ?
+                                                has('title', fields.averageCompletionTime) ?
                                                     fields.averageCompletionTime.title.toUpperCase() : ''}
+                                            subItem={
+                                                fields.averageCompletionTime &&
+                                                has('subtitle', fields.averageCompletionTime) ?
+                                                    fields.averageCompletionTime.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                     </div>
 
@@ -228,60 +254,72 @@ function OverviewUsersStatistics(props) {
                                                 backgroundColor: '#C6D92D'
                                             }}
                                             styleUpItem={{
-                                                color: (fields.averageNumberOfReportedIssues.color &&
-                                                    !isNull(fields.averageNumberOfReportedIssues.color)) ?
+                                                color: (fields.averageNumberOfReportedIssues &&
+                                                    has('color', fields.averageNumberOfReportedIssues)) ?
                                                     fields.averageNumberOfReportedIssues.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageNumberOfReportedIssues &&
-                                                !isNull(fields.averageNumberOfReportedIssues.value) ?
+                                                has('value', fields.averageNumberOfReportedIssues) ?
                                                     fields.averageNumberOfReportedIssues.value : '0'}
                                             item={
                                                 fields.averageNumberOfReportedIssues &&
-                                                !isNull(fields.averageNumberOfReportedIssues.title) ?
+                                                has('title', fields.averageNumberOfReportedIssues) ?
                                                     fields.averageNumberOfReportedIssues.title.toUpperCase() : ''}
-                                            subItem={'(per subscriber)'.toUpperCase()}
+                                            subItem={
+                                                fields.averageNumberOfReportedIssues &&
+                                                has('subtitle', fields.averageNumberOfReportedIssues) ?
+                                                    fields.averageNumberOfReportedIssues.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         >
                                             <div styleName="user" />
                                         </ReportRow>
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.percentageOfFollowUpTasks.color &&
-                                                    !isNull(fields.percentageOfFollowUpTasks.color)) ?
+                                                color: (fields.percentageOfFollowUpTasks &&
+                                                    has('color', fields.percentageOfFollowUpTasks)) ?
                                                     fields.percentageOfFollowUpTasks.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.percentageOfFollowUpTasks &&
-                                                !isNull(fields.percentageOfFollowUpTasks.value) ?
+                                                has('value', fields.percentageOfFollowUpTasks) ?
                                                     fields.percentageOfFollowUpTasks.value : '0'}
                                             item={
                                                 fields.percentageOfFollowUpTasks &&
-                                                !isNull(fields.percentageOfFollowUpTasks.title) ?
+                                                has('title', fields.percentageOfFollowUpTasks) ?
                                                     fields.percentageOfFollowUpTasks.title.toUpperCase() : ''}
-                                            subItem={'(same subscriber-same category)'.toUpperCase()}
+                                            subItem={
+                                                fields.percentageOfFollowUpTasks &&
+                                                has('subtitle', fields.percentageOfFollowUpTasks) ?
+                                                    fields.percentageOfFollowUpTasks.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.percentageOfRecurringTasks.color &&
-                                                    !isNull(fields.percentageOfRecurringTasks.color)) ?
+                                                color: (fields.percentageOfRecurringTasks &&
+                                                    has('color', fields.percentageOfRecurringTasks)) ?
                                                     fields.percentageOfRecurringTasks.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.percentageOfRecurringTasks &&
-                                                !isNull(fields.percentageOfRecurringTasks.value) ?
+                                                has('value', fields.percentageOfRecurringTasks) ?
                                                     fields.percentageOfRecurringTasks.value : '0'}
 
                                             item={
                                                 fields.percentageOfRecurringTasks &&
-                                                !isNull(fields.percentageOfRecurringTasks.title) ?
+                                                has('title', fields.percentageOfRecurringTasks) ?
                                                     fields.percentageOfRecurringTasks.title.toUpperCase() : ''}
-                                            subItem={'(same subscriber-different category)'.toUpperCase()}
+                                            subItem={
+                                                fields.percentageOfRecurringTasks &&
+                                                has('subtitle', fields.percentageOfRecurringTasks) ?
+                                                    fields.percentageOfRecurringTasks.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                     </div>
                                     <div style={{
@@ -293,21 +331,25 @@ function OverviewUsersStatistics(props) {
                                     }}>
                                         <ReportRow
                                             styleUpItem={{
-                                                color: (fields.preferredTimeForService.color &&
-                                                    !isNull(fields.preferredTimeForService.color)) ?
+                                                color: (fields.preferredTimeForService &&
+                                                    has('color', fields.preferredTimeForService)) ?
                                                     fields.preferredTimeForService.color : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.preferredTimeForService &&
-                                                !isNull(fields.preferredTimeForService.value) ?
+                                                has('value', fields.preferredTimeForService) ?
                                                     fields.preferredTimeForService.value : '0'}
                                             item={
                                                 fields.preferredTimeForService &&
-                                                !isNull(fields.preferredTimeForService.title) ?
+                                                has('title', fields.preferredTimeForService) ?
                                                     fields.preferredTimeForService.title.toUpperCase() : ''}
-                                            subItem={'\u00a0'.toUpperCase()}
+                                            subItem={
+                                                fields.preferredTimeForService &&
+                                                has('subtitle', fields.preferredTimeForService) ?
+                                                    fields.preferredTimeForService.subtitle.toUpperCase() :
+                                                    '\u00a0'.toUpperCase()}
                                         />
                                     </div>
                                 </div>
