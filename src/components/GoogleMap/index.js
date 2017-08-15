@@ -31,13 +31,22 @@ class SegmentMap extends React.Component {
         this.renderMapMarks = this.renderMapMarks.bind(this);
         this.state = {
             mapBoundedList: [],
-            currentLocation: {
-                lat: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lat : 0,
-                lng: isArray(props.data) && size(props.data) > 0 ? head(props.data).location.lng : 0
-            }
+            currentLocation: props.mapSettings.results.cata({
+                Nothing: () => ({lat: 0, lng: 0}),
+                Just: fields => (has('mapCenter', fields) ? (fields.mapCenter) : ({lat: 0, lng: 0}))
+            })
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+
+        this.setState({
+            currentLocation: nextProps.mapSettings.results.cata({
+                Nothing: () => ({lat: 0, lng: 0}),
+                Just: fields => (has('mapCenter', fields) ? (fields.mapCenter) : ({lat: 0, lng: 0}))
+            })
+        });
+    }
     renderMapMarks(arr) {
         return (this.props.filterData(arr).map((item, idx) => (
             <MapMark
