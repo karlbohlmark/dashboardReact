@@ -94,14 +94,16 @@ class OverviewContainer extends Component {
                 completedTasksHistogram={this.props.completedTasksHistogram}
                 userLocation={this.props.userLocation}
                 users={this.props.users}
-                onUserLocationHandler={compose(
-                    this.props.receivePageUserLocation,
-                    this.props.showGoogleMapUser)}
+                // onUserLocationHandler={compose(
+                //     this.props.receivePageUserLocation,
+                //     this.props.showGoogleMapUser)}
+                onUserLocationHandler={this.props.showGoogleMapUser}
                 tasksLocationStatus={this.props.tasksLocationStatus}
                 tasks={this.props.tasks}
-                onChangeTaskStatusHandler={compose(
-                    this.props.receivePageTaskLocationByStatus,
-                    this.props.showGoogleMapTasks)}
+                // onChangeTaskStatusHandler={compose(
+                //     this.props.receivePageTaskLocationByStatus,
+                //     this.props.showGoogleMapTasks)}
+                onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
                 tasksLocationByCategory={this.props.tasksLocationByCategory}
                 categories={this.props.categories}
                 onChangeCategoryHandler={compose(

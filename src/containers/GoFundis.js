@@ -75,10 +75,11 @@ class GoFundisContainer extends Component {
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
                 activeGoFundis={this.props.activeGoFundis}
                 goFundis={this.props.goFundis}
-                onChangeStatus={compose(
-                    this.props.receivePageActiveGoFundis,
-                    this.props.showGoogleMapGoFundis
-                )}
+                // onChangeStatus={compose(
+                //     this.props.receivePageActiveGoFundis,
+                //     this.props.showGoogleMapGoFundis
+                // )}
+                onChangeStatus={this.props.showGoogleMapGoFundis}
             />
         );
     }
