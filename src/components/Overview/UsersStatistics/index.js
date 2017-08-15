@@ -154,9 +154,9 @@ function OverviewUsersStatistics(props) {
                                                 has('title', fields.averageExecutionTime) ?
                                                     fields.averageExecutionTime.title.toUpperCase() : ''}
                                             subItem={
-                                                fields.averageTravelDistance &&
-                                                has('subtitle', fields.averageTravelDistance) ?
-                                                    fields.averageTravelDistance.subtitle.toUpperCase() :
+                                                fields.averageExecutionTime &&
+                                                has('subtitle', fields.averageExecutionTime) ?
+                                                    fields.averageExecutionTime.subtitle.toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
