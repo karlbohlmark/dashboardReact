@@ -16,7 +16,7 @@ const LegendRow = props => (
             props.title ?
                 <div
                     styleName="legend_title"
-                    style={props.styleTitle ? props.styleTitle : null}>
+                    style={{textAlign: 'left', ...(props.styleTitle ? props.styleTitle : {})}}>
                     {props.title}
                 </div> : null
         }
