@@ -16,11 +16,24 @@ import {
     setStatus
 } from 'actions/ui/hamburger';
 import Page from 'components/Page';
+import Sidebar from 'react-sidebar';
 
 class AppContainer extends Component {
     render() {
         return (
-            <Page {...this.props} />
+            <Sidebar sidebar={<div style={{marginTop: '100px', color: '#fff'}}>Sidebar content Sidebar content</div>}
+                     pullRight
+                     open={this.props.hamburger.active}
+                     onSetOpen={this.props.setStatus}
+                     styles={{
+                         sidebar: {
+                             backgroundColor: '#173A37'
+                         }
+                     }}
+            >
+                <Page {...this.props} />
+            </Sidebar>
+
         );
     }
 }

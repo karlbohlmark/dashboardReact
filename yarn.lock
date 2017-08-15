@@ -5755,6 +5755,10 @@ react-select@^1.0.0-rc.3:
     classnames "^2.2.4"
     react-input-autosize "^1.1.0"
 
+react-sidebar@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/react-sidebar/-/react-sidebar-2.3.2.tgz#ec140bea8a6f5fa3d8ea7a56479665b44cf4f9cf"
+
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-transform-catch-errors/-/react-transform-catch-errors-1.0.2.tgz#1b4d4a76e97271896fc16fe3086c793ec88a9eeb"
