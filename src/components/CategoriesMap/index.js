@@ -108,6 +108,7 @@ function CategoriesMap(props) {
                     ),
                     Just: () => (
                         <GoogleMapSegment
+                            mapSettings={props.mapSettings}
                             data={props.data.results.getOrElse([])}
                             filterData={filterCategory(props.value)}
                         />
@@ -122,6 +123,7 @@ function CategoriesMap(props) {
 }
 
 CategoriesMap.propTypes = {
+    mapSettings: PropTypes.object.isRequired,
     commonCategories: PropTypes.object.isRequired,
     options: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,

@@ -32,7 +32,9 @@ function Subscribers(props) {
                 </Substrate>
 
                 <Substrate title={'SUBSCRIBERS'}>
-                    <SubscribersMap data={props.subscribers} />
+                    <SubscribersMap
+                        mapSettings={props.getDashboardSettings}
+                        data={props.subscribers} />
                 </Substrate>
             </div>
         </div>
@@ -40,6 +42,7 @@ function Subscribers(props) {
 }
 
 Subscribers.propTypes = {
+    getDashboardSettings: PropTypes.object.isRequired,
     subscribersSharePerArea: PropTypes.object.isRequired,
     subscribersRatingBreakdown: PropTypes.object.isRequired,
     subscribersReturning: PropTypes.object.isRequired,

@@ -8,7 +8,8 @@ import {
     head,
     filter,
     isArray,
-    size
+    size,
+    has
 } from 'lodash/fp';
 import {
     K_MARGIN_TOP,
@@ -64,7 +65,10 @@ class SegmentMap extends React.Component {
                            onChange={this.changeMapBounds}
                            margin={[K_MARGIN_TOP, K_MARGIN_RIGHT, K_MARGIN_BOTTOM, K_MARGIN_LEFT]}
                            center={this.state.currentLocation}
-                           zoom={MAP_ZOOM}
+                           zoom={this.props.mapSettings ? this.props.mapSettings.results.cata({
+                               Nothing: () => (MAP_ZOOM),
+                               Just: fields => (has('mapZoom', fields) ? (fields.mapZoom) : (MAP_ZOOM))
+                           }) : (MAP_ZOOM)}
                            options={createMapOptions}
                            onGoogleApiLoaded={({map, maps}) => {
                                this.setState({ map, maps});
@@ -77,7 +81,10 @@ class SegmentMap extends React.Component {
         );
     }
 }
+
+
 SegmentMap.propTypes = {
+    mapSettings: PropTypes.object.isRequired,
     data: PropTypes.array.isRequired,
     filterData: PropTypes.func.isRequired
 };

@@ -78,6 +78,10 @@ import {
     initialState as initialCategoryStatistics,
     reducer as reducerCategoryStatistics
 } from './getCategoryStatistics';
+import {
+    initialState as initialGetDashboardSettings,
+    reducer as reducerGetDashboardSettings
+} from './getDashboardSettings';
 
 export const initialState = {
     userLocation: initialUserLocationState,
@@ -99,7 +103,8 @@ export const initialState = {
     getLiveStats: initialLiveStats,
     getPaymentStatistics: initialPaymentStatistics,
     getUserStats: initialUserStats,
-    getCategoryStatistics: initialCategoryStatistics
+    getCategoryStatistics: initialCategoryStatistics,
+    getDashboardSettings: initialGetDashboardSettings
 };
 
 export function reducer(state, action) {
@@ -123,6 +128,7 @@ export function reducer(state, action) {
     const nextPaymentStatistics = reducerPaymentStatistics(state.getPaymentStatistics, action);
     const nextUserStats = reducerUserStats(state.getUserStats, action);
     const nextCategoryStatistics = reducerCategoryStatistics(state.getCategoryStatistics, action);
+    const nextGetDashboardSettings = reducerGetDashboardSettings(state.getDashboardSettings, action);
     if (
         state.userLocation === nextUserLocation &&
         state.getOverviewStats === nextGetOverviewStats &&
@@ -143,7 +149,8 @@ export function reducer(state, action) {
         state.getLiveStats === nextLiveStats &&
         state.getPaymentStatistics === nextPaymentStatistics &&
         state.getUserStats === nextUserStats &&
-        state.getCategoryStatistics === nextCategoryStatistics
+        state.getCategoryStatistics === nextCategoryStatistics &&
+        state.getDashboardSettings === nextGetDashboardSettings
     ) {
         return state;
     }
@@ -168,6 +175,7 @@ export function reducer(state, action) {
         getLiveStats: nextLiveStats,
         getPaymentStatistics: nextPaymentStatistics,
         getUserStats: nextUserStats,
-        getCategoryStatistics: nextCategoryStatistics
+        getCategoryStatistics: nextCategoryStatistics,
+        getDashboardSettings: nextGetDashboardSettings
     };
 }

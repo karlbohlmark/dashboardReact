@@ -48,6 +48,7 @@ class SubscribersContainer extends Component {
     render() {
         return (
             <Subscribers
+                getDashboardSettings={this.props.getDashboardSettings}
                 subscribersSharePerArea={this.props.subscribersSharePerArea}
                 subscribersRatingBreakdown={this.props.subscribersRatingBreakdown}
                 subscribersReturning={this.props.subscribersReturning}
@@ -79,6 +80,7 @@ SubscribersContainer.propTypes = {
     subscribersReturning: PropTypes.object.isRequired,
     subscribersRatingBreakdown: PropTypes.object.isRequired,
     subscribersSharePerArea: PropTypes.object.isRequired,
+    getDashboardSettings: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -92,6 +94,7 @@ SubscribersContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        getDashboardSettings: queryData.getDashboardSettings,
         subscribersSharePerArea: queryData.subscribersSharePerArea,
         subscribersRatingBreakdown: queryData.subscribersRatingBreakdown,
         subscribersReturning: queryData.subscribersReturning,

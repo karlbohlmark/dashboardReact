@@ -18,6 +18,7 @@ function SubscribersMap(props) {
                     ),
                     Just: () => (
                         <GoogleMapSegment
+                            mapSettings={props.mapSettings}
                             data={props.data.results.getOrElse([])}
                             filterData={filterCommon}
                         />
@@ -33,6 +34,7 @@ function SubscribersMap(props) {
 }
 
 SubscribersMap.propTypes = {
+    mapSettings: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired
 };
 

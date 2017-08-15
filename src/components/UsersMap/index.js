@@ -21,6 +21,7 @@ function UsersMap(props) {
                     ),
                     Just: () => (
                         <GoogleMapSegment
+                            mapSettings={props.mapSettings}
                             data={props.data.results.getOrElse([])}
                             filterData={filterUser(props.value)}
                         />
@@ -35,6 +36,7 @@ function UsersMap(props) {
 }
 
 UsersMap.propTypes = {
+    mapSettings: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
     value: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired

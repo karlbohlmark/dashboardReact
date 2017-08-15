@@ -44,6 +44,7 @@ function Tasks(props) {
                 </Substrate>
                 <Substrate title={'TASK STATUS'}>
                     <TasksStatusMap
+                        mapSettings={props.getDashboardSettings}
                         data={props.tasksLocationStatus}
                         value={props.tasks}
                         onChange={props.onChangeTaskStatusHandler}/>
@@ -55,6 +56,7 @@ function Tasks(props) {
 }
 
 Tasks.propTypes = {
+    getDashboardSettings: PropTypes.object.isRequired,
     tasksCategoryBreakdown: PropTypes.object.isRequired,
     tasksHighlights: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,

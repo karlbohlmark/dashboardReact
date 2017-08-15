@@ -75,6 +75,9 @@ import {
 import {
     receivePage as receivePageGetCategoryStatistics
 } from 'actions/queryData/getCategoryStatistics';
+import {
+    receivePage as receivePageGetDashboardSettings
+} from 'actions/queryData/getDashboardSettings';
 
 import Root from 'containers/Root';
 import App from 'containers/App';
@@ -124,6 +127,9 @@ const routes = {
                 {
                     onEnter: compose(compose(
                         store.dispatch,
+                        receivePageGetDashboardSettings
+                        ), compose(
+                        store.dispatch,
                         receivePageGetCategoryStatistics
                         ), compose(
                         store.dispatch,
@@ -164,6 +170,9 @@ const routes = {
                 {
                     onEnter: compose(compose(
                         store.dispatch,
+                        receivePageGetDashboardSettings
+                    ), compose(
+                        store.dispatch,
                         receivePageGetCategoryStatistics
                     ), compose(
                         store.dispatch,
@@ -192,6 +201,9 @@ const routes = {
                 {
                     onEnter: compose(compose(
                         store.dispatch,
+                        receivePageGetDashboardSettings
+                        ), compose(
+                        store.dispatch,
                         receivePageGetCategoryStatistics
                         ), compose(
                         store.dispatch,
@@ -217,6 +229,9 @@ const routes = {
                 },
                 {
                     onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGetDashboardSettings
+                        ), compose(
                         store.dispatch,
                         receivePageGetCategoryStatistics
                         ), compose(

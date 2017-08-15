@@ -60,6 +60,7 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
+                getDashboardSettings={this.props.getDashboardSettings}
                 goFundisCharts={this.props.goFundisCharts}
                 goFundisStatuses={this.props.goFundisStatuses}
                 listCategories={this.props.listCategories}
@@ -99,6 +100,7 @@ GoFundisContainer.propTypes = {
     activeGoFundis: PropTypes.object.isRequired,
     goFundisStatuses: PropTypes.object.isRequired,
     goFundisCharts: PropTypes.object.isRequired,
+    getDashboardSettings: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -114,6 +116,7 @@ GoFundisContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        getDashboardSettings: queryData.getDashboardSettings,
         goFundisCharts: queryData.goFundisCharts,
         goFundisStatuses: queryData.goFundisStatuses,
         activeGoFundis: queryData.activeGoFundis,

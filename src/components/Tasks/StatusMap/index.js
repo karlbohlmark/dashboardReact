@@ -20,6 +20,7 @@ function TasksStatusMap(props) {
                     ),
                     Just: () => (
                         <GoogleMapSegment
+                            mapSettings={props.mapSettings}
                             data={props.data.results.getOrElse([])}
                             filterData={filterTask(props.value)}
                         />
@@ -34,6 +35,7 @@ function TasksStatusMap(props) {
 }
 
 TasksStatusMap.propTypes = {
+    mapSettings: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
     value: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired

@@ -22,6 +22,7 @@ function GoFundisMap(props) {
                     ),
                     Just: () => (
                         <GoogleMapSegment
+                            mapSettings={props.mapSettings}
                             data={props.data.results.getOrElse([])}
                             filterData={filterGoFundis(props.value)}
                         />
@@ -36,6 +37,7 @@ function GoFundisMap(props) {
 }
 
 GoFundisMap.propTypes = {
+    mapSettings: PropTypes.object.isRequired,
     value: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
 

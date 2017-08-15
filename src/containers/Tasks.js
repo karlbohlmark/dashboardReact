@@ -51,6 +51,7 @@ class TasksContainer extends Component {
     render() {
         return (
             <Tasks
+                getDashboardSettings={this.props.getDashboardSettings}
                 tasksCategoryBreakdown={this.props.tasksCategoryBreakdown}
                 tasksHighlights={this.props.tasksHighlights}
                 listCategories={this.props.listCategories}
@@ -92,6 +93,7 @@ TasksContainer.propTypes = {
     listCategories: PropTypes.object.isRequired,
     tasksHighlights: PropTypes.object.isRequired,
     tasksCategoryBreakdown: PropTypes.object.isRequired,
+    getDashboardSettings: PropTypes.object.isRequired,
 
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
@@ -106,6 +108,7 @@ TasksContainer.propTypes = {
 function select({ ui, queryData }) {
 
     return {
+        getDashboardSettings: queryData.getDashboardSettings,
         tasksCategoryBreakdown: queryData.taskCategoryBreakdown,
         tasksHighlights: queryData.getTasksHighlights,
         // listCategories: queryData.listDashboardCategories,

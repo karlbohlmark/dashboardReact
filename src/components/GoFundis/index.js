@@ -37,6 +37,7 @@ function GoFundis(props) {
                 </div>
                 <Substrate title={'ACTIVE GO FUNDIS'}>
                     <GoFundisMap
+                        mapSettings={props.getDashboardSettings}
                         data={props.activeGoFundis}
                         value={props.goFundis}
                         onChangeStatus={props.onChangeStatus}
@@ -49,6 +50,7 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    getDashboardSettings: PropTypes.object.isRequired,
     goFundisCharts: PropTypes.object.isRequired,
     goFundisStatuses: PropTypes.object.isRequired,
     listCategories: PropTypes.object.isRequired,

@@ -81,6 +81,7 @@ function Overview(props) {
                 </div>
                 <Substrate title={'TASK STATUS'}>
                     <TasksStatusMap
+                        mapSettings={props.getDashboardSettings}
                         data={props.tasksLocationStatus}
                         value={props.tasks}
                         onChange={props.onChangeTaskStatusHandler}/>
@@ -94,6 +95,7 @@ function Overview(props) {
                 </div>
                 <Substrate title={'USERS'}>
                     <UsersMap
+                        mapSettings={props.getDashboardSettings}
                         data={props.userLocation}
                         value={props.users}
                         onChange={props.onUserLocationHandler}/>
@@ -109,6 +111,7 @@ function Overview(props) {
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap
+                        mapSettings={props.getDashboardSettings}
                         commonCategories={props.commonCategories}
                         options={props.listCategories}
                         data={props.tasksLocationByCategory}
@@ -135,6 +138,7 @@ function Overview(props) {
 }
 
 Overview.propTypes = {
+    getDashboardSettings: PropTypes.object.isRequired,
     getCategoryStatistics: PropTypes.object.isRequired,
     getPaymentStatistics: PropTypes.object.isRequired,
     getLiveStats: PropTypes.object.isRequired,
