@@ -7,13 +7,28 @@ import {
 import {
     Navbar,
     Nav,
-    NavItem
+    NavItem,
+    NavDropdown,
+    MenuItem
 } from 'react-bootstrap';
-import Hamburger from 'components/Hamburger';
+// import Hamburger from 'components/Hamburger';
 
 const textStyle = {
     color: '#000'
 };
+let navItems= [{
+            title: 'Request GoFundi',
+            href: '/task/create',
+        }, {
+            title: 'Dashboard',
+            href: '/dashboard/overview',
+        }, {
+            title: 'Admin',
+            href: '/admin/tasks',
+        }, {
+            title: 'Logout',
+            href: '/logout?returnUrl=/login',
+        }];
 
 function Page(props) {
     return (
@@ -24,12 +39,15 @@ function Page(props) {
                         REPORTING SYSTEM
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Hamburger
-                    style={{float: 'right'}}
-                    active={props.hamburger.active}
-                    type="slider"
-                    onClick={props.setStatus}
-                />
+                <Navbar.Collapse>
+                <Nav pullRight>
+                    <NavDropdown eventKey={3} title="Menu" id="basic-nav-dropdown">
+                        {
+                            navItems.map((it)=><NavItem key={it.href} {...it}>{it.title}</NavItem>)
+                        }
+                    </NavDropdown>
+                </Nav>
+                </Navbar.Collapse>
             </Navbar>
 
             <div styleName="container">
