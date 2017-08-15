@@ -2,10 +2,8 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    map,
     findIndex
 } from 'lodash/fp';
-import Select from 'react-select';
 import Placeholder from 'components/Placeholder';
 import GoogleMapSegment from 'components/GoogleMap';
 import CheckBoxItem from 'components/CheckBoxItem';

@@ -5,10 +5,7 @@ import config from 'config';
 import GoogleMap from 'google-map-react';
 import MapMark from './MapMark';
 import {
-    head,
     filter,
-    isArray,
-    size,
     has
 } from 'lodash/fp';
 import {

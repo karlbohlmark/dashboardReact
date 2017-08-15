@@ -1,16 +1,16 @@
 import {
     batchActions
 } from 'redux-batched-actions';
-import {
-    uniq,
-    flatten
-} from 'lodash/fp';
-import {
-    getTypesArray
-} from 'utils';
-import {
-    USER_TYPES
-} from 'actions/ui/googleMap';
+// import {
+//     uniq,
+//     flatten
+// } from 'lodash/fp';
+// import {
+//     getTypesArray
+// } from 'utils';
+// import {
+//     USER_TYPES
+// } from 'actions/ui/googleMap';
 import {
     listUserLocations as listUserLocationsRequest
 } from 'services/userLocation';
@@ -44,21 +44,21 @@ export function receivePageFailure(errors) {
 
 export function receivePage() {
     return (dispatch, getState) => {
-        const { ui, queryData } = getState();
+        const { queryData } = getState();
 
         if (queryData.userLocation.busy) {
             return Promise.resolve();
         }
-        const userTypes = ['subscriber', 'gofundi'];
-        const toSendUserTypes = ui.googlemap.users.cata({
-            Nothing: () => (userTypes),
-            Just: fields => (fields)
-
-        });
+        // const userTypes = ['subscriber', 'gofundi'];
+        // const toSendUserTypes = ui.googlemap.users.cata({
+        //     Nothing: () => (userTypes),
+        //     Just: fields => (fields)
+        //
+        // });
         dispatch(
             receivePageStart()
         );
-        console.log('receivePage :: ', userTypes, toSendUserTypes);
+        // console.log('receivePage :: ', userTypes, toSendUserTypes);
         return listUserLocationsRequest()
             .then(data => {
                 dispatch(

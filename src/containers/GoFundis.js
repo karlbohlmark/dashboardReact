@@ -17,17 +17,9 @@ import {
     union
 } from 'lodash/fp';
 import {
-    get
-} from 'utils';
-import {
     Nothing,
     Just
 } from 'data.maybe';
-import {
-    GOFUNDIS_STATYS_OFFLINE,
-    GOFUNDIS_STATYS_ONLINE,
-    GOFUNDIS_ALL
-} from 'models/googlemap';
 import {
     showGoogleMapUser,
     showGoogleMapTasks,
