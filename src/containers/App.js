@@ -17,11 +17,12 @@ import {
 } from 'actions/ui/hamburger';
 import Page from 'components/Page';
 import Sidebar from 'react-sidebar';
+import SideBarContent from 'components/Sidebar';
 
 class AppContainer extends Component {
     render() {
         return (
-            <Sidebar sidebar={<div style={{marginTop: '100px', color: '#fff'}}>Sidebar content Sidebar content</div>}
+            <Sidebar sidebar={<SideBarContent onClosePanel={this.props.setStatus}/>}
                      pullRight
                      open={this.props.hamburger.active}
                      onSetOpen={this.props.setStatus}

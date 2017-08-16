@@ -16,7 +16,34 @@
     .nav-pills>li>a {
         padding: 5px 15px;
     }
-
+div.hamburger>span.hamburger-box>span.hamburger-inner,
+div.hamburger>span.hamburger-box>span.hamburger-inner::before,
+div.hamburger>span.hamburger-box>span.hamburger-inner::after {
+    background-color: #fff;
+}
+.navbar>div.container-fluid {
+    padding-right: 0;
+}
+.nav.sidebar>li.active>a {
+    background-color: initial;
+    border: 0 solid #fff;
+    border-radius: 0;
+    color: #fff;
+}
+.nav.sidebar>li.active>a:focus, .nav.sidebar>li.active>a:hover {
+    background-color: initial;
+    border: 0 solid #666769;
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+.nav.sidebar>li>a, .nav.sidebar>li>a:focus, .nav.sidebar>li>a:hover{
+   // background-color: initial;
+    border-radius: 0;
+   // color: #666769;
+}
+.nav>li>a {
+    padding: 5px 15px;
+}
 /*
  * react-circular-progressbar styles
  *
