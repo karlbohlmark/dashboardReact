@@ -28,7 +28,8 @@ class AppContainer extends Component {
                      onSetOpen={this.props.setStatus}
                      styles={{
                          sidebar: {
-                             backgroundColor: '#173A37'
+                             backgroundColor: '#173A37',
+                             zIndex: 4
                          }
                      }}
             >

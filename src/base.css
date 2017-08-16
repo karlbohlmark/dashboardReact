@@ -36,10 +36,15 @@ div.hamburger>span.hamburger-box>span.hamburger-inner::after {
     border-radius: 0;
     color: rgba(255, 255, 255, 0.8);
 }
-.nav.sidebar>li>a, .nav.sidebar>li>a:focus, .nav.sidebar>li>a:hover{
-   // background-color: initial;
+.nav.sidebar>li>a {
+    background-color: initial;
     border-radius: 0;
-   // color: #666769;
+    color: #fff;
+}
+ .nav.sidebar>li>a:focus, .nav.sidebar>li>a:hover{
+   background-color: initial;
+    border-radius: 0;
+   color: rgba(255, 255, 255, 0.8);
 }
 .nav>li>a {
     padding: 5px 15px;
