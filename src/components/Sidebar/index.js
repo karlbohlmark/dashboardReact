@@ -12,7 +12,7 @@ import {
 function SideBar(props) {
 
     return (
-        <div style={{marginTop: '100px', color: '#fff'}}>
+        <div style={{marginTop: '60px', color: '#fff'}}>
             <div>
                 <Nav className='sidebar' activeKey={1} onSelect={() => props.onClosePanel(false)}>
                     <LinkContainer to="#">
