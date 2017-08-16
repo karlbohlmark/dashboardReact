@@ -18,7 +18,7 @@ const textStyle = {
 function Page(props) {
     return (
         <div>
-            <Navbar fluid styleName="header">
+            <Navbar fluid styleName="header" className="navbar_header">
                 <Navbar.Header>
                     <Navbar.Brand style={textStyle}>
                         REPORTING SYSTEM

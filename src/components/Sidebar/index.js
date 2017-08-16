@@ -15,7 +15,7 @@ function SideBar(props) {
         <div style={{marginTop: '60px', color: '#fff'}}>
             <div>
                 <Nav className='sidebar' activeKey={1} onSelect={() => props.onClosePanel(false)}>
-                    <LinkContainer to="#">
+                    <LinkContainer to="/task/create">
                         <NavItem eventKey={1}>
                             <div styleName="item_row">
                                 <div style={{margin: 4}}>
@@ -41,7 +41,7 @@ function SideBar(props) {
                         </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to="#">
+                    <LinkContainer to="/admin/tasks">
                         <NavItem eventKey={3}>
                             <div styleName="item_row">
                                 <div style={{margin: 4}}>
@@ -54,7 +54,7 @@ function SideBar(props) {
                         </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to="#">
+                    <LinkContainer to="/logout?returnUrl=/login">
                         <NavItem eventKey={4}>
                             <div styleName="item_row">
                                 <div style={{margin: 4}}>

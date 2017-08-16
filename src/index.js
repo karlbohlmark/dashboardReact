@@ -96,11 +96,23 @@ import {
 
 const store = createStore();
 
+function logoutHook(nextState, replace, next) {
+
+}
+function requireUnauth(nextState, replace) {
+
+}
+
+function requireAuth(nextState, replace) {
+
+}
+
 const routes = {
     path: '/',
     component: Root,
     childRoutes: [
         {
+            onEnter: requireUnauth,
             childRoutes: [
                 {
                     path: 'login',
@@ -113,6 +125,7 @@ const routes = {
             ]
         },
         {
+            onEnter: requireAuth,
             component: App,
             indexRoute: {
                 onEnter(nextState, replace) {
@@ -122,7 +135,7 @@ const routes = {
             childRoutes: [
                 {
                     path: 'logout',
-                    onEnter: () => {}
+                    onEnter: logoutHook
                 },
                 {
                     onEnter: compose(compose(
@@ -254,6 +267,28 @@ const routes = {
                     component: props => (
                         <Subscribers {...props} />
                     )
+                },
+                {
+                    onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGetDashboardSettings
+                    ), compose(
+                        store.dispatch,
+                        receivePageListDashboardCategories
+                    )),
+                    path: '/task/create',
+                    component: ''
+                },
+                {
+                    onEnter: compose(compose(
+                        store.dispatch,
+                        receivePageGetDashboardSettings
+                    ), compose(
+                        store.dispatch,
+                        receivePageListDashboardCategories
+                    )),
+                    path: '/admin/tasks',
+                    component: ''
                 }
             ]
         }

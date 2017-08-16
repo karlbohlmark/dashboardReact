@@ -21,7 +21,7 @@ div.hamburger>span.hamburger-box>span.hamburger-inner::before,
 div.hamburger>span.hamburger-box>span.hamburger-inner::after {
     background-color: #fff;
 }
-.navbar>div.container-fluid {
+.navbar.navbar_header>div.container-fluid {
     padding-right: 0;
 }
 .nav.sidebar>li.active>a {
