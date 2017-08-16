@@ -3,6 +3,13 @@ import {
     Nothing
 } from 'data.maybe';
 import {
+    filter,
+    map
+} from 'lodash/fp';
+import {
+    USER_TYPE_GOFUNDI
+} from 'models/googlemap';
+import {
     RECIEVE_PAGE_START,
     RECIEVE_PAGE_SUCCESS,
     RECIEVE_PAGE_FAILURE
@@ -28,7 +35,10 @@ export function reducer(state, action) {
         case RECIEVE_PAGE_SUCCESS: {
             return {
                 ...state,
-                results: Just(payload),
+                results: Just(map(item => ({
+                    ...item,
+                    type: item.status.toUpperCase()
+                }), filter(user => user.type === USER_TYPE_GOFUNDI.toLowerCase(), payload))),
                 busy: false
             };
         }

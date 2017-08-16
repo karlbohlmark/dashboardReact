@@ -96,23 +96,23 @@ import {
 
 const store = createStore();
 
-function logoutHook(nextState, replace, next) {
-
-}
-function requireUnauth(nextState, replace) {
-
-}
-
-function requireAuth(nextState, replace) {
-
-}
+// function logoutHook(nextState, replace, next) {
+//
+// }
+// function requireUnauth(nextState, replace) {
+//
+// }
+//
+// function requireAuth(nextState, replace) {
+//
+// }
 
 const routes = {
     path: '/',
     component: Root,
     childRoutes: [
         {
-            onEnter: requireUnauth,
+            // onEnter: requireUnauth,
             childRoutes: [
                 {
                     path: 'login',
@@ -125,7 +125,7 @@ const routes = {
             ]
         },
         {
-            onEnter: requireAuth,
+            // onEnter: requireAuth,
             component: App,
             indexRoute: {
                 onEnter(nextState, replace) {
@@ -134,8 +134,8 @@ const routes = {
             },
             childRoutes: [
                 {
-                    path: 'logout',
-                    onEnter: logoutHook
+                    path: 'logout'
+                    // onEnter: logoutHook
                 },
                 {
                     onEnter: compose(compose(

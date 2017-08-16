@@ -3,10 +3,9 @@ import {
 } from 'redux-batched-actions';
 
 import {
-    activeGoFundis as activeGoFundisRequest
-} from 'services/activeGoFundis';
+    listUserLocations as listUserLocationsRequest
+} from 'services/userLocation';
 
-import dataMapMarkerGoFundis from 'data/dataMapMarkerGoFundis';
 
 export const RECIEVE_PAGE_START = 'UI/ACTIVE_GO_FUNDIS/RECIEVE_PAGE_START';
 
@@ -45,12 +44,11 @@ export function receivePage() {
         dispatch(
             receivePageStart()
         );
-        return activeGoFundisRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate)
-            // .then(data => {
-            .then(() => {
+        return listUserLocationsRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate)
+            .then(data => {
                 dispatch(
                     batchActions([
-                        receivePageSuccess(dataMapMarkerGoFundis)
+                        receivePageSuccess(data)
                     ])
                 );
             })
