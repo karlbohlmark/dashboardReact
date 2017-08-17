@@ -11,9 +11,6 @@ import OverviewTaskLiveStatistics from 'components/Overview/TaskStatistics/Live'
 import OverviewPaymentStatistics from 'components/Overview/PaymentStatistics';
 import OverviewUsersStatistics from 'components/Overview/UsersStatistics';
 import OverviewCategoryStatistics from 'components/Overview/CategoryStatistics';
-
-// import OverviewBlockStats from 'components/Overview/BlockStats';
-// import GofundisHightChart from 'components/GoFundis/HightChart';
 import TasksHistogram from 'components/Overview/PaymentStatistics/Histogram';
 import TasksStatusMap from 'components/Tasks/StatusMap';
 import CategoriesMap from 'components/CategoriesMap';

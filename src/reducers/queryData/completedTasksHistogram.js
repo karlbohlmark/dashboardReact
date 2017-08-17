@@ -31,7 +31,6 @@ export function reducer(state, action) {
         case RECIEVE_PAGE_SUCCESS: {
             return {
                 ...state,
-                // results: Just(payload),
                 results: Just({
                     xAxis: {
                         categories: payload.xAxis.map(field => (formatDate(field)))
