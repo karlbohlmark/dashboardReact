@@ -131,7 +131,7 @@ const routes = {
             },
             childRoutes: [
                 {
-                    path: 'logout'
+                    // path: 'logout'
                     // onEnter: logoutHook
                 },
                 {
@@ -252,23 +252,23 @@ const routes = {
                     component: props => (
                         <Subscribers {...props} />
                     )
-                },
-                {
-                    onEnter: compose(
-                        store.dispatch,
-                        receivePageGetDashboardSettings
-                    ),
-                    path: '/task/create',
-                    component: ''
-                },
-                {
-                    onEnter: compose(
-                        store.dispatch,
-                        receivePageGetDashboardSettings
-                    ),
-                    path: '/admin/tasks',
-                    component: ''
                 }
+                // {
+                //     onEnter: compose(
+                //         store.dispatch,
+                //         receivePageGetDashboardSettings
+                //     ),
+                //     path: '/task/create',
+                //     component: ''
+                // },
+                // {
+                //     onEnter: compose(
+                //         store.dispatch,
+                //         receivePageGetDashboardSettings
+                //     ),
+                //     path: '/admin/tasks',
+                //     component: ''
+                // }
             ]
         }
     ]

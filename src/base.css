@@ -49,6 +49,37 @@ div.hamburger>span.hamburger-box>span.hamburger-inner::after {
 .nav>li>a {
     padding: 5px 15px;
 }
+
+/**/
+
+div.sidebar>div.active>a {
+    background-color: initial;
+    border: 0 solid #fff;
+    border-radius: 0;
+    color: #fff;
+}
+div.sidebar>div.active>a:focus, div.sidebar>div.active>a:hover {
+    background-color: initial;
+    border: 0 solid #666769;
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+div.sidebar>div.block_item >a {
+    background-color: initial;
+    border-radius: 0;
+    color: #fff;
+}
+div.sidebar>div.block_item>a:focus, div.sidebar>div.block_item >a:hover{
+    background-color: initial;
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+div>div.block_item {
+    padding: 5px 15px;
+}
+
 /*
  * react-circular-progressbar styles
  *
