@@ -104,7 +104,6 @@ function select({ ui, queryData }) {
         subscribersRatingBreakdown: queryData.subscribersRatingBreakdown,
         subscribersReturning: queryData.subscribersReturning,
         subscribers: queryData.subscribers,
-        // listCategories: queryData.listDashboardCategories,
         listCategories: queryData.getCategoryStatistics.results.cata({
             Nothing: () => Nothing(),
             Just: fields => (Just(

@@ -116,7 +116,6 @@ function select({ ui, queryData }) {
         getDashboardSettings: queryData.getDashboardSettings,
         tasksCategoryBreakdown: queryData.taskCategoryBreakdown,
         tasksHighlights: queryData.getTasksHighlights,
-        // listCategories: queryData.listDashboardCategories,
         listCategories: queryData.getCategoryStatistics.results.cata({
             Nothing: () => Nothing(),
             Just: fields => (Just(

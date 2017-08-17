@@ -117,7 +117,6 @@ function select({ ui, queryData }) {
         goFundisCharts: queryData.goFundisCharts,
         goFundisStatuses: queryData.goFundisStatuses,
         activeGoFundis: queryData.activeGoFundis,
-        // listCategories: queryData.listDashboardCategories,
         listCategories: queryData.getCategoryStatistics.results.cata({
             Nothing: () => Nothing(),
             Just: fields => (Just(

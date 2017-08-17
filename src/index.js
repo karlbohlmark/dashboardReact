@@ -46,9 +46,6 @@ import {
     receivePage as receivePageCompletedTasksHistogram
 } from 'actions/queryData/completedTaskHistogram';
 import {
-    receivePage as receivePageListDashboardCategories
-} from 'actions/queryData/listDashboardCategories';
-import {
     receivePage as receivePageGetTasksHighlights
 } from 'actions/queryData/getTasksHighlights';
 import {
@@ -170,9 +167,6 @@ const routes = {
                         receivePageTaskLocationByStatus
                         ), compose(
                         store.dispatch,
-                        receivePageListDashboardCategories
-                        ), compose(
-                        store.dispatch,
                         receivePageCompletedTasksHistogram
                     )),
                     path: '/dashboard/overview',
@@ -201,9 +195,6 @@ const routes = {
                         receivePageTaskLocationByStatus
                     ), compose(
                         store.dispatch,
-                        receivePageListDashboardCategories
-                    ), compose(
-                        store.dispatch,
                         receivePageCompletedTasksHistogram
                     )),
                     path: '/dashboard/tasks',
@@ -230,10 +221,7 @@ const routes = {
                         ), compose(
                         store.dispatch,
                         receivePageGetOverviewStats
-                        ), compose(
-                        store.dispatch,
-                        receivePageListDashboardCategories
-                    )),
+                        )),
                     path: '/dashboard/gofundis',
                     component: props => (
                         <GoFundis {...props} />
@@ -259,34 +247,25 @@ const routes = {
                         ), compose(
                         store.dispatch,
                         receivePageSubscribers
-                        ), compose(
-                        store.dispatch,
-                        receivePageListDashboardCategories
-                    )),
+                        )),
                     path: '/dashboard/subscribers',
                     component: props => (
                         <Subscribers {...props} />
                     )
                 },
                 {
-                    onEnter: compose(compose(
+                    onEnter: compose(
                         store.dispatch,
                         receivePageGetDashboardSettings
-                    ), compose(
-                        store.dispatch,
-                        receivePageListDashboardCategories
-                    )),
+                    ),
                     path: '/task/create',
                     component: ''
                 },
                 {
-                    onEnter: compose(compose(
+                    onEnter: compose(
                         store.dispatch,
                         receivePageGetDashboardSettings
-                    ), compose(
-                        store.dispatch,
-                        receivePageListDashboardCategories
-                    )),
+                    ),
                     path: '/admin/tasks',
                     component: ''
                 }

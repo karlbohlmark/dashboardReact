@@ -19,10 +19,6 @@ import {
     reducer as reducerCompletedTasksHistogram
 } from './completedTasksHistogram';
 import {
-    initialState as initialListDashboardCategories,
-    reducer as reducerListDashboardCategories
-} from './listDashboardCategories';
-import {
     initialState as initialGetTasksHighlights,
     reducer as reducerGetTasksHighlights
 } from './getTasksHighlights';
@@ -89,7 +85,6 @@ export const initialState = {
     taskLocationByStatus: initialTaskLocationByStatus,
     taskLocationByCategory: initialTaskLocationByCategory,
     completedTasksHistogram: initialCompletedTasksHistogram,
-    listDashboardCategories: initialListDashboardCategories,
     getTasksHighlights: initialGetTasksHighlights,
     activeGoFundis: initialActiveGoFundis,
     subscribers: initialSubscribers,
@@ -113,7 +108,6 @@ export function reducer(state, action) {
     const nextTaskLocationByStatus = reducerTaskLocationByStatus(state.taskLocationByStatus, action);
     const nextTaskLocationByCategory = reducerTaskLocationByCategory(state.taskLocationByCategory, action);
     const nextCompletedTasksHistogram = reducerCompletedTasksHistogram(state.completedTasksHistogram, action);
-    const nextListDashboardCategories = reducerListDashboardCategories(state.listDashboardCategories, action);
     const nextGetTasksHighlights = reducerGetTasksHighlights(state.getTasksHighlights, action);
     const nextActiveGoFundis = reducerActiveGoFundis(state.activeGoFundis, action);
     const nextSubscribers = reducerSubscribers(state.subscribers, action);
@@ -135,7 +129,6 @@ export function reducer(state, action) {
         state.taskLocationByStatus === nextTaskLocationByStatus &&
         state.taskLocationByCategory === nextTaskLocationByCategory &&
         state.completedTasksHistogram === nextCompletedTasksHistogram &&
-        state.listDashboardCategories === nextListDashboardCategories &&
         state.getTasksHighlights === nextGetTasksHighlights &&
         state.activeGoFundis === nextActiveGoFundis &&
         state.subscribers === nextSubscribers &&
@@ -161,7 +154,6 @@ export function reducer(state, action) {
         taskLocationByStatus: nextTaskLocationByStatus,
         taskLocationByCategory: nextTaskLocationByCategory,
         completedTasksHistogram: nextCompletedTasksHistogram,
-        listDashboardCategories: nextListDashboardCategories,
         getTasksHighlights: nextGetTasksHighlights,
         activeGoFundis: nextActiveGoFundis,
         subscribers: nextSubscribers,

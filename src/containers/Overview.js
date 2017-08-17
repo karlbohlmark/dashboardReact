@@ -170,7 +170,6 @@ function select({ ui, queryData }) {
         getLiveStats: queryData.getLiveStats,
         getUserStats: queryData.getUserStats,
         getRevenueHistogram: queryData.getRevenueHistogram,
-        // listCategories: queryData.listDashboardCategories,
         commonCategories: queryData.getCategoryStatistics,
         listCategories: queryData.getCategoryStatistics.results.cata({
             Nothing: () => Nothing(),
