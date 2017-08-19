@@ -1,16 +1,17 @@
 import {
     batchActions
 } from 'redux-batched-actions';
-// import {
-//     uniq,
-//     flatten
-// } from 'lodash/fp';
-// import {
-//     getTypesArray
-// } from 'utils';
-// import {
-//     USER_TYPES
-// } from 'actions/ui/googleMap';
+import {
+    USER_TYPE_SUBSCRIBER,
+    USER_TYPE_GOFUNDI,
+    USER_TYPE_ALL
+} from 'models/googlemap';
+import {
+    findIndex
+} from 'lodash/fp';
+import {
+    getUserTypes
+} from 'utils';
 import {
     listUserLocations as listUserLocationsRequest
 } from 'services/userLocation';
@@ -44,22 +45,20 @@ export function receivePageFailure(errors) {
 
 export function receivePage() {
     return (dispatch, getState) => {
-        const { queryData } = getState();
+        const { ui, queryData } = getState();
 
         if (queryData.userLocation.busy) {
             return Promise.resolve();
         }
-        // const userTypes = ['subscriber', 'gofundi'];
-        // const toSendUserTypes = ui.googlemap.users.cata({
-        //     Nothing: () => (userTypes),
-        //     Just: fields => (fields)
-        //
-        // });
+        const toSendUserTypes = ui.googlemap.users.cata({
+            Nothing: () => ([USER_TYPE_SUBSCRIBER.toLowerCase(), USER_TYPE_GOFUNDI.toLowerCase()]),
+            Just: fields => (!~findIndex(optionItem => optionItem === USER_TYPE_ALL, fields) ?
+                getUserTypes(fields) : [USER_TYPE_SUBSCRIBER.toLowerCase(), USER_TYPE_GOFUNDI.toLowerCase()])
+        });
         dispatch(
             receivePageStart()
         );
-        // console.log('receivePage :: ', userTypes, toSendUserTypes);
-        return listUserLocationsRequest()
+        return listUserLocationsRequest(toSendUserTypes)
             .then(data => {
                 dispatch(
                     batchActions([

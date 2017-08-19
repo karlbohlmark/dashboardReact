@@ -1,8 +1,7 @@
 import {
     curry,
-    includes,
-    omitBy,
-    keys,
+    size,
+    some,
     map,
     has
 } from 'lodash/fp';
@@ -12,9 +11,7 @@ import {
 } from 'data.maybe';
 import {
     USER_TYPE_SUBSCRIBER,
-    USER_TYPE_GOFUNDI,
-    USER_TYPE_ALL,
-    USER_TYPES
+    USER_TYPE_GOFUNDI
 } from 'models/googlemap';
 
 /**
@@ -27,25 +24,10 @@ export const get = curry(
         Nothing() :
         Just(dict[ key ])
 );
-const tfilter = omitBy(value => (!value));
 
-const getTypes = curry(
-    (key, dict, userTypes) => {
-        if (includes(key, dict)) {
-            switch (key) {
-                case USER_TYPE_SUBSCRIBER:
-                    return userTypes[0];
-                case USER_TYPE_GOFUNDI:
-                    return userTypes[1];
-                case USER_TYPE_ALL:
-                    return userTypes;
-                default:
-                    return null;
-            }
-        }
-        return null;
-    }
-);
-export const getTypesArray = curry(
-    (fields, userTypes) => map(val => getTypes(val, USER_TYPES, userTypes), keys(tfilter(fields)))
+export const getUserTypes = curry(
+    fields => (
+        !some(size(fields), fields) ?
+            [USER_TYPE_SUBSCRIBER.toLowerCase(), USER_TYPE_GOFUNDI.toLowerCase()] :
+            map(type => (type.toLowerCase()), fields))
 );

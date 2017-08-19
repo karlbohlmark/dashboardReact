@@ -3,7 +3,7 @@ export {
 } from './format-date';
 export {
     get,
-    getTypesArray
+    getUserTypes
 } from './get';
 export {
     head
