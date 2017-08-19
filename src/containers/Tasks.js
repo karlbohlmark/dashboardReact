@@ -68,10 +68,9 @@ class TasksContainer extends Component {
                 completedTasksHistogram={this.props.completedTasksHistogram}
                 tasksLocationStatus={this.props.tasksLocationStatus}
                 tasks={this.props.tasks}
-                // onChangeTaskStatusHandler={compose(
-                //     this.props.receivePageTaskLocationByStatus,
-                //     this.props.showGoogleMapTasks)}
-                onChangeTaskStatusHandler={this.props.showGoogleMapTasks}
+                onChangeTaskStatusHandler={compose(
+                    this.props.receivePageTaskLocationByStatus,
+                    this.props.showGoogleMapTasks)}
                 categories={this.props.categories}
                 onChangeCategoryHandler={compose(
                     this.props.receivePageTaskLocationByCategory,

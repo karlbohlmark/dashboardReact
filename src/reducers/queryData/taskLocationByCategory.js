@@ -23,7 +23,10 @@ export function reducer(state, action) {
         case RECIEVE_PAGE_START: {
             return {
                 ...state,
-                results: Nothing(),
+                results: state.results.cata({
+                    Nothing: () => (Nothing()),
+                    Just: entity => (Just(entity))
+                }),
                 busy: true,
                 errors: Nothing()
             };
