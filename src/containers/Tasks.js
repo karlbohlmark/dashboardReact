@@ -40,6 +40,9 @@ import {
 import {
     receivePage as receivePageGetOverviewStats
 } from 'actions/queryData/getOverviewStats';
+import {
+    receivePage as receivePageGetCategoryStatistics
+} from 'actions/queryData/getCategoryStatistics';
 import Tasks from 'components/Tasks';
 import {
     pChildren,
@@ -54,6 +57,8 @@ class TasksContainer extends Component {
     render() {
         return (
             <Tasks
+                commonCategories={this.props.commonCategories}
+                getCategoryStatistics={this.props.getCategoryStatistics}
                 getDashboardSettings={this.props.getDashboardSettings}
                 tasksCategoryBreakdown={this.props.tasksCategoryBreakdown}
                 tasksHighlights={this.props.tasksHighlights}
@@ -61,6 +66,7 @@ class TasksContainer extends Component {
                 getOverviewStats={this.props.getOverviewStats}
                 dateRangePicker={this.props.dateRangePicker}
                 onRangeDate={compose(
+                    this.props.receivePageGetCategoryStatistics,
                     this.props.receivePageGetOverviewStats,
                     this.props.receivePageTaskLocationByStatus,
                     this.props.receivePageCompletedTasksHistogram,
@@ -89,6 +95,8 @@ TasksContainer.propTypes = {
 
     dateRangePicker: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
+    getCategoryStatistics: PropTypes.object.isRequired,
+    commonCategories: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -105,13 +113,16 @@ TasksContainer.propTypes = {
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
     receivePageTaskLocationByStatus: PropTypes.func.isRequired,
     receivePageTaskLocationByCategory: PropTypes.func.isRequired,
-    receivePageGetOverviewStats: PropTypes.func.isRequired
+    receivePageGetOverviewStats: PropTypes.func.isRequired,
+    receivePageGetCategoryStatistics: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
         hamburger: ui.hamburger,
+        getCategoryStatistics: queryData.getCategoryStatistics,
+        commonCategories: queryData.getCategoryStatistics,
         getDashboardSettings: queryData.getDashboardSettings,
         tasksCategoryBreakdown: queryData.taskCategoryBreakdown,
         tasksHighlights: queryData.getTasksHighlights,
@@ -149,7 +160,8 @@ const bindActions = {
     receivePageCompletedTasksHistogram,
     receivePageTaskLocationByStatus,
     receivePageTaskLocationByCategory,
-    receivePageGetOverviewStats
+    receivePageGetOverviewStats,
+    receivePageGetCategoryStatistics
 };
 
 export default compose(

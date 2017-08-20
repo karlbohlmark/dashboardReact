@@ -4,9 +4,10 @@ import styles from './styles.css';
 import CompletedTasksHightChart from 'components/CompletedTasksHightChart';
 import Substrate from 'components/Substrate';
 import SubPanel from 'components/SubPanel';
+import OverviewCategoryStatistics from 'components/Overview/CategoryStatistics';
 import TasksHighlightsLeft from 'components/Tasks/Highlights/ContentLeft';
 import TasksHighlightsRight from 'components/Tasks/Highlights/ContentRight';
-import TasksCategoryBreakdown from 'components/Tasks/CategoryBreakdown';
+// import TasksCategoryBreakdown from 'components/Tasks/CategoryBreakdown';
 import TasksHistogram from 'components/Tasks/Histogram';
 import TasksStatusMap from 'components/Tasks/StatusMap';
 // const ReactHighcharts = require('react-highcharts');
@@ -37,8 +38,11 @@ function Tasks(props) {
                 </Substrate>
                 <div styleName='users_container_empty'>
                     <div styleName='user_container_header'>CATEGORY BREAKDOWN OF COMPLETED TASKS</div>
-                    <TasksCategoryBreakdown data={props.tasksCategoryBreakdown} />
+                    {/* <TasksCategoryBreakdown data={props.tasksCategoryBreakdown} />*/}
                 </div>
+                <Substrate>
+                    <OverviewCategoryStatistics data={props.getCategoryStatistics} />
+                </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>
                     <TasksHistogram data={props.completedTasksHistogram}/>
                 </Substrate>
@@ -56,6 +60,8 @@ function Tasks(props) {
 }
 
 Tasks.propTypes = {
+    commonCategories: PropTypes.object.isRequired,
+    getCategoryStatistics: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
     tasksCategoryBreakdown: PropTypes.object.isRequired,
     tasksHighlights: PropTypes.object.isRequired,
