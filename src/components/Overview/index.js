@@ -104,7 +104,7 @@ function Overview(props) {
                     </div>
                 </div>
                 <Substrate>
-                    <OverviewCategoryStatistics data={props.getCategoryStatistics} />
+                    <OverviewCategoryStatistics data={props.commonCategories} />
                 </Substrate>
                 <Substrate title={'CATEGORIES'}>
                     <CategoriesMap
@@ -136,7 +136,6 @@ function Overview(props) {
 
 Overview.propTypes = {
     getDashboardSettings: PropTypes.object.isRequired,
-    getCategoryStatistics: PropTypes.object.isRequired,
     getPaymentStatistics: PropTypes.object.isRequired,
     getLiveStats: PropTypes.object.isRequired,
     getUserStats: PropTypes.object.isRequired,

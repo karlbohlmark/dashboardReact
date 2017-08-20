@@ -75,7 +75,6 @@ class OverviewContainer extends Component {
             <Overview
                 getDashboardSettings={this.props.getDashboardSettings}
                 commonCategories={this.props.commonCategories}
-                getCategoryStatistics={this.props.getCategoryStatistics}
                 getUserStats={this.props.getUserStats}
                 getPaymentStatistics={this.props.getPaymentStatistics}
                 getLiveStats={this.props.getLiveStats}
@@ -136,7 +135,6 @@ OverviewContainer.propTypes = {
     getLiveStats: PropTypes.object.isRequired,
     getUserStats: PropTypes.object.isRequired,
     getPaymentStatistics: PropTypes.object.isRequired,
-    getCategoryStatistics: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
@@ -166,7 +164,6 @@ function select({ ui, queryData }) {
     return {
         hamburger: ui.hamburger,
         getDashboardSettings: queryData.getDashboardSettings,
-        getCategoryStatistics: queryData.getCategoryStatistics,
         getPaymentStatistics: queryData.getPaymentStatistics,
         getLiveStats: queryData.getLiveStats,
         getUserStats: queryData.getUserStats,

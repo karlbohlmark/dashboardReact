@@ -41,7 +41,7 @@ function Tasks(props) {
                     {/* <TasksCategoryBreakdown data={props.tasksCategoryBreakdown} />*/}
                 </div>
                 <Substrate>
-                    <OverviewCategoryStatistics data={props.getCategoryStatistics} />
+                    <OverviewCategoryStatistics data={props.commonCategories} />
                 </Substrate>
                 <Substrate title={'COMPLETED TASKS'}>
                     <TasksHistogram data={props.completedTasksHistogram}/>
@@ -61,7 +61,6 @@ function Tasks(props) {
 
 Tasks.propTypes = {
     commonCategories: PropTypes.object.isRequired,
-    getCategoryStatistics: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
     tasksCategoryBreakdown: PropTypes.object.isRequired,
     tasksHighlights: PropTypes.object.isRequired,

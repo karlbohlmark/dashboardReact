@@ -58,7 +58,6 @@ class TasksContainer extends Component {
         return (
             <Tasks
                 commonCategories={this.props.commonCategories}
-                getCategoryStatistics={this.props.getCategoryStatistics}
                 getDashboardSettings={this.props.getDashboardSettings}
                 tasksCategoryBreakdown={this.props.tasksCategoryBreakdown}
                 tasksHighlights={this.props.tasksHighlights}
@@ -95,7 +94,6 @@ TasksContainer.propTypes = {
 
     dateRangePicker: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
-    getCategoryStatistics: PropTypes.object.isRequired,
     commonCategories: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
@@ -121,7 +119,6 @@ function select({ ui, queryData }) {
 
     return {
         hamburger: ui.hamburger,
-        getCategoryStatistics: queryData.getCategoryStatistics,
         commonCategories: queryData.getCategoryStatistics,
         getDashboardSettings: queryData.getDashboardSettings,
         tasksCategoryBreakdown: queryData.taskCategoryBreakdown,
