@@ -6,6 +6,9 @@ import {
     concat
 } from 'lodash/fp';
 import {
+    DropdownButton
+} from 'react-bootstrap';
+import {
     CATEGORY_ALL
 } from 'models/googlemap';
 import {
@@ -51,6 +54,42 @@ function SubPanel(props) {
                     onRangeDate={props.onRangeDate}
                 />
             </div>
+            <div className='category_filter'>
+                <DropdownButton title={
+                    <div style={{
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'}}>
+                        <div style={{
+                            textAlign: 'left'
+                        }}>Category</div>
+                        <div style={{
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis'}}>
+                            All Unassigned Assigned Performed Completed Cancelled Cancelled
+                        </div>
+
+                    </div>
+                } id={'dropdown-basic'}>
+                    <div style={{
+                        marginTop: 50
+                    }}>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                        <div>ddfsf</div>
+                    </div>
+                </DropdownButton>
+            </div>
+
         </div>
     );
 }
