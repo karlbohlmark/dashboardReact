@@ -35,7 +35,7 @@ function TaskPanel(props) {
                     {capitalize(TASK_STATYS_ALL)}
                 </CheckBoxItem>
             </div>
-            <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
+            <div styleName='inline_items' style={{width: '140px', justifyContent: 'space-between'}}>
                 <CheckBoxItem
                     value={(!!~findIndex(item => (item === TASK_STATYS_UNASSIGNED), props.value.getOrElse([])))}
                     onChange={f => props.onChange(TASK_STATYS_UNASSIGNED, f)}
@@ -46,7 +46,7 @@ function TaskPanel(props) {
                     <div styleName="next_inner" />
                 </div>
             </div>
-            <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
+            <div styleName='inline_items' style={{width: '125px', justifyContent: 'space-between'}}>
                 <CheckBoxItem
                     value={(!!~findIndex(item => (item === TASK_STATYS_ASSIGNED), props.value.getOrElse([])))}
                     onChange={f => props.onChange(TASK_STATYS_ASSIGNED, f)}
@@ -57,7 +57,7 @@ function TaskPanel(props) {
                     <div styleName="loading_inner" />
                 </div>
             </div>
-            <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
+            <div styleName='inline_items' style={{width: '133px', justifyContent: 'space-between'}}>
                 <CheckBoxItem
                     value={(!!~findIndex(item => (item === TASK_STATYS_PERFORMED), props.value.getOrElse([])))}
                     onChange={f => props.onChange(TASK_STATYS_PERFORMED, f)}
@@ -79,7 +79,7 @@ function TaskPanel(props) {
                     <div styleName="check_inner" />
                 </div>
             </div>
-            <div styleName='inline_items' style={{width: '135px', justifyContent: 'space-between'}}>
+            <div styleName='inline_items' style={{width: '130px', justifyContent: 'space-between'}}>
                 <CheckBoxItem
                     value={(!!~findIndex(item => (item === TASK_STATYS_CANCELLED), props.value.getOrElse([])))}
                     onChange={f => props.onChange(TASK_STATYS_CANCELLED, f)}

@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
-import {
-    Checkbox
-} from 'react-bootstrap';
+// import {
+//     Checkbox
+// } from 'react-bootstrap';
+import Checkbox from 'rc-checkbox';
 import {
     compose,
     property
@@ -17,18 +18,20 @@ const pTargetChecked = compose(
 
 function CheckBoxItem(props) {
     return (
-        <div style={{ }}>
-            <Checkbox
-                style={props.style ? props.style : null}
-                checked={props.value}
-                inline={props.inline ? props.inline : false}
-                onChange={compose(
-                    props.onChange,
-                    pTargetChecked
-                )}
-            >
+        <div styleName='checkbox_wrap'>
+            <label styleName='label'>
+                <Checkbox
+                    styleName='checkbox'
+                    style={props.style ? props.style : null}
+                    checked={props.value}
+                    inline={props.inline ? props.inline : false}
+                    onChange={compose(
+                        props.onChange,
+                        pTargetChecked
+                    )}
+                />
                 {props.children}
-            </Checkbox>
+            </label>
         </div>
     );
 }

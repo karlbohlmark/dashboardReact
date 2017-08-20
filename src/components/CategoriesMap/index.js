@@ -18,7 +18,7 @@ import {
     styleType,
     valueType
 } from 'utils';
-const itemWidth = ['120px', '160px', '135px'];
+const itemWidth = ['125px', '165px', '140px'];
 
 function CategoriesMap(props) {
     return (
