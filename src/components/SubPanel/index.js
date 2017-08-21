@@ -4,9 +4,7 @@ import styles from './styles.css';
 import {
     map,
     concat,
-    findIndex,
-    size,
-    isArray
+    findIndex
 } from 'lodash/fp';
 import {
     DropdownButton
