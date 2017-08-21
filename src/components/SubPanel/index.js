@@ -65,18 +65,9 @@ function SubPanel(props) {
             </div>
             <div className='category_filter'>
                 <DropdownButton title={<HeaderCategory data={props.categories} />} id={'dropdown-basic'}>
-                    <div style={{
-                        marginTop: 50,
-                        padding: '6px 12px'
-                    }}>
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            flexWrap: 'wrap',
-                            marginTop: '10px',
-                            marginBottom: '10px'
-                        }}>
-                            <div styleName='inline_items' style={{alignSelf: 'auto'}}>
+                    <div styleName='dropdown_content'>
+                        <div styleName='dropdown_content_items'>
+                            <div styleName='inline_items_all'>
                                 <CheckBoxItem
                                     value={(!!~findIndex({
                                         value: CATEGORY_ALL,
@@ -100,11 +91,7 @@ function SubPanel(props) {
                                         fields.categoryGroups.map(field => (
                                             field.children.map((subCat, subIndex) => (
                                                 <div key={subIndex}
-                                                     styleName='inline_items'
-                                                     style={{
-                                                         justifyContent: 'space-between',
-                                                         alignItems: 'center',
-                                                         width: '100%'}}>
+                                                     styleName='inline_items_category'>
                                                     <CheckBoxItem
                                                         // style={{
                                                         //     display: 'flex',

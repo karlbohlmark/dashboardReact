@@ -1,3 +1,14 @@
+.dropdown_content {
+    margin-top: 50px;
+    padding: 6px 12px;
+}
+.dropdown_content_items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .header_category {
     white-space: nowrap;
     overflow: hidden;
@@ -20,6 +31,21 @@
 .header_category_element_none {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.3);
+}
+.inline_items_all {
+    display: flex;
+    flex-direction: row;
+    align-self: auto;
+    margin-left: 10px;
+}
+.inline_items_category {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-left: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 .inline_items {
     display: flex;
