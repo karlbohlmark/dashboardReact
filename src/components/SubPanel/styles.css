@@ -1,3 +1,26 @@
+.header_category {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.header_category_label {
+    text-align: left;
+    font-weight: 300;
+}
+.header_category_subLabel_status {
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.header_category_element {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.75);
+}
+.header_category_element_none {
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.3);
+}
 .inline_items {
     display: flex;
     flex-direction: row;

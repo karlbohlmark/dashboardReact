@@ -25,7 +25,7 @@ function Page(props) {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Hamburger
-                    style={{float: 'right', position: 'relative', zIndex: 5, backgroundColor: '#173A37'}}
+                    style={{float: 'right', position: 'relative', zIndex: 10005, backgroundColor: '#173A37'}}
                     active={props.hamburger.active}
                     type="slider"
                     onClick={props.setStatus}

@@ -25,6 +25,7 @@ import CheckBoxItem from 'components/CheckBoxItem';
 import Select from 'react-select';
 import DateRangePickerItem from 'components/DateRangePickerItem';
 import Autosuggest from 'components/Autosuggest';
+import HeaderCategory from 'components/SubPanel/HeaderCategory';
 
 function SubPanel(props) {
     return (
@@ -63,41 +64,7 @@ function SubPanel(props) {
                 />
             </div>
             <div className='category_filter'>
-                <DropdownButton title={
-                    <div style={{
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis'}}>
-                        <div style={{
-                            textAlign: 'left',
-                            fontWeight: '300'
-                        }}>Category</div>
-                        <div style={{
-                            whiteSpace: 'nowrap',
-                            textAlign: 'left',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis'}}>
-                            {props.categories.cata({
-                                Nothing: () => (<span>&nbsp;</span>),
-                                Just: fields => (
-                                    (isArray(fields) && size(fields)) ?
-                                        map(field => (
-                                            <span style={{
-                                                fontWeight: 400,
-                                                color: 'rgba(0,0,0,0.75)'
-                                            }} key={field.value}>
-                                                {capitalize(field.label)}
-                                            </span>), fields) :
-                                            (<span style={{
-                                                fontWeight: 300,
-                                                color: 'rgba(0,0,0,0.3)'
-                                            }}>Select a category</span>)
-                                )
-                            })}
-                        </div>
-
-                    </div>
-                } id={'dropdown-basic'}>
+                <DropdownButton title={<HeaderCategory data={props.categories} />} id={'dropdown-basic'}>
                     <div style={{
                         marginTop: 50,
                         padding: '6px 12px'
