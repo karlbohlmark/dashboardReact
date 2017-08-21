@@ -69,7 +69,9 @@ class SubscribersContainer extends Component {
                     this.props.receivePageSubscribersSharePerArea,
                     this.props.setRangeDate)}
                 categories={this.props.categories}
-                onChangeCategoryHandler={this.props.showGoogleMapCategory}
+                onChangeCategoryHandler={compose(
+                    this.props.receivePageTaskLocationByCategory,
+                    this.props.showGoogleMapCategory)}
                 onChangeCategory={compose(
                     this.props.receivePageTaskLocationByCategory,
                     this.props.setGoogleMapCategory)}

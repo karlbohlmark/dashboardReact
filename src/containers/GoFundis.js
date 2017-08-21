@@ -73,7 +73,9 @@ class GoFundisContainer extends Component {
                     this.props.receivePageGetOverviewStats,
                     this.props.setRangeDate)}
                 categories={this.props.categories}
-                onChangeCategoryHandler={this.props.showGoogleMapCategory}
+                onChangeCategoryHandler={compose(
+                    this.props.receivePageTaskLocationByCategory,
+                    this.props.showGoogleMapCategory)}
                 activeGoFundis={this.props.activeGoFundis}
                 goFundis={this.props.goFundis}
                 onChangeStatus={compose(
