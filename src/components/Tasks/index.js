@@ -23,6 +23,8 @@ function Tasks(props) {
             <SubPanel
                 title="TASKS"
                 listCategories={props.listCategories}
+                commonCategories={props.commonCategories}
+                onCheckBox={props.onChangeCategory}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}
@@ -61,6 +63,7 @@ function Tasks(props) {
 
 Tasks.propTypes = {
     commonCategories: PropTypes.object.isRequired,
+    onChangeCategory: PropTypes.func.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
     tasksCategoryBreakdown: PropTypes.object.isRequired,
     tasksHighlights: PropTypes.object.isRequired,

@@ -23,7 +23,8 @@ import {
 import {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    setGoogleMapCategory
 } from 'actions/ui/googleMap';
 import {
     setRangeDate
@@ -80,6 +81,9 @@ class TasksContainer extends Component {
                 onChangeCategoryHandler={compose(
                     this.props.receivePageTaskLocationByCategory,
                     this.props.showGoogleMapCategory)}
+                onChangeCategory={compose(
+                    this.props.receivePageTaskLocationByCategory,
+                    this.props.setGoogleMapCategory)}
             />
         );
     }
@@ -107,6 +111,7 @@ TasksContainer.propTypes = {
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
+    setGoogleMapCategory: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
     receivePageCompletedTasksHistogram: PropTypes.func.isRequired,
     receivePageTaskLocationByStatus: PropTypes.func.isRequired,
@@ -153,6 +158,7 @@ const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
+    setGoogleMapCategory,
     setRangeDate,
     receivePageCompletedTasksHistogram,
     receivePageTaskLocationByStatus,

@@ -187,8 +187,8 @@ function SubPanel(props) {
 }
 
 SubPanel.propTypes = {
-    commonCategories: PropTypes.object,
-    onCheckBox: PropTypes.func,
+    commonCategories: PropTypes.object.isRequired,
+    onCheckBox: PropTypes.func.isRequired,
     listCategories: PropTypes.object.isRequired,
     onChangeCategory: PropTypes.func.isRequired,
     categories: PropTypes.object.isRequired,

@@ -23,7 +23,8 @@ import {
 import {
     showGoogleMapUser,
     showGoogleMapTasks,
-    showGoogleMapCategory
+    showGoogleMapCategory,
+    setGoogleMapCategory
 } from 'actions/ui/googleMap';
 import {
     setRangeDate
@@ -37,6 +38,9 @@ import {
 import {
     receivePage as receivePageSubscribersSharePerArea
 } from 'actions/queryData/subscribersSharePerArea';
+import {
+    receivePage as receivePageTaskLocationByCategory
+} from 'actions/queryData/taskLocationByCategory';
 import Subscribers from 'components/Subscribers';
 import {
     pChildren,
@@ -51,6 +55,7 @@ class SubscribersContainer extends Component {
     render() {
         return (
             <Subscribers
+                commonCategories={this.props.commonCategories}
                 getDashboardSettings={this.props.getDashboardSettings}
                 subscribersSharePerArea={this.props.subscribersSharePerArea}
                 subscribersRatingBreakdown={this.props.subscribersRatingBreakdown}
@@ -65,6 +70,9 @@ class SubscribersContainer extends Component {
                     this.props.setRangeDate)}
                 categories={this.props.categories}
                 onChangeCategoryHandler={this.props.showGoogleMapCategory}
+                onChangeCategory={compose(
+                    this.props.receivePageTaskLocationByCategory,
+                    this.props.setGoogleMapCategory)}
             />
         );
     }
@@ -75,6 +83,7 @@ SubscribersContainer.propTypes = {
     location: locationShape.isRequired,
 
     dateRangePicker: PropTypes.object.isRequired,
+    commonCategories: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -89,16 +98,19 @@ SubscribersContainer.propTypes = {
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
+    setGoogleMapCategory: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
     receivePageSubscribersRatingBreakdown: PropTypes.func.isRequired,
     receivePageSubscribersReturning: PropTypes.func.isRequired,
-    receivePageSubscribersSharePerArea: PropTypes.func.isRequired
+    receivePageSubscribersSharePerArea: PropTypes.func.isRequired,
+    receivePageTaskLocationByCategory: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
         hamburger: ui.hamburger,
+        commonCategories: queryData.getCategoryStatistics,
         getDashboardSettings: queryData.getDashboardSettings,
         subscribersSharePerArea: queryData.subscribersSharePerArea,
         subscribersRatingBreakdown: queryData.subscribersRatingBreakdown,
@@ -131,7 +143,9 @@ const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
+    setGoogleMapCategory,
     setRangeDate,
+    receivePageTaskLocationByCategory,
     receivePageSubscribersRatingBreakdown,
     receivePageSubscribersReturning,
     receivePageSubscribersSharePerArea

@@ -24,7 +24,8 @@ import {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
-    showGoogleMapGoFundis
+    showGoogleMapGoFundis,
+    setGoogleMapCategory
 } from 'actions/ui/googleMap';
 import {
     setRangeDate
@@ -41,6 +42,9 @@ import {
 import {
     receivePage as receivePageGoFundisCharts
 } from 'actions/queryData/goFundisCharts';
+import {
+    receivePage as receivePageTaskLocationByCategory
+} from 'actions/queryData/taskLocationByCategory';
 import GoFundis from 'components/GoFundis';
 import {
     pChildren,
@@ -55,6 +59,7 @@ class GoFundisContainer extends Component {
     render() {
         return (
             <GoFundis
+                commonCategories={this.props.commonCategories}
                 getDashboardSettings={this.props.getDashboardSettings}
                 goFundisCharts={this.props.goFundisCharts}
                 goFundisStatuses={this.props.goFundisStatuses}
@@ -75,6 +80,9 @@ class GoFundisContainer extends Component {
                     this.props.receivePageActiveGoFundis,
                     this.props.showGoogleMapGoFundis
                 )}
+                onChangeCategory={compose(
+                    this.props.receivePageTaskLocationByCategory,
+                    this.props.setGoogleMapCategory)}
             />
         );
     }
@@ -86,6 +94,7 @@ GoFundisContainer.propTypes = {
 
     dateRangePicker: PropTypes.object.isRequired,
     getOverviewStats: PropTypes.object.isRequired,
+    commonCategories: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     tasks: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
@@ -100,18 +109,21 @@ GoFundisContainer.propTypes = {
     showGoogleMapUser: PropTypes.func.isRequired,
     showGoogleMapTasks: PropTypes.func.isRequired,
     showGoogleMapCategory: PropTypes.func.isRequired,
+    setGoogleMapCategory: PropTypes.func.isRequired,
     showGoogleMapGoFundis: PropTypes.func.isRequired,
     setRangeDate: PropTypes.func.isRequired,
     receivePageGetOverviewStats: PropTypes.func.isRequired,
     receivePageActiveGoFundis: PropTypes.func.isRequired,
     receivePageGoFundisStatuses: PropTypes.func.isRequired,
-    receivePageGoFundisCharts: PropTypes.func.isRequired
+    receivePageGoFundisCharts: PropTypes.func.isRequired,
+    receivePageTaskLocationByCategory: PropTypes.func.isRequired
 };
 
 function select({ ui, queryData }) {
 
     return {
         hamburger: ui.hamburger,
+        commonCategories: queryData.getCategoryStatistics,
         getDashboardSettings: queryData.getDashboardSettings,
         goFundisCharts: queryData.goFundisCharts,
         goFundisStatuses: queryData.goFundisStatuses,
@@ -145,8 +157,10 @@ const bindActions = {
     showGoogleMapUser,
     showGoogleMapTasks,
     showGoogleMapCategory,
+    setGoogleMapCategory,
     showGoogleMapGoFundis,
     setRangeDate,
+    receivePageTaskLocationByCategory,
     receivePageGetOverviewStats,
     receivePageActiveGoFundis,
     receivePageGoFundisStatuses,

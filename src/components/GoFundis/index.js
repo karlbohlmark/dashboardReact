@@ -16,6 +16,8 @@ function GoFundis(props) {
             <SubPanel
                 title="GOFUNDIS"
                 listCategories={props.listCategories}
+                commonCategories={props.commonCategories}
+                onCheckBox={props.onChangeCategory}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}
@@ -50,6 +52,7 @@ function GoFundis(props) {
 }
 
 GoFundis.propTypes = {
+    commonCategories: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
     goFundisCharts: PropTypes.object.isRequired,
     goFundisStatuses: PropTypes.object.isRequired,
@@ -62,6 +65,7 @@ GoFundis.propTypes = {
     categories: PropTypes.object.isRequired,
 
     onChangeCategoryHandler: PropTypes.func.isRequired,
+    onChangeCategory: PropTypes.func.isRequired,
     onChangeStatus: PropTypes.func.isRequired
 };
 

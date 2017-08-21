@@ -14,6 +14,8 @@ function Subscribers(props) {
             <SubPanel
                 title="SUBSCRIBERS"
                 listCategories={props.listCategories}
+                commonCategories={props.commonCategories}
+                onCheckBox={props.onChangeCategory}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}
@@ -42,6 +44,7 @@ function Subscribers(props) {
 }
 
 Subscribers.propTypes = {
+    commonCategories: PropTypes.object.isRequired,
     getDashboardSettings: PropTypes.object.isRequired,
     subscribersSharePerArea: PropTypes.object.isRequired,
     subscribersRatingBreakdown: PropTypes.object.isRequired,
@@ -51,6 +54,7 @@ Subscribers.propTypes = {
     dateRangePicker: PropTypes.object.isRequired,
     onRangeDate: PropTypes.func.isRequired,
     onChangeCategoryHandler: PropTypes.func.isRequired,
+    onChangeCategory: PropTypes.func.isRequired,
     categories: PropTypes.object.isRequired
 };
 
