@@ -25,6 +25,8 @@ function Overview(props) {
             <SubPanel
                 title="OVERVIEW"
                 listCategories={props.listCategories}
+                commonCategories={props.commonCategories}
+                onCheckBox={props.onChangeCategory}
                 categories={props.categories}
                 onChangeCategory={props.onChangeCategoryHandler}
                 dateRangePicker={props.dateRangePicker}

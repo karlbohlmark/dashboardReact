@@ -29,7 +29,10 @@ class AppContainer extends Component {
                      styles={{
                          sidebar: {
                              backgroundColor: '#173A37',
-                             zIndex: 4
+                             zIndex: 10004
+                         },
+                         overlay: {
+                             zIndex: 10003
                          }
                      }}
             >
