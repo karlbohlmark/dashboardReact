@@ -55,12 +55,7 @@ function SubPanel(props) {
                     placeholder='Category'
                 />
             </div>
-            <div styleName='sub_panel_filter'>
-                <DateRangePickerItem
-                    dateRangePicker={props.dateRangePicker}
-                    onRangeDate={props.onRangeDate}
-                />
-            </div>
+
             <div className='category_filter'>
                 <DropdownButton title={<HeaderCategory data={props.categories} />} id={'dropdown-basic'}>
                     <div styleName='dropdown_content'>
@@ -133,7 +128,12 @@ function SubPanel(props) {
                     </div>
                 </DropdownButton>
             </div>
-
+            <div styleName=''>
+                <DateRangePickerItem
+                    dateRangePicker={props.dateRangePicker}
+                    onRangeDate={props.onRangeDate}
+                />
+            </div>
         </div>
     );
 }

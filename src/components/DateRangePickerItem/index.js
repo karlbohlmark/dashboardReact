@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './styles.css';
 import {
     Button,
     Glyphicon
@@ -14,20 +16,31 @@ function DateRangePickerItem(props) {
     }
 
     return (
-        <div>
+        <div className='daterangepicker_filter'>
             <DateRangePicker
                 startDate={props.dateRangePicker.startDate}
                 endDate={props.dateRangePicker.endDate}
                 ranges={props.dateRangePicker.ranges}
                 onEvent={(event, picker) => props.onRangeDate(picker.startDate, picker.endDate)}>
-                <Button className="selected-date-range-btn" style={{width: '100%'}}>
-                    <div className="pull-left"><Glyphicon glyph="calendar" /></div>
-                    <div className="pull-right">
-                        &nbsp;<span>
+                <Button className="selected-date-range-btn">
+                    <div styleName='header_daterangepicker'>
+                        <div>
+                            <div styleName='header_daterangepicker_label'>Time Frame</div>
+                            <div styleName='header_daterangepicker_subLabel_status'>
+                                <div className="pull-left"><Glyphicon glyph="calendar" /></div>
+                                <div className="pull-right">
+                                    &nbsp;<span>
 										{label}
 									</span>
-                        &nbsp;<span className="caret"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span className="caret" />
+                        </div>
+
                     </div>
+
                 </Button>
             </DateRangePicker>
         </div>
@@ -39,4 +52,4 @@ DateRangePickerItem.propTypes = {
     onRangeDate: PropTypes.func.isRequired
 };
 
-export default DateRangePickerItem;
+export default CSSModules(DateRangePickerItem, styles);
