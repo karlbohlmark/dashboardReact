@@ -21,7 +21,9 @@ function DateRangePickerItem(props) {
                 startDate={props.dateRangePicker.startDate}
                 endDate={props.dateRangePicker.endDate}
                 ranges={props.dateRangePicker.ranges}
-                onEvent={(event, picker) => props.onRangeDate(picker.startDate, picker.endDate)}>
+                // onEvent={(event, picker) => props.onRangeDate(picker.startDate, picker.endDate)}
+                onApply={(event, picker) => props.onRangeDate(picker.startDate, picker.endDate)}
+                >
                 <Button className="selected-date-range-btn">
                     <div styleName='header_daterangepicker'>
                         <div>
@@ -38,9 +40,7 @@ function DateRangePickerItem(props) {
                         <div>
                             <span className="caret" />
                         </div>
-
                     </div>
-
                 </Button>
             </DateRangePicker>
         </div>
