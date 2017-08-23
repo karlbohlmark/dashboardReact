@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import {
-    formatDateLabel
+    formatDateLabel,
+    dateLabel
 } from 'utils';
 import {
     Button,
@@ -11,12 +12,7 @@ import {
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 
 function DateRangePickerItem(props) {
-    const start = props.dateRangePicker.startDate.format('YYYY-MM-DD');
-    const end = props.dateRangePicker.endDate.format('YYYY-MM-DD');
-    let label = `${start} - ${end}`;
-    if (start === end) {
-        label = start;
-    }
+
     return (
         <div className='daterangepicker_filter'>
             <DateRangePicker
@@ -35,10 +31,12 @@ function DateRangePickerItem(props) {
                                     props.dateRangePicker.endDate)}
                                 </div>
                             <div styleName='header_daterangepicker_subLabel_status'>
-                                <div className="pull-left"><Glyphicon glyph="calendar" /></div>
+                                <div className="pull-left"/>
                                 <div className="pull-right">
                                     &nbsp;<span>
-										{label}
+										{dateLabel(
+                                            props.dateRangePicker.startDate,
+                                            props.dateRangePicker.endDate)}
 									</span>
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 export {
     formatDate,
-    formatDateLabel
+    formatDateLabel,
+    dateLabel
 } from './format-date';
 export {
     get,

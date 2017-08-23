@@ -2,7 +2,13 @@ import moment from 'moment';
 import {
     contains,
     curry,
-    map
+    map,
+    isEqual,
+    split,
+    compose,
+    nth,
+    last,
+    head
 } from 'lodash/fp';
 import {
     DATERANGE_TODAY,
@@ -30,7 +36,7 @@ export function formatDateTime([ date, time ]) {
 
 export const getISOStringFromDate = date => new Date(date).toISOString();
 
-const getFormatString = date => date.format('YYYY-MM-DD');
+const getFormatString = curry(date => date.format('YYYY-MM-DD'));
 const getFormatFromDateRange = dateRange => map(item => (getFormatString(item)), dateRange);
 const containDate = curry(
     (date, dateRange) => contains(
@@ -61,5 +67,26 @@ export const formatDateLabel = curry(
                     (DATERANGE_LAST7DAYS_LABEL)),
                 (DATERANGE_YESTERDAY_LABEL)),
             (DATERANGE_TODAY_LABEL))
+    )
+);
+const splitHyphen = split('-');
+const dateArrayYMD = compose(
+    splitHyphen,
+    getFormatString
+);
+export const intervalLabel = curry(
+    (startDate, endDate) => (
+        ternaryLabel((isEqual(head(dateArrayYMD(startDate)), head(dateArrayYMD(endDate))) &&
+            isEqual(nth(1, dateArrayYMD(startDate)), nth(1, dateArrayYMD(endDate)))),
+            (`${startDate.format('MMM')} ${startDate.format('D')}-${endDate.format('D')}, ${startDate.format('YYYY')}`),
+            ternaryLabel(isEqual(head(dateArrayYMD(startDate)), head(dateArrayYMD(endDate))),
+                (`${startDate.format('MMM D')} - ${endDate.format('MMM D')}, ${head(dateArrayYMD(startDate))}`),
+                (`${startDate.format('MMM D, YYYY')} - ${endDate.format('MMM D, YYYY')}`)))
+    )
+);
+export const dateLabel = curry(
+    (startDate, endDate) => (
+        isEqual(getFormatString(startDate), getFormatString(endDate)) ?
+            (startDate.format('MMM D, YYYY')) : intervalLabel(startDate, endDate)
     )
 );
