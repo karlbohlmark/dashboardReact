@@ -10,7 +10,14 @@ import {
     DATERANGE_LAST7DAYS,
     DATERANGE_LAST30DAYS,
     DATERANGE_THISMONTH,
-    DATERANGE_LASTMONTH
+    DATERANGE_LASTMONTH,
+    DATERANGE_TODAY_LABEL,
+    DATERANGE_YESTERDAY_LABEL,
+    DATERANGE_LAST7DAYS_LABEL,
+    DATERANGE_LAST30DAYS_LABEL,
+    DATERANGE_THISMONTH_LABEL,
+    DATERANGE_LASTMONTH_LABEL,
+    DATERANGE_CUSTOMRANGE_LABEL
 } from 'models/dateRangePicker';
 
 export function formatDate(date) {
@@ -38,40 +45,21 @@ const checkDates = curry(
     )
 );
 
-// export const formatDateLabel = curry(
-//     (startDate, endDate) => {
-//         if (checkDates(startDate, endDate, DATERANGE_TODAY)) {
-//             return ('Today');
-//         } else if (checkDates(startDate, endDate, DATERANGE_YESTERDAY)) {
-//             return ('Yesterday');
-//         } else if (checkDates(startDate, endDate, DATERANGE_LAST7DAYS)) {
-//             return ('Last 7 Days');
-//         } else if (checkDates(startDate, endDate, DATERANGE_LAST30DAYS)) {
-//             return ('Last 30 Days');
-//         } else if (checkDates(startDate, endDate, DATERANGE_THISMONTH)) {
-//             return ('This Month');
-//         } else if (checkDates(startDate, endDate, DATERANGE_LASTMONTH)) {
-//             return ('Last Month');
-//         }
-//         return ('Custom Range');
-//     }
-// );
+const ternaryLabel = curry((condition, fnLeft, fnRight) => (condition ? fnLeft : fnRight));
 
-const ternaryLabel = curry(
-    (startDate, endDate, dateRange, fnLeft, fnRight) => (
-        !checkDates(startDate, endDate, dateRange) ?
-            fnLeft : fnRight
-    )
-);
 export const formatDateLabel = curry(
     (startDate, endDate) => (
-        ternaryLabel(startDate, endDate, DATERANGE_TODAY,
-            ternaryLabel(startDate, endDate, DATERANGE_YESTERDAY,
-                ternaryLabel(startDate, endDate, DATERANGE_LAST7DAYS,
-                    ternaryLabel(startDate, endDate, DATERANGE_LAST30DAYS,
-                        ternaryLabel(startDate, endDate, DATERANGE_THISMONTH,
-                            ternaryLabel(startDate, endDate, DATERANGE_LASTMONTH, ('Custom Range'), ('Last Month')),
-                            ('This Month')), ('Last 30 Days')), ('Last 7 Days')), ('Yesterday')), ('Today'))
+        ternaryLabel(!checkDates(startDate, endDate, DATERANGE_TODAY),
+            ternaryLabel(!checkDates(startDate, endDate, DATERANGE_YESTERDAY),
+                ternaryLabel(!checkDates(startDate, endDate, DATERANGE_LAST7DAYS),
+                    ternaryLabel(!checkDates(startDate, endDate, DATERANGE_LAST30DAYS),
+                        ternaryLabel(!checkDates(startDate, endDate, DATERANGE_THISMONTH),
+                            ternaryLabel(!checkDates(startDate, endDate, DATERANGE_LASTMONTH),
+                                (DATERANGE_CUSTOMRANGE_LABEL), (DATERANGE_LASTMONTH_LABEL)),
+                            (DATERANGE_THISMONTH_LABEL)),
+                        (DATERANGE_LAST30DAYS_LABEL)),
+                    (DATERANGE_LAST7DAYS_LABEL)),
+                (DATERANGE_YESTERDAY_LABEL)),
+            (DATERANGE_TODAY_LABEL))
     )
-
 );
