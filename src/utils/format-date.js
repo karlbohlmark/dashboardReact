@@ -30,26 +30,26 @@ const containDate = curry(
         getFormatFromDateRange(dateRange)
     )
 );
+const checkDates = curry(
+    (startDate, endDate, dateRange) => (
+        containDate(startDate, dateRange) &&
+        containDate(endDate, dateRange)
+    )
+);
 
 export const formatDateLabel = curry(
     (startDate, endDate) => {
-        if (containDate(startDate, DATERANGE_TODAY) &&
-            containDate(endDate, DATERANGE_TODAY)) {
+        if (checkDates(startDate, endDate, DATERANGE_TODAY)) {
             return ('Today');
-        } else if (containDate(startDate, DATERANGE_YESTERDAY) &&
-            containDate(endDate, DATERANGE_YESTERDAY)) {
+        } else if (checkDates(startDate, endDate, DATERANGE_YESTERDAY)) {
             return ('Yesterday');
-        } else if (containDate(startDate, DATERANGE_LAST7DAYS) &&
-            containDate(endDate, DATERANGE_LAST7DAYS)) {
+        } else if (checkDates(startDate, endDate, DATERANGE_LAST7DAYS)) {
             return ('Last 7 Days');
-        } else if (containDate(startDate, DATERANGE_LAST30DAYS) &&
-            containDate(endDate, DATERANGE_LAST30DAYS)) {
+        } else if (checkDates(startDate, endDate, DATERANGE_LAST30DAYS)) {
             return ('Last 30 Days');
-        } else if (containDate(startDate, DATERANGE_THISMONTH) &&
-            containDate(endDate, DATERANGE_THISMONTH)) {
+        } else if (checkDates(startDate, endDate, DATERANGE_THISMONTH)) {
             return ('This Month');
-        } else if (containDate(startDate, DATERANGE_LASTMONTH) &&
-            containDate(endDate, DATERANGE_LASTMONTH)) {
+        } else if (checkDates(startDate, endDate, DATERANGE_LASTMONTH)) {
             return ('Last Month');
         }
         return ('Custom Range');
