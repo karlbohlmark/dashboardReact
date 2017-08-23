@@ -7,7 +7,6 @@ import {
     split,
     compose,
     nth,
-    last,
     head
 } from 'lodash/fp';
 import {

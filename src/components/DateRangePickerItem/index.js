@@ -6,8 +6,7 @@ import {
     dateLabel
 } from 'utils';
 import {
-    Button,
-    Glyphicon
+    Button
 } from 'react-bootstrap';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 
@@ -31,7 +30,6 @@ function DateRangePickerItem(props) {
                                     props.dateRangePicker.endDate)}
                                 </div>
                             <div styleName='header_daterangepicker_subLabel_status'>
-                                <div className="pull-left"/>
                                 <div className="pull-right">
                                     &nbsp;<span>
 										{dateLabel(
