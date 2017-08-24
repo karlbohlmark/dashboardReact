@@ -1,13 +1,13 @@
 import {
     batchActions
 } from 'redux-batched-actions';
-import {
-    TASK_STATYS_ALL
-} from 'models/googlemap';
-import {
-    map,
-    findIndex
-} from 'lodash/fp';
+// import {
+//     TASK_STATYS_ALL
+// } from 'models/googlemap';
+// import {
+//     map,
+//     findIndex
+// } from 'lodash/fp';
 import {
     taskLocationByStatus as taskLocationByStatusRequest
 } from 'services/taskLocationByStatus';
