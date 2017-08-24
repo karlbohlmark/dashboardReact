@@ -1,7 +1,13 @@
 import {
     batchActions
 } from 'redux-batched-actions';
-
+import {
+    TASK_STATYS_ALL
+} from 'models/googlemap';
+import {
+    map,
+    findIndex
+} from 'lodash/fp';
 import {
     taskLocationByStatus as taskLocationByStatusRequest
 } from 'services/taskLocationByStatus';
@@ -40,10 +46,14 @@ export function receivePage() {
         if (queryData.taskLocationByStatus.busy) {
             return Promise.resolve();
         }
-        // TODO fix tasks send query
+        // TODO fix tasks send query to JUST with Value
         const toSendTasksTypes = ui.googlemap.tasks.cata({
             Nothing: () => ([]),
             Just: () => ([])
+            // Just: value => (
+            //     (!~findIndex(optionItem => optionItem === TASK_STATYS_ALL, value)) ?
+            //         (map(taskType => (taskType.toLowerCase()), value)) : ([])
+            // )
         });
         dispatch(
             receivePageStart()

@@ -1,6 +1,7 @@
 import {
     isNull,
-    isArray
+    isArray,
+    size
 } from 'lodash/fp';
 import Maybe from 'data.maybe';
 
@@ -23,7 +24,7 @@ export function taskLocationByStatus(from, to, status) {
         }
     };
     const queryAssign = encodeURIComponent(JSON.stringify(
-        Object.assign(status.length > 0 ? { status } : {}, query)));
+        Object.assign(size(status) > 0 ? { status } : {}, query)));
     return fetch(`${config.url}${config.version}${METHOD}?query=${queryAssign}`, {
         method: 'GET',
         mode: 'cors'
