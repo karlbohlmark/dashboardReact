@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
+import StarRatingComponent from 'react-star-rating-component';
 import ListRow from 'components/ListItem/ListRow';
 import IconLoop from 'components/IconLoop';
 import Placeholder from 'components/Placeholder';
@@ -18,11 +19,33 @@ function GoFundisHighlights(props) {
                     ),
                     Just: fields => (
                         <div styleName="list_column" style={{margin: 10, minWidth: 275}}>
+                            {/* <ListRow*/}
+                                {/* style={{marginTop: '7px', marginBottom: '7px'}}*/}
+                                {/* leftItem={<IconLoop number={*/}
+                                    {/* Math.floor(fields.avgFundiRating ?*/}
+                                        {/* parseFloat(fields.avgFundiRating).toFixed(2) : 0)*/}
+                                {/* } name={'star'} />}*/}
+                                {/* item={'AVERAGE GOFUNDI RATING'}*/}
+                            {/* />*/}
                             <ListRow
                                 style={{marginTop: '7px', marginBottom: '7px'}}
-                                leftItem={<IconLoop number={
-                                    Math.floor(fields.avgFundiRating ? parseFloat(fields.avgFundiRating).toFixed(2) : 0)
-                                } name={'star'} />}
+                                leftItem={<StarRatingComponent
+                                    // starCount={5}
+                                    value={
+                                        Math.floor(fields.avgFundiRating ?
+                                            parseFloat(fields.avgFundiRating).toFixed(2) : 0)}
+                                    name="rate2"
+                                    editing={false}
+                                    starColor={'#f47423'}
+                                    emptyStarColor={'#ccc'}
+                                    renderStarIcon={(index, value) => (
+                                        <span
+                                            style={{fontSize: '18px', fontWeight: 300}}
+                                            className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />)}
+                                    renderStarIconHalf={() => (<span
+                                        style={{fontSize: '18px', fontWeight: 300, color: '#f47423'}}
+                                        className="fa fa-star-half-full" />)}
+                                />}
                                 item={'AVERAGE GOFUNDI RATING'}
                             />
                             <ListRow
