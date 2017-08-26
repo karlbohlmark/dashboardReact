@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import StarRatingComponent from 'react-star-rating-component';
 import ListRow from 'components/ListItem/ListRow';
-import IconLoop from 'components/IconLoop';
+// import IconLoop from 'components/IconLoop';
 import Placeholder from 'components/Placeholder';
 
 function GoFundisHighlights(props) {
