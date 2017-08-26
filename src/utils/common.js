@@ -20,6 +20,10 @@ export const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join(
 export const pChildren = property('children');
 export const pName = property('name');
 export const pIcon = property('icon');
+export const pType = property('type');
+export const pLat = property('lat');
+export const pLng = property('lng');
+
 export const pSplitJoin = curry(
     (joinLetter, splitLetter) => compose(
         join(joinLetter),
@@ -73,8 +77,8 @@ export const createMapOptions = curry(
 
 export const locationInScreen = curry(
     (location, nw, se) => (
-        (nw.lat > location.lat && location.lat > se.lat) &&
-        (nw.lng < location.lng && location.lng < se.lng)
+        (pLat(nw) > pLat(location) && pLat(location) > pLat(se)) &&
+        (pLng(nw) < pLng(location) && pLng(location) < pLng(se))
     )
 );
 
@@ -83,7 +87,7 @@ export const filterUser = curry(
         isArray(arr) ? filter(item => (
             (!!~findIndex(optionItem => optionItem === USER_TYPE_ALL, option.getOrElse([]))) ||
             (
-                some(someOption => (someOption === item.type), option.getOrElse([]))
+                some(someOption => (someOption === pType(item)), option.getOrElse([]))
             )
         ), arr) : (false)
     )
@@ -94,7 +98,7 @@ export const filterTask = curry(
         isArray(arr) ? filter(item => (
             (!!~findIndex(optionItem => optionItem === TASK_STATYS_ALL, option.getOrElse([]))) ||
             (
-                some(someOption => (someOption === item.type), option.getOrElse([]))
+                some(someOption => (someOption === pType(item)), option.getOrElse([]))
             )
         ), arr) : (false)
     )
@@ -109,7 +113,7 @@ export const filterCategory = curry(
                 label: capitalize(CATEGORY_ALL)
             }, option.getOrElse([]))) ||
             (
-                some(opt => (opt.value.toString().split('_').join('-') === item.type), option.getOrElse([]))
+                some(opt => (opt.value.toString().split('_').join('-') === pType(item)), option.getOrElse([]))
             )
         ), arr) : (false)
     )
@@ -121,7 +125,7 @@ export const filterGoFundis = curry(
         isArray(arr) ? filter(item => (
             (!!~findIndex(optionItem => optionItem === GOFUNDIS_ALL, option.getOrElse([]))) ||
             (
-                some(someOption => (someOption === item.type), option.getOrElse([]))
+                some(someOption => (someOption === pType(item)), option.getOrElse([]))
             )
         ), arr) : (false)
     )
