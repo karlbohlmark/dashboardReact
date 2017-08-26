@@ -1,3 +1,14 @@
+.container {
+    text-align: center;
+    background-color: #fff;
+    margin: 10px;
+    align-self: center;
+}
+.wrapper-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .sub_container_header {
     font-size: 16px;
     font-weight: 300;

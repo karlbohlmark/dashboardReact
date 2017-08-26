@@ -13,21 +13,16 @@ import LegendRow from 'components/ListItem/LegendRow';
 
 function GoFundisChartsLeft(props) {
     return (
-        <div style={{ backgroundColor: '#fff', padding: 10, width: '69%'}}>
+        <div styleName='container-content' style={{width: '69%'}}>
             <div styleName='sub_container_header'>NUMBER OF GOFUNDIS</div>
-
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
                         <Placeholder busy={props.data.busy} size={[ '100%', '200px' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column_highcharts_large" style={{margin: 5}}>
-                            <div style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                justifyContent: 'flex-end'
-                            }}>
+                        <div styleName="list_column_highcharts_large">
+                            <div styleName='wrapper-legend'>
                                 {
                                     fields.fundiNumber.series.map((field, index) => (
                                         <LegendRow

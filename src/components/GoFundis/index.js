@@ -44,7 +44,6 @@ function GoFundis(props) {
                         value={props.goFundis}
                         onChangeStatus={props.onChangeStatus}
                     />
-
                 </Substrate>
             </div>
         </div>

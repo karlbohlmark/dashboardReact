@@ -11,8 +11,7 @@ function CircularChartItem(props) {
             percentage={props.percentage ? props.percentage : 0}
             strokeWidth={5}
             upder={
-                <div styleName="reparate_item_col"
-                     style={{width: '100%', backgroundColor: '#58585a'}}>
+                <div styleName="reparate_item_col" >
                     <div styleName="small_text_panel">
                         {props.reported ?
                             props.reported.toString().toUpperCase() : ''

@@ -16,12 +16,7 @@ import Placeholder from 'components/Placeholder';
 
 function CompletedTasksHightChart(props) {
     return (
-        <div style={{
-            textAlign: 'center',
-            backgroundColor: '#fff',
-            margin: 10,
-            alignSelf: 'center'
-        }}>
+        <div styleName='container'>
             <div styleName='sub_container_header'>COMPLETED TASKS</div>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
@@ -49,12 +44,7 @@ function CompletedTasksHightChart(props) {
                                     }]
                                 }
                             )} />
-                            <div style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                justifyContent:
-                                    'space-around'
-                            }}>
+                            <div styleName='wrapper-label'>
                                 {
                                     fields.categoryTasks.map((field, index) => (
                                         <LegendRow

@@ -16,22 +16,11 @@ import Placeholder from 'components/Placeholder';
 
 function GoFundisStatuses(props) {
     return (
-        <div style={{textAlign: 'center', backgroundColor: '#fff'}}>
+        <div styleName='container-statuses'>
             <div styleName='sub_container_header'>APPROVED GOFUNDIS</div>
-            <div styleName="list_column_itemSmall"
-                 style={{
-                     justifyContent: 'center',
-                     display: 'flex',
-                     flexDirection: 'row',
-                     alignItems: 'center'}}>
+            <div styleName='live-status-label'>
                 (LIVE STATUS)
-                <div style={{
-                    marginLeft: 4,
-                    width: 5,
-                    height: 5,
-                    backgroundColor: '#6ebe46',
-                    borderRadius: '50%'
-                }} />
+                <div styleName='live-status-dot'/>
             </div>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
@@ -42,7 +31,7 @@ function GoFundisStatuses(props) {
                             size={[ '100%', '100%' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column_highcharts" style={{margin: 5}}>
+                        <div styleName="list_column_highcharts">
                             <Highchart config={merge(
                                 APPROVED_GOFUNDIS,
                                 {title: {
@@ -57,11 +46,7 @@ function GoFundisStatuses(props) {
                                     }]
                                 }
                             )} />
-                            <div style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                justifyContent: 'space-around'
-                            }}>
+                            <div styleName='wrapper-legend-chart'>
                                 {
                                     fields.fundiStatuses.map((field, index) => (
                                         <LegendRow

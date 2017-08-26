@@ -23,13 +23,7 @@ const itemWidth = ['125px', '165px', '140px'];
 function CategoriesMap(props) {
     return (
         <div>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                marginTop: '10px',
-                marginBottom: '10px'
-            }}>
+            <div styleName='container'>
                 <div styleName='inline_items' style={{alignSelf: 'auto'}}>
                     <CheckBoxItem
                         value={(!!~findIndex({
@@ -56,8 +50,6 @@ function CategoriesMap(props) {
                                     <div key={subIndex}
                                          styleName='inline_items'
                                          style={{
-                                             justifyContent: 'space-between',
-                                             alignItems: 'center',
                                              width: itemWidth[subIndex]}}>
                                         <CheckBoxItem
                                             // style={{

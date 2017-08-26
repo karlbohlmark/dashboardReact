@@ -16,11 +16,7 @@ import Placeholder from 'components/Placeholder';
 
 function GoFundisHightChart(props) {
     return (
-        <div style={{
-            textAlign: 'center',
-            backgroundColor: '#fff',
-            margin: 10
-        }}>
+        <div styleName='container-chart'>
             <div styleName='sub_container_header'>GOFUNDIS</div>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
@@ -31,7 +27,7 @@ function GoFundisHightChart(props) {
                             size={[ '100%', '100%' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column_highcharts_fundi" style={{margin: 5}}>
+                        <div styleName="list_column_highcharts_fundi">
                             <Highchart config={merge(
                                 GOFUNDIS,
                                 {title: {
@@ -46,11 +42,7 @@ function GoFundisHightChart(props) {
                                     }]
                                 }
                             )} />
-                            <div style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                justifyContent: 'space-around'
-                            }}>
+                            <div styleName='wrapper-legend-chart'>
                                 {
                                     fields.fundiStatuses.map((field, index) => (
                                         <LegendRow
@@ -68,7 +60,6 @@ function GoFundisHightChart(props) {
                     <div>{errors}</div>
                 )
             })}
-
         </div>
     );
 }

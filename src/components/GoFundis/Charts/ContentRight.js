@@ -12,17 +12,11 @@ import Placeholder from 'components/Placeholder';
 
 function GoFundisChartsRight(props) {
     return (
-        <div style={{ backgroundColor: '#fff', padding: 10, width: '29%'}}>
+        <div styleName='container-content' style={{width: '29%'}}>
             <div styleName='sub_container_header'
                  style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                 LIVE ACTIVE GOFUNDIS
-                <div style={{
-                    marginLeft: 7,
-                    width: 10,
-                    height: 10,
-                    backgroundColor: '#6ebe46',
-                    borderRadius: '50%'
-                }} />
+                <div styleName='live-dot'/>
             </div>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
@@ -30,7 +24,7 @@ function GoFundisChartsRight(props) {
                         <Placeholder busy={props.data.busy} size={[ '100%', '190px' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column_highcharts_large" style={{margin: 5}}>
+                        <div styleName="list_column_highcharts_large">
                             <Highchart config={merge(
                                 fields.fundiLiveActive ? fields.fundiLiveActive : {},
                                 LIVE_ACTIVE_GOFUNDIS

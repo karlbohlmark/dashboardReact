@@ -10,6 +10,55 @@
      composes: root;
  }
 }
+.container-chart {
+    text-align: center;
+    background-color: #fff;
+    margin: 10px;
+}
+.star-icon {
+    font-size: 18px;
+    font-weight: 300;
+}
+.wrapper-legend-chart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.wrapper-legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.container-statuses {
+    text-align: center;
+    background-color: #fff;
+}
+.live-status-label {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 8px;
+    font-weight: 300;
+}
+.live-status-dot {
+    margin-left: 4px;
+    width: 5px;
+    height: 5px;
+    background-color: #6ebe46;
+    border-radius: 50%;
+}
+.live-dot {
+    margin-left: 7px;
+    width: 10px;
+    height: 10px;
+    background-color: #6ebe46;
+    border-radius: 50%;
+}
+.container-content {
+    background-color: #fff;
+    padding: 10px;
+}
 .users_container_empty {
     padding: 0;
     margin-bottom: 25px;
@@ -24,6 +73,7 @@
 .list_column_highcharts_large {
     width: 100%;
     height: 200px;
+    margin: 5px;
 }
 .sub_container_header {
     font-size: 16px;
@@ -42,6 +92,7 @@
 }
 .list_column_highcharts_fundi {
     width: 200px;
+    margin: 5px;
 }
 .inline_items {
     display: flex;
@@ -87,8 +138,8 @@
 .list_column_highcharts {
     width: 200px;
     height: 200px;
+    margin: 5px;
 }
 .list_column_itemSmall {
-    font-size: 8px;
-    font-weight: 300;
+
 }

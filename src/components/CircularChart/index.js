@@ -14,11 +14,7 @@ function CircularChart(props) {
                     strokeWidth={props.strokeWidth ? props.strokeWidth : 5}
                 />
                 <div styleName="inner">
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center'
-                    }}>
+                    <div styleName='inner-wrap-children'>
                         {props.children}
                     </div>
                 </div>
