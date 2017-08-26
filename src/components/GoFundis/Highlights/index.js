@@ -40,11 +40,11 @@ function GoFundisHighlights(props) {
                                     emptyStarColor={'#ccc'}
                                     renderStarIcon={(index, value) => (
                                         <span
-                                            styleName='star-icon'
+                                            style={{fontSize: '18px', fontWeight: 300}}
                                             className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />)}
                                     renderStarIconHalf={() => (<span
                                         styleName='star-icon'
-                                        style={{color: '#f47423'}}
+                                        style={{fontSize: '18px', fontWeight: 300, color: '#f47423'}}
                                         className="fa fa-star-half-full" />)}
                                 />}
                                 item={'AVERAGE GOFUNDI RATING'}

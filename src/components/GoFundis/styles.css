@@ -15,10 +15,6 @@
     background-color: #fff;
     margin: 10px;
 }
-.star-icon {
-    font-size: 18px;
-    font-weight: 300;
-}
 .wrapper-legend-chart {
     display: flex;
     flex-direction: row;
