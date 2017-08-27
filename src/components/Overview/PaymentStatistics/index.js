@@ -9,13 +9,7 @@ import ReportRow from 'components/ListItem/ReportRow';
 
 function OverviewPaymentStatistics(props) {
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignSelf: 'center',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around'
-        }}>
+        <div styleName='container-payment'>
             <div styleName="list_column" style={{margin: 10}}>
                 {props.data.errors.cata({
                     Nothing: () => props.data.results.cata({

@@ -10,6 +10,64 @@
         composes: root;
     }
 }
+.block-label {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px;
+    width: 50%;
+}
+.label-property {
+    font-size: 16px;
+    font-weight: 300;
+    text-decoration: underline;
+}
+.wrapper-label {
+    font-size: 16px;
+    font-weight: 400;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.live-dot {
+    margin-left: 10px;
+    width: 8px;
+    height: 8px;
+    background-color: #6ebe46;
+    border-radius: 50%;
+}
+.block_caption {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight: 500;
+}
+.container_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wrapper-reportRow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.container-payment {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.wrapper-legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
 .returning_subscribers {
     display: flex;
     flex-direction: row;
@@ -114,6 +172,8 @@
     display: flex;
     flex-direction: row;
     z-index: 1;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .container_bottom {
     position: absolute;

@@ -12,12 +12,7 @@ function CategoryItem(props) {
             <div styleName='container_header_sub'>
                 {(props.name) ? props.name.toString().toUpperCase() : ''}
             </div>
-            <div styleName='container_middle'
-                 style={{
-                     flexWrap: 'wrap',
-                     justifyContent: 'center'
-                 }}
-            >
+            <div styleName='container_middle'>
                 {isArray(props.subCategories) ? props.subCategories.map((subCat, item) => (
                     <CircularChartItem
                         className={

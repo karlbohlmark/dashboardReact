@@ -38,17 +38,8 @@ function Overview(props) {
                     <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
                         <CompletedTasksHightChart data={props.getOverviewStats} />
                         <OverviewTaskStatistics data={props.getOverviewStats}/>
-                        <div style={{
-                            backgroundColor: '#fff',
-                            padding: '15px',
-                            margin: '10px',
-                            width: '50%'
-                        }}>
-                            <div style={{
-                                fontSize: '16px',
-                                fontWeight: 300,
-                                textDecoration: 'underline'
-                            }}>{'COMPLETED TASKS'}</div>
+                        <div styleName='block-label'>
+                            <div styleName='label-property'>{'COMPLETED TASKS'}</div>
                             <TasksHistogram
                                 data={props.completedTasksHistogram}
                                 model={COMPLETED_TASKS_LINE}
@@ -56,25 +47,10 @@ function Overview(props) {
                         </div>
                     </div>
                 </div>
-                <div style={{
-                    margin: '15px'
-                }}>
-                    <div style={{
-                        fontSize: '16px',
-                        fontWeight: 400,
-                        justifyContent: 'center',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        marginBottom: '10px'}}>
+                <div style={{margin: '15px'}}>
+                    <div styleName='wrapper-label'>
                         LIVE STATUS
-                        <div style={{
-                            marginLeft: 10,
-                            width: 8,
-                            height: 8,
-                            backgroundColor: '#6ebe46',
-                            borderRadius: '50%'
-                        }} />
+                        <div styleName='live-dot' />
                     </div>
                     <OverviewTaskLiveStatistics data={props.getLiveStats}/>
                 </div>

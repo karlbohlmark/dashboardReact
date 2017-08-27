@@ -1,3 +1,7 @@
+.container-sideBar {
+    margin-top: 60px;
+    color: #fff;
+}
 .browser {
     -webkit-mask-image: url("../__assets__/browser.svg");
     mask-image: url("../__assets__/browser.svg");

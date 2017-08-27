@@ -10,23 +10,9 @@ import IconLoop from 'components/IconLoop';
 
 function OverviewUsersStatistics(props) {
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignSelf: 'center',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            width: '100%'
-        }}>
-            <div style={{
-                margin: 10
-            }}>
-                <div style={{
-                    backgroundColor: '#fff',
-                    textAlign: 'center',
-                    padding: 10,
-                    fontWeight: 500
-                }}>
+        <div styleName='container-payment' style={{width: '100%'}}>
+            <div style={{margin: 10}}>
+                <div styleName='block_caption'>
                     FUNDIS
                 </div>
 
@@ -40,19 +26,8 @@ function OverviewUsersStatistics(props) {
                                     size={[ '100%', '100%' ]} />
                             ),
                             Just: fields => (
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    flexWrap: 'wrap',
-                                    justifyContent: 'center'
-                                }}>
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'flex-end',
-                                        marginRight: 5,
-                                        marginLeft: 5
-                                    }}>
+                                <div styleName='container_wrapper'>
+                                    <div styleName='wrapper-reportRow'>
                                         <ReportRow
                                             styleChildren={{
                                                 backgroundColor: '#FBAA1A'
@@ -131,13 +106,7 @@ function OverviewUsersStatistics(props) {
                                                     '\u00a0'.toUpperCase()}
                                         />
                                     </div>
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'flex-end',
-                                        marginRight: 5,
-                                        marginLeft: 5
-                                    }}>
+                                    <div styleName='wrapper-reportRow'>
                                         <ReportRow
                                             styleUpItem={{
                                                 color: (fields.averageResponseTime &&
@@ -219,12 +188,7 @@ function OverviewUsersStatistics(props) {
             <div style={{
                 margin: 10
             }}>
-                <div style={{
-                    backgroundColor: '#fff',
-                    textAlign: 'center',
-                    padding: 10,
-                    fontWeight: 500
-                }}>
+                <div styleName='block_caption'>
                     SUBSCRIBERS
                 </div>
 
@@ -238,19 +202,8 @@ function OverviewUsersStatistics(props) {
                                     size={[ '100%', '100%' ]} />
                             ),
                             Just: fields => (
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    flexWrap: 'wrap',
-                                    justifyContent: 'center'
-                                }}>
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'flex-end',
-                                        marginRight: 5,
-                                        marginLeft: 5
-                                    }}>
+                                <div styleName='container_wrapper'>
+                                    <div styleName='wrapper-reportRow'>
                                         <ReportRow
                                             styleChildren={{
                                                 backgroundColor: '#C6D92D'
@@ -324,13 +277,7 @@ function OverviewUsersStatistics(props) {
                                                     '\u00a0'.toUpperCase()}
                                         />
                                     </div>
-                                    <div style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'flex-end',
-                                        marginRight: 5,
-                                        marginLeft: 5
-                                    }}>
+                                    <div styleName='wrapper-reportRow'>
                                         <ReportRow
                                             styleUpItem={{
                                                 color: (fields.preferredTimeForService &&

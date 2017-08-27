@@ -13,7 +13,7 @@ import styles from './styles.css';
 function SideBar() {
 
     return (
-        <div style={{marginTop: '60px', color: '#fff'}}>
+        <div styleName='container-sideBar'>
             <div>
                 {/* <Nav className='sidebar' activeKey={1} onSelect={() => props.onClosePanel(false)}>*/}
                     {/* <LinkContainer to="/task/create">*/}

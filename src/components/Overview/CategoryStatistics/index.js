@@ -9,7 +9,7 @@ import Placeholder from 'components/Placeholder';
 
 function OverviewCategoryStatistics(props) {
     return (
-        <div >
+        <div>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (

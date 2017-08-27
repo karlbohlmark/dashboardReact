@@ -9,13 +9,7 @@ import ReportRow from 'components/ListItem/ReportRow';
 
 function OverviewTaskLiveStatistics(props) {
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignSelf: 'center',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around'
-        }}>
+        <div styleName='container-payment'>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
