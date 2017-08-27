@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from '../styles.css';
 import GoogleMapSegment from 'components/GoogleMap';
 import Placeholder from 'components/Placeholder';
 import {
@@ -7,10 +9,7 @@ import {
 
 function SubscribersMap(props) {
     return (
-        <div style={{
-            marginTop: 10,
-            marginBottom: 10
-        }}>
+        <div styleName='container-map'>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
@@ -38,5 +37,5 @@ SubscribersMap.propTypes = {
     data: PropTypes.object.isRequired
 };
 
-export default SubscribersMap;
+export default CSSModules(SubscribersMap, styles);
 

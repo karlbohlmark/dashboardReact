@@ -7,7 +7,7 @@ import Placeholder from 'components/Placeholder';
 
 function SubscribersRatingBreakdown(props) {
     return (
-        <div style={{flexWrap: 'wrap', justifyContent: 'space-around'}}>
+        <div styleName='container-rating'>
             <div styleName='sub_container_header'>RATING BREAKDOWN</div>
             <div styleName="reparate_item"
                  style={{flexWrap: 'wrap', justifyContent: 'space-around'}}>

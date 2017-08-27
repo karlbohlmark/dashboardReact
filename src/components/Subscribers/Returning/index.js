@@ -6,7 +6,7 @@ import Placeholder from 'components/Placeholder';
 
 function SubscribersReturning(props) {
     return (
-        <div styleName="returning_subscribers" style={{flexWrap: 'wrap'}}>
+        <div styleName="returning_subscribers">
             <div style={{margin: 10, minWidth: 235}}>
                 {props.data.errors.cata({
                     Nothing: () => props.data.results.cata({

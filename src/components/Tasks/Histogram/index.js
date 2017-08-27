@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from '../styles.css';
 import {
     merge
 } from 'lodash/fp';
@@ -19,7 +21,7 @@ function TasksHistogram(props) {
                     ),
                     Just: fields => (
                         <div>
-                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
+                            <div styleName='wrapper-legend'>
                                 {
                                     fields.series.map((field, index) => (
                                         <LegendRow
@@ -46,4 +48,4 @@ TasksHistogram.propTypes = {
     data: PropTypes.object.isRequired
 };
 
-export default TasksHistogram;
+export default CSSModules(TasksHistogram, styles);

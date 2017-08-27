@@ -10,16 +10,26 @@
         composes: root;
     }
 }
+.container-rating {
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.container-map {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .returning_subscribers {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 15px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 .list_column_highcharts {
-    width: 200px;
+    width: 270px;
     height: 200px;
+    margin: 5px;
 }
 .sub_container_header {
     font-size: 16px;

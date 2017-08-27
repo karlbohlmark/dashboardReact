@@ -16,7 +16,7 @@ import CheckBoxItem from 'components/CheckBoxItem';
 
 function UserPanel(props) {
     return (
-        <div styleName='row_items' style={{flexWrap: 'wrap'}}>
+        <div styleName='row_items'>
             <div styleName='inline_items'>
                 <CheckBoxItem
                     value={(!!~findIndex(item => (item === USER_TYPE_ALL), props.value.getOrElse([])))}

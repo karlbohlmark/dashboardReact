@@ -20,13 +20,7 @@ import CheckBoxItem from 'components/CheckBoxItem';
 
 function TaskPanel(props) {
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            marginTop: '10px',
-            marginBottom: '10px'
-        }}>
+        <div styleName='container-panel'>
             <div styleName='inline_items' style={{alignSelf: 'auto'}}>
                 <CheckBoxItem
                     value={(!!~findIndex(item => (item === TASK_STATYS_ALL), props.value.getOrElse([])))}

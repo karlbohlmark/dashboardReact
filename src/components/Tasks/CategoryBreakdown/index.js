@@ -16,7 +16,7 @@ function TasksCategoryBreakdown(props) {
                         <Placeholder busy={props.data.busy} size={[ '100%', '332px' ]} />
                     ),
                     Just: fields => (
-                        <div style={{overflow: 'auto', flexWrap: 'wrap', display: 'flex', flexDirection: 'row'}}>
+                        <div styleName='wrapper-categories'>
                             <div styleName="returning_subscribers" >
                                 <div styleName="reparate_item_col">
                                     <div styleName="small_text_panel">REPORTED</div>

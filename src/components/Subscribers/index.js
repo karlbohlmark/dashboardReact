@@ -23,7 +23,7 @@ function Subscribers(props) {
             />
             <div styleName='root'>
                 <Substrate title={'HIGHLIGHTS'}>
-                    <div styleName="returning_subscribers" style={{ flexWrap: 'wrap', width: '100%' }}>
+                    <div styleName="returning_subscribers" style={{width: '100%' }}>
                         <SubscribersRatingBreakdown data={props.subscribersRatingBreakdown} />
                         <SubscribersSharePerArea data={props.subscribersSharePerArea} />
                     </div>

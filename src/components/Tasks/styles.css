@@ -10,6 +10,17 @@
      composes: root;
  }
 }
+.wrapper-legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.wrapper-categories {
+    overflow: auto;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
 .user_container_header {
     font-size: 24px;
     font-weight: 300;

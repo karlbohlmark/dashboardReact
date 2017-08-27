@@ -20,7 +20,7 @@ function SubscribersSharePerArea(props) {
                         <Placeholder busy={props.data.busy} size={[ '100%', '200px' ]} />
                     ),
                     Just: fields => (
-                        <div styleName="list_column_highcharts" style={{margin: 5, width: '270px'}}>
+                        <div styleName="list_column_highcharts">
                             <Highchart config={merge(fields ? fields : {}, SUBSCRIBERS_SHARE_PER_AREA)} />
                         </div>
                     )
