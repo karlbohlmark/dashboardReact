@@ -4,9 +4,15 @@ import styles from '../styles.css';
 import {
     has
 } from 'lodash/fp';
+import {
+    pValue,
+    pColor,
+    pTitle,
+    pSubtitle
+} from 'utils';
 import Placeholder from 'components/Placeholder';
 import ReportRow from 'components/ListItem/ReportRow';
-import IconLoop from 'components/IconLoop';
+import StarRatingComponent from 'react-star-rating-component';
 
 function OverviewUsersStatistics(props) {
     return (
@@ -35,22 +41,22 @@ function OverviewUsersStatistics(props) {
                                             styleUpItem={{
                                                 color: (fields.activeGoFundis &&
                                                     has('color', fields.activeGoFundis)) ?
-                                                    fields.activeGoFundis.color : '#FBAA1A',
+                                                    pColor(fields.activeGoFundis) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.activeGoFundis &&
                                                 has('value', fields.activeGoFundis) ?
-                                                    fields.activeGoFundis.value : '0'}
+                                                    pValue(fields.activeGoFundis) : '0'}
                                             item={
                                                 fields.activeGoFundis &&
                                                 has('title', fields.activeGoFundis) ?
-                                                    fields.activeGoFundis.title.toUpperCase() : ''}
+                                                    pTitle(fields.activeGoFundis).toUpperCase() : ''}
                                             subItem={
                                                 fields.activeGoFundis &&
                                                 has('subtitle', fields.activeGoFundis) ?
-                                                    fields.activeGoFundis.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.activeGoFundis).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         >
                                             <div styleName="user" />
@@ -59,50 +65,79 @@ function OverviewUsersStatistics(props) {
                                             styleUpItem={{
                                                 color: (fields.averageTravelDistance &&
                                                     has('color', fields.averageTravelDistance)) ?
-                                                    fields.averageTravelDistance.color : '#FBAA1A',
+                                                    pColor(fields.averageTravelDistance) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageTravelDistance &&
                                                 has('value', fields.averageTravelDistance) ?
-                                                    fields.averageTravelDistance.value : '0'}
+                                                    pValue(fields.averageTravelDistance) : '0'}
                                             item={
                                                 fields.averageTravelDistance &&
                                                 has('title', fields.averageTravelDistance) ?
-                                                    fields.averageTravelDistance.title.toUpperCase() : ''}
+                                                    pTitle(fields.averageTravelDistance).toUpperCase() : ''}
                                             subItem={
                                                 fields.averageTravelDistance &&
                                                 has('subtitle', fields.averageTravelDistance) ?
-                                                    fields.averageTravelDistance.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.averageTravelDistance).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
                                                 color: (fields.averageRating &&
                                                     has('color', fields.averageRating)) ?
-                                                    fields.averageRating.color : '#FBAA1A',
+                                                    pColor(fields.averageRating) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
-                                                overflow: 'hidden'}}
+                                                overflow: 'hidden',
+                                                height: '30px'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageRating &&
                                                 has('value', fields.averageRating) ?
                                                     (
-                                                        <IconLoop number={
-                                                            Math.floor(fields.averageRating.value ?
-                                                                parseFloat(fields.averageRating.value).toFixed(2) : 0)
-                                                        } name={'star'} style={{height: '30px'}} />
+                                                        <StarRatingComponent
+                                                            starCount={5}
+                                                            value={
+                                                                pValue(fields.averageRating) ?
+                                                                    parseFloat(
+                                                                        parseFloat(
+                                                                            pValue(fields.averageRating)).toFixed(1)) :
+                                                                        0}
+                                                            name="rate2"
+                                                            editing={false}
+                                                            starColor={'#f47423'}
+                                                            emptyStarColor={'#ccc'}
+                                                            renderStarIcon={(index, value) => (
+                                                                <span
+                                                                    style={{
+                                                                        fontSize: '18px',
+                                                                        fontWeight: 300}}
+                                                                    className={
+                                                                        index <= value ? 'fa fa-star' : 'fa fa-star-o'
+                                                                    } />
+                                                            )}
+                                                            renderStarIconHalf={() => (
+                                                                <span
+                                                                    styleName='star-icon'
+                                                                    style={{
+                                                                        fontSize: '18px',
+                                                                        fontWeight: 300,
+                                                                        color: '#f47423'}}
+                                                                    className="fa fa-star-half-full" />)}
+                                                        />
+
+
                                                     ) : '0'}
 
                                             item={
                                                 fields.averageRating &&
                                                 has('title', fields.averageRating) ?
-                                                    fields.averageRating.title.toUpperCase() : ''}
+                                                    pTitle(fields.averageRating).toUpperCase() : ''}
                                             subItem={
                                                 fields.averageTravelDistance &&
                                                 has('subtitle', fields.averageTravelDistance) ?
-                                                    fields.averageTravelDistance.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.averageTravelDistance).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                     </div>
@@ -111,67 +146,67 @@ function OverviewUsersStatistics(props) {
                                             styleUpItem={{
                                                 color: (fields.averageResponseTime &&
                                                     has('color', fields.averageResponseTime)) ?
-                                                    fields.averageResponseTime.color : '#FBAA1A',
+                                                    pColor(fields.averageResponseTime) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageResponseTime &&
                                                 has('value', fields.averageResponseTime) ?
-                                                    fields.averageResponseTime.value : '0'}
+                                                    pValue(fields.averageResponseTime) : '0'}
                                             item={
                                                 fields.averageResponseTime &&
                                                 has('title', fields.averageResponseTime) ?
-                                                    fields.averageResponseTime.title.toUpperCase() : ''}
+                                                    pTitle(fields.averageResponseTime).toUpperCase() : ''}
                                             subItem={
                                                 fields.averageResponseTime &&
                                                 has('subtitle', fields.averageResponseTime) ?
-                                                    fields.averageResponseTime.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.averageResponseTime).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
                                                 color: (fields.averageExecutionTime &&
                                                     has('color', fields.averageExecutionTime)) ?
-                                                    fields.averageExecutionTime.color : '#FBAA1A',
+                                                    pColor(fields.averageExecutionTime) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageExecutionTime &&
                                                 has('value', fields.averageExecutionTime) ?
-                                                    fields.averageExecutionTime.value : '0'}
+                                                    pValue(fields.averageExecutionTime) : '0'}
                                             item={
                                                 fields.averageExecutionTime &&
                                                 has('title', fields.averageExecutionTime) ?
-                                                    fields.averageExecutionTime.title.toUpperCase() : ''}
+                                                    pTitle(fields.averageExecutionTime).toUpperCase() : ''}
                                             subItem={
                                                 fields.averageExecutionTime &&
                                                 has('subtitle', fields.averageExecutionTime) ?
-                                                    fields.averageExecutionTime.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.averageExecutionTime).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
                                                 color: (fields.averageCompletionTime &&
                                                     has('color', fields.averageCompletionTime)) ?
-                                                    fields.averageCompletionTime.color : '#FBAA1A',
+                                                    pColor(fields.averageCompletionTime) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageCompletionTime &&
                                                 has('value', fields.averageCompletionTime) ?
-                                                    fields.averageCompletionTime.value : '0'}
+                                                    pValue(fields.averageCompletionTime) : '0'}
 
                                             item={
                                                 fields.averageCompletionTime &&
                                                 has('title', fields.averageCompletionTime) ?
-                                                    fields.averageCompletionTime.title.toUpperCase() : ''}
+                                                    pTitle(fields.averageCompletionTime).toUpperCase() : ''}
                                             subItem={
                                                 fields.averageCompletionTime &&
                                                 has('subtitle', fields.averageCompletionTime) ?
-                                                    fields.averageCompletionTime.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.averageCompletionTime).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                     </div>
@@ -211,22 +246,22 @@ function OverviewUsersStatistics(props) {
                                             styleUpItem={{
                                                 color: (fields.averageNumberOfReportedIssues &&
                                                     has('color', fields.averageNumberOfReportedIssues)) ?
-                                                    fields.averageNumberOfReportedIssues.color : '#FBAA1A',
+                                                    pColor(fields.averageNumberOfReportedIssues) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.averageNumberOfReportedIssues &&
                                                 has('value', fields.averageNumberOfReportedIssues) ?
-                                                    fields.averageNumberOfReportedIssues.value : '0'}
+                                                    pValue(fields.averageNumberOfReportedIssues) : '0'}
                                             item={
                                                 fields.averageNumberOfReportedIssues &&
                                                 has('title', fields.averageNumberOfReportedIssues) ?
-                                                    fields.averageNumberOfReportedIssues.title.toUpperCase() : ''}
+                                                    pTitle(fields.averageNumberOfReportedIssues).toUpperCase() : ''}
                                             subItem={
                                                 fields.averageNumberOfReportedIssues &&
                                                 has('subtitle', fields.averageNumberOfReportedIssues) ?
-                                                    fields.averageNumberOfReportedIssues.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.averageNumberOfReportedIssues).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         >
                                             <div styleName="user" />
@@ -235,45 +270,45 @@ function OverviewUsersStatistics(props) {
                                             styleUpItem={{
                                                 color: (fields.percentageOfFollowUpTasks &&
                                                     has('color', fields.percentageOfFollowUpTasks)) ?
-                                                    fields.percentageOfFollowUpTasks.color : '#FBAA1A',
+                                                    pColor(fields.percentageOfFollowUpTasks) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.percentageOfFollowUpTasks &&
                                                 has('value', fields.percentageOfFollowUpTasks) ?
-                                                    fields.percentageOfFollowUpTasks.value : '0'}
+                                                    pValue(fields.percentageOfFollowUpTasks) : '0'}
                                             item={
                                                 fields.percentageOfFollowUpTasks &&
                                                 has('title', fields.percentageOfFollowUpTasks) ?
-                                                    fields.percentageOfFollowUpTasks.title.toUpperCase() : ''}
+                                                    pTitle(fields.percentageOfFollowUpTasks).toUpperCase() : ''}
                                             subItem={
                                                 fields.percentageOfFollowUpTasks &&
                                                 has('subtitle', fields.percentageOfFollowUpTasks) ?
-                                                    fields.percentageOfFollowUpTasks.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.percentageOfFollowUpTasks).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                         <ReportRow
                                             styleUpItem={{
                                                 color: (fields.percentageOfRecurringTasks &&
                                                     has('color', fields.percentageOfRecurringTasks)) ?
-                                                    fields.percentageOfRecurringTasks.color : '#FBAA1A',
+                                                    pColor(fields.percentageOfRecurringTasks) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.percentageOfRecurringTasks &&
                                                 has('value', fields.percentageOfRecurringTasks) ?
-                                                    fields.percentageOfRecurringTasks.value : '0'}
+                                                    pValue(fields.percentageOfRecurringTasks) : '0'}
 
                                             item={
                                                 fields.percentageOfRecurringTasks &&
                                                 has('title', fields.percentageOfRecurringTasks) ?
-                                                    fields.percentageOfRecurringTasks.title.toUpperCase() : ''}
+                                                    pTitle(fields.percentageOfRecurringTasks).toUpperCase() : ''}
                                             subItem={
                                                 fields.percentageOfRecurringTasks &&
                                                 has('subtitle', fields.percentageOfRecurringTasks) ?
-                                                    fields.percentageOfRecurringTasks.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.percentageOfRecurringTasks).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                     </div>
@@ -282,22 +317,22 @@ function OverviewUsersStatistics(props) {
                                             styleUpItem={{
                                                 color: (fields.preferredTimeForService &&
                                                     has('color', fields.preferredTimeForService)) ?
-                                                    fields.preferredTimeForService.color : '#FBAA1A',
+                                                    pColor(fields.preferredTimeForService) : '#FBAA1A',
                                                 textOverflow: 'ellipsis',
                                                 overflow: 'hidden'}}
                                             styleReportBlock={{width: 200}}
                                             upItem={
                                                 fields.preferredTimeForService &&
                                                 has('value', fields.preferredTimeForService) ?
-                                                    fields.preferredTimeForService.value : '0'}
+                                                    pValue(fields.preferredTimeForService) : '0'}
                                             item={
                                                 fields.preferredTimeForService &&
                                                 has('title', fields.preferredTimeForService) ?
-                                                    fields.preferredTimeForService.title.toUpperCase() : ''}
+                                                    pTitle(fields.preferredTimeForService).toUpperCase() : ''}
                                             subItem={
                                                 fields.preferredTimeForService &&
                                                 has('subtitle', fields.preferredTimeForService) ?
-                                                    fields.preferredTimeForService.subtitle.toUpperCase() :
+                                                    pSubtitle(fields.preferredTimeForService).toUpperCase() :
                                                     '\u00a0'.toUpperCase()}
                                         />
                                     </div>

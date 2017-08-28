@@ -3,7 +3,6 @@ import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import StarRatingComponent from 'react-star-rating-component';
 import ListRow from 'components/ListItem/ListRow';
-// import IconLoop from 'components/IconLoop';
 import Placeholder from 'components/Placeholder';
 
 function GoFundisHighlights(props) {
@@ -19,21 +18,13 @@ function GoFundisHighlights(props) {
                     ),
                     Just: fields => (
                         <div styleName="list_column" style={{margin: 10, minWidth: 275}}>
-                            {/* <ListRow*/}
-                                {/* style={{marginTop: '7px', marginBottom: '7px'}}*/}
-                                {/* leftItem={<IconLoop number={*/}
-                                    {/* Math.floor(fields.avgFundiRating ?*/}
-                                        {/* parseFloat(fields.avgFundiRating).toFixed(2) : 0)*/}
-                                {/* } name={'star'} />}*/}
-                                {/* item={'AVERAGE GOFUNDI RATING'}*/}
-                            {/* />*/}
                             <ListRow
                                 style={{marginTop: '7px', marginBottom: '7px'}}
                                 leftItem={<StarRatingComponent
-                                    // starCount={5}
+                                    starCount={5}
                                     value={
-                                        Math.floor(fields.avgFundiRating ?
-                                            parseFloat(fields.avgFundiRating).toFixed(2) : 0)}
+                                        fields.avgFundiRating ?
+                                            parseFloat(parseFloat(fields.avgFundiRating).toFixed(1)) : 0}
                                     name="rate2"
                                     editing={false}
                                     starColor={'#f47423'}

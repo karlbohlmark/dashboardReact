@@ -17,6 +17,11 @@ import {
 } from 'lodash/fp';
 
 export const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('').toLowerCase();
+export const pValue = property('value');
+export const pColor = property('color');
+export const pTitle = property('title');
+export const pSubtitle = property('subtitle');
+
 export const pChildren = property('children');
 export const pName = property('name');
 export const pIcon = property('icon');
