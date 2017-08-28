@@ -119,7 +119,6 @@ function OverviewUsersStatistics(props) {
                                                             )}
                                                             renderStarIconHalf={() => (
                                                                 <span
-                                                                    styleName='star-icon'
                                                                     style={{
                                                                         fontSize: '18px',
                                                                         fontWeight: 300,
