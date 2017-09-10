@@ -20,7 +20,7 @@ function TasksHighlightsRight(props) {
                             <ListRowReverse
                                 rightItem={fields.unassignedTasks ? fields.unassignedTasks : '0'}
                                 item={'UNASSIGNED TASKS'}
-                                subItem={'(TASK NOT YET ACCEPTED BY GOFUNDI)'}
+                                subItem={'(TASK NOT YET ACCEPTED BY FUNDI)'}
                             />
                             <ListRowReverse
                                 rightItem={fields.completedTasks ? fields.completedTasks : '0'}

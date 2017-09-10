@@ -1,6 +1,5 @@
 import {
-    isNull,
-    isString
+    isNull
 } from 'lodash/fp';
 import Maybe from 'data.maybe';
 
@@ -15,16 +14,17 @@ const METHOD = 'query/TaskLocationByCategory';
 
 
 export function taskLocationByCategory(from, to, category) {
-    const query = isNull(from) || isNull(to) || !isString(category) ? {} :
+    const query = isNull(from) || isNull(to) ? {} :
     {
         timespan: {
             from: from ? from : null,
             to: to ? to : null
         }
     };
-    const queryAssign = encodeURIComponent(JSON.stringify(
-        Object.assign(category.length > 0 ? { category } : {}, query)));
-    return fetch(`${config.url}${config.version}${METHOD}?query=${queryAssign}`, {
+    if (category && category.length > 0) {
+        query.category = category;
+    }
+    return fetch(`${config.url}${config.version}${METHOD}?query=${serializeQuery(query)}`, {
         method: 'GET',
         mode: 'cors'
     })
@@ -32,4 +32,8 @@ export function taskLocationByCategory(from, to, category) {
     .catch(errors => Promise.reject({
         common: Maybe.fromNullable(errors.non_field_errors)
     }));
+}
+
+function serializeQuery(q) {
+    return encodeURIComponent(JSON.stringify(q));
 }

@@ -25,7 +25,7 @@ function TasksHighlightsLeft(props) {
                             <ListRowReverse
                                 rightItem={fields.assignedTasks ? fields.assignedTasks : '0'}
                                 item={'ASSIGNED TASKS'}
-                                subItem={'(ASSIGNED TO GOFUNDI BUT PENDING COMPLETION)'}
+                                subItem={'(ASSIGNED TO FUNDI BUT PENDING COMPLETION)'}
                             />
                             <ListRowReverse
                                 rightItem={fields.declines ? fields.declines : '0'}
@@ -35,7 +35,7 @@ function TasksHighlightsLeft(props) {
                             <ListRowReverse
                                 styleRightItem={{color: '#ed1967'}}
                                 rightItem={fields.avgTimeAssinment ? fields.avgTimeAssinment : '0'}
-                                item={'AVERAGE TIME FOR ASSINMENT'}
+                                item={'AVERAGE TIME FOR ASSIGNMENT'}
                                 subItem={'(FROM REQUESTED ACCEPTED)'}
                             />
                         </div>

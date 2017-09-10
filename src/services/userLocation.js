@@ -10,16 +10,20 @@ import {
     processErrors
 } from './common';
 
+import {
+    serializeQuery
+} from './queries';
 
 const METHOD = 'query/ListUserLocations';
 
-export function listUserLocations(userTypes) {
-    const query = encodeURIComponent(JSON.stringify(
-        isArray(userTypes) ?
-            { userTypes: userTypes ? userTypes : []} :
+export function listUserLocations(from, to, userTypes) {
+    const query = Object.assign({
+        timespan: { from, to }
+    }, isArray(userTypes) ?
+            { userTypes: userTypes ? userTypes : [] } :
             {}
-        ));
-    return fetch(`${config.url}${config.version}${METHOD}?query=${query}`, {
+    );
+    return fetch(`${config.url}${config.version}${METHOD}?query=${serializeQuery(query)}`, {
         method: 'GET',
         mode: 'cors'
     })

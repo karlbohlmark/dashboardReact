@@ -58,7 +58,7 @@ export function receivePage() {
         dispatch(
             receivePageStart()
         );
-        return listUserLocationsRequest(toSendUserTypes)
+        return listUserLocationsRequest(ui.dateRangePicker.startDate, ui.dateRangePicker.endDate, toSendUserTypes)
             .then(data => {
                 dispatch(
                     batchActions([

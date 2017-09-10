@@ -48,7 +48,7 @@ function Page(props) {
 
                     <LinkContainer to="/dashboard/gofundis">
                         <NavItem>
-                            GoFundis
+                            Fundis
                         </NavItem>
                     </LinkContainer>
 

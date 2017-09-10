@@ -27,11 +27,14 @@
     border-radius: 50%;
     margin-left: 10px;
 }
+.inline_items:first-child {
+    margin-left: 0px;
+}
 .inline_items {
     display: flex;
     flex-direction: row;
     align-self: center;
-    margin-left: 10px;
+    margin-left: 22px;
 }
 .row_items {
     display: flex;

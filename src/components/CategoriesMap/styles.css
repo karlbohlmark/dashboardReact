@@ -5,11 +5,14 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.inline_items:first-child {
+    margin-left: 0px;    
+}
 .inline_items {
     display: flex;
     flex-direction: row;
     align-self: center;
-    margin-left: 10px;
+    margin-left: 22px;
     justify-content: space-between;
     align-items: center;
 }
