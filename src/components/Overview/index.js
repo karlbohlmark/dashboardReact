@@ -49,8 +49,8 @@ function Overview(props) {
                 </div>
                 <div style={{margin: '15px'}}>
                     <div styleName='wrapper-label'>
-                        LIVE STATUS
-                        <div styleName='live-dot' />
+                        TASK STATUS
+                        {/* <div styleName='live-dot' /> */}
                     </div>
                     <OverviewTaskLiveStatistics data={props.getLiveStats}/>
                 </div>
