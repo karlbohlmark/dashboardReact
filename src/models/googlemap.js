@@ -1,5 +1,5 @@
 export const USER_TYPE_SUBSCRIBER = 'SUBSCRIBER';
-export const USER_TYPE_GOFUNDI = 'GOFUNDI';
+export const USER_TYPE_GOFUNDI = 'FUNDI';
 export const USER_TYPE_ALL = 'ALL';
 
 export const TASK_STATYS_ALL = 'ALL';

@@ -56,7 +56,7 @@ function SubPanel(props) {
                 />
             </div>
 
-            <div className='category_filter'>
+            <div style={{display: 'none'}} className='category_filter'>
                 <DropdownButton title={<HeaderCategory data={props.categories} />} id={'dropdown-basic'}>
                     <div styleName='dropdown_content'>
                         <div styleName='dropdown_content_items'>

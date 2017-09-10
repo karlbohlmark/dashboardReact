@@ -17,7 +17,7 @@ import Placeholder from 'components/Placeholder';
 function GoFundisHightChart(props) {
     return (
         <div styleName='container-chart'>
-            <div styleName='sub_container_header'>GOFUNDIS</div>
+            <div styleName='sub_container_header'>FUNDIS</div>
             {props.data.errors.cata({
                 Nothing: () => props.data.results.cata({
                     Nothing: () => (
