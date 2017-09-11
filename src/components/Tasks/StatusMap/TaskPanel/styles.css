@@ -43,8 +43,9 @@
 .performed_inner {
     -webkit-mask-image: url("../../../__assets__/performed.svg");
     mask-image: url("../../../__assets__/performed.svg");
-    width: 70%;
-    height: 70%;
+    -webkit-mask-position: 0 1px;
+    width: 80%;
+    height: 80%;
     background-color: rgb(250, 250, 250);
 }
 .cancelled_inner {
