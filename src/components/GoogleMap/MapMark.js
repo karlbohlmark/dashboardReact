@@ -53,7 +53,7 @@ function MapMark(props) {
         case TASK_STATYS_PERFORMED:
             return (
                 <div styleName="subscribers_user_block" style={{backgroundColor: '#0B3B37'}}>
-                    <div styleName="loading_inner" />
+                    <div styleName="performed_inner" />
                 </div>
             );
         case TASK_STATYS_COMPLETED:
