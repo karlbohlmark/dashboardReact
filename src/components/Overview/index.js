@@ -49,7 +49,7 @@ function Overview(props) {
                 </div>
                 <div style={{margin: '15px'}}>
                     <div styleName='wrapper-label'>
-                        TASK STATUS
+                        CURRENT TASK STATUS FOR TASKS CREATED DURING THE SELECTED PERIOD
                         {/* <div styleName='live-dot' /> */}
                     </div>
                     <OverviewTaskLiveStatistics data={props.getLiveStats}/>
